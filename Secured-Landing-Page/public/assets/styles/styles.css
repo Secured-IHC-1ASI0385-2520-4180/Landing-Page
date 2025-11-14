@@ -42,9 +42,7 @@ a {
   color: inherit;
 }
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* HEADER */
 
 .main-header {
   position: sticky;
@@ -101,9 +99,7 @@ a {
   border: none;
 }
 
-/* =========================================================
-   HERO (INICIO)
-========================================================= */
+/* HERO */
 
 .hero {
 
@@ -240,9 +236,7 @@ a {
   background: transparent;
 }
 
-/* =========================================================
-   RESPONSIVE HERO + HEADER
-========================================================= */
+/* RESPONSIVE */
 
 @media (max-width: 1024px) {
   .hero-inner {
@@ -286,7 +280,7 @@ a {
   }
 
   .main-nav {
-    display: none; /* luego puedes hacer el hamburguesa */
+    display: none; 
   }
 }
 
@@ -311,13 +305,11 @@ a {
   }
 }
 
-/* =========================================================
-   SECCIÓN: MAPA DE OPERACIONES
-========================================================= */
+/* SECCIÓN: MAPA DE OPERACIONES*/
 
 .operations-section {
   padding: 96px 24px 120px;
-  background: var(--bg-page-soft);  /* gris claro, como en la maqueta */
+  background: var(--bg-page-soft); 
   color: var(--text-main);
 }
 
@@ -475,9 +467,7 @@ a {
   text-decoration: none;
 }
 
-/* =========================================================
-   BREAKPOINTS MAPA (PROPORCIONES)
-========================================================= */
+/* BREAKPOINTS MAPA (PROPORCIONES) */
 
 /* Tablets: 4/3 */
 @media (max-width: 1024px) and (min-width: 768px) {
@@ -525,3 +515,288 @@ a {
     align-items: stretch;
   }
 }
+/* =========================================================
+   SECCIÓN: SOLUCIÓN
+   (va después de HERO y antes de MAPA)
+========================================================= */
+
+.solution-section {
+  padding: 96px 24px 80px;
+  background: linear-gradient(
+    180deg,
+    #f9fafb 0%,
+    #eef2ff 40%,
+    #f9fafb 100%
+  );
+  color: #0f172a;
+}
+
+.solution-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* Título + descripción */
+
+.solution-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.solution-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: #0f172a;
+}
+
+.solution-header p {
+  margin: 0;
+  font-size: 15px;
+  color: #6b7280;
+}
+
+/* Grid de 6 tarjetas */
+
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* Tarjeta individual */
+
+.solution-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 20px 22px;
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.solution-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 22px;
+}
+
+/* Pequeños tonos pastel para cada icono (como el ejemplo) */
+.solution-card-icon-blue {
+  background: linear-gradient(135deg, #e0f2fe, #bfdbfe);
+}
+.solution-card-icon-green {
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+}
+.solution-card-icon-purple {
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+}
+.solution-card-icon-yellow {
+  background: linear-gradient(135deg, #fef9c3, #fee2a2);
+}
+.solution-card-icon-indigo {
+  background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+}
+.solution-card-icon-pink {
+  background: linear-gradient(135deg, #fce7f3, #f9a8d4);
+}
+
+.solution-card h3 {
+  font-size: 16px;
+  margin: 0 0 8px;
+  color: #111827;
+}
+
+.solution-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Bloque de estadísticas inferior */
+
+.solution-stats {
+  margin-top: 32px;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 18px 32px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.10);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.solution-stat {
+  text-align: center;
+}
+
+.solution-stat-value {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+/* Colores de cada porcentaje */
+.solution-stat-value-blue {
+  color: #2563eb;
+}
+.solution-stat-value-green {
+  color: #16a34a;
+}
+.solution-stat-value-purple {
+  color: #7c3aed;
+}
+
+.solution-stat-label {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* =========================================================
+   SECCIÓN: SOLUCIÓN
+========================================================= */
+
+.solution-section {
+  padding: 80px 24px 96px;
+  background: #f4f6ff; /* fondo claro como el ejemplo */
+  color: #0f172a;
+}
+
+.solution-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.solution-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.solution-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: #0f172a;
+}
+
+.solution-subtitle {
+  margin: 0;
+  font-size: 15px;
+  color: #6b7280;
+}
+
+/* Grid de tarjetas */
+
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.solution-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px 20px 22px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.solution-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.solution-icon {
+  font-size: 20px;
+}
+
+.solution-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: #111827;
+}
+
+.solution-card-text {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+  color: #6b7280;
+}
+
+/* Métricas inferiores */
+
+.solution-metrics {
+  display: flex;
+  justify-content: center;
+}
+
+.solution-metrics-inner {
+  width: 100%;
+  max-width: 720px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+  padding: 18px 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.solution-metric-card {
+  text-align: center;
+}
+
+.solution-metric-value {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.solution-metric-label {
+  margin: 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* =================== RESPONSIVE SOLUCIÓN =================== */
+
+@media (max-width: 1024px) {
+  .solution-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .solution-section {
+    padding: 64px 16px 80px;
+  }
+
+  .solution-title {
+    font-size: 26px;
+  }
+
+  .solution-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .solution-metrics-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+

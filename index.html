@@ -1,30 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <title>Secured</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Fuente Arimo -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+  <title>Secured</title>
 
-    <!-- OJO A LA RUTA: incluye Secured-Landing-Page como tú dijiste -->
-    <link
-      rel="stylesheet"
-      href="Secured-Landing-Page/public/assets/styles/styles.css"
-    />
-  </head>
+  <!-- FAVICON -->
+  <link rel="icon" type="image/x-icon" href="Secured-Landing-Page/public/favicon.ico" />
 
-  <body>
-    <!-- ================= HEADER ================= -->
+  <!-- Fuente Arimo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- CSS principal (ruta que tú usas) -->
+  <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/styles.css" />
+</head>
+<body>
+
+    <!--  HEADER  -->
     <header class="main-header">
       <div class="main-header-inner">
         <a href="#inicio" class="logo">
@@ -49,7 +44,7 @@
       </div>
     </header>
 
-    <!-- ================= HERO (INICIO) ================= -->
+    <!--  HERO (INICIO)  -->
     <section class="hero" id="inicio">
       <div class="hero-inner">
         <div class="hero-text">
@@ -101,7 +96,7 @@
       </div>
     </section>
 
-    <!-- ================= MAPA DE OPERACIONES ================= -->
+    <!--  MAPA DE OPERACIONES  -->
     <section class="operations-section" id="mapa">
       <div class="operations-inner">
         <header class="operations-header">
@@ -175,6 +170,108 @@
         </article>
       </div>
     </section>
+  <!-- SECCIÓN: SOLUCIÓN -->
+  <section id="solucion" class="solution-section">
+    <div class="solution-inner">
+      <header class="solution-header">
+        <h2 class="solution-title">¿Cuál es nuestra solución?</h2>
+        <p class="solution-subtitle">
+          Coordinación en tiempo real para Serenazgo y Policía con despacho inteligente,
+          evidencias seguras y analítica operativa.
+        </p>
+      </header>
+
+      <div class="solution-grid">
+        <!-- Card 1 -->
+        <article class="solution-card">
+          <div class="solution-icon-wrapper">
+            <span class="solution-icon">⚡</span>
+          </div>
+          <h3 class="solution-card-title">Despacho inteligente</h3>
+          <p class="solution-card-text">
+            Asignación automática por ETA, disponibilidad y sector de jurisdicción.
+          </p>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="solution-card">
+          <div class="solution-icon-wrapper">
+            <span class="solution-icon">📍</span>
+          </div>
+          <h3 class="solution-card-title">Atención en campo</h3>
+          <p class="solution-card-text">
+            Navegación GPS, checklists operativos y acuses en tiempo real.
+          </p>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="solution-card">
+          <div class="solution-icon-wrapper">
+            <span class="solution-icon">🛡️</span>
+          </div>
+          <h3 class="solution-card-title">Evidencias protegidas</h3>
+          <p class="solution-card-text">
+            Cadena de custodia digital, cifrado y registros de auditoría inmutables.
+          </p>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="solution-card">
+          <div class="solution-icon-wrapper">
+            <span class="solution-icon">👁️</span>
+          </div>
+          <h3 class="solution-card-title">Visión en tiempo real</h3>
+          <p class="solution-card-text">
+            Mapa operativo, cámaras municipales y tracking de unidades móviles.
+          </p>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="solution-card">
+          <div class="solution-icon-wrapper">
+            <span class="solution-icon">🔗</span>
+          </div>
+          <h3 class="solution-card-title">Integraciones</h3>
+          <p class="solution-card-text">
+            Conexión con cámaras IP, sistemas de alarmas y webhooks personalizados.
+          </p>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="solution-card">
+          <div class="solution-icon-wrapper">
+            <span class="solution-icon">📊</span>
+          </div>
+          <h3 class="solution-card-title">Métricas y SLA</h3>
+          <p class="solution-card-text">
+            KPIs de tiempos de respuesta, cumplimiento y analítica operativa.
+          </p>
+        </article>
+      </div>
+
+      <!-- Métricas inferiores -->
+      <section class="solution-metrics">
+        <div class="solution-metrics-inner">
+          <article class="solution-metric-card">
+            <p class="solution-metric-value">-40%</p>
+            <p class="solution-metric-label">Tiempo de respuesta</p>
+          </article>
+
+          <article class="solution-metric-card">
+            <p class="solution-metric-value">+85%</p>
+            <p class="solution-metric-label">Cumplimiento de SLA</p>
+          </article>
+
+          <article class="solution-metric-card">
+            <p class="solution-metric-value">100%</p>
+            <p class="solution-metric-label">Trazabilidad de evidencias</p>
+          </article>
+        </div>
+      </section>
+    </div>
+  </section>
+  <!--  FIN SECCIÓN: SOLUCIÓN  -->
+
 
     <!-- Secciones vacías para que no rompan los links del menú -->
     <section id="solucion"></section>
