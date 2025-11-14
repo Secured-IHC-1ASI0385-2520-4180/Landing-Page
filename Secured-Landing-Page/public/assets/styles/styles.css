@@ -1,80 +1,114 @@
-body {
-  font-family: "Arimo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  background: #050816;
-  color: #f9fafb;
-  margin: 0;
-  padding: 0;
+
+
+:root {
+  --bg-hero: #020617;          
+  --bg-body: #020617;
+  --bg-page-soft: #f3f4f6;   
+  --white: #ffffff;
+  --text-main: #020617;
+  --text-muted: #6b7280;
+
+  --accent: #2563eb;           
+  --accent-hover: #1d4ed8;
+  --accent-soft-2: #60a5fa;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-/* ============ HEADER BLANCO ============ */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Arimo", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background: var(--bg-body);
+  color: var(--white);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
 .main-header {
-  position: fixed;       
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
+  z-index: 40;
   background: #ffffff;
-  color: #0f172a;
-  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.06);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
 }
 
 .main-header-inner {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 16px 24px;
+  padding: 14px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.logo img {
-  height: 48px;
-}
-
-/* NAV */
-.main-nav ul {
-  display: flex;
-  list-style: none;
   gap: 32px;
 }
 
+.logo img {
+  height: 40px;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
 .main-nav a {
-  font-size: 0.95rem;
+  font-size: 14px;
   text-decoration: none;
-  color: #111827;
+  color: #4b5563;
+  padding: 4px 0;
   transition: color 0.2s ease;
 }
 
-.main-nav a:hover {
-  color: #2563eb;
+.main-nav a:hover,
+.main-nav a:focus {
+  color: #111827;
 }
 
-/* Botón login */
 .btn-login {
   padding: 10px 22px;
   border-radius: 999px;
-  border: none;
-  background: #2563eb;
+  background: var(--accent);
   color: #f9fafb;
-  font-size: 0.95rem;
-  font-weight: 500;
-  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.45);
+  border: none;
 }
 
-.btn-login:hover {
-  background: #1d4ed8;
-  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35);
-  transform: translateY(-1px);
-}
+/* =========================================================
+   HERO (INICIO)
+========================================================= */
 
-/* ============ HERO ============ */
 .hero {
-  background: #162034;
-  padding: 120px 24px 120px;
+
+  background-color: #111827;
+  padding: 72px 24px 96px;
 }
 
 .hero-inner {
@@ -86,26 +120,28 @@ body {
   align-items: center;
 }
 
-/* Texto hero */
+.hero-text {
+  max-width: 540px;
+}
+
 .hero-kicker {
-  font-size: 0.9rem;
-  color: #93c5fd;
+  font-size: 14px;
+  color: var(--accent-soft-2);
   margin-bottom: 12px;
 }
 
 .hero-title {
-  font-size: clamp(2.6rem, 3.2vw + 1.6rem, 3.6rem);
-  font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 16px;
+  font-size: 48px;
+  line-height: 1.06;
+  margin-bottom: 20px;
 }
 
 .hero-title span {
-  color: #60a5fa;
+  color: var(--accent-soft-2);
 }
 
 .hero-subtitle {
-  font-size: 1.05rem;
+  font-size: 16px;
   color: #cbd5f5;
   margin-bottom: 28px;
 }
@@ -118,50 +154,54 @@ body {
 }
 
 /* Botones hero */
-.btn-primary {
-  padding: 14px 26px;
+
+.btn-primary,
+.btn-secondary {
   border-radius: 999px;
-  border: none;
-  background: #2563eb;
-  color: #f9fafb;
+  padding: 14px 22px;
   font-size: 0.98rem;
   font-weight: 600;
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
+  border: none;
   text-decoration: none;
-  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.btn-primary:hover {
-  background: #1d4ed8;
+.btn-primary.hero-btn-primary {
+  padding-inline: 26px;
+  background: var(--accent);
+  color: #f9fafb;
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.5);
+  transition: background 0.2s ease, box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn-primary.hero-btn-primary:hover {
+  background: var(--accent-hover);
   box-shadow: 0 12px 25px rgba(37, 99, 235, 0.4);
   transform: translateY(-1px);
 }
 
-.btn-secondary {
-  padding: 14px 22px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.5);
+.btn-secondary.hero-btn-secondary {
   background: transparent;
+  border: 1px solid rgba(148, 163, 184, 0.7);
   color: #e5e7eb;
-  font-size: 0.98rem;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease;
 }
 
-.btn-secondary:hover {
+.btn-secondary.hero-btn-secondary:hover {
   background: rgba(15, 23, 42, 0.9);
-  border-color: #60a5fa;
+  border-color: var(--accent-soft-2);
   color: #f9fafb;
 }
 
-/* Badges de confianza */
+.hero-arrow {
+  font-size: 16px;
+}
+
 .hero-trust {
   font-size: 0.8rem;
   color: #9ca3af;
@@ -185,22 +225,39 @@ body {
   color: #e5e7eb;
 }
 
+/* Visual del teléfono */
 
 .hero-visual {
+  display: flex;
+  justify-content: center;
   justify-self: center;
 }
 
 .hero-phone {
   width: min(360px, 80vw);
-  border-radius: 32px;   
-  box-shadow: none;      
+  border-radius: 32px;
+  box-shadow: none;      /* sin fondo extra */
   background: transparent;
 }
 
-/* ============ RESPONSIVE ============ */
+/* =========================================================
+   RESPONSIVE HERO + HEADER
+========================================================= */
+
+@media (max-width: 1024px) {
+  .hero-inner {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+  }
+
+  .hero-title {
+    font-size: 40px;
+  }
+}
+
 @media (max-width: 900px) {
   .hero {
-    padding-top: 72px;
+    padding-top: 96px;
   }
 
   .hero-inner {
@@ -222,9 +279,24 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .main-header-inner {
+    padding: 12px 16px;
+    gap: 16px;
+  }
+
+  .main-nav {
+    display: none; /* luego puedes hacer el hamburguesa */
+  }
+}
+
 @media (max-width: 640px) {
-  .main-header {
-    position: static;
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
   }
 
   .hero-actions {
@@ -236,5 +308,220 @@ body {
   .btn-secondary {
     justify-content: center;
     width: 100%;
+  }
+}
+
+/* =========================================================
+   SECCIÓN: MAPA DE OPERACIONES
+========================================================= */
+
+.operations-section {
+  padding: 96px 24px 120px;
+  background: var(--bg-page-soft);  /* gris claro, como en la maqueta */
+  color: var(--text-main);
+}
+
+.operations-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.operations-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.operations-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: #111827;
+}
+
+.operations-subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Card principal */
+
+.operations-card {
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Cabecera dentro de la card */
+
+.operations-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 10px 6px 4px;
+}
+
+/* Chips */
+
+.operations-chip {
+  border-radius: 999px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  white-space: nowrap;
+}
+
+.operations-chip-primary {
+  background: #eff6ff;
+  color: #1e3a8a;
+  flex: 1;
+  border-radius: 16px;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-block: 10px;
+}
+
+.operations-chip-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.operations-chip-subtitle {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.operations-chip-alert {
+  background: #fee2e2;
+  color: #b91c1c;
+  font-weight: 500;
+}
+
+.operations-alert-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #ef4444;
+}
+
+/* Contenedor del mapa con aspect-ratio según dispositivo */
+
+.operations-map-container {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  /* proporción por defecto: web horizontal (16/9) */
+  aspect-ratio: 16 / 9;
+}
+
+.operations-map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Footer de métricas */
+
+.operations-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.operations-metric {
+  flex: 1;
+  text-align: center;
+}
+
+.operations-metric-label {
+  display: block;
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+.operations-metric-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* CTA inferior */
+
+.operations-cta {
+  margin-top: 8px;
+}
+
+.operations-cta-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #f9fafb;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* =========================================================
+   BREAKPOINTS MAPA (PROPORCIONES)
+========================================================= */
+
+/* Tablets: 4/3 */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .operations-map-container {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* Celular "normal": 1/1 */
+@media (max-width: 767px) and (min-width: 480px) {
+  .operations-section {
+    padding: 72px 16px;
+  }
+
+  .operations-header h2 {
+    font-size: 24px;
+  }
+
+  .operations-map-container {
+    aspect-ratio: 1 / 1;
+  }
+
+  .operations-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Full vertical tipo TikTok: 9/16 */
+@media (max-width: 479px) {
+  .operations-section {
+    padding: 64px 12px;
+  }
+
+  .operations-header h2 {
+    font-size: 22px;
+  }
+
+  .operations-map-container {
+    aspect-ratio: 9 / 16;
+  }
+
+  .operations-footer {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
