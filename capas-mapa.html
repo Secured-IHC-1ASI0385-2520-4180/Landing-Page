@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapa con Capas</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/capas-mapa.css" />
+</head>
+<body>
+
+<div class="container">
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar" id="sidebar">
+        <header class="topbar">
+            <a href="variaciones-varias.html" class="back" aria-label="volver">←</a>
+            <div class="title">
+                Mapa de calor <span class="subtitle">Análisis de concentración</span>
+            </div>
+        </header>
+        <p>Vista actual: <strong>Calle</strong></p>
+
+        <!-- Vista base -->
+        <div class="section">
+            <h3>Vista base</h3>
+            <button class="layer-btn" onclick="cambiarMapa('Secured-Landing-Page/public/assets/images/capa.png')">
+                Calle
+            </button>
+            <button class="layer-btn" onclick="cambiarMapa('Secured-Landing-Page/public/assets/images/satelite.png')">
+                Satélite
+            </button>
+        </div>
+
+        <!-- Capas operativas -->
+        <div class="section">
+            <h3>Capas operativas</h3>
+            <button class="mini-btn">Incidentes</button>
+            <button class="mini-btn">Unidades</button>
+            <button class="mini-btn">POI</button>
+            <button class="mini-btn">Cámaras</button>
+            <button class="mini-btn">Alarmas vecinales</button>
+            <button class="mini-btn">Geocercas</button>
+            <button class="mini-btn">Sectores</button>
+        </div>
+
+        <!-- Filtros rápidos -->
+        <div class="section">
+            <h3>Filtros rápidos</h3>
+
+            <p>Incidentes - Prioridad</p>
+            <div class="btn-group">
+                <button onclick="activar(this)">Alta</button>
+                <button onclick="activar(this)">Media</button>
+                <button onclick="activar(this)">Baja</button>
+            </div>
+
+            <p>Incidentes - Estado</p>
+            <div class="btn-group">
+                <button onclick="activar(this)">Pendiente</button>
+                <button onclick="activar(this)">En curso</button>
+                <button onclick="activar(this)">Cerrado</button>
+            </div>
+
+            <p>Unidades - Estado</p>
+            <div class="btn-group">
+                <button onclick="activar(this)">Disponible</button>
+                <button onclick="activar(this)">En servicio</button>
+                <button onclick="activar(this)">Fuera de servicio</button>
+            </div>
+        </div>
+
+        <!-- Leyenda -->
+        <div class="section">
+            <h3>Leyenda</h3>
+            <p><strong>Incidentes</strong></p>
+            <ul>
+                <li>🔴 Alta prioridad</li>
+                <li>🟠 Media prioridad</li>
+                <li>🔵 Baja prioridad</li>
+            </ul>
+
+            <p><strong>Unidades</strong></p>
+            <ul>
+                <li>🟢 Disponible</li>
+                <li>🔵 En servicio</li>
+                <li>⚫ Fuera de servicio</li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- FLECHA PARA PLEGAR -->
+    <div class="toggle-arrow" id="toggleArrow" onclick="toggleSidebar()">
+        ◀
+    </div>
+
+    <!-- MAPA -->
+    <main class="map-area">
+        <img id="mapImage" src="Secured-Landing-Page/public/assets/images/capa.png" alt="Mapa" />
+    </main>
+</div>
+
+<script>
+    function cambiarMapa(ruta) {
+        document.getElementById("mapImage").src = ruta;
+    }
+
+    function activar(btn) {
+        let grupo = btn.parentElement;
+        [...grupo.children].forEach((x) => x.classList.remove("active"));
+        btn.classList.add("active");
+    }
+
+    function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const arrow = document.getElementById("toggleArrow");
+
+        sidebar.classList.toggle("collapsed");
+        arrow.classList.toggle("collapsed");
+
+        arrow.textContent = sidebar.classList.contains("collapsed") ? "▶" : "◀";
+    }
+</script>
+</body>
+</html>
