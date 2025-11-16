@@ -1,0 +1,175 @@
+﻿body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f4f7;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+}
+
+/* Encabezado */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+.header h1 {
+    flex: 1;
+    text-align: center;
+    font-size: 20px;
+}
+.back-btn {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+.crear-btn {
+    background: #005dff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: white;
+}
+
+/* Vistas */
+.view {
+    display: none;
+    padding: 15px;
+}
+.view.active {
+    display: block;
+}
+
+/* Tarjetas */
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+}
+.card h3 {
+    margin: 0;
+}
+.lugar {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.estado {
+    float: right;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: white;
+}
+.programada {
+    background: #6c8cf5;
+}
+.activa {
+    background: #3cbc5c;
+}
+.expirada {
+    background: #999;
+}
+
+.desc {
+    color: #555;
+    margin-top: 8px;
+}
+.info {
+    margin: 2px 0;
+    font-size: 14px;
+}
+.creado {
+    color: #777;
+    font-size: 13px;
+}
+
+.ver-btn {
+    width: 100%;
+    background: #005dff;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+    color: white;
+}
+
+/* Filtros */
+.filtros {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.filtro {
+    background: #e3e3e3;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+.filtro.active {
+    background: #005dff;
+    color: white;
+}
+
+/* Crear zona */
+.sub-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.form {
+    margin-top: 15px;
+}
+.form label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+.form input,
+.form select,
+.form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+}
+.publicar-btn {
+    width: 100%;
+    background: #005dff;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 6px;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+.tab {
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    background: #e3e3e3;
+}
+.tab.active {
+    background: #005dff;
+    color: white;
+}
+.tab-content {
+    display: none;
+    margin-top: 10px;
+}
+.tab-content.active {
+    display: block;
+}
