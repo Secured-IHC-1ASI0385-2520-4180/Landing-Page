@@ -2175,3 +2175,206 @@ a {
     padding-inline: 16px;
   }
 }
+
+/* Añadido para el inicio de sesion */
+
+/* ============================
+   LAYOUT GENERAL DEL LOGIN
+=============================== */
+.login-page {
+    display: flex;
+    min-height: 100vh;
+    background: #243882;
+}
+
+
+/* ============================
+   COLUMNA IZQUIERDA (IMAGEN)
+=============================== */
+.login-illustration {
+    width: 50%;
+    background: #243882; /* azul oscuro igual a la maqueta */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.login-illustration img {
+    max-width: 400px; /* controla el ancho de la imagen */
+    width: 150%;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* ============================
+   COLUMNA DERECHA (FORMULARIO)
+=============================== */
+.auth-card {
+    width: 50%;
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-card h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.auth-subtitle {
+    margin-bottom: 30px;
+    color: #444;
+}
+
+
+
+/* ============================
+   FORMULARIO DE AUTENTICACIÓN
+=============================== */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.auth-label {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: #222;
+}
+
+.required {
+    color: red;
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+.auth-input {
+    margin-top: 6px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+}
+
+.auth-input:focus {
+    border-color: #243882;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(11, 44, 138, 0.15);
+}
+
+.auth-button {
+    background: #243882;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.auth-button:hover {
+    background: #093072;
+}
+
+.auth-link {
+    background: none;
+    border: none;
+    color: #243882;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
+/* ============================
+   RESPONSIVE
+=============================== */
+@media (max-width: 900px) {
+    .login-page {
+        flex-direction: column;
+    }
+
+    .login-page-sereno {
+        flex-direction: column;
+    }
+
+    .login-illustration {
+        width: 100%;
+        padding: 30px;
+    }
+
+    .auth-card {
+        width: 100%;
+        padding: 40px 30px;
+    }
+
+    .login-illustration img {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .auth-card {
+        padding: 30px 20px;
+    }
+
+    .login-illustration {
+        padding: 20px;
+    }
+
+    .login-illustration img {
+        max-width: 240px;
+    }
+}
+.btn-primary.hero-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* separación entre flecha y texto */
+    text-decoration: none;
+    background-color: #0b3142; /* color del botón */
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.25s ease, transform 0.2s ease;
+}
+
+/* Flecha antes del texto */
+.btn-primary.hero-primary::before {
+    content: "←";           /* flecha */
+    font-size: 16px;
+}
+
+/* Hover */
+.btn-primary.hero-primary:hover {
+    background-color: #0d3f55;
+    transform: translateX(-2px); /* pequeño movimiento hacia atrás */
+}
+.role-strip-link {
+    padding: 10px 18px;
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative; /* necesario para la línea */
+}
+
+/* Línea debajo solo cuando esté activo */
+.role-strip-link.role-strip-link--active::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;       /* separacion */
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #0b3142; /* color de la línea */
+    border-radius: 2px;
+}
