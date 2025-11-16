@@ -232,7 +232,7 @@ a {
 .hero-phone {
   width: min(360px, 80vw);
   border-radius: 32px;
-  box-shadow: none;      /* sin fondo extra */
+  box-shadow: none;     
   background: transparent;
 }
 
@@ -515,10 +515,7 @@ a {
     align-items: stretch;
   }
 }
-/* =========================================================
-   SECCIÓN: SOLUCIÓN
-   (va después de HERO y antes de MAPA)
-========================================================= */
+/* SECCIÓN: SOLUCIÓN */
 
 .solution-section {
   padding: 96px 24px 80px;
@@ -658,9 +655,7 @@ a {
   color: #6b7280;
 }
 
-/* =========================================================
-   SECCIÓN: SOLUCIÓN
-========================================================= */
+/* SECCIÓN: SOLUCIÓN */
 
 .solution-section {
   padding: 80px 24px 96px;
@@ -773,7 +768,7 @@ a {
   color: #6b7280;
 }
 
-/* =================== RESPONSIVE SOLUCIÓN =================== */
+/* RESPONSIVE SOLUCIÓN  */
 
 @media (max-width: 1024px) {
   .solution-grid {
@@ -798,9 +793,7 @@ a {
     grid-template-columns: minmax(0, 1fr);
   }
 }
-/* =========================================================
-   SECCIÓN NOSOTROS / EQUIPO
-========================================================= */
+/* SECCIÓN NOSOTROS / EQUIPO */
 
 .team-section {
   padding: 96px 24px 120px;
@@ -846,7 +839,7 @@ a {
 
 .team-grid-bottom {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  justify-content: center;        /* centra el bloque completo */
+  justify-content: center;     
   margin-top: 32px;
 }
 
@@ -867,13 +860,13 @@ a {
 }
 
 .team-card-avatar {
-  position: relative;     /* ya no absolute */
+  position: relative;    
   width: 88px;
   height: 88px;
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid #f1f5f9;
-  margin-bottom: 16px;    /* espacio con el nombre */
+  margin-bottom: 16px;
 }
 
 .team-card-avatar img {
@@ -986,9 +979,7 @@ a {
   cursor: pointer;
 }
 
-/* =========================================================
-   SECCIÓN: SEGURIDAD Y CUMPLIMIENTO
-========================================================= */
+/* SECCIÓN: SEGURIDAD Y CUMPLIMIENTO */
 
 .security-section {
   padding: 96px 24px 80px;
@@ -1018,7 +1009,7 @@ a {
   color: #cbd5f5;
 }
 
-/* Layout principal (texto izquierda + tarjeta derecha) */
+/* Layout principal */
 
 .security-layout {
   display: grid;
@@ -1081,7 +1072,7 @@ a {
   color: #e5e7eb;
 }
 
-/* Tarjeta de características (columna derecha) */
+/* Tarjeta de características */
 
 .security-card {
   background:
@@ -1275,9 +1266,7 @@ a {
     font-size: 14px;
   }
 }
-/* =========================================================
-   SECCIÓN: STARTUP / SOBRE SECURED
-========================================================= */
+/* SECCIÓN: STARTUP / SOBRE SECURED */
 
 .startup-section {
   padding: 96px 24px 80px;
@@ -1523,9 +1512,7 @@ a {
     padding-inline: 18px;
   }
 }
-/* =========================================================
-   CONTACTO Y LOCALIZACIÓN
-========================================================= */
+/* CONTACTO Y LOCALIZACIÓN */
 
 .contact-section {
   padding: 96px 24px 112px;
@@ -1697,9 +1684,7 @@ a {
   font-size: 13px;
   color: #9ca3af;
 }
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER*/
 
 .site-footer {
   background: #020617;
@@ -1833,6 +1818,345 @@ a {
   }
 }
 
+/* Flujo de autenticación  */
+
+/* Mostrar/ocultar pasos */
+.auth-step {
+  display: none;
+}
+
+.auth-step--active {
+  display: block;
+}
+
+/* Link de volver */
+.auth-back-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #2257ff;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* Iconos redondos */
+.auth-icon-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e5f0ff;
+  color: #2257ff;
+  font-size: 1.6rem;
+  margin: 0 auto 16px;
+}
+
+.auth-icon-success {
+  background: #ecfdf3;
+  color: #16a34a;
+}
+
+/* Textos auxiliares */
+.auth-subtitle {
+  text-align: center;
+}
+
+.auth-brand {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #9ca3af;
+}
+
+.auth-info-box {
+  background: #eef2ff;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 0.8rem;
+  color: #4b5563;
+  margin-bottom: 16px;
+}
+
+.auth-info-box.is-success {
+  background: #ecfdf3;
+  color: #14532d;
+}
+
+.auth-note {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 8px 0 16px;
+}
+
+/* Inputs del código */
+.code-inputs {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.code-input {
+  width: 42px;
+  height: 48px;
+  text-align: center;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+}
+
+.auth-timer {
+  font-size: 0.8rem;
+  color: #6b7280;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* Botones secundarios tipo texto */
+.auth-secondary-link {
+  background: none;
+  border: none;
+  padding: 4px 0;
+  margin: 2px 0;
+  font-size: 0.8rem;
+  color: #1f2937;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Reglas de contraseña */
+.password-rules {
+  list-style: none;
+  padding: 12px 14px;
+  margin: 10px 0 14px;
+  border-radius: 12px;
+  background: #f3f4f6;
+  font-size: 0.8rem;
+}
+
+.password-rules li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+  color: #4b5563;
+}
+
+.password-rules li:last-child {
+  margin-bottom: 0;
+}
+
+.password-rules .rule-icon {
+  width: 16px;
+  text-align: center;
+}
+
+.password-rules li.rule-ok {
+  color: #15803d;
+}
+
+/* PÁGINA DE AUTENTICACIÓN (login.html)*/
+
+.body-auth {
+  background: #020617;
+  color: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* El main de login ocupa el espacio entre header y footer */
+.login-page {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 16px 40px;
+  background:
+    radial-gradient(circle at top, rgba(37, 99, 235, 0.35), transparent 55%),
+    #020617;
+}
+
+/* Tarjeta blanca del centro */
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: #f9fafb;
+  color: #0f172a;
+  border-radius: 24px;
+  padding: 28px 28px 32px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.75);
+}
+
+.auth-card h1 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  color: #0f172a;
+}
+
+.auth-subtitle {
+  margin: 0 0 18px;
+  font-size: 0.9rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* Formulario dentro de la tarjeta */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.auth-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.required {
+  color: #ef4444;
+  font-size: 0.75rem;
+  margin-left: 3px;
+}
+
+/* Grupo de input (para cuando haya iconos a la derecha) */
+.auth-input-group {
+  display: flex;
+  align-items: center;
+}
+
+/* Inputs de texto/contraseña */
+.auth-input {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  color: #111827;
+}
+
+.auth-input::placeholder {
+  color: #9ca3af;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.3);
+}
+
+/* Botón azul "Ingresar" */
+.auth-button {
+  margin-top: 4px;
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 11px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #2563eb;
+  color: #f9fafb;
+  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.55);
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.auth-button:hover {
+  background: #1d4ed8;
+  box-shadow: 0 18px 48px rgba(37, 99, 235, 0.6);
+  transform: translateY(-1px);
+}
+
+/* Link "¿Olvidaste tu contraseña?" */
+.auth-link {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  text-align: center;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+/* Marca "Secured" bajo la tarjeta */
+.auth-brand {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #9ca3af;
+}
+/* Barra superior: Policía / Serenazgo */
+
+.role-toggle {
+  background: #f3f4f6;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 13px;
+}
+
+.role-toggle-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 4px 24px;
+  display: flex;
+  gap: 16px;
+}
+
+.role-toggle-link {
+  text-decoration: none;
+  color: #4b5563;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.role-toggle-link--active {
+  font-weight: 600;
+  color: #111827;
+  border-bottom-color: #2563eb; 
+}
+/* Tira superior de roles (Policía / Serenazgo) */
+.role-strip {
+  background: #f3f4f6;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 6px 32px;
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+}
+
+.role-strip-link {
+  border: none;
+  background: none;
+  padding: 4px 0;
+  cursor: pointer;
+  color: #4b5563;
+}
+
+.role-strip-link--active {
+  color: #111827;
+  font-weight: 600;
+  border-bottom: 2px solid #2563eb;
+}
 
 /* Responsive */
 @media (max-width: 960px) {
