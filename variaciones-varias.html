@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Policial</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/variaciones-varias.css" />
+</head>
+<body>
+<!-- Botón de menú -->
+<button id="menuBtn">&#9776;</button>
+
+<!-- Menú lateral -->
+<aside id="sidebar">
+    <div class="perfil">
+        <img src="Secured-Landing-Page/public/assets/images/guillermo.png" alt="Foto del policía" />
+        <h3>Sgto. Carlos Mendoza</h3>
+        <span>Policía - Sargento</span>
+    </div>
+
+    <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+
+        <li class="separador">MAPA</li>
+        <li><a href="incidentes.html">Mapa de incidentes</a></li>
+        <li><a href="capas-mapa.html">Capas de mapa</a></li>
+        <li><a href="mapa-calor.html">Mapa de calor</a></li>
+
+        <li class="separador">OPERACIÓN</li>
+        <li><a href="asignar-unidad.html">Asignar unidad</a></li>
+        <li><a href="co-despacho.html">Co-despacho</a></li>
+
+        <li class="separador">INCIDENTES</li>
+        <li><a href="crear-incidente.html">Crear incidente</a></li>
+        <li><a href="chat-incidente.html">Chat por incidente</a></li>
+
+        <li class="separador">BITÁCORA</li>
+        <li><a href="historial.html">Historial de unidades</a></li>
+
+        <li class="separador">AJUSTES</li>
+        <li><a href="configuracion.html">Configuración</a></li>
+    </ul>
+</aside>
+
+<!-- Contenido principal -->
+<section id="contenido">
+    <h1>Bienvenido a la Plataforma Operativa</h1>
+    <p>Selecciona una opción desde el menú.</p>
+</section>
+
+<script>
+    const btn = document.getElementById("menuBtn");
+    const sidebar = document.getElementById("sidebar");
+
+    btn.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+    });
+</script>
+</body>
+</html>
