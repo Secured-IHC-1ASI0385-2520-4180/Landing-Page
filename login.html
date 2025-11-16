@@ -15,53 +15,36 @@
 
   <!-- Selector de rol (Policía / Serenazgo) -->
   <div class="role-strip">
-    <button type="button"
-            class="role-strip-link role-strip-link--active"
-            data-role="serenazgo">
-      Serenazgo
-    </button>
-    <button type="button"
-            class="role-strip-link"
-            data-role="policia">
-      Policía
-    </button>
+      <a href="login.html"
+         class="role-strip-link role-strip-link--active">
+          Policía
+      </a>
+
+      <a href="serenazgo.html"
+         class="role-strip-link">
+          Serenazgo
+      </a>
   </div>
 
-  <!-- HEADER -->
-  <header class="main-header">
-    <div class="main-header-inner">
-      <a href="index.html#inicio" class="logo">
-        <img
-          src="Secured-Landing-Page/public/assets/images/Secured_Logo_v1.png"
-          alt="Logo de Secured"
-        />
-      </a>
 
-      <nav class="main-nav">
-        <ul>
-          <li><a href="index.html#inicio">Inicio</a></li>
-          <li><a href="index.html#solucion">Solución</a></li>
-          <li><a href="index.html#startup">Startup</a></li>
-          <li><a href="index.html#equipo">Equipo</a></li>
-          <li><a href="index.html#mapa">Mapa</a></li>
-          <li><a href="index.html#seguridad">Seguridad</a></li>
-        </ul>
-      </nav>
-
-      
-      <a href="index.html#inicio" class="btn-primary hero-btn-primary">
-        Volver al inicio
-      </a>
-    </div>
-  </header>
 
   <!-- CONTENIDO PRINCIPAL: TARJETA DE LOGIN -->
 <main class="login-page">
+
+    <!-- Ilustración izquierda -->
+    <div class="login-illustration">
+        <img src="Secured-Landing-Page/public/assets/images/policia.png" alt="Ilustración policía">
+    </div>
+
   <section class="auth-card">
 
     <!-- PASO 1: LOGIN  -->
     <div id="step-login" class="auth-step auth-step--active">
-      <h1>Iniciar Sesión</h1>
+        <a href="index.html#inicio" class="btn-primary hero-primary">
+            Volver al inicio
+        </a>
+
+        <h1>Iniciar Sesión</h1>
       <p class="auth-subtitle">
         Ingresa tus credenciales para continuar
       </p>
