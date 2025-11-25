@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         r.addEventListener("change", updateManualPanels);
     });
 
-    // Botón "Anular unidad asignada"
+    // Botón "Anular unidad asignadaa"
     if (cancelBtn && cancelMessage) {
         cancelBtn.addEventListener("click", () => {
             // Mostramos mensaje y regresamos al inicio para poder reasignar
