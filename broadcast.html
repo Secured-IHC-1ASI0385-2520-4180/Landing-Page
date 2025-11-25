@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Centro de Alertas - Broadcast | Secured</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS ESPECÍFICO DE ESTA SECCIÓN -->
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/broadcast.css" />
+</head>
+<body>
+<div class="broadcast-layout">
+    <!-- HEADER GLOBAL DE LA SECCIÓN -->
+    <section class="au-view au-view-active" data-view="inicio">
+        <header class="au-page-header">
+            <a href="variaciones-varias.html" class="au-back-button" aria-label="Volver">
+                ←
+            </a>
+            <div class="au-header-text">
+                <h1 class="au-page-title">Broadcast</h1>
+                <p class="au-page-subtitle">INC-2025-042</p>
+            </div>
+        </header>
+    </section>
+
+    <main class="broadcast-main">
+        <!-- ===================== -->
+        <!-- 1) CENTRO DE ALERTAS  -->
+        <!-- ===================== -->
+        <section id="view-alert-center" class="view active-view">
+            <div class="alert-center-top">
+                <div class="alert-center-text">
+                    <h2 class="section-title">Centro de Alertas</h2>
+                    <p class="section-subtitle">Broadcast a unidades en campo</p>
+                </div>
+
+                <div class="alert-center-actions">
+                    <button id="btnNewBroadcast" class="btn-primary">
+                        + Nuevo broadcast
+                    </button>
+                    <button id="btnFilter" class="btn-ghost">
+                        Filtros
+                    </button>
+                </div>
+            </div>
+
+            <div class="alert-center-search">
+                <input
+                        type="search"
+                        class="input-search"
+                        placeholder="Buscar broadcast..."
+                        aria-label="Buscar broadcast"
+                />
+            </div>
+
+            <div class="alert-center-summary">
+                <div class="summary-chip">
+                    <span class="summary-number">3</span>
+                    <span class="summary-label">Activos</span>
+                </div>
+                <div class="summary-chip">
+                    <span class="summary-number">70</span>
+                    <span class="summary-label">Con acuse</span>
+                </div>
+                <div class="summary-chip">
+                    <span class="summary-number summary-warning">11</span>
+                    <span class="summary-label">Pendientes</span>
+                </div>
+            </div>
+
+            <h3 class="broadcast-list-title">Broadcasts recientes</h3>
+
+            <div class="broadcast-card-grid">
+                <!-- Card #1 -->
+                <article
+                        class="broadcast-card"
+                        data-broadcast-card="main"
+                        role="button"
+                        tabindex="0"
+                >
+                    <div class="broadcast-card-top">
+                        <span class="priority-chip priority-alta">Alta</span>
+                    </div>
+                    <h4 class="broadcast-card-title">Operativo en Av. Principal</h4>
+                    <p class="broadcast-card-meta">
+                        Distrito Centro · Hace 15 min
+                    </p>
+                    <p class="broadcast-card-meta">
+                        18 / 24 unidades con acuse
+                    </p>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                    <p class="broadcast-card-meta progress-label">
+                        75% con acuse de lectura
+                    </p>
+                </article>
+
+                <!-- Card #2 -->
+                <article class="broadcast-card" role="button" tabindex="0">
+                    <div class="broadcast-card-top">
+                        <span class="priority-chip priority-media">Media</span>
+                    </div>
+                    <h4 class="broadcast-card-title">
+                        Cambio de turno - Sector Norte
+                    </h4>
+                    <p class="broadcast-card-meta">
+                        Sector Norte · Hace 2 horas
+                    </p>
+                    <p class="broadcast-card-meta">
+                        12 / 12 unidades con acuse
+                    </p>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                    <p class="broadcast-card-meta progress-label">
+                        100% con acuse de lectura
+                    </p>
+                </article>
+
+                <!-- Card #3 -->
+                <article class="broadcast-card" role="button" tabindex="0">
+                    <div class="broadcast-card-top">
+                        <span class="priority-chip priority-baja">Baja</span>
+                    </div>
+                    <h4 class="broadcast-card-title">
+                        Reunión coordinación semanal
+                    </h4>
+                    <p class="broadcast-card-meta">
+                        Todos los distritos · Ayer 14:30
+                    </p>
+                    <p class="broadcast-card-meta">
+                        40 / 45 unidades con acuse
+                    </p>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 89%"></div>
+                    </div>
+                    <p class="broadcast-card-meta progress-label">
+                        89% con acuse de lectura
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============================ -->
+        <!-- 2) NUEVO BROADCAST - PASO 1  -->
+        <!-- ============================ -->
+        <section id="view-new-broadcast-step1" class="view">
+            <div class="wizard-grid">
+                <form id="formNewBroadcast" class="card form-card">
+                    <p class="wizard-step-label">Paso 1 de 3: Detalle</p>
+
+                    <div class="form-group">
+                        <label for="titleInput">Título *</label>
+                        <input
+                                id="titleInput"
+                                type="text"
+                                maxlength="60"
+                                placeholder="Ej: Operativo en Av. Principal"
+                        />
+                        <div class="field-helper" id="titleCount">0/60</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="messageInput">Mensaje *</label>
+                        <textarea
+                                id="messageInput"
+                                rows="4"
+                                maxlength="300"
+                                placeholder="Describe la situación o instrucción..."
+                        ></textarea>
+                        <div class="field-helper" id="messageCount">0/300</div>
+                    </div>
+
+                    <div class="form-group">
+                        <p class="field-label">Prioridad *</p>
+                        <div class="priority-options">
+                            <label class="chip-option">
+                                <input
+                                        type="radio"
+                                        name="priority"
+                                        value="Alta"
+                                        checked
+                                />
+                                <span class="chip priority-alta">Alta</span>
+                            </label>
+
+                            <label class="chip-option">
+                                <input type="radio" name="priority" value="Media" />
+                                <span class="chip priority-media">Media</span>
+                            </label>
+
+                            <label class="chip-option">
+                                <input type="radio" name="priority" value="Baja" />
+                                <span class="chip priority-baja">Baja</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-footer">
+                        <button
+                                type="button"
+                                class="btn-secondary js-go-to-alert-center"
+                        >
+                            Cancelar
+                        </button>
+                        <button type="submit" id="btnToReach" class="btn-primary">
+                            Siguiente: Alcance
+                        </button>
+                    </div>
+                </form>
+
+                <aside class="card tips-card">
+                    <h3 class="tips-title">Recomendaciones</h3>
+                    <ul class="tips-list">
+                        <li>Usa un título claro y conciso.</li>
+                        <li>Incluye solo la información esencial.</li>
+                        <li>Selecciona la prioridad apropiada.</li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <!-- ============================ -->
+        <!-- 3) NUEVO BROADCAST - PASO 2  -->
+        <!-- ============================ -->
+        <section id="view-new-broadcast-step2" class="view">
+            <p class="wizard-step-label">Paso 2 de 3: Alcance y audiencia</p>
+
+            <div class="wizard-grid">
+                <div class="wizard-column">
+                    <div class="card">
+                        <h3 id="reachSummaryTitle" class="card-title">
+                            Operativo Av. Principal
+                        </h3>
+                        <p id="reachSummaryMessage" class="card-subtitle">
+                            Hay un robo en un banco
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h4 class="card-subtitle">Seleccionar zona</h4>
+
+                        <div class="segmented-control">
+                            <button
+                                    type="button"
+                                    class="segmented-option is-selected"
+                                    data-zone="distrito"
+                                    data-zone-label="Distrito Centro"
+                            >
+                                Distrito
+                            </button>
+                            <button
+                                    type="button"
+                                    class="segmented-option"
+                                    data-zone="sector"
+                                    data-zone-label="Sector Norte"
+                            >
+                                Sector
+                            </button>
+                            <button
+                                    type="button"
+                                    class="segmented-option"
+                                    data-zone="todos"
+                                    data-zone-label="Todos los distritos"
+                            >
+                                Todos
+                            </button>
+                        </div>
+
+                        <div class="audience-counters">
+                            <div class="audience-chip">
+                                <span>Policía</span>
+                                <strong>8</strong>
+                            </div>
+                            <div class="audience-chip">
+                                <span>Serenazgo</span>
+                                <strong>12</strong>
+                            </div>
+                            <div class="audience-chip">
+                                <span>Total</span>
+                                <strong>20</strong>
+                            </div>
+                        </div>
+
+                        <div class="card audience-summary">
+                            <div class="audience-icon">👥</div>
+                            <div>
+                                <p class="audience-label">Audiencia objetivo</p>
+                                <p class="audience-zone">
+                                    Zona:
+                                    <span id="selectedZoneLabel">Distrito Centro</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card info-note">
+                        <p>
+                            <strong>Nota:</strong> El broadcast se enviará
+                            inmediatamente a todas las unidades en la zona seleccionada.
+                            Las unidades offline lo recibirán al reconectarse.
+                        </p>
+                    </div>
+
+                    <div class="card info-note">
+                        <p>
+                            <strong>Requiere acuse de lectura.</strong><br />
+                            Las unidades deberán confirmar que leyeron el mensaje. Podrás
+                            ver quiénes están pendientes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="wizard-column">
+                    <div class="card map-card">
+                        <h4 class="card-subtitle">Vista de zona</h4>
+                        <div class="map-wrapper">
+                            <!-- Google Maps de Lima (embed genérico) -->
+                            <iframe
+                                    title="Mapa de Lima"
+                                    src="https://www.google.com/maps?q=Lima,Peru&output=embed"
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wizard-footer">
+                <button id="btnBackToStep1" class="btn-secondary">
+                    Volver
+                </button>
+                <button id="btnToReview" class="btn-primary">
+                    Revisar y enviar
+                </button>
+            </div>
+        </section>
+
+        <!-- ============================ -->
+        <!-- 4) NUEVO BROADCAST - PASO 3  -->
+        <!-- ============================ -->
+        <section id="view-new-broadcast-step3" class="view">
+            <p class="wizard-step-label">
+                Paso 3 de 3: Confirmar envío
+            </p>
+
+            <div class="wizard-grid">
+                <div class="wizard-column">
+                    <div class="card">
+                        <div class="detail-header-row">
+                            <h3 id="reviewTitle">Operativo Av. Principal</h3>
+                            <span
+                                    id="reviewPriorityChip"
+                                    class="priority-chip priority-alta"
+                            >Alta</span
+                            >
+                        </div>
+
+                        <p id="reviewMessage" class="card-subtitle">
+                            Hay un robo en un banco. Llamar a todas las unidades.
+                        </p>
+
+                        <dl class="detail-list">
+                            <div class="detail-row">
+                                <dt>Zona:</dt>
+                                <dd id="reviewZone">Distrito Centro</dd>
+                            </div>
+                            <div class="detail-row">
+                                <dt>Destinatarios:</dt>
+                                <dd id="reviewDestinatarios">20 unidades</dd>
+                            </div>
+                            <div class="detail-row">
+                                <dt>Acuse de lectura:</dt>
+                                <dd>Requerido</dd>
+                            </div>
+                        </dl>
+                    </div>
+
+                    <div class="card warning-card">
+                        <h4 class="card-subtitle">Impacto del envío</h4>
+                        <ul class="warning-list">
+                            <li>Se enviará notificación push a 20 dispositivos.</li>
+                            <li>Las unidades online lo recibirán inmediatamente.</li>
+                            <li>
+                                Las unidades offline verán el mensaje al reconectarse.
+                            </li>
+                            <li>
+                                Podrás hacer seguimiento de acuses de lectura en tiempo
+                                real.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="card warning-card warning-strong">
+                        <p>
+                            Este broadcast se enviará inmediatamente a todas las unidades
+                            en la zona seleccionada. Verifica que la información sea
+                            correcta antes de continuar.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="wizard-column">
+                    <div class="card map-card">
+                        <h4 class="card-subtitle">Vista de zona</h4>
+                        <div class="map-wrapper">
+                            <iframe
+                                    title="Mapa de Lima"
+                                    src="https://www.google.com/maps?q=Lima,Peru&output=embed"
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wizard-footer">
+                <button id="btnReviewEdit" class="btn-secondary">
+                    Editar
+                </button>
+                <button id="btnSendNow" class="btn-primary">
+                    Enviar ahora
+                </button>
+                <button class="btn-ghost js-go-to-alert-center">
+                    Cancelar
+                </button>
+            </div>
+        </section>
+
+        <!-- ======================= -->
+        <!-- 5) DETALLE DE BROADCAST -->
+        <!-- ======================= -->
+        <section id="view-broadcast-detail" class="view">
+            <div class="wizard-grid">
+                <div class="wizard-column">
+                    <div class="card" id="detailCard">
+                        <div class="detail-header-row">
+                            <h3 id="detailTitle">Operativo en Av. Principal</h3>
+                            <span class="priority-chip priority-alta">Alta</span>
+                        </div>
+
+                        <p id="detailMessage" class="card-subtitle">
+                            Se requiere presencia de todas las unidades en la zona para
+                            operativo conjunto. Coordinar por canal 2.
+                        </p>
+
+                        <dl class="detail-list">
+                            <div class="detail-row">
+                                <dt>Zona:</dt>
+                                <dd id="detailZone">Distrito Centro</dd>
+                            </div>
+                            <div class="detail-row">
+                                <dt>Creado por:</dt>
+                                <dd>Cap. Rodríguez</dd>
+                            </div>
+                            <div class="detail-row">
+                                <dt>Destinatarios:</dt>
+                                <dd id="detailDestinatarios">20 unidades</dd>
+                            </div>
+                            <div class="detail-row">
+                                <dt>Con acuse:</dt>
+                                <dd>18 / 20</dd>
+                            </div>
+                        </dl>
+
+                        <p
+                                id="detailDeletedMessage"
+                                class="detail-deleted-message"
+                        ></p>
+                    </div>
+
+                    <div class="detail-actions">
+                        <button
+                                type="button"
+                                id="btnDuplicateBroadcast"
+                                class="btn-secondary"
+                        >
+                            Duplicar broadcast
+                        </button>
+
+                        <button
+                                type="button"
+                                id="btnDeleteBroadcast"
+                                class="btn-outline-danger"
+                        >
+                            Eliminar broadcast
+                        </button>
+                    </div>
+
+                    <div class="detail-actions secondary-actions">
+                        <button
+                                type="button"
+                                id="btnExportLog"
+                                class="btn-ghost"
+                        >
+                            Exportar registro
+                        </button>
+                    </div>
+                </div>
+
+                <div class="wizard-column">
+                    <div class="card">
+                        <h4 class="card-subtitle">Resumen de entrega</h4>
+                        <div class="summary-row">
+                            <div>
+                                <p class="summary-label">Tasa de lectura</p>
+                                <p class="summary-value">90%</p>
+                            </div>
+                            <div>
+                                <p class="summary-label">Pendientes</p>
+                                <p class="summary-value">2</p>
+                            </div>
+                        </div>
+
+                        <hr class="divider" />
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot timeline-dot-clock"></div>
+                                <div class="timeline-content">
+                                    <p class="timeline-title">Broadcast creado</p>
+                                    <p class="timeline-time">10:30</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-dot timeline-dot-send"></div>
+                                <div class="timeline-content">
+                                    <p class="timeline-title">
+                                        Enviado a 20 unidades
+                                    </p>
+                                    <p class="timeline-time">10:31</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-dot timeline-dot-check"></div>
+                                <div class="timeline-content">
+                                    <p class="timeline-title">
+                                        12 unidades confirmaron lectura
+                                    </p>
+                                    <p class="timeline-time">10:45</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-dot timeline-dot-retry"></div>
+                                <div class="timeline-content">
+                                    <p class="timeline-title">
+                                        Reintento enviado a 8 pendientes
+                                    </p>
+                                    <p class="timeline-time">11:00</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-dot timeline-dot-check"></div>
+                                <div class="timeline-content">
+                                    <p class="timeline-title">
+                                        6 unidades más confirmaron
+                                    </p>
+                                    <p class="timeline-time">11:15</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detail-footer-buttons">
+                            <button
+                                    id="btnShowDeliveryTracking"
+                                    class="btn-primary"
+                                    type="button"
+                            >
+                                Ver seguimiento de entrega
+                            </button>
+                            <button
+                                    class="btn-secondary js-go-to-alert-center"
+                                    type="button"
+                            >
+                                Volver al Centro de alertas
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================== -->
+        <!-- 6) SEGUIMIENTO DE ENTREGA  -->
+        <!-- ========================== -->
+        <section id="view-delivery-tracking" class="view">
+            <div class="delivery-layout">
+                <aside class="card delivery-sidebar">
+                    <h3 id="trackingOperationTitle">
+                        Operativo Av. Central
+                    </h3>
+
+                    <h4 class="card-subtitle">Estado de entrega</h4>
+
+                    <div class="delivery-status-grid">
+                        <div class="status-box">
+                            <span class="status-label">Enviados</span>
+                            <strong class="status-number">8</strong>
+                        </div>
+                        <div class="status-box">
+                            <span class="status-label">Entregados</span>
+                            <strong class="status-number">6</strong>
+                        </div>
+                        <div class="status-box">
+                            <span class="status-label">Con acuse</span>
+                            <strong class="status-number">4</strong>
+                        </div>
+                        <div class="status-box status-warning">
+                            <span class="status-label">Pendientes</span>
+                            <strong class="status-number">2</strong>
+                        </div>
+                    </div>
+
+                    <p class="progress-total-label">
+                        Progreso total
+                    </p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 50%"></div>
+                    </div>
+                    <p class="progress-label">4 / 8</p>
+
+                    <div class="retry-banner">
+                        <p>
+                            <strong>2 unidades</strong> de acuse. Pueden estar offline
+                            o no pendientes han abierto el mensaje.
+                        </p>
+                        <button class="btn-primary btn-small">
+                            Reintentar pendientes
+                        </button>
+                    </div>
+
+                    <button class="btn-ghost btn-full">
+                        Cancelar reintentos
+                    </button>
+                </aside>
+
+                <div class="delivery-main">
+                    <div class="tabs">
+                        <button class="tab active">Todas (8)</button>
+                        <button class="tab">Pendientes (2)</button>
+                    </div>
+
+                    <div class="recipient-grid">
+                        <div class="recipient-card">
+                            <div class="recipient-avatar">👮</div>
+                            <div class="recipient-body">
+                                <p class="recipient-name">Unidad P-101</p>
+                                <p class="recipient-status recipient-status-read">
+                                    ✓ Leído · 10:45
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="recipient-card">
+                            <div class="recipient-avatar">🚓</div>
+                            <div class="recipient-body">
+                                <p class="recipient-name">Unidad P-102</p>
+                                <p class="recipient-status recipient-status-read">
+                                    ✓ Leído · 10:46
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="recipient-card">
+                            <div class="recipient-avatar">🚔</div>
+                            <div class="recipient-body">
+                                <p class="recipient-name">Unidad S-201</p>
+                                <p class="recipient-status recipient-status-delivered">
+                                    ✓ Entregado · 10:45
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="recipient-card">
+                            <div class="recipient-avatar">🚨</div>
+                            <div class="recipient-body">
+                                <p class="recipient-name">Unidad S-202</p>
+                                <p class="recipient-status recipient-status-pending">
+                                    ⏱ Pendiente
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="recipient-card">
+                            <div class="recipient-avatar">🚨</div>
+                            <div class="recipient-body">
+                                <p class="recipient-name">Unidad S-203</p>
+                                <p class="recipient-status recipient-status-pending">
+                                    ⏱ Pendiente
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="recipient-card">
+                            <div class="recipient-avatar">👮</div>
+                            <div class="recipient-body">
+                                <p class="recipient-name">Unidad P-103</p>
+                                <p class="recipient-status recipient-status-delivered">
+                                    ✓ Entregado · 10:47
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="delivery-footer-buttons">
+                        <button id="btnBackToDetail" class="btn-secondary">
+                            Volver a detalle del broadcast
+                        </button>
+                        <button class="btn-ghost js-go-to-alert-center">
+                            Volver al Centro de alertas
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- JS ESPECÍFICO DE ESTA SECCIÓN -->
+<script src="Secured-Landing-Page/public/assets/scripts/broadcast.js" defer></script>
+</body>
+</html>
