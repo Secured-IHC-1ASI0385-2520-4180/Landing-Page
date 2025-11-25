@@ -14,7 +14,6 @@
     <!-- VISTA 1: ASIGNAR UNIDAD (INICIO) -->
     <section class="au-view au-view-active" data-view="inicio">
         <header class="au-page-header">
-            <!-- Volver al dashboard principal -->
             <a href="variaciones-varias.html" class="au-back-button" aria-label="Volver">
                 ←
             </a>
@@ -444,6 +443,31 @@
                     </dd>
                 </div>
             </dl>
+        </section>
+
+        <!-- NUEVAS ACCIONES -->
+        <section class="au-card au-confirm-actions">
+            <h2 class="au-section-title">Acciones</h2>
+            <div class="au-confirm-actions-row">
+                <a
+                        href="seguimiento-mapa.html"
+                        class="au-btn au-btn-secondary au-btn-fullwidth-sm"
+                >
+                    Ver seguimiento en mapa
+                </a>
+
+                <button
+                        type="button"
+                        id="au-cancel-assignment"
+                        class="au-btn au-btn-danger-outline au-btn-fullwidth-sm"
+                >
+                    Anular unidad asignada
+                </button>
+            </div>
+            <p id="au-cancel-message" class="au-cancel-message" hidden>
+                La unidad asignada ha sido anulada. Puedes seleccionar otra unidad
+                desde la pantalla inicial.
+            </p>
         </section>
 
         <section class="au-card au-next-steps">
