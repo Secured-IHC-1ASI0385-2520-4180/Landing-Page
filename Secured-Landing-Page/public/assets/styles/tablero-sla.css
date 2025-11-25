@@ -1,0 +1,805 @@
+/* =========================================
+   TABLERO SLA - ESTILOS GENERALES
+   ========================================= */
+
+:root {
+    --secured-bg: #f5f7fb;
+    --secured-primary: #0c2c53;
+    --secured-primary-soft: #11427f;
+    --secured-border: #e1e8f0;
+
+    --secured-text-main: #111827;
+    --secured-text-muted: #6b7280;
+
+    --secured-card-bg: #ffffff;
+
+    --secured-radius-sm: 8px;
+    --secured-radius-md: 12px;
+    --secured-radius-lg: 16px;
+
+    --secured-shadow-soft: 0 14px 35px rgba(15, 23, 42, 0.08);
+
+    --secured-success: #16a34a;
+    --secured-warning: #f59e0b;
+    --secured-danger: #ef4444;
+    --secured-info: #2563eb;
+}
+
+/* Reset pequeño */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+    background: var(--secured-bg);
+    color: var(--secured-text-main);
+    -webkit-font-smoothing: antialiased;
+}
+
+button {
+    font-family: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Layout base */
+
+.sla-page {
+    min-height: 100vh;
+    background: var(--secured-bg);
+}
+
+.sla-wrapper {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 24px 24px 40px;
+}
+
+/* Vistas */
+
+.sla-view {
+    display: none;
+}
+
+.sla-view-active {
+    display: block;
+}
+
+/* Header común */
+
+.sla-page-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.sla-back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: 1px solid var(--secured-border);
+    background: #ffffff;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.sla-back-link:hover {
+    background: #f3f4f6;
+}
+
+.sla-header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.sla-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.sla-subtitle {
+    font-size: 0.85rem;
+    color: var(--secured-text-muted);
+    margin: 0;
+}
+
+/* KPI row */
+
+.sla-kpi-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.sla-kpi-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid var(--secured-border);
+    font-size: 0.85rem;
+}
+
+.sla-kpi-number {
+    font-weight: 600;
+}
+
+.sla-kpi-warning {
+    background: #fff7ed;
+    border-color: #fed7aa;
+    color: #c05621;
+}
+
+.sla-kpi-danger {
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: #b91c1c;
+}
+
+/* Filtros rápidos */
+
+.sla-filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.sla-filters-label {
+    font-size: 0.8rem;
+    color: var(--secured-text-muted);
+    margin-right: 4px;
+}
+
+.filter-pill {
+    border-radius: 999px;
+    border: none;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    background: #e5edf7;
+    color: var(--secured-primary);
+}
+
+.filter-pill.is-active {
+    background: var(--secured-primary);
+    color: #ffffff;
+}
+
+/* Cards y componentes genéricos */
+
+.card {
+    background: var(--secured-card-bg);
+    border-radius: var(--secured-radius-lg);
+    padding: 20px 24px;
+    border: 1px solid var(--secured-border);
+    box-shadow: var(--secured-shadow-soft);
+}
+
+.card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+}
+
+/* Chips */
+
+.priority-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.priority-alta {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.priority-media {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.sla-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.sla-chip-success {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.sla-chip-warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.sla-chip-danger {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.sla-chip-info {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.sla-chip-muted {
+    background: #e5e7eb;
+    color: #4b5563;
+}
+
+/* Botones */
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: none;
+    background: var(--secured-primary);
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.05);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* ========================= */
+/* TABLERO - TARJETAS SLA    */
+/* ========================= */
+
+.sla-board-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.sla-incident-card {
+    background: var(--secured-card-bg);
+    border-radius: var(--secured-radius-lg);
+    border: 1px solid var(--secured-border);
+    padding: 16px 20px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+    cursor: pointer;
+    transition: transform 0.12s ease, box-shadow 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.sla-incident-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--secured-shadow-soft);
+    border-color: var(--secured-primary-soft);
+}
+
+.sla-incident-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.incident-id {
+    font-size: 0.78rem;
+    color: var(--secured-text-muted);
+}
+
+.incident-title {
+    font-size: 0.98rem;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.sla-incident-times {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* ========================= */
+/* SLA INCIDENTE             */
+/* ========================= */
+
+.sla-paused-badge {
+    margin-left: auto;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* Segment pills */
+
+.sla-segments-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.segment-pill {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--secured-border);
+    background: #ffffff;
+    font-size: 0.78rem;
+}
+
+.segment-pill .segment-name {
+    font-weight: 500;
+}
+
+.segment-pill .segment-time {
+    color: var(--secured-text-muted);
+}
+
+.segment-pill.is-completed {
+    border-color: #bbf7d0;
+    background: #f0fdf4;
+}
+
+.segment-pill.is-active {
+    border-color: var(--secured-primary);
+    background: #e5edf7;
+}
+
+/* Grid SLA incidente */
+
+.sla-incident-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.sla-incident-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Segmento activo */
+
+.segment-card {
+    padding-bottom: 18px;
+}
+
+.segment-status-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: var(--secured-radius-md);
+    background: #ecfdf5;
+    margin-bottom: 12px;
+}
+
+.segment-status-box .segment-status-icon {
+    font-size: 1.2rem;
+}
+
+.segment-status-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.segment-status-helper {
+    font-size: 0.8rem;
+    color: var(--secured-text-muted);
+    margin: 0;
+}
+
+.segment-progress {
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background: #e5e7eb;
+    overflow: hidden;
+}
+
+.segment-progress-bar {
+    width: 12%;
+    height: 100%;
+    background: var(--secured-success);
+}
+
+/* Control de SLA */
+
+.control-card {
+    padding: 18px 20px;
+}
+
+.sla-control-btn {
+    margin-top: 8px;
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: var(--secured-radius-md);
+    border: 1px dashed var(--secured-border);
+    background: #f9fafb;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.sla-control-btn:hover {
+    border-style: solid;
+}
+
+.sla-control-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: #e5edf7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: var(--secured-primary);
+}
+
+.sla-control-text span:first-child {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.sla-control-text span:last-child {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--secured-text-muted);
+}
+
+/* Quick actions */
+
+.quick-actions-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.quick-action {
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: #f9fafb;
+    border-radius: var(--secured-radius-md);
+    padding: 10px 12px;
+    cursor: pointer;
+}
+
+.quick-action:hover {
+    background: #edf2f7;
+}
+
+.quick-action-main {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.quick-action-helper {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--secured-text-muted);
+}
+
+/* Timeline */
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.timeline-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    margin-top: 5px;
+}
+
+.timeline-dot-send {
+    background: var(--secured-info);
+}
+
+.timeline-dot-warning {
+    background: var(--secured-warning);
+}
+
+.timeline-dot-success {
+    background: var(--secured-success);
+}
+
+.timeline-content {
+    flex: 1;
+}
+
+.timeline-title {
+    font-size: 0.9rem;
+    margin: 0 0 2px 0;
+}
+
+.timeline-meta {
+    font-size: 0.78rem;
+    color: var(--secured-text-muted);
+    margin: 0;
+}
+
+/* ========================= */
+/* PAUSAR / REANUDAR SLA     */
+/* ========================= */
+
+.sla-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.sla-modal-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sla-modal-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: #fff7ed;
+    color: #c05621;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sla-modal-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.sla-modal-subtitle {
+    font-size: 0.8rem;
+    margin: 0;
+    color: var(--secured-text-muted);
+}
+
+.sla-modal-close {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Formulario de pausa */
+
+.pause-form {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+/* Opciones tipo "pill" (segmentos) */
+
+.option-list-pill {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.option-pill {
+    position: relative;
+    flex: 1 1 180px;
+    padding: 10px 12px;
+    border-radius: var(--secured-radius-md);
+    border: 1px solid var(--secured-border);
+    background: #f9fafb;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.option-pill input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.option-pill .option-main {
+    display: block;
+    font-weight: 500;
+}
+
+.option-pill .option-helper {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--secured-text-muted);
+}
+
+.option-pill input:checked + .option-main,
+.option-pill input:checked ~ .option-helper {
+    color: var(--secured-primary);
+}
+
+.option-pill input:checked ~ .option-main {
+    font-weight: 600;
+}
+
+.option-pill input:checked ~ .option-helper {
+    color: var(--secured-primary-soft);
+}
+
+.option-pill input:checked ~ * {
+    /* borde cuando está seleccionado */
+}
+
+.option-pill input:checked ~ .option-main,
+.option-pill input:checked ~ .option-helper {
+}
+
+.option-pill input:checked ~ .option-main::before {
+}
+
+.option-pill input:checked ~ .option-main,
+.option-pill input:checked ~ .option-helper {
+}
+
+.option-pill input:checked ~ .option-main,
+.option-pill input:checked ~ .option-helper {
+}
+
+/* truco simple: cambiar color de borde cuando está seleccionado */
+.option-pill input:checked ~ .option-helper,
+.option-pill input:checked ~ .option-main {
+    /* ya está */
+}
+
+.option-pill input:checked ~ .option-main,
+.option-pill input:checked ~ .option-helper {
+}
+
+.option-pill input:checked ~ .option-main,
+.option-pill input:checked ~ .option-helper {
+}
+
+.option-pill input:checked ~ .option-main,
+.option-pill input:checked ~ .option-helper {
+}
+
+.option-pill input:checked ~ .option-main,
+.option-pill input:checked ~ .option-helper {
+}
+
+.option-pill input:checked ~ .option-main,
+.option-pill input:checked ~ .option-helper {
+}
+
+.option-pill input:checked ~ .option-main,
+.option-pill input:checked ~ .option-helper {
+}
+
+/* (más sencillo: cambiar el borde con :has, pero no todos los navegadores lo soportan.
+   Así que lo hacemos con una clase desde JS si lo necesitaras) */
+
+/* Lista de motivos */
+
+.option-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.option-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: var(--secured-radius-md);
+    background: #f9fafb;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.option-row input {
+    margin: 0;
+}
+
+.pause-note {
+    font-size: 0.8rem;
+    color: var(--secured-text-muted);
+    margin: 4px 0 16px 0;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .sla-wrapper {
+        padding: 20px 16px 32px;
+    }
+
+    .sla-incident-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sla-incident-column {
+        order: 1;
+    }
+
+    .quick-actions-card {
+        order: 2;
+    }
+
+    .log-card {
+        order: 3;
+    }
+
+    .pause-form {
+        padding: 16px;
+    }
+}
