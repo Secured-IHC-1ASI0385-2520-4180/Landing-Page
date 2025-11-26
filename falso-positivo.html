@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Falso positivo | Secured</title>
+
+    <!-- CSS específico de esta pantalla -->
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/falso-positivo.css" />
+</head>
+<body class="fp-page">
+<main class="fp-wrapper">
+
+    <!-- ============= VISTA 1: DETALLE DE INCIDENTE ============= -->
+    <section class="fp-view fp-view-active" data-view="detalle">
+        <header class="fp-page-header">
+            <a href="variaciones-varias.html" class="fp-back-link" aria-label="Volver">
+                ←
+            </a>
+            <div class="fp-header-text">
+                <p class="fp-breadcrumb">Detalle del incidente</p>
+                <h1 class="fp-page-title">INC-2025-075</h1>
+            </div>
+        </header>
+
+        <div class="fp-columns-3">
+            <!-- Tarjeta de incidente -->
+            <article class="fp-card fp-incident-card">
+                <header class="fp-incident-header">
+                    <div>
+                        <h2 class="fp-incident-title">
+                            Disturbio en vía pública - Av. Central
+                        </h2>
+                        <p class="fp-incident-subtitle">
+                            Tipo: Disturbio
+                        </p>
+                    </div>
+                    <span class="fp-chip fp-chip-danger">Alta</span>
+                </header>
+
+                <ul class="fp-incident-meta">
+                    <li>
+                        <span class="fp-meta-label">Dirección</span>
+                        <span class="fp-meta-value">Av. Central 892, Sector Centro</span>
+                    </li>
+                    <li>
+                        <span class="fp-meta-label">Estado</span>
+                        <span class="fp-meta-value fp-meta-pill">En curso</span>
+                    </li>
+                </ul>
+
+                <div class="fp-dispatch-summary">
+                    <p class="fp-dispatch-title">Despacho activo</p>
+                    <p class="fp-dispatch-body">2 unidades asignadas</p>
+                </div>
+            </article>
+
+            <!-- Falso positivo -->
+            <article class="fp-card fp-false-positive-card">
+                <header class="fp-card-header">
+                    <div class="fp-icon-circle">!</div>
+                    <div>
+                        <h2 class="fp-card-title">Falso positivo</h2>
+                        <p class="fp-card-subtitle">
+                            Si verificaste que este incidente no corresponde a una
+                            situación real, puedes marcarlo como falso positivo.
+                        </p>
+                    </div>
+                </header>
+
+                <button
+                        type="button"
+                        class="fp-btn fp-btn-primary"
+                        data-goto="marcar"
+                >
+                    ⚠ Marcar como falso positivo
+                </button>
+            </article>
+
+            <!-- Información importante -->
+            <aside class="fp-card fp-important-card">
+                <h2 class="fp-card-title">Importante</h2>
+                <ul class="fp-important-list">
+                    <li>Los falsos positivos se excluyen de KPIs y métricas.</li>
+                    <li>Si hay despacho activo, se liberarán las unidades.</li>
+                    <li>Solo un supervisor puede revertir esta decisión.</li>
+                </ul>
+            </aside>
+        </div>
+    </section>
+
+    <!-- ============= VISTA 2: MARCAR COMO FALSO POSITIVO ============= -->
+    <section class="fp-view" data-view="marcar">
+        <header class="fp-page-header">
+            <button
+                    class="fp-back-link"
+                    type="button"
+                    aria-label="Volver"
+                    data-goto="detalle"
+            >
+                ←
+            </button>
+            <div class="fp-header-text">
+                <p class="fp-breadcrumb">Marcar como falso positivo</p>
+                <h1 class="fp-page-title">
+                    Disturbio en vía pública - Av. Central
+                </h1>
+            </div>
+        </header>
+
+        <section class="fp-card fp-banner-warning">
+            <p class="fp-banner-title">Despacho activo</p>
+            <p class="fp-banner-text">
+                Este incidente tiene <strong>2 unidades asignadas</strong>.
+                Al confirmar se liberarán las asignaciones y se notificará a las
+                unidades.
+            </p>
+        </section>
+
+        <form id="fpMarkForm" class="fp-card fp-form-card">
+            <p class="fp-section-label">Motivo *</p>
+
+            <div class="fp-reasons-list">
+                <button type="button" class="fp-reason-row" data-reason="duplicado">
+                    Reporte duplicado confirmado
+                </button>
+                <button type="button" class="fp-reason-row" data-reason="incorrecta">
+                    Información verificada como incorrecta
+                </button>
+                <button type="button" class="fp-reason-row" data-reason="resuelta">
+                    Situación ya resuelta antes del reporte
+                </button>
+                <button type="button" class="fp-reason-row" data-reason="geolocalizacion">
+                    Error en la geolocalización
+                </button>
+                <button type="button" class="fp-reason-row" data-reason="prueba">
+                    Prueba o ejercicio del sistema
+                </button>
+                <button type="button" class="fp-reason-row" data-reason="broma">
+                    Spam o broma confirmada
+                </button>
+                <button type="button" class="fp-reason-row" data-reason="otra-institucion">
+                    Competencia de otra institución
+                </button>
+                <button type="button" class="fp-reason-row" data-reason="otro">
+                    Otro motivo…
+                </button>
+            </div>
+
+            <div class="fp-field-group">
+                <label for="fpEvidence" class="fp-section-label">
+                    Adjuntar evidencia (opcional)
+                </label>
+                <p class="fp-field-helper">
+                    Foto, documento o captura que respalde la decisión.
+                </p>
+                <label class="fp-file-input">
+                    <input id="fpEvidence" type="file" />
+                    <span>📎 Seleccionar archivo</span>
+                </label>
+            </div>
+
+            <div class="fp-form-actions">
+                <button
+                        type="button"
+                        class="fp-btn fp-btn-ghost"
+                        data-goto="detalle"
+                >
+                    Cancelar
+                </button>
+                <button
+                        type="submit"
+                        class="fp-btn fp-btn-primary"
+                        id="fpConfirmFalsePositive"
+                >
+                    Confirmar como falso positivo
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <!-- ============= VISTA 3: INCIDENTE - FALSO POSITIVO ============= -->
+    <section class="fp-view" data-view="resumen">
+        <header class="fp-page-header">
+            <button
+                    class="fp-back-link"
+                    type="button"
+                    aria-label="Volver"
+                    data-goto="detalle"
+            >
+                ←
+            </button>
+            <div class="fp-header-text">
+                <p class="fp-breadcrumb">Incidente – Falso positivo</p>
+                <h1 class="fp-page-title">INC-2025-075</h1>
+            </div>
+
+            <span class="fp-chip fp-chip-outline">Falso positivo</span>
+        </header>
+
+        <div class="fp-resumen-layout">
+            <div class="fp-resumen-column">
+                <article class="fp-card fp-incident-summary">
+                    <p class="fp-summary-label">Marcado como falso positivo</p>
+                    <h2 class="fp-summary-title">
+                        Disturbio en vía pública - Av. Central
+                    </h2>
+                    <p class="fp-summary-meta">
+                        Marcado por:
+                        <strong>Supervisor García</strong>
+                    </p>
+                    <p class="fp-summary-meta">
+                        Motivo: <span id="fpResumenMotivo">Reporte duplicado confirmado</span>
+                    </p>
+                    <p class="fp-summary-meta">
+                        Fecha: 28/10/2025 · 11:23
+                    </p>
+                </article>
+
+                <article class="fp-card fp-history-card">
+                    <h3 class="fp-card-title">Historial de falso positivo</h3>
+                    <ul class="fp-timeline">
+                        <li class="fp-timeline-item">
+                            <span class="fp-timeline-dot"></span>
+                            <div>
+                                <p class="fp-timeline-title">
+                                    Marcado como falso positivo
+                                </p>
+                                <p class="fp-timeline-meta">
+                                    Motivo: <span id="fpHistoryMotivo">Reporte duplicado confirmado</span>
+                                    · Por: Supervisor García · 11:23
+                                </p>
+                            </div>
+                        </li>
+                        <li class="fp-timeline-item">
+                            <span class="fp-timeline-dot fp-timeline-dot-secondary"></span>
+                            <div>
+                                <p class="fp-timeline-title">
+                                    Unidades liberadas (2)
+                                </p>
+                                <p class="fp-timeline-meta">
+                                    Por: Sistema automático · 11:23
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="fp-resumen-column">
+                <article class="fp-card fp-kpi-card">
+                    <h3 class="fp-card-title">Excluido de KPIs</h3>
+                    <p class="fp-kpi-text">
+                        Este incidente no se considera en las métricas operativas ni
+                        en reportes estadísticos.
+                    </p>
+                </article>
+
+                <div class="fp-resumen-actions">
+                    <button
+                            type="button"
+                            class="fp-btn fp-btn-secondary"
+                            id="fpRevertBtn"
+                    >
+                        Revertir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============= MODAL: MOTIVO DE REVERSE ============= -->
+    <div class="fp-modal-overlay fp-modal-hidden" id="fpRevertModal">
+        <div class="fp-modal" role="dialog" aria-modal="true">
+            <h2 class="fp-modal-title">
+                El incidente será revertido de su estado falso positivo
+            </h2>
+            <p class="fp-modal-text">
+                Por favor, explique el motivo. Esta información quedará registrada
+                en la bitácora del incidente.
+            </p>
+            <textarea
+                    id="fpRevertReason"
+                    class="fp-modal-textarea"
+                    rows="4"
+                    placeholder="Ej: Se confirmó que el incidente sí correspondía a una situación real..."
+            ></textarea>
+
+            <div class="fp-modal-actions">
+                <button
+                        type="button"
+                        class="fp-btn fp-btn-ghost"
+                        id="fpModalCancel"
+                >
+                    ← Regresar
+                </button>
+                <button
+                        type="button"
+                        class="fp-btn fp-btn-primary"
+                        id="fpModalConfirm"
+                >
+                    Enviar y continuar
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- JS específico de esta pantalla -->
+<script src="Secured-Landing-Page/public/assets/scripts/falso-positivo.js" defer></script>
+</body>
+</html>
