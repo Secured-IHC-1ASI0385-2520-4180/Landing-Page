@@ -1,6 +1,3 @@
-// =======================================
-// FALSO POSITIVO – LÓGICA DE VISTAS
-// =======================================
 
 (function () {
     const views = document.querySelectorAll(".fp-view");

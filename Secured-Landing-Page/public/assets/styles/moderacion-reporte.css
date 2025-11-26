@@ -1,6 +1,4 @@
-/* =========================================
-   MODERACIÓN DE REPORTES - ESTILOS
-   ========================================= */
+
 
 :root {
     --secured-bg: #f5f7fb;
@@ -372,9 +370,7 @@ body.mr-page {
     color: var(--secured-danger);
 }
 
-/* ========================= */
-/* MODAL: RECHAZAR REPORTE   */
-/* ========================= */
+
 
 .mr-modal-backdrop {
     position: fixed;

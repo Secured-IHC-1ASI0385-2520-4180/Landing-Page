@@ -1,6 +1,3 @@
-// =======================================
-// CENTRAL 105 - LÓGICA DE VISTAS Y MODALES
-// =======================================
 
 document.addEventListener("DOMContentLoaded", () => {
     const views = document.querySelectorAll(".c105-view");

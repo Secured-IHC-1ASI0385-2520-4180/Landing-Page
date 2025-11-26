@@ -1,5 +1,4 @@
-// Secured - Pedir apoyo
-// Manejo de vistas y pequeñas interacciones de selección
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const views = document.querySelectorAll(".pa-view");

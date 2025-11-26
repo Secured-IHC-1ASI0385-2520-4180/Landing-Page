@@ -1,6 +1,4 @@
-/* =========================================
-   PEDIR APOYO - ESTILOS GENERALES
-   ========================================= */
+
 
 :root {
     --secured-bg: #f5f7fb;
@@ -185,9 +183,7 @@ body.pedir-apoyo-page {
     width: 100%;
 }
 
-/* =========================================
-   VISTA 1 - DETALLE DEL INCIDENTE
-   ========================================= */
+
 
 .pa-incident-layout {
     display: grid;
@@ -294,9 +290,6 @@ body.pedir-apoyo-page {
     color: var(--secured-text-muted);
 }
 
-/* =========================================
-   VISTA 2 - CONFIGURAR SOLICITUD
-   ========================================= */
 
 .pa-modal-body {
     max-width: 900px;
@@ -445,9 +438,6 @@ textarea {
     justify-content: center;
 }
 
-/* =========================================
-   VISTA 3 - SEGUIMIENTO DE SOLICITUD
-   ========================================= */
 
 .pa-tracking-layout {
     display: grid;
@@ -654,9 +644,6 @@ textarea {
     color: var(--secured-text-muted);
 }
 
-/* =========================================
-   VISTA 5 - CANCELAR SOLICITUD
-   ========================================= */
 
 .pa-cancel-layout {
     min-height: calc(100vh - 80px);
@@ -701,9 +688,6 @@ textarea {
     color: var(--secured-text-muted);
 }
 
-/* =========================================
-   RESPONSIVE
-   ========================================= */
 
 @media (max-width: 960px) {
     .pa-wrapper {

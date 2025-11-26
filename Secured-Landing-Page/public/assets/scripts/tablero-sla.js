@@ -1,6 +1,3 @@
-// ========================================
-// TABLERO SLA - LÓGICA DE VISTAS
-// ========================================
 
 (function () {
     const views = document.querySelectorAll(".sla-view");

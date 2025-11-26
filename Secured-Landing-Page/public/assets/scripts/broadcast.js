@@ -1,6 +1,3 @@
-// =======================================
-// BROADCAST – LÓGICA PARA broadcast.html
-// =======================================
 
 document.addEventListener("DOMContentLoaded", () => {
     // ------------------------------
