@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alertas Vecinales</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/alertas-vecinales.css" />
+</head>
+<body>
+
+<!-- VISTA 1: Lista de alertas vecinales -->
+<div id="vista-lista-alertas" class="vista active">
+    <header class="header">
+        <button class="back-btn" onclick="window.location.href='variaciones-varias.html'">←</button>
+        <h1>Alertas Vecinales</h1>
+        <button class="menu-btn">⋮</button>
+    </header>
+
+    <!-- Lista de alertas -->
+    <div class="alertas-lista">
+        <!-- Alerta 1: Av. Los Próceres 123 -->
+        <div class="alerta-card" onclick="verDetalleAlerta('alert-001')">
+            <div class="alerta-header">
+                <div class="alerta-icon purple">
+                    <span class="icon-bell">🔔</span>
+                </div>
+                <div class="alerta-info">
+                    <div class="alerta-badges">
+                        <span class="badge-origen">Origen: Alarma vecinal</span>
+                        <span class="badge-estado">⏱ Pendiente</span>
+                    </div>
+                    <h3>Sirena activada - Robo/Intento de hurto</h3>
+                    <div class="alerta-ubicacion">
+                        📍 Av. Los Próceres 12
+                    </div>
+                    <div class="alerta-tiempo">
+                        🕐 Recibida a las 20:41
+                    </div>
+                </div>
+            </div>
+            <button class="btn-validar" onclick="validarAlerta('alert-001'); event.stopPropagation()">
+                Validar alerta
+            </button>
+        </div>
+
+        <!-- Alerta 2: Jr. Las Palmas 456 -->
+        <div class="alerta-card" onclick="verDetalleAlerta('alert-002')">
+            <div class="alerta-header">
+                <div class="alerta-icon purple">
+                    <span class="icon-bell">🔔</span>
+                </div>
+                <div class="alerta-info">
+                    <div class="alerta-badges">
+                        <span class="badge-origen">Origen: Alarma vecinal</span>
+                        <span class="badge-estado">⏱ Pendiente</span>
+                    </div>
+                    <h3>Sirena activada - Disturbio público</h3>
+                    <div class="alerta-ubicacion">
+                        📍 Jr. Las Palmas 456
+                    </div>
+                    <div class="alerta-tiempo">
+                        🕐 Recibida a las 19:30
+                    </div>
+                </div>
+            </div>
+            <button class="btn-validar" onclick="validarAlerta('alert-002'); event.stopPropagation()">
+                Validar alerta
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- VISTA 2: Crear incidente desde alerta -->
+<div id="vista-crear-incidente" class="vista">
+    <header class="header">
+        <button class="back-btn" onclick="cerrarCrearIncidente()">←</button>
+        <div class="header-content">
+            <h1>Crear incidente</h1>
+            <p class="subtitle">Desde alerta vecinal</p>
+        </div>
+    </header>
+
+    <!-- Información de la alerta -->
+    <div class="alerta-origen-info">
+        <div class="alerta-origen-icon">
+            <span class="icon-bell-large">🔔</span>
+        </div>
+        <div class="alerta-origen-details">
+            <div class="origen-badge">Origen: Alarma vecinal</div>
+            <div class="alr-codigo">ALR-001</div>
+            <h3 id="alerta-titulo-crear">Sirena activada - Robo/Intento de hurto</h3>
+            <div class="alerta-ubicacion-detalle">
+                📍 <span id="alerta-ubicacion-crear">Av. Los Próceres 12</span>
+            </div>
+            <div class="alerta-tiempo-detalle">
+                🕐 <span id="alerta-tiempo-crear">Recibida a las 20:41</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Formulario de crear incidente -->
+    <div class="formulario-incidente">
+        <div class="form-group">
+            <label>Tipo de incidente <span class="requerido">*</span></label>
+            <select id="tipo-incidente" onchange="actualizarTipoIncidente()">
+                <option value="robo-al-paso">Robo al paso</option>
+                <option value="hurto">Hurto</option>
+                <option value="disturbio">Disturbio público</option>
+                <option value="robo-arrebato">Robo/Arrebato</option>
+            </select>
+            <p class="form-help">Buscar en catálogo de tipos de incidentes</p>
+        </div>
+
+        <div class="form-group">
+            <label>Prioridad <span class="requerido">*</span></label>
+            <div class="prioridad-selector">
+                <button class="prioridad-btn alta active" onclick="seleccionarPrioridad('alta')">Alta</button>
+                <button class="prioridad-btn media" onclick="seleccionarPrioridad('media')">Media</button>
+                <button class="prioridad-btn baja" onclick="seleccionarPrioridad('baja')">Baja</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Descripción breve <span class="requerido">*</span></label>
+            <textarea id="descripcion-incidente" placeholder="Describe los detalles del incidente basado en la alerta..."></textarea>
+            <p class="contador-caracteres"><span id="contador">0</span>/500 caracteres</p>
+        </div>
+
+        <div class="form-group">
+            <label>Adjuntar evidencias (opcional)</label>
+            <div class="evidencias-botones">
+                <button class="btn-evidencia" onclick="adjuntarFoto()">
+                    📷 Foto
+                </button>
+                <button class="btn-evidencia" onclick="adjuntarAudio()">
+                    🎤 Audio
+                </button>
+            </div>
+            <p class="form-help">Las evidencias ayudan a documentar el incidente</p>
+        </div>
+
+        <div class="info-precargada">
+            <div class="info-icon">📄</div>
+            <div class="info-texto">
+                <strong>Información precargada</strong>
+                <p>La ubicación y datos del contacto ya están incluidos desde la alerta vecinal.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="botones-footer">
+        <button class="btn-secundario" onclick="cerrarCrearIncidente()">Cancelar</button>
+        <button class="btn-primario" onclick="crearIncidenteDesdeAlerta()">✓ Crear incidente</button>
+    </div>
+</div>
+
+<!-- VISTA 3: Detalle de incidente creado (con tabs) -->
+<div id="vista-detalle-incidente" class="vista">
+    <header class="header">
+        <button class="back-btn" onclick="volverAListaAlertas()">←</button>
+        <div class="header-content">
+            <div class="incidente-titulo-header">
+                <span class="incidente-label">Incidente</span>
+                <span class="incidente-codigo" id="codigo-incidente">SEC-01234</span>
+            </div>
+            <h1 id="titulo-incidente">Robo/Arrebato</h1>
+        </div>
+        <button class="prioridad-badge alta">Alta</button>
+    </header>
+
+    <!-- Información de origen -->
+    <div class="origen-badges-bar">
+        <span class="badge-origen-small">🔔 Origen: Alarma vecinal</span>
+        <span class="badge-estado-small">⏱ Pendiente</span>
+    </div>
+
+    <!-- Tabs de navegación -->
+    <div class="tabs-nav">
+        <button class="tab active" onclick="cambiarTab('resumen')">Resumen</button>
+        <button class="tab" onclick="cambiarTab('ubicacion')">Ubicación</button>
+        <button class="tab" onclick="cambiarTab('bitacora')">Bitácora</button>
+    </div>
+
+    <!-- Tab: Resumen -->
+    <div id="tab-resumen" class="tab-content active">
+        <!-- Mensaje de éxito (se muestra temporalmente) -->
+        <div id="mensaje-exito" class="mensaje-exito">
+            <div class="exito-icon">✓</div>
+            <div class="exito-texto">
+                <strong>Incidente creado exitosamente</strong>
+                <p>El incidente se ha registrado y está listo para asignación</p>
+            </div>
+        </div>
+
+        <!-- Detalles del incidente -->
+        <div class="seccion-detalles">
+            <h2>📄 Detalles del incidente</h2>
+            <div class="detalle-item">
+                <span class="detalle-label">Código:</span>
+                <span class="detalle-valor" id="detalle-codigo">SEC-01234</span>
+            </div>
+            <div class="detalle-item">
+                <span class="detalle-label">Tipo:</span>
+                <span class="detalle-valor" id="detalle-tipo">Robo/Arrebato</span>
+            </div>
+            <div class="detalle-item">
+                <span class="detalle-label">Estado:</span>
+                <span class="detalle-valor estado-badge">Pendiente asignación</span>
+            </div>
+            <div class="detalle-item">
+                <span class="detalle-label">Prioridad:</span>
+                <span class="detalle-valor prioridad-alta">Alta</span>
+            </div>
+            <div class="detalle-item">
+                <span class="detalle-label">Creado:</span>
+                <span class="detalle-valor" id="detalle-creado">Hoy a las 20:45</span>
+            </div>
+        </div>
+
+        <!-- Contacto alertante -->
+        <div class="seccion-contacto">
+            <h2>📞 Contacto alertante</h2>
+            <div class="contacto-card">
+                <div class="contacto-avatar">JV</div>
+                <div class="contacto-info">
+                    <h3>Junta Vecinal Las Flores</h3>
+                    <p class="contacto-telefono">987-654-321</p>
+                    <p class="contacto-verificado">✓ Contacto verificado</p>
+                </div>
+            </div>
+            <button class="btn-llamar">📞 Llamar al alertante</button>
+        </div>
+
+        <!-- Información de origen -->
+        <div class="seccion-origen">
+            <div class="origen-icon">⭕</div>
+            <div class="origen-texto">
+                <strong>Creado desde alarma vecinal</strong>
+                <p>Este incidente fue creado desde una alarma vecinal. Toda la cadena de eventos está registrada en la bitácora.</p>
+            </div>
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="acciones-principales">
+            <button class="btn-asignar" onclick="asignarUnidad()">👥 Asignar unidad</button>
+            <div class="acciones-secundarias">
+                <button class="btn-accion-sec" onclick="solicitarApoyo()">⏱ Solicitar apoyo</button>
+                <button class="btn-accion-sec" onclick="verEvidencias()">📷 Evidencias</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab: Ubicación -->
+    <div id="tab-ubicacion" class="tab-content">
+        <div class="mapa-ubicacion">
+            <img id="mapa-alerta" src="Secured-Landing-Page/public/assets/images/alertas-vecinales-1.png" alt="Mapa de ubicación" class="mapa-img" />
+        </div>
+
+        <div class="ubicacion-detalles">
+            <h3 id="direccion-ubicacion">Av. Los Próceres 123</h3>
+            <p class="distrito-ubicacion" id="distrito-ubicacion">San Juan de Lurigancho, Lima</p>
+            <div class="precision-gps">
+                📍 Precisión GPS: 12m
+            </div>
+        </div>
+
+        <div class="puntos-interes">
+            <h3>Puntos de interés cercanos</h3>
+            <div class="punto-item">
+                <div class="punto-icon azul">🚔</div>
+                <div class="punto-info">
+                    <h4>Comisaría PNP</h4>
+                    <p>0.8 km</p>
+                </div>
+            </div>
+            <div class="punto-item">
+                <div class="punto-icon verde">👥</div>
+                <div class="punto-info">
+                    <h4>Junta Vecinal</h4>
+                    <p>0.1 km</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-asignar" onclick="asignarUnidad()">👥 Asignar unidad</button>
+        <div class="acciones-secundarias">
+            <button class="btn-accion-sec" onclick="solicitarApoyo()">⏱ Solicitar apoyo</button>
+            <button class="btn-accion-sec" onclick="verEvidencias()">📷 Evidencias</button>
+        </div>
+    </div>
+
+    <!-- Tab: Bitácora -->
+    <div id="tab-bitacora" class="tab-content">
+        <div class="bitacora-container">
+            <h2>⏱ Bitácora de eventos</h2>
+
+            <!-- Evento 1 -->
+            <div class="bitacora-evento">
+                <div class="evento-icon morado">🔔</div>
+                <div class="evento-contenido">
+                    <div class="evento-tiempo">20:41</div>
+                    <h4>Sistema</h4>
+                    <p>Alerta vecinal recibida desde sirena comunitaria</p>
+                </div>
+            </div>
+
+            <!-- Evento 2 -->
+            <div class="bitacora-evento">
+                <div class="evento-icon azul">✓</div>
+                <div class="evento-contenido">
+                    <div class="evento-tiempo">20:43</div>
+                    <h4>Operador Torres</h4>
+                    <p>Alerta validada - Ubicación coherente y contacto verificado</p>
+                </div>
+            </div>
+
+            <!-- Evento 3 -->
+            <div class="bitacora-evento">
+                <div class="evento-icon verde">📄</div>
+                <div class="evento-contenido">
+                    <div class="evento-tiempo">20:45</div>
+                    <h4>Operador Torres</h4>
+                    <p>Incidente SEC-42437 creado desde alarma vecinal</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-asignar" onclick="asignarUnidad()">👥 Asignar unidad</button>
+        <div class="acciones-secundarias">
+            <button class="btn-accion-sec" onclick="solicitarApoyo()">⏱ Solicitar apoyo</button>
+            <button class="btn-accion-sec" onclick="verEvidencias()">📷 Evidencias</button>
+        </div>
+    </div>
+</div>
+
+<!-- JS específico -->
+<script src="Secured-Landing-Page/public/assets/scripts/alertas-vecinales.js"></script>
+</body>
+</html>
+
