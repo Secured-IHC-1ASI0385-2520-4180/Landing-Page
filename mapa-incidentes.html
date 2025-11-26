@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapa de incidentes</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/mapa-incidentes.css" />
+</head>
+<body>
+
+<!-- VISTA 1: Mapa de incidentes -->
+<div id="vista-mapa" class="vista active">
+    <header class="header">
+        <button class="back-btn" onclick="window.location.href='variaciones-varias.html'">←</button>
+        <h1>Mapa de incidentes</h1>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </header>
+
+    <!-- Buscador -->
+    <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Buscar por código, placa o texto..." />
+    </div>
+
+    <!-- Filtros de prioridad -->
+    <div class="priority-filters">
+        <button class="filter-btn" onclick="toggleFiltrosModal()">
+            <span class="icon">⚙️</span> Filtros
+        </button>
+        <button class="priority-btn alta" onclick="filtrarPorPrioridad('alta')" data-prioridad="alta">Alta</button>
+        <button class="priority-btn media" onclick="filtrarPorPrioridad('media')" data-prioridad="media">Media</button>
+        <button class="priority-btn baja" onclick="filtrarPorPrioridad('baja')" data-prioridad="baja">Baja</button>
+    </div>
+
+    <!-- Contador de incidentes y quitar filtros -->
+    <div class="resultados-header">
+        <span id="contador-incidentes">Mostrando 3 incidentes</span>
+        <button class="quitar-filtros" onclick="quitarFiltros()">✕ Quitar filtros</button>
+    </div>
+
+    <!-- Mapa -->
+    <div class="mapa-container">
+        <img src="Secured-Landing-Page/public/assets/images/mapa-incidentes.png" alt="Mapa" class="mapa-img" />
+
+        <!-- Badge de incidentes aplicados -->
+        <div class="aplicadas-badge">
+            <span>Aplicadas</span>
+            <span class="count">5 incidentes</span>
+        </div>
+
+        <!-- Controles de zoom -->
+        <div class="zoom-controls">
+            <button class="zoom-btn" onclick="zoomIn()">+</button>
+            <button class="zoom-btn" onclick="zoomOut()">−</button>
+        </div>
+
+        <!-- Botón de ubicación -->
+        <button class="ubicacion-btn" onclick="centrarUbicacion()">📍</button>
+
+        <!-- Marcadores de incidentes (se generarán dinámicamente) -->
+        <div id="marcadores-container"></div>
+    </div>
+
+    <!-- Botón para cambiar a vista de lista -->
+    <button class="vista-lista-btn" onclick="mostrarVistaLista()">📋 Ver lista</button>
+</div>
+
+<!-- VISTA 2: Lista de incidentes -->
+<div id="vista-lista" class="vista">
+    <header class="header">
+        <button class="back-btn" onclick="volverAMapa()">←</button>
+        <div class="header-content">
+            <h1>Lista de incidentes</h1>
+            <p class="subtitle" id="lista-contador">5 resultados</p>
+        </div>
+        <button class="mapa-btn" onclick="volverAMapa()">🗺</button>
+    </header>
+
+    <!-- Filtros -->
+    <div class="priority-filters">
+        <button class="filter-btn" onclick="toggleFiltrosModal()">
+            <span class="icon">⚙️</span> Filtros
+        </button>
+        <button class="priority-btn alta" onclick="filtrarEnLista('alta')">Alta</button>
+        <button class="priority-btn media" onclick="filtrarEnLista('media')">Media</button>
+        <button class="priority-btn baja" onclick="filtrarEnLista('baja')">Baja</button>
+    </div>
+
+    <!-- Ordenar -->
+    <div class="ordenar-bar">
+        <span class="ordenar-label">↕ Ordenar por:</span>
+        <button class="orden-btn active" onclick="ordenarPor('reciente')">Reciente</button>
+        <button class="orden-btn" onclick="ordenarPor('distancia')">Distancia</button>
+    </div>
+
+    <!-- Resultado y quitar filtros -->
+    <div class="resultados-header lista">
+        <span id="lista-mostrando">Mostrando 1 incidente</span>
+        <button class="quitar-filtros" onclick="quitarFiltros()">✕ Quitar filtros</button>
+    </div>
+
+    <!-- Lista de incidentes -->
+    <div id="incidentes-lista" class="incidentes-lista">
+        <!-- Los incidentes se generarán dinámicamente -->
+    </div>
+</div>
+
+<!-- VISTA 3: Estado sin resultados -->
+<div id="vista-sin-resultados" class="vista">
+    <header class="header">
+        <button class="back-btn" onclick="volverAMapa()">←</button>
+        <h1>Mapa de incidentes</h1>
+        <button class="menu-btn">☰</button>
+    </header>
+
+    <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Buscar por código, placa o texto..." />
+    </div>
+
+    <div class="priority-filters">
+        <button class="filter-btn" onclick="toggleFiltrosModal()">
+            <span class="icon">⚙️</span> Filtros
+        </button>
+        <button class="priority-btn alta active">Alta</button>
+        <button class="priority-btn media">Media</button>
+        <button class="priority-btn baja">Baja</button>
+    </div>
+
+    <div class="resultados-header">
+        <span>Mostrando 0 incidentes</span>
+        <button class="quitar-filtros" onclick="quitarFiltros()">✕ Quitar filtros</button>
+    </div>
+
+    <div class="sin-resultados">
+        <div class="sin-resultados-icono">📍</div>
+        <h2>Sin resultados</h2>
+        <p>No se encontraron incidentes con los filtros aplicados. Intenta ajustar los criterios de búsqueda.</p>
+        <button class="btn-limpiar" onclick="limpiarFiltros()">Limpiar filtros</button>
+    </div>
+</div>
+
+<!-- MODAL: Filtros -->
+<div id="modal-filtros" class="modal">
+    <div class="modal-overlay" onclick="toggleFiltrosModal()"></div>
+    <div class="modal-content filtros-modal">
+        <div class="modal-header">
+            <h2>Filtros</h2>
+            <button class="close-btn" onclick="toggleFiltrosModal()">✕</button>
+        </div>
+
+        <div class="modal-body">
+            <!-- Prioridad -->
+            <div class="filtro-section">
+                <h3>Prioridad</h3>
+                <div class="filtro-chips">
+                    <button class="chip" onclick="toggleChip(this)" data-filtro="prioridad" data-valor="alta">Alta</button>
+                    <button class="chip" onclick="toggleChip(this)" data-filtro="prioridad" data-valor="media">Media</button>
+                    <button class="chip" onclick="toggleChip(this)" data-filtro="prioridad" data-valor="baja">Baja</button>
+                </div>
+            </div>
+
+            <!-- Tipo de incidente -->
+            <div class="filtro-section">
+                <h3>Tipo de incidente</h3>
+                <div class="filtro-opciones">
+                    <button class="opcion-btn" onclick="toggleOpcion(this)" data-filtro="tipo" data-valor="alteracion">
+                        <span class="opcion-icon">⚠️</span>
+                        <span class="opcion-texto">Alteración</span>
+                        <span class="opcion-check">☐</span>
+                    </button>
+                    <button class="opcion-btn" onclick="toggleOpcion(this)" data-filtro="tipo" data-valor="sospechoso">
+                        <span class="opcion-icon">👁</span>
+                        <span class="opcion-texto">Sospechoso</span>
+                        <span class="opcion-check">☐</span>
+                    </button>
+                    <button class="opcion-btn" onclick="toggleOpcion(this)" data-filtro="tipo" data-valor="ruido">
+                        <span class="opcion-icon">🔊</span>
+                        <span class="opcion-texto">Ruido</span>
+                        <span class="opcion-check">☐</span>
+                    </button>
+                    <button class="opcion-btn" onclick="toggleOpcion(this)" data-filtro="tipo" data-valor="accidente">
+                        <span class="opcion-icon">🚗</span>
+                        <span class="opcion-texto">Accidente</span>
+                        <span class="opcion-check">☑</span>
+                    </button>
+                    <button class="opcion-btn" onclick="toggleOpcion(this)" data-filtro="tipo" data-valor="robo">
+                        <span class="opcion-icon">🛍</span>
+                        <span class="opcion-texto">Robo</span>
+                        <span class="opcion-check">☐</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tiempo -->
+            <div class="filtro-section">
+                <h3>Tiempo</h3>
+                <div class="filtro-chips">
+                    <button class="chip" onclick="toggleChipUnico(this)">Última hora</button>
+                    <button class="chip" onclick="toggleChipUnico(this)">Hoy</button>
+                    <button class="chip" onclick="toggleChipUnico(this)">Esta semana</button>
+                    <button class="chip" onclick="toggleChipUnico(this)">Todos</button>
+                </div>
+            </div>
+
+            <!-- Jurisdicción -->
+            <div class="filtro-section">
+                <h3>Jurisdicción</h3>
+                <div class="filtro-radios">
+                    <label class="radio-opcion">
+                        <input type="radio" name="jurisdiccion" value="san-isidro" />
+                        <span>San Isidro</span>
+                    </label>
+                    <label class="radio-opcion">
+                        <input type="radio" name="jurisdiccion" value="miraflores" />
+                        <span>Miraflores</span>
+                    </label>
+                    <label class="radio-opcion">
+                        <input type="radio" name="jurisdiccion" value="san-borja" checked />
+                        <span>San Borja</span>
+                    </label>
+                    <label class="radio-opcion">
+                        <input type="radio" name="jurisdiccion" value="surco" />
+                        <span>Surco</span>
+                    </label>
+                    <label class="radio-opcion">
+                        <input type="radio" name="jurisdiccion" value="la-molina" />
+                        <span>La Molina</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-secondary" onclick="limpiarFiltrosModal()">Limpiar</button>
+            <button class="btn-primary" onclick="aplicarFiltros()">Aplicar y ver</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL: Detalle del incidente -->
+<div id="modal-detalle" class="modal">
+    <div class="modal-overlay" onclick="cerrarDetalle()"></div>
+    <div class="modal-content detalle-modal">
+        <button class="close-btn-top" onclick="cerrarDetalle()">✕</button>
+
+        <div class="detalle-header">
+            <div class="detalle-icono">🚗</div>
+            <div class="detalle-info">
+                <div class="detalle-codigo">
+                    <span id="detalle-codigo">INC-2024-004</span>
+                    <span class="badge-alta" id="detalle-badge">Alta</span>
+                </div>
+                <h3 id="detalle-titulo">Accidente de tránsito menor</h3>
+            </div>
+        </div>
+
+        <div class="detalle-body">
+            <div class="detalle-item">
+                <span class="detalle-icon">🚗</span>
+                <div class="detalle-texto">
+                    <span class="detalle-label">Tipo</span>
+                    <span class="detalle-value" id="detalle-tipo">Accidente de tránsito</span>
+                </div>
+            </div>
+
+            <div class="detalle-item">
+                <span class="detalle-icon">📍</span>
+                <div class="detalle-texto">
+                    <span class="detalle-label">Ubicación</span>
+                    <span class="detalle-value" id="detalle-ubicacion">Av. Aviación 234</span>
+                    <span class="detalle-extra" id="detalle-distrito">San Borja • 0.3 km</span>
+                </div>
+            </div>
+
+            <div class="detalle-item">
+                <span class="detalle-icon">⏰</span>
+                <div class="detalle-texto">
+                    <span class="detalle-label">Hora</span>
+                    <span class="detalle-value" id="detalle-hora">Ahora</span>
+                </div>
+            </div>
+
+            <div class="detalle-item">
+                <span class="detalle-icon estado-activo">🟢</span>
+                <div class="detalle-texto">
+                    <span class="detalle-label">Estado</span>
+                    <span class="detalle-value" id="detalle-estado">Activo</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="detalle-footer">
+            <button class="btn-detalle-secondary" onclick="verDetalleCompleto()">
+                📄 Ver detalle
+            </button>
+            <button class="btn-detalle-primary" onclick="navegarAIncidente()">
+                ➜ Navegar
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- JS específico -->
+<script src="Secured-Landing-Page/public/assets/scripts/mapa-incidentes.js"></script>
+</body>
+</html>
+
