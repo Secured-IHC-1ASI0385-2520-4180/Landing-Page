@@ -344,7 +344,7 @@ function quitarFiltros() {
     // Limpiar modal
     limpiarFiltrosModal();
 
-    // Aplicar filtros (sin filtros = mostrar todo)
+    // Aplicar filtros (sin filtros = mostrar)
     aplicarFiltrosActivos();
 }
 
