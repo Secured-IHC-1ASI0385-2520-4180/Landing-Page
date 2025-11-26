@@ -1,8 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-    // ------------------------------
-    // Utilidad para cambiar de vista
-    // ------------------------------
+
     const views = document.querySelectorAll(".view");
 
     function showView(id) {
@@ -22,9 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         destinatarios: 20,
     };
 
-    // ------------------------------
-    // 1) Centro de alertas
-    // ------------------------------
+
     const btnNewBroadcast = document.getElementById("btnNewBroadcast");
 
     if (btnNewBroadcast) {
@@ -47,9 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ------------------------------
-    // 2) Paso 1 – Detalle
-    // ------------------------------
+
     const formNewBroadcast = document.getElementById("formNewBroadcast");
     const titleInput = document.getElementById("titleInput");
     const messageInput = document.getElementById("messageInput");
@@ -107,9 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.addEventListener("click", () => showView("view-alert-center"));
     });
 
-    // ------------------------------
-    // 3) Paso 2 – Alcance y audiencia
-    // ------------------------------
+
     const btnBackToStep1 = document.getElementById("btnBackToStep1");
     const btnToReview = document.getElementById("btnToReview");
     const selectedZoneLabel = document.getElementById("selectedZoneLabel");
@@ -170,9 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showView("view-new-broadcast-step3");
     });
 
-    // ------------------------------
-    // 4) Paso 3 – Revisión final
-    // ------------------------------
+
     const btnReviewEdit = document.getElementById("btnReviewEdit");
     const btnSendNow = document.getElementById("btnSendNow");
 
@@ -202,9 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showView("view-broadcast-detail");
     });
 
-    // ------------------------------
-    // 5) Detalle de broadcast
-    // ------------------------------
+
     const btnDuplicateBroadcast = document.getElementById(
         "btnDuplicateBroadcast"
     );
@@ -252,9 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showView("view-broadcast-detail");
     });
 
-    // ------------------------------
-    // 6) Seguimiento de entrega
-    // ------------------------------
+
     const tabs = document.querySelectorAll(".tab");
     const recipientCards = document.querySelectorAll(".recipient-card");
 
