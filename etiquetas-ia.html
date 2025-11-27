@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Etiquetas Sugeridas por IA</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/etiquetas-ia.css" />
+</head>
+<body>
+
+<!-- ================================
+   VISTA PRINCIPAL
+================================= -->
+<div id="vista-principal" class="view active">
+    <header class="header">
+        <a href="variaciones-varias.html" class="back-btn">←</a>
+        <div class="header-title">
+            <h1>Etiquetas sugeridas por IA</h1>
+            <span class="header-subtitle">Análisis automático de contenido</span>
+        </div>
+        <div class="header-spacer"></div>
+    </header>
+
+    <div class="content">
+        <!-- Card de funcionalidades -->
+        <div class="info-card purple">
+            <div class="card-header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+                <h3>Funcionalidades de IA:</h3>
+            </div>
+            <ul class="feature-list">
+                <li>• Análisis automático de descripción</li>
+                <li>• Sugerencias con nivel de confianza (Alta/Media/Baja)</li>
+                <li>• Selección rápida con un toque</li>
+                <li>• Feedback para mejorar sugerencias</li>
+                <li>• Funciona offline con selección manual</li>
+            </ul>
+        </div>
+
+        <!-- Card de prueba -->
+        <div class="info-card blue">
+            <div class="card-header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2"/>
+                    <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <h3>Pruébalo:</h3>
+            </div>
+            <p class="info-text">
+                Escribe palabras como "vehículo", "persona", "robo", "ruido", "edificio" en la descripción para ver las sugerencias de IA en acción.
+            </p>
+        </div>
+
+        <!-- Formulario de descripción -->
+        <div class="form-section">
+            <label for="description-input">Descripción del incidente</label>
+            <textarea
+                id="description-input"
+                placeholder="Describe lo que está ocurriendo..."
+                rows="4"
+            ></textarea>
+            <div class="char-count">
+                <span id="char-counter">0</span> / 500
+            </div>
+        </div>
+
+        <!-- Botón de sugerencias -->
+        <button id="analyze-btn" class="analyze-btn" onclick="analyzeTags()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            Sugerencias (IA)
+        </button>
+
+        <!-- Estado de sugerencias -->
+        <div id="suggestions-state" class="suggestions-state">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <span id="suggestions-text">Sin sugerencias por ahora. Puedes elegir etiquetas manualmente.</span>
+        </div>
+
+        <!-- Sección de etiquetas -->
+        <div class="tags-section">
+            <h3>Etiquetas</h3>
+            <div id="empty-tags" class="empty-tags">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" stroke="currentColor" stroke-width="2"/>
+                    <line x1="7" y1="7" x2="7.01" y2="7" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <p class="empty-title">Sin etiquetas aplicadas</p>
+                <p class="empty-subtitle">Selecciona sugerencias o agrega manualmente</p>
+            </div>
+
+            <!-- Contenedor de etiquetas aplicadas (oculto por defecto) -->
+            <div id="applied-tags" class="applied-tags" style="display: none;">
+                <div class="applied-tags-header">
+                    <h4>Etiquetas aplicadas</h4>
+                    <button class="edit-btn" onclick="editTags()">Editar</button>
+                </div>
+                <div id="tags-list" class="tags-list">
+                    <!-- Las etiquetas se agregarán aquí dinámicamente -->
+                </div>
+
+                <!-- Sección de ayuda -->
+                <div class="help-section">
+                    <h4>Ayúdanos a mejorar:</h4>
+                    <div id="feedback-tags" class="feedback-tags">
+                        <!-- Se llenará dinámicamente -->
+                    </div>
+                </div>
+
+                <!-- Resumen -->
+                <div class="summary-section">
+                    <h4>Resumen de etiquetas</h4>
+                    <div class="summary-item">
+                        <span>Total de etiquetas:</span>
+                        <span id="total-tags" class="summary-value">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Sugeridas por IA:</span>
+                        <span id="ia-tags" class="summary-value">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Agregadas manualmente:</span>
+                        <span id="manual-tags" class="summary-value">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================================
+   MODAL: SUGERENCIAS IA
+================================= -->
+<div id="suggestions-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Sugerencias de IA</h3>
+            <button class="close-modal" onclick="closeSuggestionsModal()">×</button>
+        </div>
+        <div class="modal-body">
+            <!-- Estado: Analizando -->
+            <div id="analyzing-state" class="analyzing-state">
+                <div class="spinner"></div>
+                <p>Analizando contenido...</p>
+            </div>
+
+            <!-- Estado: Sugerencias -->
+            <div id="suggestions-list" class="suggestions-list" style="display: none;">
+                <!-- Las sugerencias se agregarán aquí dinámicamente -->
+            </div>
+
+            <button id="apply-suggestions-btn" class="btn-primary" onclick="applySuggestions()" style="display: none;">
+                Aplicar seleccionadas
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ================================
+   MODAL: FEEDBACK
+================================= -->
+<div id="feedback-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>¿Esta sugerencia fue útil?</h3>
+            <button class="close-modal" onclick="closeFeedbackModal()">×</button>
+        </div>
+        <div class="modal-body">
+            <p class="feedback-question">
+                ¿La etiqueta "<strong id="feedback-tag-name"></strong>" fue una sugerencia correcta?
+            </p>
+            <div class="feedback-actions">
+                <button class="feedback-btn feedback-yes" onclick="submitFeedback('yes')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    Sí, fue útil
+                </button>
+                <button class="feedback-btn feedback-no" onclick="submitFeedback('no')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    No fue útil
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="Secured-Landing-Page/public/assets/scripts/etiquetas-ia.js"></script>
+</body>
+</html>
+
