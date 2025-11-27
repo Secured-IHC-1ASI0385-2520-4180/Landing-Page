@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de turno</title>
+
+    <!-- CSS específico de esta sección -->
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/gestion-turno.css">
+</head>
+<body class="gt-page">
+<main class="gt-wrapper">
+
+    <!-- CABECERA -->
+    <header class="gt-page-header">
+        <a href="variaciones-varias.html" class="gt-back-link" aria-label="Volver">
+            ←
+        </a>
+
+        <div class="gt-header-text">
+            <h1 class="gt-page-title">Mi turno</h1>
+            <p class="gt-page-subtitle">08:10 p. m.</p>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <section id="view-turno-principal" class="gt-view gt-view-active" data-view="principal">
+        <div class="gt-layout">
+
+            <!-- Tarjeta de estado actual -->
+            <article class="gt-status-card">
+                <div class="gt-status-header">
+                    <div>
+                        <p class="gt-status-label">Estado actual</p>
+                        <p id="gtStatusText" class="gt-status-value">Fuera de servicio</p>
+                    </div>
+                    <div class="gt-status-avatar" aria-hidden="true">
+                        <span class="gt-avatar-icon">👤</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Botón principal: iniciar turno -->
+            <button id="gtBtnOpenModal" type="button" class="gt-main-button">
+                <span class="gt-main-button-icon">➜</span>
+                <span>Iniciar turno</span>
+            </button>
+
+            <!-- Tarjeta de ayuda -->
+            <article class="gt-info-card">
+                <p class="gt-info-text">
+                    Para iniciar turno, selecciona tu tipo de servicio y unidad (si aplica).
+                    Quedarás registrado como <strong>“Disponible”</strong>.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- MODAL: INICIAR TURNO -->
+    <section id="view-turno-modal" class="gt-modal-overlay" aria-hidden="true">
+        <div class="gt-modal" role="dialog" aria-modal="true" aria-labelledby="gtModalTitle">
+            <header class="gt-modal-header">
+                <h2 id="gtModalTitle" class="gt-modal-title">Iniciar turno</h2>
+                <button id="gtBtnCloseModal" type="button" class="gt-modal-close" aria-label="Cerrar">
+                    ✕
+                </button>
+            </header>
+
+            <div class="gt-modal-body">
+                <!-- Base / sector -->
+                <div class="gt-modal-location">
+                    <span class="gt-location-icon">📍</span>
+                    <span class="gt-location-text">Base Central · Sector Norte</span>
+                </div>
+
+                <!-- Tipo de servicio -->
+                <div class="gt-modal-field">
+                    <label class="gt-field-label">
+                        Tipo de servicio <span class="gt-field-required">*</span>
+                    </label>
+
+                    <div id="gtServiceList" class="gt-service-list">
+                        <button type="button" class="gt-service-option" data-service="A pie">
+                            <span class="gt-service-icon">🚶</span>
+                            <span class="gt-service-text">A pie</span>
+                        </button>
+
+                        <button type="button" class="gt-service-option" data-service="No motorizado (bicicleta)">
+                            <span class="gt-service-icon">🚲</span>
+                            <span class="gt-service-text">No motorizado (bicicleta)</span>
+                        </button>
+
+                        <button type="button" class="gt-service-option" data-service="En caseta">
+                            <span class="gt-service-icon">🏢</span>
+                            <span class="gt-service-text">En caseta</span>
+                        </button>
+
+                        <button type="button" class="gt-service-option" data-service="Motorizado">
+                            <span class="gt-service-icon">🚔</span>
+                            <span class="gt-service-text">Motorizado</span>
+                        </button>
+                    </div>
+
+                    <p id="gtServiceError" class="gt-field-error" aria-live="polite"></p>
+                </div>
+
+                <p class="gt-modal-hint">
+                    Al iniciar turno quedarás registrado como <strong>“Disponible”</strong>
+                    y aparecerás en el tablero de despacho.
+                </p>
+            </div>
+
+            <footer class="gt-modal-footer">
+                <button id="gtBtnStartShift" type="button" class="gt-confirm-button">
+                    Iniciar turno
+                </button>
+            </footer>
+        </div>
+    </section>
+
+</main>
+
+<!-- JS específico de esta sección -->
+<script src="Secured-Landing-Page/public/assets/scripts/gestion-turno.js"></script>
+</body>
+</html>
