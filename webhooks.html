@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Webhooks</title>
+
+    <!-- CSS específico de esta sección -->
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/webhooks.css" />
+</head>
+
+<body class="wh-page">
+<main class="wh-wrapper">
+
+
+    <section id="view-webhooks-list" class="wh-view wh-view-active" data-view="lista">
+        <header class="wh-page-header">
+
+            <a href="variaciones-varias.html" class="au-back-button" aria-label="Volver">
+                ←
+            </a>
+
+            <div class="wh-header-text">
+                <h1 class="wh-page-title">Webhooks</h1>
+                <p class="wh-page-subtitle">Suscriptores de eventos</p>
+            </div>
+        </header>
+
+        <!-- Tarjetas resumen (3 / 4 / 14) -->
+        <section class="wh-kpi-row">
+            <article class="wh-kpi-card wh-kpi-activos">
+                <h2 class="wh-kpi-number">3</h2>
+                <p class="wh-kpi-label">Activos</p>
+            </article>
+
+            <article class="wh-kpi-card">
+                <h2 class="wh-kpi-number">4</h2>
+                <p class="wh-kpi-label">Total</p>
+            </article>
+
+            <article class="wh-kpi-card wh-kpi-fallas">
+                <h2 class="wh-kpi-number">14</h2>
+                <p class="wh-kpi-label">Fallas 24h</p>
+            </article>
+        </section>
+
+        <!-- Grid de suscriptores -->
+        <section class="wh-subscribers-grid">
+
+            <!-- Suscriptor 1: Sistema de Reportes Municipal -->
+            <article class="wh-subscriber-card" data-subscriber="municipal">
+                <header class="wh-subscriber-header">
+                    <div>
+                        <h3 class="wh-subscriber-name">Sistema de Reportes Municipal</h3>
+                        <p class="wh-subscriber-url">
+                            https://api.municipalidad.gob.pe/webhooks/incidents
+                        </p>
+                    </div>
+                    <span class="wh-status-pill wh-status-active">Activo</span>
+                </header>
+
+                <div class="wh-subscriber-meta">
+                    <div>
+                        <span class="wh-meta-label">Última entrega</span>
+                        <span class="wh-meta-value">Hace 2 minutos</span>
+                    </div>
+                    <div>
+                        <span class="wh-meta-label">Fallas 24h</span>
+                        <span class="wh-meta-value">0</span>
+                    </div>
+                </div>
+
+                <div class="wh-events-row">
+                    <span class="wh-event-pill">Creación</span>
+                    <span class="wh-event-pill">Cambio de estado</span>
+                    <span class="wh-event-pill">Cierre</span>
+                </div>
+
+                <footer class="wh-card-footer">
+                    <button
+                            type="button"
+                            class="wh-btn wh-btn-secondary wh-btn-icon"
+                            data-action="ver-detalle"
+                            data-subscriber="municipal"
+                    >
+                        <span class="wh-btn-icon-circle">👁</span>
+                        <span>Ver detalle</span>
+                    </button>
+
+                    <button type="button" class="wh-btn wh-btn-warning wh-btn-icon">
+                        <span class="wh-btn-icon-circle">⏸</span>
+                        <span>Pausar</span>
+                    </button>
+                </footer>
+            </article>
+
+            <!-- Suscriptor 2: Dashboard Ejecutivo -->
+            <article class="wh-subscriber-card">
+                <header class="wh-subscriber-header">
+                    <div>
+                        <h3 class="wh-subscriber-name">Dashboard Ejecutivo</h3>
+                        <p class="wh-subscriber-url">
+                            https://dashboard.exec.gob.pe/api/
+                        </p>
+                    </div>
+                    <span class="wh-status-pill wh-status-active">Activo</span>
+                </header>
+
+                <div class="wh-subscriber-meta">
+                    <div>
+                        <span class="wh-meta-label">Última entrega</span>
+                        <span class="wh-meta-value">Hace 5 minutos</span>
+                    </div>
+                    <div>
+                        <span class="wh-meta-label">Fallas 24h</span>
+                        <span class="wh-meta-value">0</span>
+                    </div>
+                </div>
+
+                <div class="wh-events-row">
+                    <span class="wh-event-pill">Cambio de estado</span>
+                    <span class="wh-event-pill">Cierre</span>
+                </div>
+
+                <footer class="wh-card-footer">
+                    <button type="button" class="wh-btn wh-btn-secondary wh-btn-icon">
+                        <span class="wh-btn-icon-circle">👁</span>
+                        <span>Ver detalle</span>
+                    </button>
+
+                    <button type="button" class="wh-btn wh-btn-warning wh-btn-icon">
+                        <span class="wh-btn-icon-circle">⏸</span>
+                        <span>Pausar</span>
+                    </button>
+                </footer>
+            </article>
+
+            <!-- Suscriptor 3: Sistema Legacy de Reporte -->
+            <article class="wh-subscriber-card">
+                <header class="wh-subscriber-header">
+                    <div>
+                        <h3 class="wh-subscriber-name">Sistema Legacy de Reporte</h3>
+                        <p class="wh-subscriber-url">
+                            https://old-system.internal/webhooks/incidents...
+                        </p>
+                    </div>
+                    <span class="wh-status-pill wh-status-disabled">Deshabilitado</span>
+                </header>
+
+                <div class="wh-subscriber-meta">
+                    <div>
+                        <span class="wh-meta-label">Última entrega</span>
+                        <span class="wh-meta-value">Hace 3 horas</span>
+                    </div>
+                    <div>
+                        <span class="wh-meta-label">Fallas 24h</span>
+                        <span class="wh-meta-value">12</span>
+                    </div>
+                </div>
+
+                <div class="wh-events-row">
+                    <span class="wh-event-pill">Creación</span>
+                </div>
+
+                <footer class="wh-card-footer">
+                    <button type="button" class="wh-btn wh-btn-secondary wh-btn-icon">
+                        <span class="wh-btn-icon-circle">👁</span>
+                        <span>Ver detalle</span>
+                    </button>
+
+                    <button type="button" class="wh-btn wh-btn-success wh-btn-icon">
+                        <span class="wh-btn-icon-circle">▶</span>
+                        <span>Activar</span>
+                    </button>
+                </footer>
+            </article>
+
+            <!-- Suscriptor 4: Plataforma de Análisis -->
+            <article class="wh-subscriber-card">
+                <header class="wh-subscriber-header">
+                    <div>
+                        <h3 class="wh-subscriber-name">Plataforma de Análisis</h3>
+                        <p class="wh-subscriber-url">
+                            https://analytics.partner.com/events...
+                        </p>
+                    </div>
+                    <span class="wh-status-pill wh-status-active">Activo</span>
+                </header>
+
+                <div class="wh-subscriber-meta">
+                    <div>
+                        <span class="wh-meta-label">Última entrega</span>
+                        <span class="wh-meta-value">Hace 1 hora</span>
+                    </div>
+                    <div>
+                        <span class="wh-meta-label">Fallas 24h</span>
+                        <span class="wh-meta-value">2</span>
+                    </div>
+                </div>
+
+                <div class="wh-events-row">
+                    <span class="wh-event-pill">Creación</span>
+                    <span class="wh-event-pill">Cambio de estado</span>
+                    <span class="wh-event-pill">Cierre</span>
+                </div>
+
+                <footer class="wh-card-footer">
+                    <button type="button" class="wh-btn wh-btn-secondary wh-btn-icon">
+                        <span class="wh-btn-icon-circle">👁</span>
+                        <span>Ver detalle</span>
+                    </button>
+
+                    <button type="button" class="wh-btn wh-btn-warning wh-btn-icon">
+                        <span class="wh-btn-icon-circle">⏸</span>
+                        <span>Pausar</span>
+                    </button>
+                </footer>
+            </article>
+
+        </section>
+    </section>
+
+    <!-- ===================== VISTA DETALLE SUSCRIPTOR ===================== -->
+    <section id="view-webhooks-detail" class="wh-view" data-view="detalle">
+        <header class="wh-page-header">
+            <button
+                    type="button"
+                    class="wh-back-link"
+                    aria-label="Volver"
+                    id="whBackFromDetail"
+            >
+                ←
+            </button>
+
+            <div class="wh-header-text">
+                <h1 class="wh-page-title">Sistema de Reportes Municipal</h1>
+                <p class="wh-page-subtitle">
+                    https://api.municipalidad.gob.pe/webhooks/incidents
+                </p>
+            </div>
+
+            <button
+                    type="button"
+                    class="wh-icon-button"
+                    aria-label="Editar suscriptor"
+                    id="whOpenEdit"
+            >
+                ✏️
+            </button>
+        </header>
+
+        <!-- Resumen superior -->
+        <section class="wh-detail-summary">
+            <div class="wh-detail-line">
+                <span class="wh-status-pill wh-status-active">Activo</span>
+                <span class="wh-detail-text">
+            Última entrega exitosa:
+            <strong>Hace 2 minutos</strong>
+          </span>
+            </div>
+
+            <div class="wh-events-row">
+                <span class="wh-event-pill">Creación</span>
+                <span class="wh-event-pill">Cambio de estado</span>
+                <span class="wh-event-pill">Cierre</span>
+            </div>
+        </section>
+
+        <!-- Tabs -->
+        <nav class="wh-tabs">
+            <button class="wh-tab wh-tab-active" data-tab="entregas">Entregas</button>
+            <button class="wh-tab" data-tab="fallas">Fallas</button>
+            <button class="wh-tab" data-tab="health">Health</button>
+        </nav>
+
+        <!-- =============== TAB ENTREGAS =============== -->
+        <section class="wh-tab-panel wh-tab-panel-active" data-tab-panel="entregas">
+            <div class="wh-filters-row">
+                <button type="button" class="wh-chip">
+                    ⚙️ Filtros
+                </button>
+            </div>
+
+            <div class="wh-events-grid">
+                <!-- Evento 1 -->
+                <article class="wh-event-card wh-event-ok">
+                    <header class="wh-event-header">
+                        <div>
+                            <h3 class="wh-event-title">Cambio estado</h3>
+                            <p class="wh-event-subtitle">200</p>
+                        </div>
+                        <p class="wh-event-date">31 oct 2025, 14:32</p>
+                    </header>
+
+                    <div class="wh-event-meta">
+                        <span>Latencia: <strong>145ms</strong></span>
+                        <span>Reintentos: <strong>0</strong></span>
+                    </div>
+
+                    <footer class="wh-event-footer">
+                        <button type="button" class="wh-btn wh-btn-secondary">
+                            Ver payload
+                        </button>
+                    </footer>
+                </article>
+
+                <!-- Evento 2 -->
+                <article class="wh-event-card wh-event-ok">
+                    <header class="wh-event-header">
+                        <div>
+                            <h3 class="wh-event-title">Creación</h3>
+                            <p class="wh-event-subtitle">200</p>
+                        </div>
+                        <p class="wh-event-date">31 oct 2025, 14:28</p>
+                    </header>
+
+                    <div class="wh-event-meta">
+                        <span>Latencia: <strong>98ms</strong></span>
+                        <span>Reintentos: <strong>0</strong></span>
+                    </div>
+
+                    <footer class="wh-event-footer">
+                        <button type="button" class="wh-btn wh-btn-secondary">
+                            Ver payload
+                        </button>
+                    </footer>
+                </article>
+            </div>
+        </section>
+
+        <!-- =============== TAB FALLAS =============== -->
+        <section class="wh-tab-panel" data-tab-panel="fallas">
+            <div class="wh-alert wh-alert-warning">
+                <div class="wh-alert-icon">⚠️</div>
+                <div>
+                    <p class="wh-alert-title">Fallas recurrentes detectadas</p>
+                    <p class="wh-alert-text">
+                        Algunos webhooks han fallado múltiples veces.
+                        Verifica la disponibilidad del endpoint.
+                    </p>
+                </div>
+            </div>
+
+            <div class="wh-events-grid">
+                <!-- Falla 1 -->
+                <article class="wh-event-card wh-event-error">
+                    <header class="wh-event-header">
+                        <div>
+                            <h3 class="wh-event-title">Cierre</h3>
+                            <p class="wh-event-subtitle">500 · Error del servidor</p>
+                        </div>
+                        <p class="wh-event-date">31 oct 2025, 14:15</p>
+                    </header>
+
+                    <div class="wh-event-meta">
+                        <span>Latencia: <strong>2340ms</strong></span>
+                        <span>Reintentos: <strong>3 / 5</strong></span>
+                    </div>
+
+                    <footer class="wh-event-footer">
+                        <button type="button" class="wh-btn wh-btn-secondary">
+                            Ver payload
+                        </button>
+                        <button type="button" class="wh-btn wh-btn-primary">
+                            Reintentar
+                        </button>
+                    </footer>
+                </article>
+
+                <!-- Falla 2 -->
+                <article class="wh-event-card wh-event-error">
+                    <header class="wh-event-header">
+                        <div>
+                            <h3 class="wh-event-title">Creación</h3>
+                            <p class="wh-event-subtitle">422 · Error del cliente</p>
+                        </div>
+                        <p class="wh-event-date">31 oct 2025, 13:55</p>
+                    </header>
+
+                    <div class="wh-event-meta">
+                        <span>Latencia: <strong>523ms</strong></span>
+                        <span>Reintentos: <strong>1 / 5</strong></span>
+                    </div>
+
+                    <footer class="wh-event-footer">
+                        <button type="button" class="wh-btn wh-btn-secondary">
+                            Ver payload
+                        </button>
+                        <button type="button" class="wh-btn wh-btn-disabled">
+                            No reintentar
+                        </button>
+                    </footer>
+                </article>
+
+                <!-- Falla 3 -->
+                <article class="wh-event-card wh-event-error">
+                    <header class="wh-event-header">
+                        <div>
+                            <h3 class="wh-event-title">Cambio estado</h3>
+                            <p class="wh-event-subtitle">504 · Error del servidor</p>
+                        </div>
+                        <p class="wh-event-date">31 oct 2025, 12:18</p>
+                    </header>
+
+                    <div class="wh-event-meta">
+                        <span>Latencia: <strong>30000ms</strong></span>
+                        <span>Reintentos: <strong>4 / 5</strong></span>
+                    </div>
+
+                    <footer class="wh-event-footer">
+                        <button type="button" class="wh-btn wh-btn-secondary">
+                            Ver payload
+                        </button>
+                        <button type="button" class="wh-btn wh-btn-primary">
+                            Reintentar
+                        </button>
+                    </footer>
+                </article>
+            </div>
+        </section>
+
+        <!-- =============== TAB HEALTH (placeholder) =============== -->
+        <section class="wh-tab-panel" data-tab-panel="health">
+            <p class="wh-placeholder">
+                Health del suscriptor (placeholder).
+            </p>
+        </section>
+    </section>
+
+    <!-- ===================== MODAL EDITAR SUSCRIPTOR ===================== -->
+    <div id="whEditModal" class="wh-modal" aria-hidden="true">
+        <div class="wh-modal-backdrop"></div>
+
+        <div class="wh-modal-dialog" role="dialog" aria-modal="true">
+            <header class="wh-modal-header">
+                <h2 class="wh-modal-title">Editar suscriptor</h2>
+                <button
+                        type="button"
+                        class="wh-modal-close"
+                        aria-label="Cerrar"
+                        id="whCloseEdit"
+                >
+                    ✕
+                </button>
+            </header>
+
+            <form class="wh-modal-body" id="whEditForm">
+                <div class="wh-form-group">
+                    <label for="whNombre">Nombre del suscriptor</label>
+                    <input
+                            type="text"
+                            id="whNombre"
+                            value="Sistema de Reportes Municipal"
+                    />
+                </div>
+
+                <div class="wh-form-group">
+                    <label for="whEndpoint">Endpoint (URL)</label>
+                    <input
+                            type="url"
+                            id="whEndpoint"
+                            value="https://api.municipalidad.gob.pe/webhooks/incidents"
+                    />
+                </div>
+
+                <div class="wh-form-group">
+                    <p class="wh-label">Eventos suscritos</p>
+                    <div class="wh-checkbox-grid">
+                        <label>
+                            <input type="checkbox" checked />
+                            Creación de incidente
+                        </label>
+                        <label>
+                            <input type="checkbox" checked />
+                            Cambio de estado
+                        </label>
+                        <label>
+                            <input type="checkbox" checked />
+                            Cierre de incidente
+                        </label>
+                    </div>
+                </div>
+
+                <footer class="wh-modal-footer">
+                    <button
+                            type="button"
+                            class="wh-btn wh-btn-secondary"
+                            id="whCancelEdit"
+                    >
+                        Cancelar
+                    </button>
+                    <button type="submit" class="wh-btn wh-btn-primary">
+                        Guardar cambios
+                    </button>
+                </footer>
+            </form>
+        </div>
+    </div>
+</main>
+
+<!-- JS específico de esta sección -->
+<script src="Secured-Landing-Page/public/assets/scripts/webhooks.js"></script>
+</body>
+</html>
