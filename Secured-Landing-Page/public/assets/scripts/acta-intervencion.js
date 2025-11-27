@@ -96,7 +96,7 @@ function updateFormProgress() {
         progressCount.textContent = `${completedSections}/${totalSections}`;
     }
 
-    // Habilitar botón de firmas si todo está completo
+    // Habilitar botón de firmas
     const allRequired = document.querySelectorAll('.accordion-item.required');
     const allRequiredComplete = Array.from(allRequired).every(item =>
         item.classList.contains('completed')
