@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Co-despacho de unidades</title>
+
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/co-despacho.css" />
+</head>
+<body class="cd-page">
+<main class="cd-wrapper">
+
+    <!-- VISTA 1: CO-DESPACHAR UNIDADES (INICIO) -->
+    <section class="cd-view cd-view-active" data-view="inicio">
+        <header class="cd-page-header">
+            <!-- Volver al dashboard -->
+            <a href="variaciones-varias.html" class="cd-back-button" aria-label="Volver">
+                ←
+            </a>
+            <div class="cd-header-text">
+                <h1 class="cd-page-title">Co-despachar unidades</h1>
+                <p class="cd-page-subtitle">INC-2024-002</p>
+            </div>
+        </header>
+
+        <section class="cd-layout-inicio">
+            <!-- Columna izquierda: incidente -->
+            <div class="cd-col">
+                <article class="cd-card cd-incident-card">
+                    <header class="cd-incident-header">
+                        <div class="cd-priority-group">
+                            <span class="cd-chip cd-chip-danger">Prioridad Alta</span>
+                            <span class="cd-chip cd-chip-soft">
+                  Accidente de tránsito con heridos
+                </span>
+                        </div>
+                        <div class="cd-incident-id">INC-2024-002</div>
+                        <div class="cd-incident-location">
+                            Cruce Av. Universitaria con Av. Venezuela
+                        </div>
+                    </header>
+                </article>
+
+                <article class="cd-card cd-info-card">
+                    <div class="cd-info-icon">ℹ</div>
+                    <div class="cd-info-text">
+                        <h2 class="cd-info-title">Co-despacho de múltiples unidades</h2>
+                        <p class="cd-info-body">
+                            Asigna una unidad primaria y unidades de apoyo al mismo incidente.
+                            El sistema calculará el ETA combinado y enviará órdenes
+                            diferenciadas con roles específicos.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Columna centro: configuración de roles -->
+            <div class="cd-col">
+                <h2 class="cd-section-title">Configuración de roles</h2>
+
+                <!-- Unidad primaria -->
+                <article
+                        class="cd-card cd-role-card cd-role-card-primary"
+                        data-goto="seleccion"
+                        data-role="primaria"
+                >
+                    <div class="cd-role-icon cd-role-icon-primary">★</div>
+                    <div class="cd-role-content">
+                        <h3 class="cd-role-title">Unidad Primaria</h3>
+                        <p class="cd-role-text">
+                            Responsable principal del incidente. Debe llegar primero y
+                            coordinar con los apoyos.
+                        </p>
+                        <div class="cd-role-footer">
+                            <span class="cd-chip cd-chip-outline">Obligatorio (1)</span>
+                            <span class="cd-role-tag">Primera en responder</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Unidades de apoyo -->
+                <article
+                        class="cd-card cd-role-card cd-role-card-support"
+                        data-goto="seleccion"
+                        data-role="apoyo"
+                >
+                    <div class="cd-role-icon cd-role-icon-support">👥</div>
+                    <div class="cd-role-content">
+                        <h3 class="cd-role-title">Unidades de Apoyo</h3>
+                        <p class="cd-role-text">
+                            Brindan soporte especializado (K9, Tránsito, Rescate, etc.) o
+                            refuerzo adicional según el tipo de incidente.
+                        </p>
+                        <div class="cd-role-footer">
+                            <span class="cd-chip cd-chip-outline">Opcional (N)</span>
+                            <span class="cd-role-tag">Múltiples especialidades</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Columna derecha: requisitos y alerta -->
+            <div class="cd-col cd-col-right">
+                <article class="cd-card cd-req-card">
+                    <h2 class="cd-section-title">Requisitos del co-despacho</h2>
+                    <ul class="cd-req-list">
+                        <li>Mínimo 1 unidad primaria (obligatorio)</li>
+                        <li>0 o más unidades de apoyo según necesidad</li>
+                        <li>Todas las unidades recibirán orden individual con su rol</li>
+                        <li>Opción de crear canal de coordinación temporal</li>
+                    </ul>
+                </article>
+
+                <article class="cd-card cd-alert-card">
+                    <div class="cd-alert-header">
+                        <span class="cd-alert-icon">⚠</span>
+                        <span class="cd-alert-title">Incidente de prioridad alta</span>
+                    </div>
+                    <p class="cd-alert-text">
+                        Considera asignar unidades de apoyo para garantizar una respuesta
+                        rápida y efectiva. Queda 8 min de SLA.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <div class="cd-actions-bottom">
+            <button
+                    type="button"
+                    class="cd-btn cd-btn-primary cd-btn-lg"
+                    data-goto="seleccion"
+                    data-role="primaria"
+            >
+                Seleccionar unidades
+            </button>
+        </div>
+    </section>
+
+    <!-- VISTA 2: SELECCIONAR UNIDADES (ROLES PRIMARIA / APOYO) -->
+    <section class="cd-view" data-view="seleccion">
+        <header class="cd-page-header">
+            <button
+                    class="cd-back-button"
+                    type="button"
+                    aria-label="Volver"
+                    data-goto="inicio"
+            >
+                ←
+            </button>
+            <div class="cd-header-text">
+                <h1 class="cd-page-title">Seleccionar unidades</h1>
+                <p class="cd-page-subtitle">INC-2024-002</p>
+            </div>
+            <button type="button" class="cd-filter-icon" aria-label="Filtros">
+                ⛃
+            </button>
+        </header>
+
+        <!-- Tarjeta: Asignando rol -->
+        <section class="cd-card cd-assign-role-card">
+            <h2 class="cd-section-title">Asignando rol:</h2>
+            <div class="cd-role-tabs">
+                <button
+                        type="button"
+                        class="cd-role-tab cd-role-tab-active"
+                        data-role-switch="primaria"
+                >
+                    <span class="cd-role-tab-title">Primaria</span>
+                    <span class="cd-role-tab-sub" id="cd-primaria-status">
+              Requerido
+            </span>
+                </button>
+
+                <button
+                        type="button"
+                        class="cd-role-tab"
+                        data-role-switch="apoyo"
+                >
+                    <span class="cd-role-tab-title">Apoyo</span>
+                    <span class="cd-role-tab-sub" id="cd-apoyo-status">
+              0 seleccionados
+            </span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Tarjeta: Unidades seleccionadas -->
+        <section class="cd-card cd-selected-card">
+            <h2 class="cd-section-title">Unidades seleccionadas</h2>
+            <div id="cd-selected-list" class="cd-selected-list">
+                <p class="cd-muted">
+                    Aún no has seleccionado unidades. Elige una unidad primaria para
+                    continuar.
+                </p>
+            </div>
+        </section>
+
+        <!-- Lista de candidatos -->
+        <section class="cd-candidates-section">
+            <h2 class="cd-section-title">
+                Candidatos disponibles <span class="cd-muted">(4)</span>
+            </h2>
+
+            <div class="cd-candidates-grid">
+                <!-- PNP-102 -->
+                <article
+                        class="cd-unit-card"
+                        data-unit-id="pnp-102"
+                        data-unit-label="PNP-102"
+                        data-eta="3 min"
+                >
+                    <div class="cd-unit-info">
+                        <h3 class="cd-unit-title">PNP-102 • ABC-123</h3>
+                        <p class="cd-unit-subtitle">Patrullero motorizado</p>
+                        <div class="cd-unit-tags">
+                            <span class="cd-tag">Patrullaje</span>
+                        </div>
+                        <p class="cd-unit-meta">
+                            ETA: 3 min · 0.8 km
+                        </p>
+                    </div>
+                    <button
+                            type="button"
+                            class="cd-unit-add"
+                            aria-label="Agregar unidad PNP-102"
+                    >
+                        +
+                    </button>
+                </article>
+
+                <!-- TRA-401 -->
+                <article
+                        class="cd-unit-card"
+                        data-unit-id="tra-401"
+                        data-unit-label="TRA-401"
+                        data-eta="5 min"
+                >
+                    <div class="cd-unit-info">
+                        <h3 class="cd-unit-title">TRA-401 • DEF-456</h3>
+                        <p class="cd-unit-subtitle">Tránsito motorizado</p>
+                        <div class="cd-unit-tags">
+                            <span class="cd-tag">Tránsito</span>
+                        </div>
+                        <p class="cd-unit-meta">
+                            ETA: 5 min · 1.2 km
+                        </p>
+                    </div>
+                    <button
+                            type="button"
+                            class="cd-unit-add"
+                            aria-label="Agregar unidad TRA-401"
+                    >
+                        +
+                    </button>
+                </article>
+
+                <!-- K9-201 -->
+                <article
+                        class="cd-unit-card"
+                        data-unit-id="k9-201"
+                        data-unit-label="K9-201"
+                        data-eta="7 min"
+                >
+                    <div class="cd-unit-info">
+                        <h3 class="cd-unit-title">K9-201 • GHI-789</h3>
+                        <p class="cd-unit-subtitle">Unidad canina</p>
+                        <div class="cd-unit-tags">
+                            <span class="cd-tag">K9</span>
+                            <span class="cd-tag">Rescate</span>
+                        </div>
+                        <p class="cd-unit-meta">
+                            ETA: 7 min · 1.8 km
+                        </p>
+                    </div>
+                    <button
+                            type="button"
+                            class="cd-unit-add"
+                            aria-label="Agregar unidad K9-201"
+                    >
+                        +
+                    </button>
+                </article>
+
+                <!-- RES-301 -->
+                <article
+                        class="cd-unit-card"
+                        data-unit-id="res-301"
+                        data-unit-label="RES-301"
+                        data-eta="6 min"
+                >
+                    <div class="cd-unit-info">
+                        <h3 class="cd-unit-title">RES-301 • JKL-012</h3>
+                        <p class="cd-unit-subtitle">Rescate motorizado</p>
+                        <div class="cd-unit-tags">
+                            <span class="cd-tag">Rescate</span>
+                        </div>
+                        <p class="cd-unit-meta">
+                            ETA: 6 min · 1.5 km
+                        </p>
+                    </div>
+                    <button
+                            type="button"
+                            class="cd-unit-add"
+                            aria-label="Agregar unidad RES-301"
+                    >
+                        +
+                    </button>
+                </article>
+            </div>
+        </section>
+
+        <div class="cd-actions-bottom cd-actions-bottom-right">
+            <button
+                    type="button"
+                    id="cd-continue-btn"
+                    class="cd-btn cd-btn-primary cd-btn-lg cd-btn-disabled"
+                    disabled
+            >
+                Continuar (0 unidades)
+            </button>
+        </div>
+    </section>
+
+    <!-- VISTA 3: CONFIRMACIÓN -->
+    <section class="cd-view" data-view="confirmacion">
+        <section class="cd-confirm-hero">
+            <div class="cd-confirm-icon">✔</div>
+            <h1 class="cd-confirm-title">Co-despacho configurado</h1>
+            <p class="cd-confirm-subtitle">
+                Las unidades seleccionadas han sido notificadas con sus roles.
+            </p>
+        </section>
+
+        <section class="cd-card cd-confirm-details">
+            <h2 class="cd-section-title">Resumen de co-despacho</h2>
+            <dl class="cd-summary-list">
+                <div>
+                    <dt>Incidente</dt>
+                    <dd>INC-2024-002</dd>
+                </div>
+                <div>
+                    <dt>Unidad primaria</dt>
+                    <dd id="cd-confirm-primaria">—</dd>
+                </div>
+                <div>
+                    <dt>Unidades de apoyo</dt>
+                    <dd id="cd-confirm-apoyos">Ninguna</dd>
+                </div>
+                <div>
+                    <dt>Total de unidades</dt>
+                    <dd id="cd-confirm-total">0</dd>
+                </div>
+            </dl>
+        </section>
+
+        <!-- NUEVAS ACCIONES -->
+        <section class="cd-card cd-confirm-actions">
+            <h2 class="cd-section-title">Acciones</h2>
+            <div class="cd-confirm-actions-row">
+                <a
+                        href="seguimiento-mapa.html"
+                        class="cd-btn cd-btn-secondary cd-btn-fullwidth-sm"
+                >
+                    Ver seguimiento en mapa
+                </a>
+
+                <button
+                        type="button"
+                        id="cd-cancel-dispatch"
+                        class="cd-btn cd-btn-danger-outline cd-btn-fullwidth-sm"
+                >
+                    Anular co-despacho
+                </button>
+            </div>
+            <p id="cd-cancel-message" class="cd-cancel-message" hidden>
+                El co-despacho ha sido anulado. Puedes configurar nuevamente las
+                unidades desde la pantalla inicial.
+            </p>
+        </section>
+
+        <section class="cd-card cd-next-steps">
+            <h2 class="cd-section-title">Próximos pasos</h2>
+            <ul class="cd-next-steps-list">
+                <li>Cada unidad recibirá su orden con el rol asignado.</li>
+                <li>Monitorea el avance desde el dashboard de incidentes.</li>
+                <li>
+                    Puedes ajustar el co-despacho editando el incidente en cualquier
+                    momento.
+                </li>
+            </ul>
+        </section>
+
+        <div class="cd-actions-bottom">
+            <a
+                    href="variaciones-varias.html"
+                    class="cd-btn cd-btn-primary cd-btn-lg cd-btn-full"
+            >
+                Volver al dashboard
+            </a>
+        </div>
+    </section>
+</main>
+
+<script src="Secured-Landing-Page/public/assets/scripts/co-despacho.js"></script>
+</body>
+</html>

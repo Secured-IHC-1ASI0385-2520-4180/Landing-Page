@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Central 105 - Cola de llamadas | Secured</title>
+
+    <!-- CSS específico de Central 105 -->
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/central-105.css" />
+</head>
+<body class="c105-page">
+<main class="c105-wrapper">
+
+    <!-- ENCABEZADO GENERAL -->
+    <header class="c105-page-header">
+        <a href="variaciones-varias.html" class="c105-back-link" aria-label="Volver al dashboard">
+            ←
+        </a>
+        <div class="c105-header-text">
+            <h1 class="c105-page-title">Central 105</h1>
+            <p class="c105-page-subtitle">Cola de llamadas</p>
+        </div>
+    </header>
+
+    <!-- ============================== -->
+    <!-- VISTA 1: COLA CENTRAL 105      -->
+    <!-- ============================== -->
+    <section id="view-central-queue" class="c105-view c105-view-active">
+        <div class="c105-queue-top">
+            <div class="c105-queue-chips">
+                <div class="c105-counter-chip c105-counter-queue">
+                    <span class="c105-counter-number">2</span>
+                    <span class="c105-counter-label">En cola</span>
+                </div>
+                <div class="c105-counter-chip c105-counter-live">
+                    <span class="c105-counter-number">1</span>
+                    <span class="c105-counter-label">En curso</span>
+                </div>
+                <div class="c105-counter-chip c105-counter-wrapup">
+                    <span class="c105-counter-number">1</span>
+                    <span class="c105-counter-label">Wrap-up</span>
+                </div>
+            </div>
+
+            <div class="c105-queue-actions">
+                <button type="button" class="c105-btn c105-btn-ghost">
+                    Filtros
+                </button>
+                <button type="button" id="btnGoRecordings" class="c105-btn c105-btn-ghost">
+                    Grabaciones
+                </button>
+            </div>
+        </div>
+
+        <div class="c105-call-grid">
+            <!-- CALL-002: EN COLA -->
+            <article class="c105-call-card">
+                <header class="c105-call-header">
+                    <div class="c105-call-icon">📞</div>
+                    <div class="c105-call-main">
+                        <p class="c105-call-phone">+51 987 654 321</p>
+                        <p class="c105-call-id">CALL-002</p>
+                    </div>
+                    <span class="c105-status-pill c105-status-incoming">
+                        Entrante
+                    </span>
+                </header>
+
+                <dl class="c105-call-meta">
+                    <div>
+                        <dt>Tiempo en cola</dt>
+                        <dd>0:22</dd>
+                    </div>
+                    <div>
+                        <dt>Sector estimado</dt>
+                        <dd>Norte</dd>
+                    </div>
+                </dl>
+
+                <footer class="c105-call-footer">
+                    <button
+                            type="button"
+                            class="c105-btn c105-btn-primary js-answer-call"
+                            data-callid="CALL-002"
+                    >
+                        Contestar
+                    </button>
+                    <button type="button" class="c105-icon-btn" aria-label="Más opciones">
+                        ⏱
+                    </button>
+                </footer>
+            </article>
+
+            <!-- CALL-001: EN COLA -->
+            <article class="c105-call-card">
+                <header class="c105-call-header">
+                    <div class="c105-call-icon">📞</div>
+                    <div class="c105-call-main">
+                        <p class="c105-call-phone">+51 999 888 777</p>
+                        <p class="c105-call-id">CALL-001</p>
+                    </div>
+                    <span class="c105-status-pill c105-status-incoming">
+                        Entrante
+                    </span>
+                </header>
+
+                <dl class="c105-call-meta">
+                    <div>
+                        <dt>Tiempo en cola</dt>
+                        <dd>0:45</dd>
+                    </div>
+                    <div>
+                        <dt>Sector estimado</dt>
+                        <dd>Centro</dd>
+                    </div>
+                </dl>
+
+                <footer class="c105-call-footer">
+                    <button
+                            type="button"
+                            class="c105-btn c105-btn-primary js-answer-call"
+                            data-callid="CALL-001"
+                    >
+                        Contestar
+                    </button>
+                    <button type="button" class="c105-icon-btn" aria-label="Más opciones">
+                        ⏱
+                    </button>
+                </footer>
+            </article>
+
+            <!-- CALL-003: EN CURSO -->
+            <article class="c105-call-card c105-call-card-live">
+                <header class="c105-call-header">
+                    <div class="c105-call-icon">📞</div>
+                    <div class="c105-call-main">
+                        <p class="c105-call-phone">+51 955 444 333</p>
+                        <p class="c105-call-id">CALL-003</p>
+                    </div>
+                    <span class="c105-status-pill c105-status-live">
+                        En curso
+                    </span>
+                </header>
+
+                <dl class="c105-call-meta">
+                    <div>
+                        <dt>Tiempo en cola</dt>
+                        <dd>1:15</dd>
+                    </div>
+                    <div>
+                        <dt>Sector estimado</dt>
+                        <dd>Sur</dd>
+                    </div>
+                </dl>
+
+                <footer class="c105-call-footer">
+                    <button type="button" class="c105-btn c105-btn-secondary">
+                        Ver llamada
+                    </button>
+                </footer>
+            </article>
+
+            <!-- CALL-004: WRAP-UP -->
+            <article class="c105-call-card c105-call-card-wrapup">
+                <header class="c105-call-header">
+                    <div class="c105-call-icon">📞</div>
+                    <div class="c105-call-main">
+                        <p class="c105-call-phone">+51 912 345 678</p>
+                        <p class="c105-call-id">CALL-004</p>
+                    </div>
+                    <span class="c105-status-pill c105-status-wrapup">
+                        Wrap-up
+                    </span>
+                </header>
+
+                <dl class="c105-call-meta">
+                    <div>
+                        <dt>Tiempo en cola</dt>
+                        <dd>3:40</dd>
+                    </div>
+                    <div>
+                        <dt>Sector estimado</dt>
+                        <dd>Este</dd>
+                    </div>
+                </dl>
+
+                <footer class="c105-call-footer">
+                    <button type="button" class="c105-btn c105-btn-secondary">
+                        Completar clasificación
+                    </button>
+                </footer>
+            </article>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- VISTA 2: LLAMADA EN CURSO      -->
+    <!-- ============================== -->
+    <section id="view-call-active" class="c105-view">
+        <div class="c105-call-active-layout">
+            <!-- Columna izquierda: estado de llamada -->
+            <section class="c105-call-live-panel">
+                <header class="c105-live-header">
+                    <p class="c105-live-label">Llamada en curso</p>
+                    <p class="c105-live-phone" id="activeCallPhone">
+                        +51 999 888 777
+                    </p>
+                    <p class="c105-live-timer">00:04</p>
+                    <span class="c105-live-rec-pill">● REC</span>
+                </header>
+
+                <div class="c105-live-rec-banner">
+                    Grabación en curso
+                </div>
+
+                <div class="c105-live-actions-top">
+                    <button type="button" class="c105-btn c105-btn-outline">
+                        Marcar emergencia
+                    </button>
+                    <button
+                            type="button"
+                            id="btnViewDuplicates"
+                            class="c105-btn c105-btn-secondary"
+                    >
+                        Ver duplicados
+                    </button>
+                </div>
+
+                <div class="c105-live-bottom-actions">
+                    <button class="c105-mini-btn">Mute</button>
+                    <button class="c105-mini-btn">Hold</button>
+                    <button id="btnOpenTransfer" class="c105-mini-btn">
+                        Transferir
+                    </button>
+                    <button class="c105-mini-btn">Conferencia</button>
+                </div>
+
+                <button class="c105-btn c105-btn-danger c105-btn-full">
+                    Colgar y wrap-up
+                </button>
+            </section>
+
+            <!-- Columna derecha: datos del incidente -->
+            <section class="c105-incident-form-card">
+                <h2 class="c105-section-title">Datos del incidente</h2>
+
+                <form class="c105-incident-form" autocomplete="off">
+                    <div class="c105-form-group">
+                        <label for="incidentAddress">Dirección o referencia *</label>
+                        <input
+                                id="incidentAddress"
+                                type="text"
+                                placeholder="Ej. Av. Ejemplo 123 o referencia visual"
+                        />
+                    </div>
+
+                    <div class="c105-form-group">
+                        <label for="incidentRefExtra">Referencia adicional</label>
+                        <input
+                                id="incidentRefExtra"
+                                type="text"
+                                placeholder="O ingresa una referencia (Ej: Frente a la plaza)"
+                        />
+                    </div>
+
+                    <div class="c105-two-columns">
+                        <div class="c105-form-group">
+                            <label for="incidentType">Tipo de incidente *</label>
+                            <select id="incidentType">
+                                <option>Robo/Hurto</option>
+                                <option>Accidente de tránsito</option>
+                                <option>Violencia</option>
+                                <option>Emergencia médica</option>
+                            </select>
+                        </div>
+
+                        <div class="c105-form-group">
+                            <label>Prioridad *</label>
+                            <div class="c105-priority-options">
+                                <label class="c105-chip-option">
+                                    <input type="radio" name="incidentPriority" checked />
+                                    <span class="c105-priority-chip c105-prio-high">Alta</span>
+                                </label>
+                                <label class="c105-chip-option">
+                                    <input type="radio" name="incidentPriority" />
+                                    <span class="c105-priority-chip c105-prio-medium">Media</span>
+                                </label>
+                                <label class="c105-chip-option">
+                                    <input type="radio" name="incidentPriority" />
+                                    <span class="c105-priority-chip c105-prio-low">Baja</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="c105-form-group">
+                        <label for="incidentSector">Sector / Jurisdicción</label>
+                        <select id="incidentSector">
+                            <option>Centro</option>
+                            <option>Norte</option>
+                            <option>Sur</option>
+                            <option>Este</option>
+                            <option>Oeste</option>
+                        </select>
+                    </div>
+
+                    <div class="c105-form-group">
+                        <label for="incidentDescription">Descripción breve (opcional)</label>
+                        <textarea
+                                id="incidentDescription"
+                                rows="3"
+                                placeholder="Detalles adicionales sobre el incidente..."
+                        ></textarea>
+                    </div>
+
+                    <div class="c105-alert-box">
+                        Completa al menos: dirección/referencia, tipo y prioridad
+                    </div>
+
+                    <div class="c105-incident-actions">
+                        <button type="button" class="c105-btn c105-btn-ghost">
+                            Guardar borrador
+                        </button>
+                        <button type="button" class="c105-btn c105-btn-ghost">
+                            Marcar como info
+                        </button>
+                        <button
+                                type="button"
+                                id="btnOpenIncidentModalNew"
+                                class="c105-btn c105-btn-secondary"
+                        >
+                            Crear incidente
+                        </button>
+                        <button
+                                type="button"
+                                id="btnOpenIncidentModalExisting"
+                                class="c105-btn c105-btn-secondary"
+                        >
+                            Vincular existente
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- VISTA 3: GRABACIONES           -->
+    <!-- ============================== -->
+    <section id="view-recordings" class="c105-view">
+        <header class="c105-sub-header">
+            <button
+                    type="button"
+                    class="c105-back-button"
+                    data-goto-view="view-central-queue"
+            >
+                ←
+            </button>
+            <div>
+                <h2 class="c105-section-title">Grabaciones</h2>
+                <p class="c105-page-subtitle">Historial de llamadas</p>
+            </div>
+        </header>
+
+        <!-- Reproductor actual -->
+        <div id="recordingPlayer" class="c105-recording-player" hidden>
+            <div class="c105-rec-player-header">
+                <p class="c105-rec-player-title">
+                    Reproduciendo: <span id="recPlayerId">REC-001</span>
+                </p>
+                <button
+                        type="button"
+                        id="btnClosePlayer"
+                        class="c105-icon-btn"
+                        aria-label="Cerrar reproductor"
+                >
+                    ✕
+                </button>
+            </div>
+            <audio id="recAudio" controls>
+                <source src="" type="audio/mpeg" />
+                Tu navegador no soporta audio HTML5.
+            </audio>
+        </div>
+
+        <!-- Lista de grabaciones -->
+        <div class="c105-recordings-grid">
+            <article class="c105-recording-card">
+                <header class="c105-recording-header">
+                    <div>
+                        <p class="c105-rec-phone">+51 999 888 777</p>
+                        <p class="c105-rec-call">CALL-001 · 3:45</p>
+                    </div>
+                    <p class="c105-rec-date">31 oct 2025, 14:30</p>
+                </header>
+                <p class="c105-rec-link">
+                    Vinculado a: <strong>INC-2025-0458</strong>
+                </p>
+                <footer class="c105-recording-footer">
+                    <button
+                            type="button"
+                            class="c105-btn c105-btn-secondary js-play-recording"
+                            data-rec-id="REC-001"
+                    >
+                        ▶ Reproducir
+                    </button>
+                    <button type="button" class="c105-btn c105-btn-ghost">
+                        Transcripción
+                    </button>
+                </footer>
+            </article>
+
+            <article class="c105-recording-card">
+                <header class="c105-recording-header">
+                    <div>
+                        <p class="c105-rec-phone">+51 987 654 321</p>
+                        <p class="c105-rec-call">CALL-002 · 2:15</p>
+                    </div>
+                    <p class="c105-rec-date">31 oct 2025, 13:45</p>
+                </header>
+                <p class="c105-rec-link">
+                    Vinculado a: <strong>INC-2025-0459</strong>
+                </p>
+                <footer class="c105-recording-footer">
+                    <button
+                            type="button"
+                            class="c105-btn c105-btn-secondary js-play-recording"
+                            data-rec-id="REC-002"
+                    >
+                        ▶ Reproducir
+                    </button>
+                    <button type="button" class="c105-btn c105-btn-ghost">
+                        Transcripción
+                    </button>
+                </footer>
+            </article>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- MODAL: POSIBLES DUPLICADOS     -->
+    <!-- ============================== -->
+    <div id="duplicatesModal" class="c105-modal">
+        <div class="c105-modal-dialog c105-modal-wide">
+            <header class="c105-modal-header">
+                <h3>Posibles duplicados</h3>
+                <button
+                        type="button"
+                        class="c105-icon-btn js-close-modal"
+                        data-modal-id="duplicatesModal"
+                >
+                    ✕
+                </button>
+            </header>
+
+            <p class="c105-modal-intro">
+                Incidentes similares detectados en la misma zona y ventana de tiempo.
+            </p>
+
+            <div class="c105-duplicates-list">
+                <article class="c105-duplicate-card">
+                    <div class="c105-dup-main">
+                        <p class="c105-dup-code">INC-2025-0458</p>
+                        <p class="c105-dup-type">Robo/Hurto</p>
+                        <p class="c105-dup-address">Av. Ejemplo 125 (50 m)</p>
+                        <p class="c105-dup-time">Hace 8 min</p>
+                    </div>
+                    <div class="c105-dup-side">
+                        <span class="c105-dup-status">Patrulla asignada</span>
+                        <span class="c105-dup-score">95% similar</span>
+                        <button class="c105-btn c105-btn-secondary">
+                            Vincular
+                        </button>
+                    </div>
+                </article>
+
+                <article class="c105-duplicate-card">
+                    <div class="c105-dup-main">
+                        <p class="c105-dup-code">INC-2025-0451</p>
+                        <p class="c105-dup-type">Robo/Hurto</p>
+                        <p class="c105-dup-address">
+                            Calle Los Pinos 234 (200 m)
+                        </p>
+                        <p class="c105-dup-time">Hace 15 min</p>
+                    </div>
+                    <div class="c105-dup-side">
+                        <span class="c105-dup-status c105-dup-status-open">
+                            En atención
+                        </span>
+                        <span class="c105-dup-score">78% similar</span>
+                        <button class="c105-btn c105-btn-secondary">
+                            Vincular
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+            <footer class="c105-modal-footer">
+                <button class="c105-btn c105-btn-ghost js-close-modal" data-modal-id="duplicatesModal">
+                    Cerrar
+                </button>
+                <button class="c105-btn c105-btn-primary">
+                    Crear nuevo incidente
+                </button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!-- MODAL: TRANSFERIR LLAMADA      -->
+    <!-- ============================== -->
+    <div id="transferModal" class="c105-modal">
+        <div class="c105-modal-dialog">
+            <header class="c105-modal-header">
+                <h3>Transferir llamada</h3>
+                <button
+                        type="button"
+                        class="c105-icon-btn js-close-modal"
+                        data-modal-id="transferModal"
+                >
+                    ✕
+                </button>
+            </header>
+
+            <p class="c105-modal-subtitle">
+                Transferir llamada de <strong id="transferPhone">+51 999 888 777</strong>
+                a otra cola o sector.
+            </p>
+
+            <div class="c105-transfer-tabs">
+                <button
+                        type="button"
+                        class="c105-transfer-tab c105-transfer-tab-active"
+                        data-transfer-mode="directo"
+                >
+                    ☎ Directo
+                </button>
+                <button
+                        type="button"
+                        class="c105-transfer-tab"
+                        data-transfer-mode="conf"
+                >
+                    👥 Conferencia
+                </button>
+            </div>
+
+            <div class="c105-transfer-list">
+                <article class="c105-transfer-dest">
+                    <div>
+                        <p class="c105-transfer-name">Cola Centro</p>
+                        <p class="c105-transfer-wait">Espera promedio: 1:30</p>
+                    </div>
+                    <span class="c105-transfer-badge c105-transfer-ok">2 en cola</span>
+                </article>
+
+                <article class="c105-transfer-dest">
+                    <div>
+                        <p class="c105-transfer-name">Cola Norte</p>
+                        <p class="c105-transfer-wait">Espera promedio: 3:15</p>
+                    </div>
+                    <span class="c105-transfer-badge c105-transfer-busy">5 en cola</span>
+                </article>
+
+                <article class="c105-transfer-dest">
+                    <div>
+                        <p class="c105-transfer-name">Cola Sur</p>
+                        <p class="c105-transfer-wait">Espera promedio: 0:45</p>
+                    </div>
+                    <span class="c105-transfer-badge c105-transfer-ok">1 en cola</span>
+                </article>
+
+                <article class="c105-transfer-dest">
+                    <div>
+                        <p class="c105-transfer-name">Cola Este</p>
+                        <p class="c105-transfer-wait">Espera promedio: 2:00</p>
+                    </div>
+                    <span class="c105-transfer-badge c105-transfer-medium">3 en cola</span>
+                </article>
+            </div>
+
+            <footer class="c105-modal-footer">
+                <button class="c105-btn c105-btn-primary">
+                    Transferir
+                </button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!-- MODAL: INCIDENTE (NUEVO / LINK)-->
+    <!-- ============================== -->
+    <div id="incidentModal" class="c105-modal">
+        <div class="c105-modal-dialog c105-modal-medium">
+            <header class="c105-modal-header">
+                <h3>Incidente</h3>
+                <button
+                        type="button"
+                        class="c105-icon-btn js-close-modal"
+                        data-modal-id="incidentModal"
+                >
+                    ✕
+                </button>
+            </header>
+
+            <div class="c105-incident-tabs">
+                <button
+                        type="button"
+                        id="incidentTabNew"
+                        class="c105-incident-tab c105-incident-tab-active"
+                        data-incident-tab="new"
+                >
+                    + Crear nuevo
+                </button>
+                <button
+                        type="button"
+                        id="incidentTabExisting"
+                        class="c105-incident-tab"
+                        data-incident-tab="existing"
+                >
+                    🔗 Vincular existente
+                </button>
+            </div>
+
+            <!-- Panel: Crear nuevo -->
+            <div
+                    id="incidentPanelNew"
+                    class="c105-incident-panel c105-incident-panel-active"
+            >
+                <p class="c105-modal-subtitle">
+                    Se creará un nuevo incidente con los datos capturados en el
+                    formulario.
+                </p>
+
+                <div class="c105-captured-box">
+                    <p class="c105-captured-label">Datos capturados</p>
+                    <p class="c105-captured-item">
+                        Llamada desde: <strong id="capturedPhone">+51 999 888 777</strong>
+                    </p>
+                    <p class="c105-captured-item">
+                        La grabación y transcripción quedarán vinculadas automáticamente.
+                    </p>
+                </div>
+
+                <footer class="c105-modal-footer">
+                    <button class="c105-btn c105-btn-primary">
+                        Crear incidente ahora
+                    </button>
+                </footer>
+            </div>
+
+            <!-- Panel: Vincular existente -->
+            <div id="incidentPanelExisting" class="c105-incident-panel">
+                <div class="c105-search-wrapper">
+                    <input
+                            type="search"
+                            placeholder="Buscar por código, tipo o dirección..."
+                    />
+                </div>
+
+                <div class="c105-existing-list">
+                    <article class="c105-existing-item">
+                        <p class="c105-existing-code">INC-2025-0458</p>
+                        <p class="c105-existing-type">Robo/Hurto</p>
+                        <p class="c105-existing-address">Av. Ejemplo 125</p>
+                        <p class="c105-existing-time">Hace 8 min</p>
+                    </article>
+
+                    <article class="c105-existing-item">
+                        <p class="c105-existing-code">INC-2025-0457</p>
+                        <p class="c105-existing-type">Accidente</p>
+                        <p class="c105-existing-address">Jr. Los Pinos 234</p>
+                        <p class="c105-existing-time">Hace 15 min</p>
+                    </article>
+
+                    <article class="c105-existing-item">
+                        <p class="c105-existing-code">INC-2025-0456</p>
+                        <p class="c105-existing-type">Violencia</p>
+                        <p class="c105-existing-address">Calle Central 890</p>
+                        <p class="c105-existing-time">Hace 22 min</p>
+                    </article>
+                </div>
+
+                <footer class="c105-modal-footer">
+                    <button class="c105-btn c105-btn-primary">
+                        Vincular a seleccionado
+                    </button>
+                </footer>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- JS específico de Central 105 -->
+<script src="Secured-Landing-Page/public/assets/scripts/central-105.js" defer></script>
+</body>
+</html>

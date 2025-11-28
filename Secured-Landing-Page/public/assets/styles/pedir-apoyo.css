@@ -1,0 +1,746 @@
+/* =========================================
+   PEDIR APOYO - ESTILOS GENERALES
+   ========================================= */
+
+:root {
+    --secured-bg: #f5f7fb;
+    --secured-primary: #0c2c53;
+    --secured-primary-soft: #11427f;
+    --secured-border: #e1e5f0;
+    --secured-card-bg: #ffffff;
+    --secured-text-main: #1f2933;
+    --secured-text-muted: #6b7280;
+    --secured-radius-sm: 8px;
+    --secured-radius-md: 12px;
+    --secured-radius-lg: 16px;
+    --secured-shadow-soft: 0 14px 35px rgba(15, 23, 42, 0.08);
+    --secured-success: #16a34a;
+    --secured-warning: #f59e0b;
+    --secured-danger: #ef4444;
+    --secured-accent: #f97316;
+}
+
+/* Reset pequeño */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body.pedir-apoyo-page {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+    background-color: var(--secured-bg);
+    color: var(--secured-text-main);
+}
+
+/* Layout base */
+
+.pa-wrapper {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 24px 24px 40px;
+}
+
+/* Header */
+
+.pa-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.pa-page-header-modal {
+    justify-content: space-between;
+}
+
+.pa-back-button,
+.pa-close-button {
+    border: none;
+    background: transparent;
+    color: var(--secured-primary-soft);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 999px;
+    text-decoration: none;
+}
+
+.pa-back-button:hover,
+.pa-close-button:hover {
+    background-color: rgba(15, 23, 42, 0.06);
+}
+
+.pa-header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pa-page-title {
+    font-size: 20px;
+    margin: 0;
+}
+
+.pa-page-subtitle {
+    margin: 0;
+    font-size: 13px;
+    color: var(--secured-text-muted);
+}
+
+/* Vistas */
+
+.pa-view {
+    display: none;
+}
+
+.pa-view.pa-view-active {
+    display: block;
+}
+
+/* Cards */
+
+.pa-card {
+    background-color: var(--secured-card-bg);
+    border-radius: var(--secured-radius-lg);
+    border: 1px solid var(--secured-border);
+    box-shadow: var(--secured-shadow-soft);
+    padding: 20px 24px;
+}
+
+/* Botones */
+
+.pa-btn {
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.pa-btn-primary {
+    background-color: var(--secured-primary);
+    color: #ffffff;
+}
+
+.pa-btn-primary:hover {
+    background-color: var(--secured-primary-soft);
+}
+
+.pa-btn-accent {
+    background-color: var(--secured-accent);
+    color: #ffffff;
+}
+
+.pa-btn-accent:hover {
+    background-color: #ea580c;
+}
+
+.pa-btn-danger {
+    background-color: var(--secured-danger);
+    color: #ffffff;
+}
+
+.pa-btn-danger:hover {
+    background-color: #dc2626;
+}
+
+.pa-btn-ghost {
+    background-color: transparent;
+    color: var(--secured-text-main);
+    border: 1px solid var(--secured-border);
+}
+
+.pa-btn-ghost:hover {
+    background-color: #eef2ff;
+}
+
+.pa-btn-link {
+    background: none;
+    border: none;
+    color: var(--secured-text-muted);
+    font-size: 13px;
+    padding: 6px 0;
+}
+
+.pa-btn-link:hover {
+    color: var(--secured-danger);
+}
+
+.pa-btn-full {
+    width: 100%;
+}
+
+.pa-btn-fullwidth-sm {
+    width: 100%;
+}
+
+/* =========================================
+   VISTA 1 - DETALLE DEL INCIDENTE
+   ========================================= */
+
+.pa-incident-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: 24px;
+}
+
+.pa-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.pa-incident-title {
+    margin: 0 0 16px;
+    font-size: 18px;
+}
+
+.pa-incident-meta {
+    list-style: none;
+    margin: 0 0 16px;
+    padding: 0;
+    display: grid;
+    gap: 4px;
+}
+
+.pa-incident-meta li {
+    display: flex;
+    gap: 4px;
+    font-size: 13px;
+}
+
+.pa-meta-label {
+    color: var(--secured-text-muted);
+}
+
+.pa-meta-value {
+    font-weight: 500;
+}
+
+.pa-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background-color: #fee2e2;
+    color: #b91c1c;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.pa-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background-color: #f97316;
+}
+
+/* Tarjeta pedir apoyo */
+
+.pa-support-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pa-btn-full {
+    width: 100%;
+}
+
+.pa-support-description {
+    background-color: #eff6ff;
+    border-radius: var(--secured-radius-md);
+    padding: 12px 14px;
+}
+
+.pa-support-title {
+    margin: 0 0 4px;
+    font-size: 14px;
+}
+
+.pa-support-text {
+    margin: 0;
+    font-size: 13px;
+    color: var(--secured-text-muted);
+}
+
+/* Cómo funciona */
+
+.pa-how-card {
+    padding: 20px 22px;
+}
+
+.pa-how-title {
+    margin: 0 0 8px;
+    font-size: 15px;
+}
+
+.pa-how-list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 13px;
+    color: var(--secured-text-muted);
+}
+
+/* =========================================
+   VISTA 2 - CONFIGURAR SOLICITUD
+   ========================================= */
+
+.pa-modal-body {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.pa-config-card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.pa-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pa-field-label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.pa-field-helper {
+    margin: 0;
+    font-size: 12px;
+    color: var(--secured-text-muted);
+}
+
+/* Alcance */
+
+.pa-range-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.pa-range-option {
+    border-radius: var(--secured-radius-md);
+    border: 1px solid var(--secured-border);
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #f9fafb;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 13px;
+}
+
+.pa-range-option input {
+    display: none;
+}
+
+.pa-range-option.is-selected {
+    border-color: #60a5fa;
+    background-color: #eff6ff;
+    box-shadow: 0 0 0 1px #bfdbfe;
+}
+
+.pa-range-name {
+    font-weight: 600;
+}
+
+.pa-range-desc {
+    color: var(--secured-text-muted);
+    font-size: 12px;
+}
+
+/* Tipo de unidad */
+
+.pa-unit-type-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pa-unit-pill {
+    border-radius: 999px;
+    border: 1px solid var(--secured-border);
+    background-color: #f9fafb;
+    font-size: 13px;
+    padding: 8px 14px;
+    cursor: pointer;
+}
+
+.pa-unit-pill.is-selected {
+    border-color: #60a5fa;
+    background-color: #eff6ff;
+}
+
+.pa-unit-type-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.pa-unit-type-chip {
+    border-radius: 999px;
+    border: 1px solid var(--secured-border);
+    background-color: #ffffff;
+    font-size: 12px;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.pa-unit-type-chip.is-selected {
+    border-color: #60a5fa;
+    background-color: #eef2ff;
+}
+
+/* Textareas */
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+    max-height: 220px;
+    padding: 10px 12px;
+    border-radius: var(--secured-radius-md);
+    border: 1px solid var(--secured-border);
+    font-family: inherit;
+    font-size: 13px;
+}
+
+/* Nota informativa */
+
+.pa-info-note {
+    font-size: 12px;
+    border-radius: var(--secured-radius-md);
+    padding: 10px 12px;
+    background-color: #e0ecff;
+    color: #1d4ed8;
+}
+
+/* Botones de formulario */
+
+.pa-config-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.pa-config-actions-vertical {
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* =========================================
+   VISTA 3 - SEGUIMIENTO DE SOLICITUD
+   ========================================= */
+
+.pa-tracking-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.8fr);
+    gap: 24px;
+}
+
+.pa-card-label {
+    font-size: 13px;
+    color: var(--secured-text-muted);
+    margin: 0 0 6px;
+}
+
+.pa-time-value {
+    margin: 0 0 8px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Barra de progreso */
+
+.pa-progress-bar {
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background-color: #e5e7eb;
+    overflow: hidden;
+}
+
+.pa-progress-fill {
+    width: 60%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: #2563eb;
+}
+
+/* Estado de solicitud */
+
+.pa-status-grid {
+    margin-top: 6px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.pa-status-box {
+    border-radius: var(--secured-radius-md);
+    background-color: #f9fafb;
+    padding: 10px 12px;
+    text-align: left;
+}
+
+.pa-status-box-warning {
+    background-color: #fef3c7;
+}
+
+.pa-status-number {
+    margin: 0;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.pa-status-label {
+    margin: 0;
+    font-size: 12px;
+    color: var(--secured-text-muted);
+}
+
+/* Nota de espera */
+
+.pa-waiting-note p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--secured-text-muted);
+}
+
+/* Destinatarios */
+
+.pa-section-title {
+    font-size: 15px;
+    margin: 0 0 10px;
+}
+
+.pa-recipient-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pa-recipient-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-radius: var(--secured-radius-md);
+    border: 1px solid var(--secured-border);
+    background-color: #ffffff;
+}
+
+.pa-recipient-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.pa-recipient-name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.pa-recipient-code {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: var(--secured-text-muted);
+}
+
+.pa-recipient-status {
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.pa-recipient-status-success {
+    color: var(--secured-success);
+}
+
+.pa-recipient-status-warning {
+    color: var(--secured-warning);
+}
+
+.pa-recipient-status-muted {
+    color: var(--secured-text-muted);
+}
+
+/* Acciones de seguimiento */
+
+.pa-tracking-actions {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.pa-main-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* =========================================
+   VISTA 4 - ESCALAR
+   ========================================= */
+
+.pa-escalate-card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.pa-escalate-banner {
+    font-size: 12px;
+    padding: 10px 12px;
+    border-radius: var(--secured-radius-md);
+    background-color: #fff7ed;
+    color: #c2410c;
+    border: 1px solid #fed7aa;
+}
+
+/* Opciones de escalamiento */
+
+.pa-escalate-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pa-escalate-option {
+    border-radius: var(--secured-radius-md);
+    border: 1px solid var(--secured-border);
+    padding: 10px 12px;
+    cursor: pointer;
+    background-color: #f9fafb;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 13px;
+}
+
+.pa-escalate-option input {
+    display: none;
+}
+
+.pa-escalate-option.is-selected {
+    border-color: #fb923c;
+    background-color: #fff7ed;
+    box-shadow: 0 0 0 1px #fed7aa;
+}
+
+.pa-option-title {
+    font-weight: 600;
+}
+
+.pa-option-subtitle {
+    font-size: 12px;
+    color: var(--secured-text-muted);
+}
+
+/* =========================================
+   VISTA 5 - CANCELAR SOLICITUD
+   ========================================= */
+
+.pa-cancel-layout {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pa-cancel-dialog {
+    max-width: 420px;
+    width: 100%;
+    background-color: var(--secured-card-bg);
+    border-radius: var(--secured-radius-lg);
+    box-shadow: var(--secured-shadow-soft);
+    border: 1px solid var(--secured-border);
+    padding: 24px 24px 20px;
+    text-align: center;
+}
+
+.pa-cancel-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    background-color: #fef2f2;
+    color: #b91c1c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.pa-cancel-title {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.pa-cancel-text {
+    margin: 0 0 16px;
+    font-size: 13px;
+    color: var(--secured-text-muted);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 960px) {
+    .pa-wrapper {
+        padding: 16px 16px 24px;
+    }
+
+    .pa-incident-layout,
+    .pa-tracking-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .pa-main-actions {
+        width: 100%;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 640px) {
+    .pa-card {
+        padding: 16px 16px 18px;
+    }
+
+    .pa-range-options {
+        grid-template-columns: 1fr;
+    }
+
+    .pa-main-actions {
+        justify-content: center;
+    }
+
+    .pa-config-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .pa-btn-full {
+        width: 100%;
+    }
+}
