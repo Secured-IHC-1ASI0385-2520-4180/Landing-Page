@@ -3,121 +3,328 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mapa con Capas</title>
-    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/capas-mapa.css" />
+    <title>Cobertura por Sector</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/cobertura-sectores.css" />
 </head>
 <body>
 
-<div class="container">
-    <!-- BARRA LATERAL -->
-    <aside class="sidebar" id="sidebar">
-        <header class="topbar">
-            <a href="variaciones-varias.html" class="back" aria-label="volver">←</a>
-            <div class="title">
-                Mapa de calor <span class="subtitle">Análisis de concentración</span>
-            </div>
-        </header>
-        <p>Vista actual: <strong>Calle</strong></p>
-
-        <!-- Vista base -->
-        <div class="section">
-            <h3>Vista base</h3>
-            <button class="layer-btn" onclick="cambiarMapa('Secured-Landing-Page/public/assets/images/capa.png')">
-                Calle
-            </button>
-            <button class="layer-btn" onclick="cambiarMapa('Secured-Landing-Page/public/assets/images/satelite.png')">
-                Satélite
-            </button>
+<!-- PANTALLA 1: Cobertura por Sector -->
+<div id="vista-cobertura" class="vista active">
+    <header class="header">
+        <button class="back-btn" onclick="window.location.href='variaciones-varias.html'">←</button>
+        <div class="header-content">
+            <h1>Cobertura por Sector</h1>
+            <p class="subtitle">3 sectores · 1 con déficit</p>
         </div>
+        <button class="reglas-btn" onclick="irAReglas()">
+            ⚙️ Reglas
+        </button>
+    </header>
 
-        <!-- Capas operativas -->
-        <div class="section">
-            <h3>Capas operativas</h3>
-            <button class="mini-btn">Incidentes</button>
-            <button class="mini-btn">Unidades</button>
-            <button class="mini-btn">POI</button>
-            <button class="mini-btn">Cámaras</button>
-            <button class="mini-btn">Alarmas vecinales</button>
-            <button class="mini-btn">Geocercas</button>
-            <button class="mini-btn">Sectores</button>
-        </div>
-
-        <!-- Filtros rápidos -->
-        <div class="section">
-            <h3>Filtros rápidos</h3>
-
-            <p>Incidentes - Prioridad</p>
-            <div class="btn-group">
-                <button onclick="activar(this)">Alta</button>
-                <button onclick="activar(this)">Media</button>
-                <button onclick="activar(this)">Baja</button>
+    <main class="content">
+        <!-- Sugerencias de reequilibrio -->
+        <section class="sugerencias">
+            <div class="sugerencia-header">
+                <h2>Sugerencias de reequilibrio</h2>
+                <span class="badge">1</span>
             </div>
 
-            <p>Incidentes - Estado</p>
-            <div class="btn-group">
-                <button onclick="activar(this)">Pendiente</button>
-                <button onclick="activar(this)">En curso</button>
-                <button onclick="activar(this)">Cerrado</button>
-            </div>
+            <div class="sugerencia-card">
+                <div class="sugerencia-ruta">
+                    <span class="sector-origen">Sector C - Sur</span>
+                    <span class="arrow">→</span>
+                    <span class="sector-destino">Sector A - Centro</span>
+                </div>
 
-            <p>Unidades - Estado</p>
-            <div class="btn-group">
-                <button onclick="activar(this)">Disponible</button>
-                <button onclick="activar(this)">En servicio</button>
-                <button onclick="activar(this)">Fuera de servicio</button>
+                <div class="patrulla-info">
+                    <span class="patrulla-nombre">Patrulla M-45</span>
+                    <span class="patrulla-tipo">· motorizado</span>
+                </div>
+
+                <p class="descripcion">
+                    Sector A tiene 8 incidentes activos (umbral: 5) y déficit de 2 unidades motorizadas
+                </p>
+
+                <div class="metricas">
+                    <div class="metrica">
+                        <span class="metrica-label">Impacto estimado</span>
+                        <span class="metrica-valor positivo">↘ ETA: ~4 min</span>
+                    </div>
+                    <div class="metrica">
+                        <span class="metrica-label">Déficit resultante</span>
+                        <span class="metrica-valor">Destino: -2</span>
+                    </div>
+                    <div class="metrica">
+                        <span class="metrica-label"></span>
+                        <span class="metrica-valor">Origen: 2</span>
+                    </div>
+                </div>
+
+                <div class="acciones">
+                    <button class="btn-aceptar" onclick="aceptarSugerencia()">✓ Aceptar</button>
+                    <button class="btn-rechazar" onclick="rechazarSugerencia()">✕ Rechazar</button>
+                </div>
             </div>
+        </section>
+
+        <!-- Alerta de cobertura -->
+        <div class="alerta">
+            <span class="alerta-icono">⚠️</span>
+            <span class="alerta-texto">Sector A - Centro tiene déficit de unidades</span>
         </div>
 
-        <!-- Leyenda -->
-        <div class="section">
-            <h3>Leyenda</h3>
-            <p><strong>Incidentes</strong></p>
-            <ul>
-                <li>🔴 Alta prioridad</li>
-                <li>🟠 Media prioridad</li>
-                <li>🔵 Baja prioridad</li>
-            </ul>
+        <!-- Lista de sectores -->
+        <section class="sectores-lista">
+            <!-- Sector B - Norte (OK) -->
+            <div class="sector-card ok">
+                <div class="sector-header">
+                    <h3 class="sector-nombre">Sector B - Norte</h3>
+                    <div class="sector-stats">
+                        <span class="incidentes-activos">Incidentes activos</span>
+                        <span class="incidentes-numero">2</span>
+                    </div>
+                </div>
 
-            <p><strong>Unidades</strong></p>
-            <ul>
-                <li>🟢 Disponible</li>
-                <li>🔵 En servicio</li>
-                <li>⚫ Fuera de servicio</li>
-            </ul>
-        </div>
-    </aside>
+                <div class="sector-status">
+                    <span class="status-badge ok">✓ OK</span>
+                    <div class="tipo-unidad">
+                        <span class="icono-motorizado">🏍</span>
+                        <span class="tipo-texto">Motorizado</span>
+                    </div>
+                    <div class="unidades-ratio">
+                        <span class="ratio">3 / 3</span>
+                    </div>
+                </div>
 
-    <!-- FLECHA PARA PLEGAR -->
-    <div class="toggle-arrow" id="toggleArrow" onclick="toggleSidebar()">
-        ◀
-    </div>
+                <div class="sector-footer">
+                    <span class="tiempo">8 min</span>
+                    <span class="porcentaje ok">95%</span>
+                </div>
+            </div>
 
-    <!-- MAPA -->
-    <main class="map-area">
-        <img id="mapImage" src="Secured-Landing-Page/public/assets/images/capa.png" alt="Mapa" />
+            <!-- Sector A - Centro (Déficit) -->
+            <div class="sector-card deficit">
+                <div class="sector-header">
+                    <h3 class="sector-nombre">Sector A - Centro</h3>
+                    <div class="sector-stats">
+                        <span class="incidentes-activos">Incidentes activos</span>
+                        <span class="incidentes-numero">8</span>
+                    </div>
+                </div>
+
+                <div class="sector-status">
+                    <span class="status-badge deficit">⚠️ Déficit</span>
+                    <div class="tipo-unidad">
+                        <span class="icono-motorizado">🏍</span>
+                        <span class="tipo-texto">Motorizado</span>
+                    </div>
+                    <div class="unidades-ratio">
+                        <span class="ratio deficit">1 / 3</span>
+                    </div>
+                </div>
+
+                <div class="sector-footer">
+                    <span class="tiempo">12 min</span>
+                    <span class="porcentaje deficit">68%</span>
+                </div>
+            </div>
+
+            <!-- Sector C - Sur (OK) -->
+            <div class="sector-card ok">
+                <div class="sector-header">
+                    <h3 class="sector-nombre">Sector C - Sur</h3>
+                    <div class="sector-stats">
+                        <span class="incidentes-activos">Incidentes activos</span>
+                        <span class="incidentes-numero">3</span>
+                    </div>
+                </div>
+
+                <div class="sector-status">
+                    <span class="status-badge ok">✓ OK</span>
+                    <div class="tipo-unidad">
+                        <span class="icono-motorizado">🏍</span>
+                        <span class="tipo-texto">Motorizado</span>
+                    </div>
+                    <div class="unidades-ratio">
+                        <span class="ratio">4 / 3</span>
+                    </div>
+                </div>
+
+                <div class="sector-footer">
+                    <span class="tiempo">6 min</span>
+                    <span class="porcentaje ok">92%</span>
+                </div>
+            </div>
+        </section>
     </main>
 </div>
 
-<script>
-    function cambiarMapa(ruta) {
-        document.getElementById("mapImage").src = ruta;
-    }
+<!-- PANTALLA 2: Editor de Reglas Dinámicas -->
+<div id="vista-reglas" class="vista">
+    <header class="header">
+        <button class="back-btn" onclick="volverACobertura()">←</button>
+        <div class="header-content">
+            <h1>Editor de Reglas Dinámicas</h1>
+            <p class="subtitle">Configurar mínimos por sector y franja horaria</p>
+        </div>
+        <button class="guardar-btn" onclick="guardarRegla()">Guardar regla</button>
+    </header>
 
-    function activar(btn) {
-        let grupo = btn.parentElement;
-        [...grupo.children].forEach((x) => x.classList.remove("active"));
-        btn.classList.add("active");
-    }
+    <main class="content-reglas">
+        <section class="config-general">
+            <h2>Configuración general</h2>
 
-    function toggleSidebar() {
-        const sidebar = document.getElementById("sidebar");
-        const arrow = document.getElementById("toggleArrow");
+            <div class="form-group">
+                <label>Nombre de la regla</label>
+                <input type="text" id="nombreRegla" placeholder="Ej: Regla Nocturna Centro" />
+            </div>
 
-        sidebar.classList.toggle("collapsed");
-        arrow.classList.toggle("collapsed");
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Umbral de incidentes para reequilibrio</label>
+                    <input type="number" id="umbralIncidentes" value="5" />
+                </div>
+                <div class="form-group">
+                    <label>Ventana de reacción (minutos)</label>
+                    <input type="number" id="ventanaReaccion" value="15" />
+                </div>
+            </div>
 
-        arrow.textContent = sidebar.classList.contains("collapsed") ? "▶" : "◀";
-    }
-</script>
+            <div class="form-check">
+                <input type="checkbox" id="checkCombinarSectores" />
+                <label for="checkCombinarSectores">Permitir combinar sectores de baja demanda en horario nocturno</label>
+            </div>
+
+            <div class="form-check">
+                <input type="checkbox" id="checkBloquearTraslado" />
+                <label for="checkBloquearTraslado">Bloquear traslado si SLA del sector origen está bajo objetivo</label>
+            </div>
+        </section>
+
+        <section class="config-minimos">
+            <h2>Mínimos por franja - motorizado</h2>
+
+            <div class="tabla-container">
+                <table class="tabla-minimos">
+                    <thead>
+                        <tr>
+                            <th>Día</th>
+                            <th>0</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="dia-label">Dom</td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                        </tr>
+                        <tr>
+                            <td class="dia-label">Lun</td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                        </tr>
+                        <tr>
+                            <td class="dia-label">Mar</td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                        </tr>
+                        <tr>
+                            <td class="dia-label">Mié</td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                        </tr>
+                        <tr>
+                            <td class="dia-label">Jue</td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                        </tr>
+                        <tr>
+                            <td class="dia-label">Vie</td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                        </tr>
+                        <tr>
+                            <td class="dia-label">Sáb</td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                            <td><input type="number" value="2" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-link">
+                <a href="#" onclick="return false">Configura los mínimos de unidades requeridas por hora y día de la semana</a>
+            </div>
+        </section>
+
+        <div class="advertencia">
+            <span class="advertencia-icono">⚠️</span>
+            <div class="advertencia-texto">
+                <strong>Advertencia</strong>
+                <p>Asegúrate de que los mínimos configurados no superen el inventario disponible de unidades</p>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- JS específico de esta sección -->
+<script src="Secured-Landing-Page/public/assets/scripts/cobertura-sectores.js"></script>
 </body>
 </html>

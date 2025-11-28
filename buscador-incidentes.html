@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscador de incidentes</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/buscador-incidentes.css" />
+</head>
+<body>
+<!-- Header principal -->
+<header class="header">
+    <a href="variaciones-varias.html" class="back-btn">←</a>
+    <div class="header-content">
+        <h1>Buscador de incidentes</h1>
+        <p class="resultados-count">2 resultados</p>
+    </div>
+</header>
+
+<!-- ================================
+   VISTA PRINCIPAL - BUSCADOR
+================================= -->
+<section id="buscador" class="view active">
+    <!-- Barra de búsqueda -->
+    <div class="search-container">
+        <input
+            type="text"
+            class="search-input"
+            placeholder="Busca por código, placa o dirección..."
+            aria-label="Buscar incidentes"
+        />
+    </div>
+
+    <!-- Acciones principales -->
+    <div class="actions">
+        <button class="action-btn" onclick="showView('busqueda-avanzada')">
+            <span class="icon">⚙</span> Búsqueda avanzada
+        </button>
+        <button class="action-btn-secondary">
+            <span class="icon">↓</span> Exportar
+        </button>
+        <button class="action-btn-secondary">
+            <span class="icon">☰</span>
+        </button>
+        <button class="action-btn-secondary">
+            <span class="icon">🗺</span>
+        </button>
+    </div>
+
+    <!-- Filtros activos -->
+    <div id="filtros-activos" class="filtros-activos hidden">
+        <div class="filtros-header">
+            <span class="filtros-label">Filtros activos:</span>
+            <button class="limpiar-btn" onclick="limpiarFiltros()">Limpiar todos</button>
+        </div>
+        <div class="filtros-chips" id="filtros-chips">
+            <!-- Se llenarán dinámicamente -->
+        </div>
+    </div>
+
+    <!-- Tabla de resultados -->
+    <div class="table-container">
+        <table class="tabla-incidentes">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Tipo</th>
+                    <th>Prioridad</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-body">
+                <tr>
+                    <td class="codigo">INC-2<br>025-<br>082</td>
+                    <td>Robo en progreso</td>
+                    <td><span class="prioridad alta">Alta</span></td>
+                    <td>Abierto</td>
+                </tr>
+                <tr>
+                    <td class="codigo">INC-2<br>025-<br>083</td>
+                    <td>Accidente de tránsito</td>
+                    <td><span class="prioridad media">Media</span></td>
+                    <td>Asignado</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ================================
+   BÚSQUEDA AVANZADA (MODAL)
+================================= -->
+<section id="busqueda-avanzada" class="view modal-view">
+    <div class="modal-content">
+        <header class="modal-header">
+            <h2>Búsqueda avanzada</h2>
+            <button class="close-btn" onclick="showView('buscador')">×</button>
+        </header>
+
+        <div class="form-container">
+            <div class="form-group">
+                <label for="filtro-codigo">Código de caso</label>
+                <input type="text" id="filtro-codigo" placeholder="INC-2025-001" />
+            </div>
+
+            <div class="form-group">
+                <label for="filtro-texto">Texto libre</label>
+                <input type="text" id="filtro-texto" placeholder="Buscar en descripción, ubicación..." />
+            </div>
+
+            <div class="form-group">
+                <label for="filtro-tipo">Tipo de incidente</label>
+                <select id="filtro-tipo">
+                    <option value="">Seleccionar...</option>
+                    <option value="robo">Robo y Hurto</option>
+                    <option value="accidente">Accidente de tránsito</option>
+                    <option value="violencia">Violencia familiar</option>
+                    <option value="vandalismo">Vandalismo</option>
+                    <option value="ruidos">Ruidos molestos</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="filtro-prioridad">Prioridad</label>
+                <select id="filtro-prioridad">
+                    <option value="">Seleccionar...</option>
+                    <option value="alta">Alta</option>
+                    <option value="media">Media</option>
+                    <option value="baja">Baja</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="filtro-estado">Estado</label>
+                <select id="filtro-estado">
+                    <option value="">Seleccionar...</option>
+                    <option value="abierto">Abierto</option>
+                    <option value="asignado">Asignado</option>
+                    <option value="en-progreso">En progreso</option>
+                    <option value="resuelto">Resuelto</option>
+                    <option value="cerrado">Cerrado</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="filtro-fecha-inicio">Rango de fechas</label>
+                <div class="date-range">
+                    <input type="date" id="filtro-fecha-inicio" aria-label="Fecha de inicio" />
+                    <input type="date" id="filtro-fecha-fin" aria-label="Fecha de fin" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="filtro-distrito">Distrito</label>
+                <select id="filtro-distrito">
+                    <option value="">Seleccionar...</option>
+                    <option value="norte">Norte</option>
+                    <option value="sur">Sur</option>
+                    <option value="este">Este</option>
+                    <option value="oeste">Oeste</option>
+                    <option value="centro">Centro</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="filtro-unidad">Unidad asignada</label>
+                <input type="text" id="filtro-unidad" placeholder="PAT-01" />
+            </div>
+
+            <button class="aplicar-btn" id="aplicar-filtros-btn" onclick="aplicarFiltros()">
+                Aplicar filtros
+            </button>
+        </div>
+    </div>
+</section>
+
+<script src="Secured-Landing-Page/public/assets/scripts/buscador-incidentes.js"></script>
+</body>
+</html>
+

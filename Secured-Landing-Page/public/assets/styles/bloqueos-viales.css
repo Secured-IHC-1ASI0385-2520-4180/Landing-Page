@@ -1,0 +1,584 @@
+/* Bloqueos Viales - Estilos */
+
+/* Reset y base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    line-height: 1.5;
+}
+
+/* Sistema de vistas */
+.vista {
+    display: none;
+    min-height: 100vh;
+}
+
+.vista.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    background: #fff;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #1d1d1f;
+    cursor: pointer;
+    padding: 4px 8px;
+    line-height: 1;
+}
+
+.header-content {
+    flex: 1;
+}
+
+.header-content h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+.header-content .subtitle {
+    font-size: 13px;
+    color: #86868b;
+}
+
+.nuevo-btn,
+.publicar-btn {
+    background: #007aff;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Controles bar */
+.controles-bar {
+    background: #fff;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e5e7;
+}
+
+.filtros-btn {
+    background: #f5f5f7;
+    border: 1px solid #d2d2d7;
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 14px;
+    color: #1d1d1f;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.filtro-icon {
+    font-size: 16px;
+}
+
+/* Alerta de reportes */
+.alerta-reportes {
+    background: #fff8e1;
+    border: 1px solid #ffc107;
+    padding: 12px 16px;
+    display: flex;
+    gap: 12px;
+    align-items: start;
+}
+
+.alerta-icon {
+    font-size: 24px;
+}
+
+.alerta-content strong {
+    display: block;
+    font-size: 14px;
+    color: #1d1d1f;
+    margin-bottom: 4px;
+}
+
+.alerta-content p {
+    font-size: 13px;
+    color: #856404;
+}
+
+/* Mapa container */
+.mapa-container {
+    position: relative;
+    flex: 1;
+    background: #e5e5e7;
+}
+
+.mapa-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mapa-controles {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 16px;
+}
+
+.control-btn {
+    background: #fff;
+    border: 1px solid #d2d2d7;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 13px;
+    color: #1d1d1f;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Filtros activos bar */
+.filtros-activos-bar {
+    background: #fff;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e5e7;
+}
+
+.filtro-chip {
+    background: #007aff;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Lista de bloqueos */
+.bloqueos-lista {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+}
+
+.bloqueo-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.bloqueo-card:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.bloqueo-header {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.bloqueo-icon {
+    width: 40px;
+    height: 40px;
+    background: #e3f2fd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.bloqueo-info {
+    flex: 1;
+}
+
+.bloqueo-info h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.bloqueo-badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.badge.activo {
+    background: #ffe5e5;
+    color: #d32f2f;
+}
+
+.badge.total {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.badge.parcial {
+    background: #fff3e0;
+    color: #f57c00;
+}
+
+.tipo-badge {
+    background: #f5f5f7;
+    color: #1d1d1f;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+}
+
+.bloqueo-descripcion {
+    font-size: 14px;
+    color: #1d1d1f;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.bloqueo-fechas {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.fecha-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #1d1d1f;
+}
+
+.fecha-icon {
+    font-size: 14px;
+}
+
+.bloqueo-desvio {
+    background: #e3f2fd;
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+.desvio-icon {
+    font-size: 16px;
+    color: #007aff;
+}
+
+.desvio-texto {
+    font-size: 13px;
+    font-weight: 500;
+    color: #007aff;
+    margin-left: 6px;
+}
+
+.desvio-ruta {
+    font-size: 13px;
+    color: #0d47a1;
+    margin-top: 4px;
+    margin-left: 22px;
+}
+
+.bloqueo-advertencia {
+    background: #fff8e1;
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.advertencia-icon {
+    font-size: 16px;
+}
+
+.bloqueo-advertencia span:last-child {
+    font-size: 13px;
+    color: #856404;
+}
+
+/* Formulario de nuevo bloqueo */
+.formulario-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.formulario-izquierda,
+.formulario-derecha {
+    flex: 1;
+}
+
+.seccion-form {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.seccion-form h2 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    color: #1d1d1f;
+    margin-bottom: 6px;
+}
+
+.requerido {
+    color: #ff3b30;
+}
+
+.form-group input[type="text"],
+.form-group input[type="datetime-local"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d2d2d7;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #1d1d1f;
+}
+
+.form-group textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* Sección de desvío */
+.seccion-desvio {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.btn-desvio {
+    width: 100%;
+    background: #f5f5f7;
+    border: 1px solid #d2d2d7;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 15px;
+    color: #1d1d1f;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-desvio:hover {
+    background: #e5e5e7;
+}
+
+/* Sección de mapa editor */
+.seccion-mapa {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    position: sticky;
+    top: 80px;
+}
+
+.mapa-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.mapa-icon {
+    font-size: 20px;
+}
+
+.mapa-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.mapa-editor {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.mapa-editor-img {
+    width: 100%;
+    display: block;
+}
+
+.herramienta-trazo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 16px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.herramienta-icon {
+    font-size: 32px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.herramienta-texto {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.herramienta-instruccion {
+    font-size: 13px;
+    color: #86868b;
+}
+
+.instruccion-box {
+    background: #f0f7ff;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    align-items: start;
+    gap: 10px;
+}
+
+.instruccion-icon {
+    font-size: 18px;
+    color: #007aff;
+}
+
+.instruccion-box p {
+    font-size: 13px;
+    color: #0d47a1;
+    line-height: 1.4;
+}
+
+/* Toast de confirmación */
+.toast {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #34c759;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 20px;
+    display: none;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: slideDown 0.3s ease-out;
+}
+
+.toast.show {
+    display: flex;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateX(-50%) translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+.toast-icon {
+    font-size: 18px;
+}
+
+.toast-texto {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .formulario-container {
+        flex-direction: column;
+    }
+
+    .seccion-mapa {
+        position: relative;
+        top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .mapa-controles {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .control-btn {
+        text-align: center;
+    }
+}
+
