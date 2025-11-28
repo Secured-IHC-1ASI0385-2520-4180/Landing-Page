@@ -1,6 +1,4 @@
-/* =========================================
-   TABLERO SLA - ESTILOS GENERALES
-   ========================================= */
+
 
 :root {
     --secured-bg: #f5f7fb;
@@ -287,10 +285,6 @@ a {
     width: 100%;
 }
 
-/* ========================= */
-/* TABLERO - TARJETAS SLA    */
-/* ========================= */
-
 .sla-board-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -338,9 +332,6 @@ a {
     gap: 6px;
 }
 
-/* ========================= */
-/* SLA INCIDENTE             */
-/* ========================= */
 
 .sla-paused-badge {
     margin-left: auto;
@@ -580,9 +571,6 @@ a {
     margin: 0;
 }
 
-/* ========================= */
-/* PAUSAR / REANUDAR SLA     */
-/* ========================= */
 
 .sla-modal-header {
     display: flex;
@@ -743,8 +731,6 @@ a {
 .option-pill input:checked ~ .option-helper {
 }
 
-/* (más sencillo: cambiar el borde con :has, pero no todos los navegadores lo soportan.
-   Así que lo hacemos con una clase desde JS si lo necesitaras) */
 
 /* Lista de motivos */
 

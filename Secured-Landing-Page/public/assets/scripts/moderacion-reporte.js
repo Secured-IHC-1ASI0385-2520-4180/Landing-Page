@@ -1,6 +1,3 @@
-// =====================================
-// MODERACIÓN DE REPORTES - LÓGICA
-// =====================================
 
 document.addEventListener("DOMContentLoaded", () => {
     // ----- Cambio de vistas (Pendientes / En revisión / Todos) -----

@@ -1,6 +1,3 @@
-// ========================================
-// TABLERO SLA - LÓGICA DE VISTAS
-// ========================================
 
 (function () {
     const views = document.querySelectorAll(".sla-view");
@@ -29,9 +26,6 @@
     const pauseCtaLabel = document.getElementById("pauseCtaLabel");
     const pauseForm = document.getElementById("pauseForm");
 
-    // -----------------------------
-    // Helpers
-    // -----------------------------
     function showView(targetId) {
         views.forEach((view) => {
             view.classList.toggle("sla-view-active", view.id === targetId);
@@ -87,26 +81,20 @@
         showView(pauseViewId);
     }
 
-    // -----------------------------
-    // Tablero: clic en incidente
-    // -----------------------------
+
     const incidentCards = document.querySelectorAll(".sla-incident-card");
     incidentCards.forEach((card) => {
         card.addEventListener("click", () => openIncidentFromCard(card));
     });
 
-    // -----------------------------
-    // Botón Pausar / Reanudar SLA
-    // -----------------------------
+
     if (btnSlaControl) {
         btnSlaControl.addEventListener("click", () => {
             openPauseView();
         });
     }
 
-    // -----------------------------
-    // Enviar formulario de pausa
-    // -----------------------------
+
     if (pauseForm) {
         pauseForm.addEventListener("submit", (event) => {
             event.preventDefault();
@@ -120,9 +108,7 @@
         });
     }
 
-    // -----------------------------
-    // Back a Tablero desde SLA y Pausa
-    // -----------------------------
+
     const backToBoardButtons = document.querySelectorAll(".js-back-to-board");
     backToBoardButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
@@ -130,9 +116,7 @@
         });
     });
 
-    // -----------------------------
-    // Filtros rápidos (Todos / Por vencer / Vencidos)
-    // -----------------------------
+
     const filterButtons = document.querySelectorAll(".filter-pill");
 
     function applyFilter(status) {

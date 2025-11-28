@@ -1,0 +1,427 @@
+/* Estilos generales de la página de gestión de turno */
+
+:root {
+    --gt-bg-page: #f5f7fb;
+    --gt-bg-card: #ffffff;
+    --gt-bg-soft: #eef3ff;
+    --gt-border-soft: #d7e0ff;
+    --gt-primary: #16a34a;
+    --gt-primary-dark: #15803d;
+    --gt-primary-soft: #e1f7e9;
+    --gt-text-main: #111827;
+    --gt-text-muted: #6b7280;
+    --gt-text-soft: #9ca3af;
+    --gt-danger: #ef4444;
+    --gt-shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+    --gt-radius-lg: 16px;
+    --gt-radius-xl: 24px;
+    --gt-radius-pill: 999px;
+}
+
+/* Reset pequeño */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body.gt-page {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: var(--gt-bg-page);
+    color: var(--gt-text-main);
+}
+
+/* Wrapper y cabecera */
+
+.gt-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 32px 40px;
+}
+
+.gt-page-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.gt-back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    color: var(--gt-text-main);
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    font-size: 18px;
+    line-height: 1;
+}
+
+.gt-back-link:hover {
+    border-color: #e5e7eb;
+    background-color: #f9fafb;
+}
+
+.gt-header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.gt-page-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.gt-page-subtitle {
+    margin: 2px 0 0;
+    font-size: 13px;
+    color: var(--gt-text-soft);
+}
+
+/* Layout principal */
+
+.gt-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 420px);
+    row-gap: 16px;
+}
+
+/* Tarjeta de estado */
+
+.gt-status-card {
+    background-color: var(--gt-bg-card);
+    border-radius: var(--gt-radius-xl);
+    padding: 18px 22px;
+    box-shadow: var(--gt-shadow-soft);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.gt-status-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.gt-status-label {
+    margin: 0;
+    font-size: 12px;
+    color: var(--gt-text-soft);
+}
+
+.gt-status-value {
+    margin: 4px 0 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gt-text-main);
+}
+
+.gt-status-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--gt-bg-soft);
+    border: 1px solid var(--gt-border-soft);
+    color: var(--gt-text-muted);
+    font-size: 18px;
+}
+
+/* Botón principal */
+
+.gt-main-button {
+    margin-top: 8px;
+    border: none;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border-radius: var(--gt-radius-pill);
+    background-color: var(--gt-primary);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 14px 30px rgba(22, 163, 74, 0.35);
+    transition:
+            background-color 0.15s ease,
+            box-shadow 0.15s ease,
+            transform 0.1s ease;
+    width: 260px;
+}
+
+.gt-main-button-icon {
+    font-size: 16px;
+}
+
+.gt-main-button:hover {
+    background-color: var(--gt-primary-dark);
+    box-shadow: 0 18px 40px rgba(22, 163, 74, 0.45);
+    transform: translateY(-1px);
+}
+
+.gt-main-button:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.35);
+}
+
+/* Tarjeta de info */
+
+.gt-info-card {
+    margin-top: 4px;
+    padding: 12px 16px;
+    max-width: 420px;
+    background-color: var(--gt-bg-soft);
+    border-radius: 12px;
+    border: 1px dashed var(--gt-border-soft);
+}
+
+.gt-info-text {
+    margin: 0;
+    font-size: 13px;
+    color: var(--gt-text-muted);
+}
+
+/* Vistas */
+
+.gt-view {
+    display: none;
+}
+
+.gt-view.gt-view-active {
+    display: block;
+}
+
+/* Modal */
+
+.gt-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.25);
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 32px 16px 24px;
+    z-index: 40;
+}
+
+.gt-modal-overlay.gt-open {
+    display: flex;
+}
+
+.gt-modal {
+    width: 100%;
+    max-width: 960px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    box-shadow: var(--gt-shadow-soft);
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.gt-modal-header {
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.gt-modal-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gt-modal-close {
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--gt-text-soft);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+}
+
+.gt-modal-close:hover {
+    background-color: #f3f4f6;
+}
+
+.gt-modal-body {
+    padding: 16px 24px 4px;
+    overflow-y: auto;
+}
+
+/* Ubicación */
+
+.gt-modal-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: var(--gt-radius-pill);
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    font-size: 13px;
+    color: var(--gt-text-muted);
+    margin-bottom: 16px;
+}
+
+.gt-location-icon {
+    font-size: 14px;
+}
+
+/* Campo de tipo de servicio */
+
+.gt-modal-field {
+    margin-bottom: 12px;
+}
+
+.gt-field-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--gt-text-main);
+}
+
+.gt-field-required {
+    color: var(--gt-danger);
+}
+
+.gt-service-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.gt-service-option {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    transition:
+            border-color 0.15s ease,
+            background-color 0.15s ease,
+            box-shadow 0.15s ease;
+}
+
+.gt-service-option:hover {
+    border-color: var(--gt-border-soft);
+    background-color: #f9fafb;
+}
+
+.gt-service-option.gt-selected {
+    border-color: var(--gt-primary);
+    background-color: var(--gt-primary-soft);
+    box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.45);
+}
+
+.gt-service-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f4ff;
+    font-size: 15px;
+}
+
+.gt-service-text {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Error */
+
+.gt-field-error {
+    margin: 6px 2px 0;
+    font-size: 12px;
+    color: var(--gt-danger);
+    min-height: 16px;
+}
+
+/* Hint */
+
+.gt-modal-hint {
+    margin: 16px 0 0;
+    font-size: 13px;
+    color: var(--gt-text-muted);
+}
+
+/* Footer del modal */
+
+.gt-modal-footer {
+    padding: 12px 24px 16px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.gt-confirm-button {
+    border: none;
+    outline: none;
+    border-radius: var(--gt-radius-pill);
+    padding: 10px 26px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: var(--gt-primary);
+    color: #ffffff;
+    box-shadow: 0 14px 30px rgba(22, 163, 74, 0.35);
+    transition:
+            background-color 0.15s ease,
+            box-shadow 0.15s ease,
+            transform 0.1s ease;
+}
+
+.gt-confirm-button:hover {
+    background-color: var(--gt-primary-dark);
+    box-shadow: 0 18px 40px rgba(22, 163, 74, 0.45);
+    transform: translateY(-1px);
+}
+
+.gt-confirm-button:active {
+    transform: translateY(0);
+}
+
+/* Responsivo */
+
+@media (min-width: 768px) {
+    .gt-layout {
+        grid-template-columns: minmax(0, 420px);
+    }
+
+    .gt-wrapper {
+        padding-inline: 40px;
+    }
+
+    .gt-modal-overlay {
+        align-items: center;
+    }
+}
