@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de catálogos</title>
+
+    <link
+            rel="stylesheet"
+            href="Secured-Landing-Page/public/assets/styles/gestion_catalogos.css"
+    />
+</head>
+<body class="gc-body">
+<main class="gc-wrapper">
+
+    <!--    LISTA DE CATÁLOGOS
+          -->
+    <section id="gc-screen-main" class="gc-screen gc-screen--active">
+        <header class="gc-header">
+            <div class="gc-header-left">
+                <button type="button" class="gc-back" id="gcBackToHome">
+                    ←
+                </button>
+                <div class="gc-header-text">
+                    <h1>Gestión de catálogos</h1>
+                    <p>Administra tipos, prioridades y configuraciones</p>
+                </div>
+            </div>
+
+            <div class="gc-header-right">
+                <button type="button" class="gc-btn gc-btn-primary" id="gcNewTypeBtn">
+                    + Nuevo
+                </button>
+            </div>
+        </header>
+
+        <section class="gc-tabs">
+            <button type="button" class="gc-tab gc-tab--active" data-tab="tipos">
+                Tipos de incidente
+                <span class="gc-tab-badge">4</span>
+            </button>
+            <button type="button" class="gc-tab" data-tab="subtipos">
+                Subtipos
+            </button>
+            <button type="button" class="gc-tab" data-tab="prioridades">
+                Prioridades
+            </button>
+            <button type="button" class="gc-tab" data-tab="motivos">
+                Motivos de cierre
+            </button>
+            <button type="button" class="gc-tab" data-tab="estados">
+                Estados
+            </button>
+        </section>
+
+        <section class="gc-top-actions">
+            <button type="button" class="gc-chip gc-chip-icon" id="gcFiltersBtn">
+                <span class="gc-chip-icon-badge">⚙</span>
+                Filtros
+            </button>
+
+            <button type="button" class="gc-chip gc-chip-warning" id="gcPendingBtn">
+                <span class="gc-chip-warning-dot">●</span>
+                2 pendientes de aprobación
+            </button>
+        </section>
+
+        <section class="gc-cards">
+            <article class="gc-card">
+                <div class="gc-card-header">
+                    <div class="gc-card-header-main">
+                        <div class="gc-field">
+                            <span class="gc-label">Nombre</span>
+                            <p class="gc-title">Robo a persona</p>
+                        </div>
+                        <div class="gc-field">
+                            <span class="gc-label">Estado</span>
+                            <span class="gc-pill gc-pill--success">
+                                <span class="gc-pill-icon">✔</span>
+                                Publicado
+                            </span>
+                        </div>
+                        <div class="gc-field">
+                            <span class="gc-label">Versión</span>
+                            <p class="gc-text-strong">v3</p>
+                        </div>
+                        <div class="gc-field">
+                            <span class="gc-label">Prioridad</span>
+                            <p class="gc-text-strong">Alta</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gc-card-body">
+                    <div class="gc-card-body-col">
+                        <span class="gc-label">Vigencia</span>
+                        <p class="gc-text">
+                            Desde<br />
+                            2024-10-16<br />
+                            08:00
+                        </p>
+                    </div>
+                    <div class="gc-card-body-col">
+                        <span class="gc-label">Creado por</span>
+                        <p class="gc-text">
+                            Admin<br />
+                            Principal
+                        </p>
+                    </div>
+                    <div class="gc-card-body-col">
+                        <span class="gc-label">Fecha</span>
+                        <p class="gc-text">
+                            2024-10-15
+                        </p>
+                    </div>
+                    <div class="gc-card-body-col gc-card-body-col-actions">
+                        <span class="gc-label">Acciones</span>
+                        <div class="gc-actions">
+                            <button class="gc-icon-btn" title="Editar">
+                                ✏️
+                            </button>
+                            <button class="gc-icon-btn" title="Duplicar">
+                                📄
+                            </button>
+                            <button class="gc-icon-btn" title="Programar fin">
+                                🔁
+                            </button>
+                            <button class="gc-icon-btn" title="Ver métricas">
+                                📊
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="gc-card">
+                <div class="gc-card-header">
+                    <div class="gc-card-header-main">
+                        <div class="gc-field">
+                            <span class="gc-label">Nombre</span>
+                            <p class="gc-title">Accidente de tránsito</p>
+                        </div>
+                        <div class="gc-field">
+                            <span class="gc-label">Estado</span>
+                            <span class="gc-pill gc-pill--info">
+                                <span class="gc-pill-icon">🕒</span>
+                                Programado
+                            </span>
+                        </div>
+                        <div class="gc-field">
+                            <span class="gc-label">Versión</span>
+                            <p class="gc-text-strong">v2</p>
+                        </div>
+                        <div class="gc-field">
+                            <span class="gc-label">Prioridad</span>
+                            <p class="gc-text-strong">Media</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gc-card-body">
+                    <div class="gc-card-body-col">
+                        <span class="gc-label">Vigencia</span>
+                        <p class="gc-text">
+                            Desde<br />
+                            2024-11-01 08:00
+                        </p>
+                    </div>
+                    <div class="gc-card-body-col">
+                        <span class="gc-label">Creado por</span>
+                        <p class="gc-text">
+                            Carlos<br />
+                            Rodríguez
+                        </p>
+                    </div>
+                    <div class="gc-card-body-col">
+                        <span class="gc-label">Fecha</span>
+                        <p class="gc-text">
+                            2024-10-20
+                        </p>
+                    </div>
+                    <div class="gc-card-body-col gc-card-body-col-actions">
+                        <span class="gc-label">Acciones</span>
+                        <div class="gc-actions">
+                            <button class="gc-icon-btn" title="Editar">
+                                ✏️
+                            </button>
+                            <button class="gc-icon-btn" title="Duplicar">
+                                📄
+                            </button>
+                            <button class="gc-icon-btn" title="Reprogramar">
+                                🔁
+                            </button>
+                            <button class="gc-icon-btn" title="Ver métricas">
+                                📊
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="gc-card">
+                <div class="gc-card-header">
+                    <div class="gc-card-header-main">
+                        <div class="gc-field">
+                            <span class="gc-label">Nombre</span>
+                            <p class="gc-title">Disturbios menores</p>
+                        </div>
+                        <div class="gc-field">
+                            <span class="gc-label">Estado</span>
+                            <span class="gc-pill gc-pill--danger">
+                                <span class="gc-pill-icon">⛔</span>
+                                Deprecado
+                            </span>
+                        </div>
+                        <div class="gc-field">
+                            <span class="gc-label">Versión</span>
+                            <p class="gc-text-strong">v1</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gc-card-body">
+                    <div class="gc-card-body-col">
+                        <span class="gc-label">Vigencia</span>
+                        <p class="gc-text">
+                            Hasta<br />
+                            2024-10-20
+                        </p>
+                    </div>
+                    <div class="gc-card-body-col">
+                        <span class="gc-label">Creado por</span>
+                        <p class="gc-text">
+                            Admin<br />
+                            Principal
+                        </p>
+                    </div>
+                    <div class="gc-card-body-col">
+                        <span class="gc-label">Fecha</span>
+                        <p class="gc-text">
+                            2024-08-01
+                        </p>
+                    </div>
+                    <div class="gc-card-body-col gc-card-body-col-actions">
+                        <span class="gc-label">Acciones</span>
+                        <div class="gc-actions">
+                            <button class="gc-icon-btn" title="Editar">
+                                ✏️
+                            </button>
+                            <button class="gc-icon-btn" title="Duplicar">
+                                📄
+                            </button>
+                            <button class="gc-icon-btn" title="Historial">
+                                📊
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gc-card-footer gc-card-footer--reassigned">
+                    <span class="gc-label-inline">Reasignado a:</span>
+                    <span class="gc-footer-text">Alteración del orden</span>
+                </div>
+            </article>
+
+            <article class="gc-card">
+                <div class="gc-card-header">
+                    <div class="gc-card-header-main">
+                        <div class="gc-field">
+                            <span class="gc-label">Nombre</span>
+                            <p class="gc-title">Violencia familiar</p>
+                        </div>
+                        <div class="gc-field">
+                            <span class="gc-label">Estado</span>
+                            <span class="gc-pill gc-pill--draft">
+                                <span class="gc-pill-icon">✎</span>
+                                Borrador
+                            </span>
+                        </div>
+                        <div class="gc-field">
+                            <span class="gc-label">Versión</span>
+                            <p class="gc-text-strong">v1</p>
+                        </div>
+                        <div class="gc-field">
+                            <span class="gc-label">Prioridad</span>
+                            <p class="gc-text-strong">Alta</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gc-card-body">
+                    <div class="gc-card-body-col">
+                        <span class="gc-label">Vigencia</span>
+                        <p class="gc-text">
+                            Sin<br />
+                            publicar
+                        </p>
+                    </div>
+                    <div class="gc-card-body-col">
+                        <span class="gc-label">Creado por</span>
+                        <p class="gc-text">
+                            María<br />
+                            López
+                        </p>
+                    </div>
+                    <div class="gc-card-body-col">
+                        <span class="gc-label">Fecha</span>
+                        <p class="gc-text">
+                            2024-10-28
+                        </p>
+                    </div>
+                    <div class="gc-card-body-col gc-card-body-col-actions">
+                        <span class="gc-label">Acciones</span>
+                        <div class="gc-actions">
+                            <button class="gc-icon-btn" title="Editar">
+                                ✏️
+                            </button>
+                            <button class="gc-icon-btn" title="Duplicar">
+                                📄
+                            </button>
+                            <button class="gc-icon-btn" title="Programar">
+                                🔁
+                            </button>
+                            <button class="gc-icon-btn" title="Ver métricas">
+                                📊
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </section>
+
+    <section id="gc-screen-new" class="gc-screen">
+        <header class="gc-header gc-header--secondary">
+            <div class="gc-header-left">
+                <button type="button" class="gc-back" id="gcBackFromNew">
+                    ←
+                </button>
+                <div class="gc-header-text">
+                    <h1>Nuevo tipo de incidente</h1>
+                    <p>Se creará en estado borrador</p>
+                </div>
+            </div>
+        </header>
+
+        <form class="gc-form" id="gcNewTypeForm">
+            <section class="gc-section">
+                <h2 class="gc-section-title">Información básica</h2>
+
+                <div class="gc-form-grid">
+                    <label class="gc-field-block">
+                        Nombre <span class="gc-required">*</span>
+                        <input
+                                type="text"
+                                id="gcName"
+                                placeholder="Ej: Robo a persona"
+                                autocomplete="off"
+                        />
+                    </label>
+
+                    <label class="gc-field-block">
+                        Código único <span class="gc-required">*</span>
+                        <input
+                                type="text"
+                                id="gcCode"
+                                placeholder="ROBO-PER"
+                                autocomplete="off"
+                        />
+                    </label>
+                </div>
+
+                <label class="gc-field-block gc-field-block--full">
+                    Descripción
+                    <textarea
+                            id="gcDescription"
+                            placeholder="Descripción detallada del ítem..."
+                            rows="4"
+                    ></textarea>
+                </label>
+            </section>
+
+            <section class="gc-section">
+                <h2 class="gc-section-title">Configuración operativa</h2>
+
+                <label class="gc-field-block gc-field-block--full">
+                    Prioridad por defecto
+                    <select id="gcPriority">
+                        <option value="">Selecciona una prioridad</option>
+                        <option value="Alta">Alta</option>
+                        <option value="Media">Media</option>
+                        <option value="Baja">Baja</option>
+                    </select>
+                </label>
+
+                <div class="gc-info-sla">
+                    <p class="gc-info-sla-title">Regla de SLA sugerida</p>
+                    <p class="gc-info-sla-text">
+                        Respuesta: 30 min | Resolución: 4 horas
+                    </p>
+                </div>
+            </section>
+
+            <section class="gc-cta-bar">
+                <button
+                        type="button"
+                        class="gc-cta gc-cta--secondary"
+                        id="gcDraftBtn"
+                        disabled
+                >
+                    Guardar<br />borrador
+                </button>
+
+                <button
+                        type="button"
+                        class="gc-cta gc-cta--primary"
+                        id="gcScheduleBtn"
+                        disabled
+                >
+                    Programar<br />publicación
+                </button>
+            </section>
+        </form>
+    </section>
+
+    <section id="gc-screen-schedule" class="gc-screen">
+        <header class="gc-header gc-header--secondary">
+            <div class="gc-header-left">
+                <button type="button" class="gc-back" id="gcBackFromSchedule">
+                    ←
+                </button>
+                <div class="gc-header-text">
+                    <h1>Programar publicación</h1>
+                    <p id="gcScheduleSubtitle">
+                        Robo a persona (Versión 1)
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <form class="gc-form" id="gcScheduleForm">
+            <section class="gc-section">
+                <h2 class="gc-section-title">Fecha y hora de vigencia</h2>
+
+                <div class="gc-form-grid">
+                    <label class="gc-field-block">
+                        Fecha <span class="gc-required">*</span>
+                        <input type="date" id="gcDate" />
+                    </label>
+
+                    <label class="gc-field-block">
+                        Hora <span class="gc-required">*</span>
+                        <input type="time" id="gcTime" />
+                    </label>
+                </div>
+
+                <div class="gc-error-row">
+                    <span class="gc-error-icon">⚠</span>
+                    <span class="gc-error-text">La fecha debe ser posterior a ahora</span>
+                </div>
+            </section>
+
+            <section class="gc-section">
+                <h2 class="gc-section-title">Resumen de cambios</h2>
+
+                <div class="gc-summary">
+                    <div class="gc-summary-row">
+                        <span class="gc-summary-label">Nombre:</span>
+                        <span id="gcSummaryName">Robo a persona</span>
+                    </div>
+                    <div class="gc-summary-row">
+                        <span class="gc-summary-label">Código:</span>
+                        <span id="gcSummaryCode">ROBO-PER</span>
+                    </div>
+                    <div class="gc-summary-row">
+                        <span class="gc-summary-label">Versión:</span>
+                        <span id="gcSummaryVersion">v1</span>
+                    </div>
+                    <div class="gc-summary-row">
+                        <span class="gc-summary-label">Prioridad:</span>
+                        <span id="gcSummaryPriority">Media</span>
+                    </div>
+                    <div class="gc-summary-row">
+                        <span class="gc-summary-label">Vigencia desde:</span>
+                        <span id="gcSummaryFrom">2024-11-01 08:00</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="gc-section gc-section--cards">
+                <div class="gc-info-card gc-info-card--blue">
+                    <p class="gc-info-card-title">Vista previa en apps</p>
+                    <ul class="gc-info-card-list">
+                        <li>Registro de incidentes: aparecerá en selector de tipo</li>
+                        <li>Despacho: visible para asignación de prioridad</li>
+                        <li>Analytics: incluido en métricas desde vigencia</li>
+                    </ul>
+                </div>
+
+                <div class="gc-info-card gc-info-card--orange">
+                    <p class="gc-info-card-title">Antes de continuar</p>
+                    <ul class="gc-info-card-list">
+                        <li>Este cambio será visible para todos los usuarios</li>
+                        <li>La versión anterior quedará en el historial</li>
+                        <li>Puedes revertir desde el historial si es necesario</li>
+                        <li>Puedes cancelar la programación antes de la fecha</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="gc-cta-bar">
+                <button
+                        type="button"
+                        class="gc-cta gc-cta--secondary"
+                        id="gcScheduleBackBtn"
+                >
+                    Volver
+                </button>
+
+                <button
+                        type="button"
+                        class="gc-cta gc-cta--primary"
+                        id="gcScheduleConfirmBtn"
+                        disabled
+                >
+                    Programar<br />publicación
+                </button>
+            </section>
+        </form>
+    </section>
+</main>
+
+<script
+        src="Secured-Landing-Page/public/assets/scripts/gestion_catalogos.js"
+        defer
+></script>
+</body>
+</html>
