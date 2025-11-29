@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>HU32 - Historial de Agentes</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/historial-agentes.css">
+</head>
+<body>
+<!-- CONTENEDOR PRINCIPAL CENTRADO -->
+<div class="outer-container">
+    <!-- FLECHA VOLVER -->
+    <button id="btn-back" class="back-arrow" aria-label="Volver">← </button>
+
+    <!-- CONTENIDO: FORMULARIO (CENTRADO) + CONSULTAS (A LA DERECHA) -->
+    <div class="content-wrapper">
+
+        <!-- FORMULARIO (lado izquierdo dentro del bloque centrado) -->
+         <section id="pantalla1" class="pantalla active">
+                <h2>Historial de Agentes</h2>
+                <div class="content-wrapper">
+                <main class="form-wrapper">
+                <form id="form-agente" autocomplete="off" onsubmit="return false;">
+                    <!-- Agente -->
+                    <div class="campo">
+                        <label for="agente">Agente:</label>
+                        <input type="text" id="agente" placeholder="Ingrese nombre del agente">
+                    </div>
+
+                    <!-- Rango rápido -->
+                    <div class="campo">
+                        <label>Rango rápido:</label>
+                        <div class="botones-rango">
+                            <button type="button" class="btn-rango" data-rango="hoy">Hoy</button>
+                            <button type="button" class="btn-rango" data-rango="ayer">Ayer</button>
+                            <button type="button" class="btn-rango" data-rango="7d">7 días</button>
+                            <button type="button" class="btn-rango" data-rango="personalizado">Personalizado</button>
+                        </div>
+                    </div>
+
+                    <!-- Fechas -->
+                    <div class="row">
+                        <div class="campo col">
+                            <label for="desde">Desde:</label>
+                            <input type="date" id="desde">
+                        </div>
+                        <div class="campo col">
+                            <label for="hasta">Hasta:</label>
+                            <input type="date" id="hasta">
+                        </div>
+                    </div>
+
+                    <!-- Acciones: solo Aplicar -->
+                    <div class="acciones-form">
+                        <button type="button" id="btn-aplicar" class="btn-primario disabled" disabled>Aplicar</button>
+                    </div>
+
+                    <!-- Info azul -->
+                    <div class="info-box">
+                        <strong>Información</strong>
+                        <p>Rango máximo: 30 días</p>
+                        <p>Datos disponibles de los últimos 90 días</p>
+                        <p>Incluye telemetría, eventos y métricas</p>
+                        <p>Requiere permisos de lectura de historial</p>
+                    </div>
+                </form>
+                </main>
+                <aside class="consultas-panel">
+                    <div class="consultas-header"><h3>Consultas recientes</h3></div>
+
+                    <div class="consulta-card" role="button" tabindex="0"
+                         data-nombre="Carlos Ruiz • PNP-001" data-rangotype="hoy">
+                        <div class="consulta-nombre">Carlos Ruiz • PNP-001</div>
+                        <div class="consulta-fecha small">Hoy</div>
+                    </div>
+
+                    <div class="consulta-card" role="button" tabindex="0"
+                         data-nombre="Ana López • SER-023" data-rangotype="ayer">
+                        <div class="consulta-nombre">Ana López • SER-023</div>
+                        <div class="consulta-fecha small">Ayer</div>
+                    </div>
+
+                    <div class="consulta-card" role="button" tabindex="0"
+                         data-nombre="Pedro Sánchez • PNP-045" data-rangotype="7d">
+                        <div class="consulta-nombre">Pedro Sánchez • PNP-045</div>
+                        <div class="consulta-fecha small">Semana</div>
+                    </div>
+                </aside>
+         </section>
+    </div>
+</div>
+
+<!-- PANTALLA 2: MAPA -->
+<section id="pantalla-mapa" class="pantalla">
+    <div class="header-mapa">
+        <h2>Historial de agente</h2>
+    </div>
+
+    <p><strong id="nombre-agente-mapa">[Agente]</strong> • <span id="rango-fecha-mapa">[Rango]</span></p>
+    <div class="mapa-container">
+        <!-- Mapa -->
+        <div id="mapa">
+            <img id="mapa-img" src="Secured-Landing-Page/public/assets/images/mapa_agente.png" alt="Mapa de recorrido">
+            <div class="map-overlay">
+                Reproduciendo: <span id="progress-label">0%</span>
+            </div>
+            <div class="recorrido-info">
+                <p>Reproducción del recorrido<br>400 puntos • Posición 0/100</p>
+                <p>Mostrando paradas</p>
+            </div>
+        </div>
+    </div>
+
+      <!-- Controles de reproducción -->
+     <div class="player-controls">
+        <button id="btn-play" class="btn-primario">Iniciar</button>
+        <button id="btn-pause" class="btn-secundario">Pausar</button>
+        <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+     </div>
+
+        <!-- Observaciones -->
+        <div class="observacion-box" id="box-observacion">
+            <h4>Observaciones de coaching</h4>
+            <p>Excelente tiempo de respuesta en incidente RB-01. Protocolo aplicado correctamente.</p>
+            <p><strong>Protocolo:</strong> Puntualidad<br><strong>Supervisor:</strong> García<br><strong>Fecha:</strong> 30/10/2024 14:30</p>
+        </div>
+    <!-- Acciones -->
+    <div class="acciones">
+        <button id="btn-exportar" class="export-icon" title="Exportar">📤</button>
+    </div>
+
+</section>
+
+
+<!-- PANTALLA 3: EXPORTACIÓN -->
+<!-- MODAL EXPORTAR -->
+<div id="modal-exportar" class="modal-overlay" style="display: none;">
+    <section class="modal-exportar">
+        <h2>Exportar historial</h2>
+        <p><strong>Carlos Ruiz - PNP-001</strong> • 31/10/2025 00:00 - 23:59</p>
+
+        <!-- Selección de formato -->
+        <div class="export-formato">
+            <h3>Formato de exportación</h3>
+            <div class="opciones-formato">
+                <button type="button" id="opcion-csv" class="btn-formato">CSV</button>
+                <button type="button" id="opcion-pdf" class="btn-formato">PDF</button>
+            </div>
+        </div>
+
+
+        <!-- Opciones generales -->
+        <div class="export-incluir">
+            <h3>Incluir en exportación</h3>
+            <p>Eventos (turnos, despachos, estados, incidentes)</p>
+            <p>Telemetría (puntos GPS, velocidad, rumbo)</p>
+            <p>Coordenadas exactas</p>
+        </div>
+
+        <!-- Privacidad y auditoría -->
+        <div class="export-privacidad">
+            <h3>Privacidad y auditoría</h3>
+            <p><strong>Difuminar direcciones</strong><br>
+                <small>Oculta direcciones exactas y coordenadas sensibles para proteger privacidad</small></p>
+            <p><strong>Registro de auditoría</strong><br>
+                <small>Esta exportación quedará registrada en la bitácora del sistema con fecha, hora y usuario</small></p>
+        </div>
+
+        <!-- Botones dinámicos -->
+        <div class="acciones-exportar">
+            <button id="cerrar-exportar" class="btn-secundario">Cancelar</button>
+            <button id="btn-exportar-final" class="btn-primario" style="display:none;">Exportar</button>
+        </div>
+    </section>
+</div>
+
+<script src="Secured-Landing-Page/public/assets/scripts/historial-agentes.js"></script>
+<script>
+    function generarCSV() {
+        alert("Exportando en CSV...");
+    }
+
+    function generarPDF() {
+        alert("Exportando en PDF...");
+    }
+</script>
+</body>
+</html>
