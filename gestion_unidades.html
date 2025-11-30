@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Gestión de unidades</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/gestion_unidades.css" />
+
+    <script src="Secured-Landing-Page/public/assets/scripts/gestion_unidades.js" defer></script>
+</head>
+<body>
+<main class="units-page">
+    <!-- ENCABEZADO -->
+    <header class="units-header">
+        <div class="units-header-left">
+            <button class="back-button" type="button">
+                <span class="icon-chevron-left"></span>
+            </button>
+
+            <div class="units-header-text">
+                <h1 id="main-title">Gestión de unidades</h1>
+                <p id="main-subtitle">5 unidades</p>
+            </div>
+        </div>
+
+        <button class="btn-primary" type="button">
+            <span class="btn-plus-icon">+</span>
+            <span>Nueva unidad</span>
+        </button>
+    </header>
+
+    <div class="units-toolbar">
+        <!-- Filtros -->
+        <button
+                class="toolbar-filters toolbar-segment is-active"
+                type="button"
+                data-view="lista"
+        >
+            <span>Filtros</span>
+        </button>
+
+        <!-- Mapa -->
+        <button
+                class="toolbar-map toolbar-segment"
+                type="button"
+                data-view="mapa"
+        >
+            <span class="toolbar-map-icon"></span>
+            <span>Mapa</span>
+        </button>
+
+        <button class="toolbar-export" type="button" title="Descargar">
+            <span class="toolbar-export-icon"></span>
+        </button>
+    </div>
+
+    <!-- VISTA LISTA -->
+    <section id="vista-lista" class="units-list-view">
+        <div class="units-grid">
+            <article class="unit-card unit-card-clickable" data-unit="patrulla-centro-1">
+                <header class="unit-card-header">
+                    <div>
+                        <span class="unit-name">Patrulla Centro 1</span>
+                        <span class="dot-separator">•</span>
+                        <span class="unit-plate">ABC-123</span>
+                    </div>
+                    <button class="chip chip-location" type="button">
+                        <span class="chip-location-icon"></span>
+                        <span>En patrulla</span>
+                    </button>
+                </header>
+
+                <div class="unit-card-body">
+                    <p class="unit-line">
+                        <span>Camioneta</span>
+                        <span class="dot-separator">•</span>
+                        <span>Centro</span>
+                    </p>
+                </div>
+
+                <footer class="unit-card-footer">
+                    <div class="unit-footer-left">
+                        <span class="footer-icon-crew"></span>
+                        <div class="unit-footer-text">
+                            <span>Carlos Ruiz,</span>
+                            <span>Ana Torres</span>
+                        </div>
+                    </div>
+
+                    <div class="unit-footer-right">
+                        <span class="footer-icon-clock"></span>
+                        <span>Hace 2 min</span>
+                        <span class="footer-icon-arrow"></span>
+                    </div>
+                </footer>
+            </article>
+
+            <article class="unit-card">
+                <header class="unit-card-header">
+                    <div>
+                        <span class="unit-name">Moto Norte 2</span>
+                        <span class="dot-separator">•</span>
+                        <span class="unit-plate">DEF-456</span>
+                    </div>
+                    <button class="chip chip-status chip-status-active" type="button">
+                        <span class="chip-status-dot"></span>
+                        <span>Activa</span>
+                    </button>
+                </header>
+
+                <div class="unit-card-body">
+                    <p class="unit-line">
+                        <span>Moto</span>
+                        <span class="dot-separator">•</span>
+                        <span>Norte</span>
+                        <span class="dot-separator">•</span>
+                        <span class="dot-separator dot-small"></span>
+                    </p>
+                    <span class="badge-warning">Doc. por vencer</span>
+                </div>
+
+                <footer class="unit-card-footer">
+                    <div class="unit-footer-left">
+                        <span class="footer-icon-crew"></span>
+                        <div class="unit-footer-text">
+                            <span>Jorge Méndez</span>
+                        </div>
+                    </div>
+
+                    <div class="unit-footer-right">
+                        <span class="footer-icon-clock"></span>
+                        <span>Hace 5 min</span>
+                        <span class="footer-icon-arrow"></span>
+                    </div>
+                </footer>
+            </article>
+
+            <article class="unit-card unit-card-maintenance">
+                <header class="unit-card-header">
+                    <div>
+                        <span class="unit-name">Patrulla Sur 1</span>
+                        <span class="dot-separator">•</span>
+                        <span class="unit-plate">GHI-789</span>
+                    </div>
+                    <button class="chip chip-status chip-status-maintenance" type="button">
+                        <span class="chip-maintenance-icon"></span>
+                        <span>En mantenimiento</span>
+                    </button>
+                </header>
+
+                <div class="unit-card-body">
+                    <p class="unit-line">
+                        <span>Camioneta</span>
+                        <span class="dot-separator">•</span>
+                        <span>Sur</span>
+                    </p>
+                </div>
+
+                <footer class="unit-card-footer">
+                    <div class="unit-footer-left">
+                        <span class="footer-icon-crew"></span>
+                        <div class="unit-footer-text">
+                            <span>Sin tripulación</span>
+                        </div>
+                    </div>
+
+                    <div class="unit-footer-right">
+                        <span class="footer-icon-clock"></span>
+                        <span>Hace 1 hora</span>
+                        <span class="footer-icon-arrow"></span>
+                    </div>
+                </footer>
+            </article>
+
+            <article class="unit-card">
+                <header class="unit-card-header">
+                    <div>
+                        <span class="unit-name">Bici Este 1</span>
+                        <span class="dot-separator">•</span>
+                        <span class="unit-plate">JKL-012</span>
+                    </div>
+                    <button class="chip chip-status chip-status-active" type="button">
+                        <span class="chip-status-dot"></span>
+                        <span>Activa</span>
+                    </button>
+                </header>
+
+                <div class="unit-card-body">
+                    <p class="unit-line">
+                        <span>Bicicleta</span>
+                        <span class="dot-separator">•</span>
+                        <span>Este</span>
+                    </p>
+                </div>
+
+                <footer class="unit-card-footer">
+                    <div class="unit-footer-left">
+                        <span class="footer-icon-crew"></span>
+                        <div class="unit-footer-text">
+                            <span>Luis Vega</span>
+                        </div>
+                    </div>
+
+                    <div class="unit-footer-right">
+                        <span class="footer-icon-clock"></span>
+                        <span>Hace 8 min</span>
+                        <span class="footer-icon-arrow"></span>
+                    </div>
+                </footer>
+            </article>
+
+            <article class="unit-card">
+                <header class="unit-card-header">
+                    <div>
+                        <span class="unit-name">Moto Centro 3</span>
+                        <span class="dot-separator">•</span>
+                        <span class="unit-plate">MNO-345</span>
+                    </div>
+                    <button class="chip chip-status chip-status-signal" type="button">
+                        <span class="chip-signal-icon"></span>
+                        <span>Sin señal</span>
+                    </button>
+                </header>
+
+                <div class="unit-card-body">
+                    <p class="unit-line">
+                        <span>Moto</span>
+                        <span class="dot-separator">•</span>
+                        <span>Centro</span>
+                    </p>
+                </div>
+
+                <footer class="unit-card-footer">
+                    <div class="unit-footer-left">
+                        <span class="footer-icon-crew"></span>
+                        <div class="unit-footer-text">
+                            <span>Pedro Silva</span>
+                        </div>
+                    </div>
+
+                    <div class="unit-footer-right">
+                        <span class="footer-icon-clock"></span>
+                        <span>Hace 15 min</span>
+                        <span class="footer-icon-arrow"></span>
+                    </div>
+                </footer>
+            </article>
+        </div>
+    </section>
+
+    <!-- VISTA MAPA -->
+    <section id="vista-mapa" class="units-map-view" hidden>
+        <!-- botón Lista -->
+        <div class="map-top-row">
+            <button class="map-list-button" type="button" data-view="lista">
+                <span class="map-list-icon"></span>
+                <span>Lista</span>
+            </button>
+        </div>
+
+        <div class="map-wrapper">
+            <div class="map-image"></div>
+
+            <div class="map-floating-card">
+                <h2>Unidades visibles</h2>
+                <ul class="map-units-list">
+                    <li class="map-unit map-unit-clickable" data-unit="patrulla-centro-1">
+                        <div class="map-unit-main">
+                            <span class="map-unit-name">Patrulla Centro 1</span>
+                            <span class="map-unit-status-dot status-patrol"></span>
+                        </div>
+                        <p class="map-unit-meta">En patrulla · 2 tripulantes</p>
+                    </li>
+                    <li class="map-unit">
+                        <div class="map-unit-main">
+                            <span class="map-unit-name">Moto Norte 2</span>
+                            <span class="map-unit-status-dot status-active"></span>
+                        </div>
+                        <p class="map-unit-meta">Activa · 1 tripulante</p>
+                    </li>
+                    <li class="map-unit">
+                        <div class="map-unit-main">
+                            <span class="map-unit-name">Bici Este 1</span>
+                            <span class="map-unit-status-dot status-active"></span>
+                        </div>
+                        <p class="map-unit-meta">Activa · 1 tripulante</p>
+                    </li>
+                    <li class="map-unit">
+                        <div class="map-unit-main">
+                            <span class="map-unit-name">Patrulla Sur 1</span>
+                            <span class="map-unit-status-dot status-maintenance"></span>
+                        </div>
+                        <p class="map-unit-meta">En mantenimiento</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="map-legend">
+                <span class="legend-item">
+                    <span class="legend-dot status-patrol"></span> En patrulla
+                </span>
+                <span class="legend-item">
+                    <span class="legend-dot status-active"></span> Activa
+                </span>
+                <span class="legend-item">
+                    <span class="legend-dot status-maintenance"></span> Mantenimiento
+                </span>
+                <span class="legend-item">
+                    <span class="legend-dot status-off"></span> Fuera de servicio
+                </span>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="units-overlay" class="units-overlay is-hidden">
+    <!-- PROGRAMAR MANTENIMIENTO -->
+    <section id="modal-programar" class="units-modal units-modal-programar is-hidden">
+        <header class="modal-header modal-header-programar">
+            <div class="modal-header-icon">
+                <span class="icon-wrench"></span>
+            </div>
+            <div class="modal-header-text">
+                <p class="modal-title-top">Programar mantenimiento</p>
+                <p class="modal-title-sub">Patrulla Centro 1 · ABC-123</p>
+            </div>
+        </header>
+
+        <form class="modal-body" id="form-programar">
+            <div class="program-grid-top">
+                <div class="field-group">
+                    <label for="tipoMantenimiento">Tipo de mantenimiento *</label>
+                    <input id="tipoMantenimiento" name="tipoMantenimiento" type="text" />
+                </div>
+
+                <div class="field-group">
+                    <label for="fechaInicio">Fecha y hora de inicio *</label>
+                    <div class="field-with-icon">
+                        <input id="fechaInicio" name="fechaInicio" type="datetime-local" />
+                        <span class="field-icon-calendar"></span>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label for="fechaFin">Fecha y hora de fin *</label>
+                    <div class="field-with-icon">
+                        <input id="fechaFin" name="fechaFin" type="datetime-local" />
+                        <span class="field-icon-calendar"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-grid-middle">
+                <div class="field-group">
+                    <label for="proveedor">Proveedor o taller</label>
+                    <input id="proveedor" name="proveedor" type="text" value="Taller Mecánico López" />
+                </div>
+
+                <div class="field-group">
+                    <label for="notas">Notas adicionales</label>
+                    <input id="notas" name="notas" type="text" placeholder="Cambio de aceite, revisión de frenos..." />
+                </div>
+            </div>
+
+            <div class="program-blocker">
+                <label class="blocker-card">
+                    <input id="bloquearDespacho" type="checkbox" />
+                    <div class="blocker-content">
+                        <p class="blocker-title">Bloquear en despacho</p>
+                        <p class="blocker-subtitle">
+                            La unidad no aparecerá como disponible para asignación durante el mantenimiento
+                        </p>
+                    </div>
+                </label>
+            </div>
+
+            <footer class="modal-footer">
+                <button type="button" class="btn-secondary" id="btnCancelarProgramar">
+                    Cancelar
+                </button>
+                <button type="submit" class="btn-primary btn-primary-wide" id="btnProgramar" disabled>
+                    Programar
+                </button>
+            </footer>
+        </form>
+    </section>
+
+    <!--   FUERA DE SERVICIO -->
+    <section id="modal-baja" class="units-modal units-modal-baja is-hidden">
+        <header class="modal-header modal-header-baja">
+            <div class="modal-header-icon modal-header-icon-danger">
+                <span class="icon-warning"></span>
+            </div>
+            <div class="modal-header-text">
+                <p class="modal-title-top">Marcar fuera de servicio</p>
+                <p class="modal-title-sub">Patrulla Centro 1 · ABC-123</p>
+            </div>
+        </header>
+
+        <div class="baja-warning-strip">
+            <span class="baja-warning-icon"></span>
+            <span class="baja-warning-text">
+                La unidad quedará no disponible. No podrá ser asignada a incidentes hasta que se reactive manualmente
+            </span>
+        </div>
+
+        <form class="modal-body modal-body-baja" id="form-baja">
+            <div class="field-group">
+                <label for="motivoBaja">Motivo *</label>
+                <select id="motivoBaja" name="motivoBaja">
+                    <option value="">Selecciona un motivo</option>
+                    <option value="sinGasolina">Sin Gasolina</option>
+                    <option value="fallaMecanica">Falla mecánica</option>
+                    <option value="accidente">Accidente</option>
+                    <option value="otros">Otros</option>
+                </select>
+            </div>
+
+            <div class="field-group">
+                <label for="descripcionBaja">
+                    Descripción detallada * (mínimo 10 caracteres)
+                </label>
+                <textarea
+                        id="descripcionBaja"
+                        name="descripcionBaja"
+                        rows="3"
+                        placeholder="Describe qué sucedió y el estado actual de la unidad..."
+                ></textarea>
+                <div class="char-counter">
+                    <span id="baja-char-count">0</span> caracteres
+                </div>
+            </div>
+
+            <div class="field-group">
+                <label for="retornoEstimado">Retorno estimado (opcional)</label>
+                <input id="retornoEstimado" name="retornoEstimado" type="text" />
+            </div>
+
+            <div class="field-group">
+                <label>Adjuntar evidencias (opcional)</label>
+                <label class="upload-card">
+                    <input id="archivoEvidencia" type="file" multiple />
+                    <span class="upload-icon"></span>
+                    <span class="upload-text">
+                        Subir fotos o documentos<br />
+                        <small>Máximo 5 archivos</small>
+                    </span>
+                </label>
+            </div>
+
+            <section class="info-important">
+                <h3>¡ Información importante</h3>
+                <ul>
+                    <li>Se notificará a la estación y supervisores</li>
+                    <li>Se registrará en la bitácora de la unidad</li>
+                    <li>La tripulación asignada será desvinculada</li>
+                </ul>
+            </section>
+
+            <footer class="modal-footer">
+                <button type="button" class="btn-secondary" id="btnCancelarBaja">
+                    Cancelar
+                </button>
+                <button type="submit" class="btn-danger" id="btnConfirmarBaja" disabled>
+                    Confirmar baja
+                </button>
+            </footer>
+        </form>
+    </section>
+</div>
+</body>
+</html>
