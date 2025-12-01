@@ -1,0 +1,850 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+    color: #1c2440;
+    background-color: #f4f7fb;
+}
+
+
+.history-page {
+    max-width: 1280px;
+    margin: 24px auto 40px;
+    padding: 0 24px 40px;
+}
+
+/* CABECERA*/
+
+.history-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+.download-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: none;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(15, 35, 95, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: auto;   /* 💡 NUEVO: empuja el botón a la derecha */
+}
+
+.history-header-text h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.history-header-text p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #8b96b3;
+}
+
+/* Botón atrás */
+
+.back-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: none;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(15, 35, 95, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.icon-chevron-left {
+    width: 8px;
+    height: 8px;
+    border-left: 2px solid #5a6787;
+    border-bottom: 2px solid #5a6787;
+    transform: rotate(45deg);
+}
+
+/* Botón descargar */
+
+.download-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: none;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(15, 35, 95, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.download-icon {
+    width: 14px;
+    height: 14px;
+    position: relative;
+}
+
+.download-icon::before,
+.download-icon::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.download-icon::before {
+    top: 2px;
+    width: 2px;
+    height: 8px;
+    background-color: #5a6787;
+}
+
+.download-icon::after {
+    bottom: 1px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #5a6787;
+}
+
+/* ===== TARJETAS GENERALES ===== */
+
+.card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(15, 35, 95, 0.08);
+}
+
+/* VISTA 1: SELECCIÓN*/
+
+.history-select-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 24px;
+}
+
+/* Formulario izquierda */
+
+.history-form-card {
+    padding: 20px 24px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field-label {
+    font-size: 12px;
+    color: #5a6787;
+}
+
+.select-wrapper {
+    border-radius: 10px;
+    border: 1px solid #dde3f2;
+    background-color: #ffffff;
+    padding-inline: 10px;
+}
+
+.field-select {
+    width: 100%;
+    border: none;
+    outline: none;
+    height: 40px;
+    font-size: 14px;
+    color: #1c2440;
+    background: transparent;
+}
+
+.field-input {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #dde3f2;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 13px;
+}
+
+/* Chips rango */
+
+.quick-range-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.chip {
+    border-radius: 999px;
+    border: none;
+    padding: 6px 12px;
+    font-size: 12px;
+    background-color: #eef1f9;
+    color: #3b4b73;
+    cursor: pointer;
+}
+
+.chip-secondary {
+    background-color: #e4edff;
+    color: #1d47c5;
+}
+
+.chip-range.is-selected,
+.chip-speed.is-selected {
+    background-color: #1663ff;
+    color: #ffffff;
+}
+
+/* Fechas */
+
+.date-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+/* Botones */
+
+.btn-primary,
+.btn-secondary {
+    border-radius: 999px;
+    border: none;
+    height: 40px;
+    padding: 0 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #1663ff;
+    color: #ffffff;
+    box-shadow: 0 8px 16px rgba(22, 99, 255, 0.25);
+}
+
+.btn-primary:disabled {
+    background-color: #c1d3ff;
+    box-shadow: none;
+    cursor: default;
+}
+
+.btn-secondary {
+    background-color: #f4f7fb;
+    color: #1c2440;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.apply-row {
+    margin-top: 4px;
+}
+
+
+.info-card {
+    padding: 12px 14px;
+    margin-top: 4px;
+    background-color: #f5f7ff;
+    box-shadow: none;
+}
+
+.info-title {
+    margin: 0 0 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #3b4b73;
+}
+
+.info-list {
+    margin: 0;
+    padding-left: 16px;
+    font-size: 11px;
+    color: #5a6787;
+}
+
+/* Consultas recientes */
+
+.history-recents-card {
+    padding: 16px 18px;
+    align-self: flex-start;
+}
+
+.recents-title {
+    margin: 0 0 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #3b4b73;
+}
+
+.recent-item {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #e2e7f5;
+    padding: 10px 12px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.recent-item:hover {
+    border-color: #b7c4ec;
+}
+
+.recent-main {
+    font-weight: 500;
+}
+
+.recent-sub {
+    color: #8b96b3;
+}
+
+/* ===== VISTA 2: PLAYBACK ===== */
+
+.history-topbar {
+    display: flex;
+    gap: 10px;
+    margin: 8px 0 14px;
+}
+
+.topbar-btn {
+    border-radius: 999px;
+    border: 1px solid #dde3f2;
+    background-color: #ffffff;
+    padding: 0 14px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #3b4b73;
+    cursor: pointer;
+}
+
+.filter-icon,
+.metrics-icon {
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    border: 1px solid #8b96b3;
+}
+
+/*  3 columnas */
+
+.history-playback-layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1.6fr) 260px;
+    gap: 16px;
+}
+
+
+.timeline-panel {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(15, 35, 95, 0.08);
+    padding: 14px 14px 14px 18px;
+    font-size: 12px;
+    color: #5a6787;
+    max-height: 560px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-panel:hover {
+    overflow-y: auto;
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.timeline-title {
+    font-weight: 600;
+    color: #3b4b73;
+}
+
+.timeline-count {
+    font-size: 11px;
+    color: #8b96b3;
+}
+
+.timeline-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.timeline-list::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    border-left: 1px solid #dde3f2;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 8px 0 6px;
+}
+
+.timeline-item + .timeline-item {
+    border-top: 1px solid #f0f2fa;
+}
+
+.timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    margin-top: 3px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 2px #dde3f2;
+}
+
+.timeline-dot-turn {
+    background-color: #1663ff;
+}
+
+.timeline-dot-status {
+    background-color: #28c76f;
+}
+
+.timeline-dot-dispatch {
+    background-color: #9e6bff;
+}
+
+.timeline-dot-incident {
+    background-color: #ff5252;
+}
+
+.timeline-dot-telemetry {
+    background-color: #ffa726;
+}
+
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.timeline-time {
+    font-size: 11px;
+    color: #8b96b3;
+}
+
+.timeline-label {
+    font-size: 12px;
+    color: #1c2440;
+}
+
+.timeline-badge {
+    align-self: flex-start;
+    margin-top: 2px;
+    border-radius: 999px;
+    padding: 2px 8px;
+    font-size: 10px;
+}
+
+.badge-turno {
+    background-color: #e0ebff;
+    color: #1d47c5;
+}
+
+.badge-estado {
+    background-color: #e2f7ea;
+    color: #1c7b3c;
+}
+
+.badge-despacho {
+    background-color: #f0e8ff;
+    color: #6b38c4;
+}
+
+.badge-incidente {
+    background-color: #ffe5e5;
+    color: #c62828;
+}
+
+.badge-telemetria {
+    background-color: #fff2e0;
+    color: #c46b11;
+}
+
+.timeline-item.is-active .timeline-label {
+    font-weight: 600;
+}
+
+/* CENTRAL  */
+
+.player-panel {
+    display: flex;
+}
+
+.player-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(15, 35, 95, 0.08);
+    padding: 10px 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Simulación del frame */
+
+.player-main-frame {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;   /* deja el borde redondeado recortando solo lo que se pase */
+
+    background-image: url("../images/Google_maps.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* Barra superior dentro del frame */
+
+.player-overlay-top {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.toggle-pill-group {
+    background-color: rgba(255, 255, 255, 0.96);
+    border-radius: 999px;
+    box-shadow: 0 8px 16px rgba(15, 35, 95, 0.25);
+    display: inline-flex;
+    padding: 3px;
+    gap: 2px;
+}
+
+.toggle-pill {
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    padding: 4px 10px;
+    font-size: 11px;
+    cursor: pointer;
+    color: #5a6787;
+}
+
+.toggle-pill.is-active {
+    background-color: #1663ff;
+    color: #ffffff;
+}
+
+/* Mini mapa */
+
+.player-overlay-map {
+    position: absolute;
+    left: 18px;
+    bottom: 22px;
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.mini-map-placeholder {
+    width: 220px;
+    height: 90px;
+    border-radius: 12px;
+    background: #e4ebff;
+    border: 1px solid #cad7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mini-map-label {
+    font-size: 12px;
+    color: #3b4b73;
+}
+
+.mini-map-tag {
+    border-radius: 999px;
+    border: none;
+    padding: 4px 10px;
+    font-size: 11px;
+    background-color: #ffefe3;
+    color: #c46b11;
+    cursor: pointer;
+}
+
+/* Controles inferiores */
+
+.player-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 4px;
+}
+
+.player-timebar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 8px;
+}
+
+.time-label {
+    font-size: 11px;
+    color: #8b96b3;
+}
+
+.timebar-track {
+    height: 6px;
+    border-radius: 999px;
+    background-color: #e2e7f5;
+    overflow: hidden;
+}
+
+.timebar-progress {
+    width: 35%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #1663ff, #4e9dff);
+}
+
+.player-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.control-btn.primary {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: none;
+    background-color: #1663ff;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.speed-group {
+    display: inline-flex;
+    gap: 6px;
+}
+
+.chip-speed {
+    border-radius: 999px;
+    border: none;
+    padding: 4px 8px;
+    font-size: 11px;
+    background-color: #eef1f9;
+    color: #3b4b73;
+    cursor: pointer;
+}
+
+/* Seguir */
+
+.follow-btn {
+    margin-left: auto;
+    padding-inline: 14px;
+}
+
+/* ===== PANEL MÉTRICAS ===== */
+
+.metrics-panel {
+    display: none;
+}
+
+.metrics-panel.is-visible {
+    display: block;
+}
+
+.metrics-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(15, 35, 95, 0.08);
+    padding: 14px 16px;
+    font-size: 12px;
+    color: #5a6787;
+}
+
+.metrics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.metrics-header h2 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1c2440;
+}
+
+.copy-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    border: 1px solid #dde3f2;
+    background-color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.copy-icon {
+    width: 10px;
+    height: 12px;
+    border-radius: 2px;
+    border: 1px solid #8b96b3;
+    position: relative;
+}
+
+.copy-icon::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 4px;
+    width: 10px;
+    height: 12px;
+    border-radius: 2px;
+    border: 1px solid #c0c8dd;
+    background-color: #ffffff;
+}
+
+.metrics-subtitle {
+    margin: 0 0 8px;
+    font-size: 11px;
+    color: #8b96b3;
+}
+
+.metrics-list {
+    list-style: none;
+    margin: 0 0 10px;
+    padding: 0;
+}
+
+.metrics-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.metrics-label {
+    font-weight: 500;
+    color: #3b4b73;
+}
+
+.metrics-value {
+    color: #8b96b3;
+}
+
+.btn-small {
+    height: 32px;
+    font-size: 12px;
+    padding-inline: 14px;
+}
+
+/*  RESPONSIVE  */
+
+@media (max-width: 1024px) {
+    .history-page {
+        padding-inline: 16px;
+    }
+
+    .history-select-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .history-recents-card {
+        order: -1;
+    }
+
+    .history-playback-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .timeline-panel {
+        max-height: 220px;
+    }
+
+    .metrics-panel {
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 640px) {
+    .history-header {
+        align-items: flex-start;
+    }
+
+    .history-header-text h1 {
+        font-size: 16px;
+    }
+
+    .history-topbar {
+        flex-wrap: wrap;
+    }
+
+    .player-main-frame {
+        min-height: 220px;
+    }
+
+    .player-overlay-map {
+        left: 10px;
+        bottom: 16px;
+    }
+
+    .mini-map-placeholder {
+        width: 180px;
+        height: 70px;
+    }
+
+    .player-actions {
+        flex-wrap: wrap;
+        row-gap: 6px;
+    }
+
+    .follow-btn {
+        margin-left: 0;
+    }
+}
