@@ -1,0 +1,256 @@
+/* GENERAL */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+    color: #333;
+}
+
+h1, h2, h3 {
+    margin: 0 0 8px;
+}
+
+p {
+    margin: 4px 0;
+}
+
+/* ENCABEZADO */
+.encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #004080;
+    color: white;
+    padding: 12px 24px;
+}
+
+.back-arrow {
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* BOTONES */
+.btn-azul {
+    background: #0078d4;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primario,
+.btn-secundario {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-primario {
+    background: #0078d4;
+    color: white;
+}
+
+.btn-secundario {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.btn-primario:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+}
+
+/* BANDEJA Y TARJETAS */
+#lista-solicitudes,
+#bandeja-exportes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+}
+
+.solicitud-card {
+    background: white;
+    border-radius: 6px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.solicitud-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.solicitud-detalle {
+    margin-top: 8px;
+}
+
+.estado-visual {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.estado-visual.pendiente {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.estado-visual.aprobado {
+    background: #d4edda;
+    color: #155724;
+}
+
+.estado-visual.rechazado {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* DETALLE DE SOLICITUD */
+#detalle-solicitud {
+    padding: 24px;
+}
+
+.detalle-contenido section {
+    margin-bottom: 16px;
+}
+
+.detalle-contenido ul {
+    padding-left: 20px;
+}
+
+.detalle-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.acciones-detalle {
+    margin-top: 16px;
+    display: flex;
+    gap: 12px;
+}
+
+/* MODAL GENERAL */
+.modal-solicitud {
+    position: fixed;
+    inset: 0;
+    display: none; /* se activa con JS */
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.5);
+    z-index: 9999;
+}
+.modal-contenido {
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-solicitud .modal-contenido {
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* MODAL TEXTO */
+#modal-titulo {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+#modal-mensaje {
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+#modal-resumen p {
+    margin: 4px 0;
+    font-size: 15px;
+}
+
+#modal-nota {
+    font-size: 14px;
+    color: #555;
+    margin-top: 16px;
+}
+
+/* MODAL RECHAZO */
+#bloque-rechazo {
+    margin-top: 16px;
+}
+
+#bloque-rechazo label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+#motivo-rechazo {
+    width: 100%;
+    height: 80px;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#error-rechazo {
+    color: red;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* MODAL BOTONES */
+.acciones-modal {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+/* NOTIFICACIÓN Y FILTROS */
+.notificacion-descarga {
+    background: #d4edda;
+    color: #155724;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin: 12px 16px;
+}
+
+.filtros {
+    display: flex;
+    gap: 8px;
+    margin: 12px 16px;
+}
+
+.filtro-tab {
+    padding: 6px 12px;
+    border: none;
+    background: #e0e0e0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filtro-tab.activo {
+    background: #0078d4;
+    color: white;
+}
