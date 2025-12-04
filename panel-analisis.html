@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de análisis</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/panel-analisis.css" />
+</head>
+<body>
+<div class="encabezado">
+    <button class="back-arrow" onclick="window.location.href='variaciones-varias.html'">←</button>
+    <h1>Panel de análisis</h1>
+    <p class="actualizacion">Última actualización: 11:33 p. m.</p>
+</div>
+
+<div class="botones-panel">
+    <button id="btn-filtros">Filtros</button>
+    <button id="btn-comparar">Comparar período</button>
+    <button id="btn-guardar">Guardar vista</button>
+
+</div>
+
+<div class="panel-container">
+    <!-- Columna izquierda -->
+    <div class="col-izquierda">
+
+        <div class="alertas">
+            <strong>Alertas de desempeño:</strong><br>
+            2 métricas bajo umbral: TTA (15.2 min) y %SLA Alta prioridad (78%)
+        </div>
+        <section id="pantalla-dashboard">
+          <div class="metricas">
+            <div class="card seleccionable" id="ttd-card">TTD<br><strong>3.5 min</strong></div>
+            <div class="card seleccionable">TTA<br><strong>15.2 min</strong></div>
+            <div class="card seleccionable">TTR<br><strong>42 min</strong></div>
+            <div class="card seleccionable">%SLA global<br><strong>85%</strong></div>
+            <!-- Panel de detalle oculto -->
+        </section>
+
+        <section id="pantalla-ttd" class="oculto pantalla">
+            <h2>TTD - Tiempo a despacho</h2>
+            <p>2 incidentes encontrados</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Tipo</th>
+                    <th>Prioridad</th>
+                    <th>TTD</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>INC-2025-082</td>
+                    <td>Robo en progreso</td>
+                    <td>Alta</td>
+                    <td>2 min</td>
+                </tr>
+                <tr>
+                    <td>INC-2025-083</td>
+                    <td>Accidente de tránsito</td>
+                    <td>Media</td>
+                    <td>3 min</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="acciones-exportar">
+                <button id="exportar-csv">Exportar CSV</button>
+                <button id="exportar-pdf">Exportar PDF</button>
+            </div>
+            <button id="volver-dashboard">Volver</button>
+        </section>
+
+        <div class="sla-prioridad">
+            <div class="sla-box">Alta<br><strong>78%</strong></div>
+            <div class="sla-box">Media<br><strong>88%</strong></div>
+            <div class="sla-box">Baja<br><strong>92%</strong></div>
+        </div>
+
+        <div class="excluidos">
+            Datos excluidos: 12 falsos positivos y 5 duplicados no se consideran en los cálculos
+        </div>
+    </div>
+
+    <!-- Columna derecha -->
+    <div class="col-derecha">
+        <!-- Panel de filtros embebido -->
+        <div id="panel-filtros" class="panel-filtros oculto">
+            <div class="encabezado-filtros">
+                <h3>Filtros</h3>
+                <button id="limpiar-filtros" class="btn-limpiar">Limpiar</button>
+            </div>
+            <div class="grupo-filtros columna">
+                <div class="grupo-periodo">
+                    <label>Período:</label>
+                    <div class="botones-periodo">
+                        <button class="btn-periodo activo">Hoy</button>
+                        <button class="btn-periodo">7 días</button>
+                        <button class="btn-periodo">30 días</button>
+                        <button class="btn-periodo">Personalizado</button>
+                    </div>
+                </div>
+                <label>Prioridad:
+                    <input type="text" placeholder="" />
+                </label>
+                <label>Distrito:
+                    <input type="text" placeholder="" />
+                </label>
+                <label>Canal:
+                    <input type="text" placeholder="" />
+                </label>
+                <label><input type="checkbox" /> Excluir falsos positivos</label>
+                <label><input type="checkbox" /> Excluir duplicados</label>
+            </div>
+            <div class="acciones-filtros centrado">
+                <button id="aplicar-filtros">Aplicar filtros</button>
+            </div>
+        </div>
+        <!-- Aquí insertas el modal -->
+
+        <div id="modal-guardar-vista" class="modal oculto">
+            <div class="modal-contenido">
+                <h3>Guardar vista</h3>
+                <label for="nombre-vista">Nombre de la vista *</label>
+                <input type="text" id="nombre-vista" placeholder="Ej: Turno noche, Alta prioridad..." />
+                <label><input type="checkbox" id="compartir-vista" /> Compartir vista</label>
+                <p class="descripcion">Se guardará la configuración actual de filtros, rango de fechas y opciones de visualización.</p>
+                <div class="acciones-guardar">
+                    <button id="guardar-vista-confirm" disabled>Guardar </button>
+                    <button id="cancelar-guardar">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="grafico">
+            <h3>Evolución de tiempos (últimos 7 días)</h3>
+            <img src="Secured-Landing-Page/public/assets/images/LineChart.png" alt="Gráfico de evolución de tiempos" />
+        </div>
+
+        <div class="grafico">
+            <h3>Top 5 tipos de incidente</h3>
+            <div class="barras">
+                <div class="barra"><div class="etiqueta">Robo y hurto (145)</div><div class="barra-valor" style="width: 100%"></div></div>
+                <div class="barra"><div class="etiqueta">Accidente de tránsito (98)</div><div class="barra-valor" style="width: 68%"></div></div>
+                <div class="barra"><div class="etiqueta">Disturbio público (76)</div><div class="barra-valor" style="width: 52%"></div></div>
+                <div class="barra"><div class="etiqueta">Violencia familiar (54)</div><div class="barra-valor" style="width: 37%"></div></div>
+                <div class="barra"><div class="etiqueta">Otros (77)</div><div class="barra-valor" style="width: 53%"></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="Secured-Landing-Page/public/assets/scripts/panel-analisis.js"></script>
+
+</body>
+</html>

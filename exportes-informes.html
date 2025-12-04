@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Exportes e informes</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/exportes-informes.css">
+    <style>
+        .panel-detalle {
+            background: #e5e7eb;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .filtros-exportes {
+            display: flex;
+            gap: 10px;
+            margin: 20px;
+        }
+        .filtro-tab {
+            padding: 8px 16px;
+            border: none;
+            background-color: #dbeafe; /* azul claro */
+            color: #1e3a8a;            /* azul oscuro */
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+        .filtro-tab:hover {
+            background-color: #bfdbfe; /* azul más intenso al pasar el mouse */
+        }
+        .filtro-tab.activo {
+            background-color: #3b82f6; /* azul fuerte para el activo */
+            color: white;
+            font-weight: bold;
+        }
+        .notificacion-descarga {
+            margin: 10px 20px;
+            background-color: #dcfce7; /* verde claro */
+            color: #166534;            /* verde oscuro */
+            padding: 10px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="encabezado">
+    <button id="btn-back" class="back-arrow" aria-label="Volver">←</button>
+    <h1>Exportes y solicitudes</h1>
+    <button id="btn-mis-exportes" class="btn-azul">Mis exportes</button>
+</div>
+
+<!-- LISTA DE SOLICITUDES -->
+<div class="hu33-container" id="lista-solicitudes">
+    <div class="solicitud-card"
+         data-id="EXP-2025-001"
+         data-tipo="Custodia de evidencias"
+         data-solicitante="Agt. Pérez López"
+         data-fecha="31 oct 2025, 14:30"
+         data-rango="Oct 1–31, 2025"
+         data-tamano="245 MB"
+         data-estado="pendiente"
+         data-justificacion="Evidencias requeridas para proceso judicial caso #2025-0458"
+         data-archivos='[{"nombre":"evidencia_001.jpg","tipo":"Foto","peso":"2.4 MB"},{"nombre":"grabacion_cctv_01.mp4","tipo":"Video","peso":"45.2 MB"},{"nombre":"evidencia_002.jpg","tipo":"Foto","peso":"1.8 MB"},{"nombre":"acta_incautacion.pdf","tipo":"Documento","peso":"0.3 MB"},{"nombre":"bodycam_agente_205.mp4","tipo":"Video","peso":"120.5 MB"}]'
+         data-incidentes="3"
+         data-peso-total="170.2 MB"
+         data-traza='[{"evento":"Solicitud creada","usuario":"Agt. Pérez López","fecha":"31 oct 2025, 14:30"},{"evento":"Revisión iniciada","usuario":"Sup. Ramírez","fecha":"31 oct 2025, 14:45"}]'>
+        <div class="solicitud-header">
+            <strong>EXP-2025-001</strong> | Custodia
+            <span class="estado-label pendiente">Pendiente</span>
+        </div>
+        <div class="solicitud-detalle">
+            <p><strong>Solicitante:</strong> Agt. Pérez López</p>
+            <p><strong>Fecha:</strong> 31 oct 2025, 14:30</p>
+            <p><strong>Rango de datos:</strong> Oct 1–31, 2025</p>
+            <p><strong>Tamaño estimado:</strong> 245 MB</p>
+            <p><strong>Justificación:</strong> Evidencias requeridas para proceso judicial caso #2025-0458</p>
+        </div>
+        <button class="btn-ver-detalle">Ver detalle</button>
+    </div>
+
+    <div class="solicitud-card"
+         data-id="EXP-2025-002"
+         data-tipo="Reporte mensual"
+         data-solicitante="Cmte. García"
+         data-fecha="31 oct 2025, 10:15"
+         data-rango="Oct 25–31, 2025"
+         data-tamano="12 MB"
+         data-estado="aprobado"
+         data-justificacion="Reporte mensual para dirección regional"
+         data-archivos='[{"nombre":"reporte_octubre.pdf","tipo":"Documento","peso":"12 MB"}]'
+         data-incidentes="0"
+         data-peso-total="12 MB"
+         data-traza='[{"evento":"Solicitud creada","usuario":"Cmte. García","fecha":"31 oct 2025, 10:15"},{"evento":"Aprobación automática","usuario":"Sistema","fecha":"31 oct 2025, 10:20"}]'>
+        <div class="solicitud-header">
+            <strong>EXP-2025-002</strong> | Reporte
+            <span class="estado-label aprobado">Aprobado</span>
+        </div>
+        <div class="solicitud-detalle">
+            <p><strong>Solicitante:</strong> Cmte. García</p>
+            <p><strong>Fecha:</strong> 31 oct 2025, 10:15</p>
+            <p><strong>Rango de datos:</strong> Oct 25–31, 2025</p>
+            <p><strong>Tamaño estimado:</strong> 12 MB</p>
+            <p><strong>Justificación:</strong> Reporte mensual para dirección regional</p>
+        </div>
+        <button class="btn-ver-detalle">Ver detalle</button>
+    </div>
+
+    <div class="solicitud-card"
+         data-id="EXP-2025-003"
+         data-tipo="Custodia de evidencias"
+         data-solicitante="Agt. Martínez"
+         data-fecha="30 oct 2025, 16:45"
+         data-rango="Oct 15–30, 2025"
+         data-tamano="580 MB"
+         data-estado="pendiente"
+         data-justificacion="Respaldo de evidencias para auditoría interna"
+         data-archivos='[{"nombre":"auditoria_2025.zip","tipo":"Documento","peso":"580 MB"}]'
+         data-incidentes="2"
+         data-peso-total="580 MB"
+         data-traza='[{"evento":"Solicitud creada","usuario":"Agt. Martínez","fecha":"30 oct 2025, 16:45"},{"evento":"Revisión iniciada","usuario":"Sup. Ramírez","fecha":"30 oct 2025, 17:00"}]'>
+        <div class="solicitud-header">
+            <strong>EXP-2025-003</strong> | Custodia
+            <span class="estado-label pendiente">Pendiente</span>
+        </div>
+        <div class="solicitud-detalle">
+            <p><strong>Solicitante:</strong> Agt. Martínez</p>
+            <p><strong>Fecha:</strong> 30 oct 2025, 16:45</p>
+            <p><strong>Rango de datos:</strong> Oct 15–30, 2025</p>
+            <p><strong>Tamaño estimado:</strong> 580 MB</p>
+            <p><strong>Justificación:</strong> Respaldo de evidencias para auditoría interna</p>
+        </div>
+        <button class="btn-ver-detalle">Ver detalle</button>
+    </div>
+    <div class="solicitud-card"
+         data-id="EXP-2025-004"
+         data-tipo="Reporte estadístico"
+         data-solicitante="Sup. Torres"
+         data-fecha="30 oct 2025, 09:20"
+         data-rango="Sep 1–30, 2025"
+         data-tamano="8 MB"
+         data-estado="rechazado"
+         data-justificacion="Análisis estadístico trimestral"
+         data-archivos='[{"nombre":"estadisticas_q3.xlsx","tipo":"Documento","peso":"8 MB"}]'
+         data-incidentes="0"
+         data-peso-total="8 MB"
+         data-traza='[{"evento":"Solicitud creada","usuario":"Sup. Torres","fecha":"30 oct 2025, 09:20"},
+                  {"evento":"Rechazo manual","usuario":"Dir. Técnica","fecha":"30 oct 2025, 10:00"}]'>
+        <div class="solicitud-header">
+            <strong>EXP-2025-004</strong> | Reporte
+            <span class="estado-label rechazado">Rechazado</span>
+        </div>
+        <div class="solicitud-detalle">
+            <p><strong>Solicitante:</strong> Sup. Torres</p>
+            <p><strong>Fecha:</strong> 30 oct 2025, 09:20</p>
+            <p><strong>Rango de datos:</strong> Sep 1–30, 2025</p>
+            <p><strong>Tamaño estimado:</strong> 8 MB</p>
+            <p><strong>Justificación:</strong> Análisis estadístico trimestral</p>
+        </div>
+        <button class="btn-ver-detalle">Ver detalle</button>
+    </div>
+</div>
+
+<!-- DETALLE DE SOLICITUD -->
+<div class="panel-detalle" id="detalle-solicitud" style="display:none;">
+    <div class="detalle-contenido"></div>
+
+</div>
+
+<!-- VISTA MIS EXPORTES -->
+<div id="vista-mis-exportes" style="display:none;">
+    <div class="titulo-exportes">
+        <h2>Mis exportes</h2>
+        <p class="subtitulo">Solicitudes y descargas</p>
+    </div>
+
+    <div class="notificacion-descarga" id="notificacion-descarga" style="display:none;">
+        ✅ <strong>1 exporte listo para descargar</strong>
+    </div>
+
+    <div class="filtros-exportes">
+        <button class="filtro-tab activo" data-filtro="todos">Todos</button>
+        <button class="filtro-tab" data-filtro="aprobado">Aprobados</button>
+        <button class="filtro-tab" data-filtro="pendiente">Pendientes</button>
+        <button class="filtro-tab" data-filtro="rechazado">Rechazados</button>
+    </div>
+
+    <div class="hu33-container" id="bandeja-exportes"></div>
+</div>
+
+<!-- MODALES -->
+<div id="modal-solicitud" class="modal-solicitud" style="display:none;">
+    <div class="modal-contenido">
+        <h2 id="modal-titulo"></h2>
+        <p id="modal-mensaje"></p>
+
+        <div id="modal-resumen"></div>
+
+        <div id="bloque-rechazo" style="display:none;">
+            <label for="motivo-rechazo">Motivo del rechazo *</label>
+            <textarea id="motivo-rechazo" placeholder="Ej: El rango de datos solicitado excede el período autorizado..."></textarea>
+            <div id="error-rechazo" style="display:none;">Debes ingresar un motivo de rechazo.</div>
+        </div>
+
+        <p id="modal-nota"></p>
+
+        <div class="acciones-modal">
+            <button id="modal-cancelar" class="btn-secundario">Cancelar</button>
+            <button id="modal-confirmar" class="btn-primario">Confirmar</button>
+        </div>
+    </div>
+</div>
+<script src="Secured-Landing-Page/public/assets/scripts/exportes-informes.js"></script>
+</body>
+</html>
