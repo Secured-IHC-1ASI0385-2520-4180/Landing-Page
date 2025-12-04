@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Historial de unidad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+            rel="stylesheet"
+            href="Secured-Landing-Page/public/assets/styles/historial_unidades.css"
+    />
+
+    <script
+            src="Secured-Landing-Page/public/assets/scripts/historial_unidades.js"
+            defer
+    ></script>
+</head>
+<body>
+<main class="history-page">
+
+    <!-- ==========  SELECCIONAR UNIDAD Y RANGO ========== -->
+    <section id="history-select-view" class="history-select-view">
+        <header class="history-header">
+            <button class="back-button" type="button" id="historyBackFromSelect">
+                <span class="icon-chevron-left"></span>
+            </button>
+            <div class="history-header-text">
+                <h1>Historial de unidad</h1>
+                <p>Selecciona unidad y rango</p>
+            </div>
+        </header>
+
+        <div class="history-select-layout">
+            <!-- FORMULARIO -->
+            <section class="card history-form-card">
+                <div class="field-group">
+                    <label for="unidadSelect" class="field-label">Unidad / Patrulla *</label>
+                    <div class="select-wrapper">
+                        <select id="unidadSelect" class="field-select">
+                            <option value="" selected disabled>Selecciona una unidad</option>
+                            <option value="ABC-123|Patrulla Centro 1">ABC-123 • Patrulla Centro 1</option>
+                            <option value="DEF-456|Moto Norte 2">DEF-456 • Moto Norte 2</option>
+                            <option value="GHI-789|Patrulla Sur 1">GHI-789 • Patrulla Sur 1</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <span class="field-label">Rango rápido</span>
+                    <div class="quick-range-row">
+                        <button type="button" class="chip chip-range" data-range="hoy">Hoy</button>
+                        <button type="button" class="chip chip-range" data-range="ayer">Ayer</button>
+                        <button type="button" class="chip chip-range" data-range="7dias">7 días</button>
+                        <button type="button" class="chip chip-range" data-range="turno">Turno actual</button>
+                    </div>
+                    <button
+                            type="button"
+                            class="chip chip-secondary chip-range is-selected"
+                            data-range="personalizado"
+                    >
+                        Personalizado
+                    </button>
+                </div>
+
+                <!-- Fechas -->
+                <div class="date-row">
+                    <div class="field-group">
+                        <label for="fechaDesde" class="field-label">Desde</label>
+                        <input id="fechaDesde" type="date" class="field-input" />
+                    </div>
+                    <div class="field-group">
+                        <label for="fechaHasta" class="field-label">Hasta</label>
+                        <input id="fechaHasta" type="date" class="field-input" />
+                    </div>
+                </div>
+
+                <div class="apply-row">
+                    <button id="btnAplicar" class="btn-primary btn-full" type="button" disabled>
+                        Aplicar
+                    </button>
+                </div>
+
+                <!-- Info -->
+                <section class="card info-card">
+                    <h2 class="info-title">Información</h2>
+                    <ul class="info-list">
+                        <li>Rango máximo: 30 días</li>
+                        <li>Datos disponibles de los últimos 90 días</li>
+                        <li>Incluye telemetría, eventos y métricas</li>
+                        <li>Requiere permisos de lectura de historial</li>
+                    </ul>
+                </section>
+            </section>
+
+            <!--  CONSULTAS RECIENTES -->
+            <aside class="card history-recents-card">
+                <h2 class="recents-title">Consultas recientes</h2>
+
+                <button
+                        type="button"
+                        class="recent-item"
+                        data-unit="ABC-123|Patrulla Centro 1"
+                        data-range="hoy"
+                >
+                    <span class="recent-main">ABC-123 • Patrulla Centro 1</span>
+                    <span class="recent-sub">Hoy</span>
+                </button>
+
+                <button
+                        type="button"
+                        class="recent-item"
+                        data-unit="DEF-456|Moto Norte 2"
+                        data-range="ayer"
+                >
+                    <span class="recent-main">DEF-456 • Moto Norte 2</span>
+                    <span class="recent-sub">Ayer</span>
+                </button>
+
+                <button
+                        type="button"
+                        class="recent-item"
+                        data-unit="GHI-789|Patrulla Sur 1"
+                        data-range="7dias"
+                >
+                    <span class="recent-main">GHI-789 • Patrulla Sur 1</span>
+                    <span class="recent-sub">7 días</span>
+                </button>
+            </aside>
+        </div>
+    </section>
+
+    <!--  REPRODUCCIÓN / HISTORIAL  -->
+    <section id="history-playback-view" class="history-playback-view" hidden>
+        <header class="history-header">
+            <button class="back-button" type="button" id="historyBackFromPlayback">
+                <span class="icon-chevron-left"></span>
+            </button>
+            <div class="history-header-text">
+                <h1 id="playbackUnitTitle">ABC-123 • Patrulla Centro 1</h1>
+                <p id="playbackDateRange">30/10/2025 00:00 – 23:59</p>
+            </div>
+
+            <button class="download-button" type="button" title="Descargar">
+                <span class="download-icon"></span>
+            </button>
+        </header>
+
+        <div class="history-topbar">
+            <button type="button" class="topbar-btn" id="btnFiltros">
+                <span class="filter-icon"></span>
+                <span>Filtros</span>
+            </button>
+
+            <button type="button" class="topbar-btn" id="btnToggleMetrics">
+                <span class="metrics-icon"></span>
+                <span class="metrics-label">Mostrar métricas</span>
+            </button>
+        </div>
+
+        <section class="history-playback-layout">
+            <aside class="timeline-panel">
+                <div class="timeline-header">
+                    <span class="timeline-title">Timeline</span>
+                    <span class="timeline-count">• 6 eventos</span>
+                </div>
+
+                <ol class="timeline-list">
+                    <li class="timeline-item is-active">
+                        <div class="timeline-dot timeline-dot-turn"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-time">08:00</span>
+                            <span class="timeline-label">Inicio de turno</span>
+                            <span class="timeline-badge badge-turno">Turno</span>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item">
+                        <div class="timeline-dot timeline-dot-status"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-time">08:15</span>
+                            <span class="timeline-label">Estado: Disponible</span>
+                            <span class="timeline-badge badge-estado">Estado</span>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item">
+                        <div class="timeline-dot timeline-dot-dispatch"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-time">08:45</span>
+                            <span class="timeline-label">Despacho: INC-2024-001</span>
+                            <span class="timeline-badge badge-despacho">Despacho</span>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item">
+                        <div class="timeline-dot timeline-dot-incident"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-time">09:00</span>
+                            <span class="timeline-label">Incidente: Robo en comercio</span>
+                            <span class="timeline-badge badge-incidente">Incidente</span>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item">
+                        <div class="timeline-dot timeline-dot-status"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-time">10:30</span>
+                            <span class="timeline-label">Estado: Descanso</span>
+                            <span class="timeline-badge badge-estado">Estado</span>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item">
+                        <div class="timeline-dot timeline-dot-telemetry"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-time">12:00</span>
+                            <span class="timeline-label">Señal recuperada</span>
+                            <span class="timeline-badge badge-telemetria">Telemetría</span>
+                        </div>
+                    </li>
+                </ol>
+            </aside>
+
+            <!-- VIDEO / MAPA + CONTROLES -->
+            <section class="player-panel">
+                <div class="player-card">
+                    <div class="player-main-frame">
+                        <img
+                                src="Secured-Landing-Page/public/assets/images/Google_maps.png"
+                                alt="Mapa de recorrido"
+                                class="player-image"
+                        />
+
+                        <!-- Botones Geocercas / Incidentes -->
+                        <div class="player-overlay-top">
+                            <div class="toggle-pill-group">
+                                <button type="button" class="toggle-pill is-active">Geocercas</button>
+                                <button type="button" class="toggle-pill">Incidentes</button>
+                            </div>
+                        </div>
+
+                        <div class="player-overlay-map">
+                            <button type="button" class="mini-map-tag">
+                                Mostrando paradas
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <div class="player-controls">
+                        <div class="player-timebar">
+                            <span class="time-label">00:00</span>
+                            <div class="timebar-track">
+                                <div class="timebar-progress"></div>
+                            </div>
+                            <span class="time-label">01:40</span>
+                        </div>
+
+                        <div class="player-actions">
+                            <button type="button" class="control-btn primary" id="btnPlayPause">
+                                ▷
+                            </button>
+
+                            <div class="speed-group">
+                                <button type="button" class="chip chip-speed is-selected" data-speed="1x">1x</button>
+                                <button type="button" class="chip chip-speed" data-speed="2x">2x</button>
+                                <button type="button" class="chip chip-speed" data-speed="4x">4x</button>
+                                <button type="button" class="chip chip-speed" data-speed="8x">8x</button>
+                            </div>
+
+                            <button type="button" class="btn-secondary follow-btn">
+                                Seguir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MÉTRICAS / DETALLE EVENTO -->
+            <aside class="metrics-panel" id="metricsPanel">
+                <div class="metrics-card">
+                    <header class="metrics-header">
+                        <h2>Inicio de turno</h2>
+                        <button type="button" class="copy-btn" title="Copiar">
+                            <span class="copy-icon"></span>
+                        </button>
+                    </header>
+                    <p class="metrics-subtitle">Turno diurno 08:00 - 20:00</p>
+
+                    <ul class="metrics-list">
+                        <li>
+                            <span class="metrics-label">08:00</span>
+                            <span class="metrics-value">Hora de inicio</span>
+                        </li>
+                        <li>
+                            <span class="metrics-label">Carlos Ruiz</span>
+                            <span class="metrics-value">Conductor</span>
+                        </li>
+                    </ul>
+
+                    <button type="button" class="btn-secondary btn-small">
+                        Ver turno
+                    </button>
+                </div>
+            </aside>
+        </section>
+    </section>
+</main>
+</body>
+</html>

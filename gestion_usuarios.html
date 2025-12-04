@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de usuarios</title>
+
+    <link
+            rel="stylesheet"
+            href="Secured-Landing-Page/public/assets/styles/gestion_usuarios.css"
+    />
+</head>
+<body class="gu-body">
+<main class="gu-wrapper">
+
+    <!--
+          GESTIÓN DE USUARIOS
+          -->
+    <section id="screen-users" class="gu-screen gu-screen--active">
+        <header class="gu-header">
+            <div class="gu-header-left">
+                <button type="button" class="gu-back" id="backToMainFromUsers">←</button>
+                <div class="gu-header-text">
+                    <h1>Gestión de usuarios</h1>
+                    <p id="guUsersCount">4 usuarios</p>
+                </div>
+            </div>
+
+            <div class="gu-header-right">
+                <button id="guNewUserBtn" class="gu-btn gu-btn-primary">
+                    + Nuevo usuario
+                </button>
+            </div>
+        </header>
+
+        <section class="gu-top-actions">
+            <button type="button" id="guFiltersBtn" class="gu-chip gu-chip--active">
+                Filtros
+            </button>
+
+            <button
+                    type="button"
+                    id="guApprovalsBtn"
+                    class="gu-chip"
+            >
+                Aprobaciones
+            </button>
+
+            <button
+                    type="button"
+                    id="guLogBtn"
+                    class="gu-chip"
+            >
+                Bitácora
+            </button>
+
+            <button
+                    type="button"
+                    id="guExportBtn"
+                    class="gu-chip"
+            >
+                Exportar
+            </button>
+        </section>
+
+        <section class="gu-users-content">
+            <div class="gu-cards-row">
+
+                <article class="gu-card" data-state="activo">
+                    <div class="gu-card-top">
+                        <div class="gu-card-col">
+                            <span class="gu-label">Usuario</span>
+                            <p class="gu-user-name">Carlos Rodríguez</p>
+                            <p class="gu-user-email">carlos.rodriguez@policia.gob</p>
+                            <span class="gu-tag gu-tag--2fa">2FA</span>
+                        </div>
+
+                        <div class="gu-card-col">
+                            <span class="gu-label">Rol / Subrol</span>
+                            <p class="gu-role">Policía</p>
+                            <p class="gu-subrole">En estación</p>
+                        </div>
+
+                        <div class="gu-card-col gu-card-col--status">
+                            <span class="gu-label">Estado</span>
+                            <span class="gu-status gu-status--active">Activo</span>
+                        </div>
+                    </div>
+
+                    <div class="gu-card-bottom">
+                        <div class="gu-card-bottom-col">
+                            <span class="gu-label">Sectores asignados</span>
+                            <p class="gu-text">
+                                Norte 1,<br />Norte 2
+                            </p>
+                        </div>
+
+                        <div class="gu-card-bottom-col">
+                            <span class="gu-label">Último acceso</span>
+                            <p class="gu-text gu-text--strong">Hace 5 min</p>
+                        </div>
+
+                        <div class="gu-card-bottom-col gu-card-bottom-col--actions">
+                            <span class="gu-label">Acciones</span>
+                            <div class="gu-actions">
+                                <button class="gu-icon-btn" data-action="view" title="Ver detalle">👁</button>
+                                <button class="gu-icon-btn" data-action="edit" title="Editar">✏️</button>
+                                <button class="gu-icon-btn" data-action="resend" title="Reenviar invitación">🔁</button>
+                                <button class="gu-icon-btn gu-icon-btn--danger" data-action="block" title="Bloquear">🔒</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="gu-card" data-state="bloqueado">
+                    <div class="gu-card-top">
+                        <div class="gu-card-col">
+                            <span class="gu-label">Usuario</span>
+                            <p class="gu-user-name">Juan Pérez</p>
+                            <p class="gu-user-email">juan.perez@policia.gob</p>
+                        </div>
+
+                        <div class="gu-card-col">
+                            <span class="gu-label">Rol / Subrol</span>
+                            <p class="gu-role">Policía</p>
+                            <p class="gu-subrole">Motorizado</p>
+                        </div>
+
+                        <div class="gu-card-col gu-card-col--status">
+                            <span class="gu-label">Estado</span>
+                            <span class="gu-status gu-status--blocked">Bloqueado</span>
+                        </div>
+                    </div>
+
+                    <div class="gu-card-bottom">
+                        <div class="gu-card-bottom-col">
+                            <span class="gu-label">Sectores asignados</span>
+                            <p class="gu-text">
+                                Centro 1,<br />Centro 2
+                            </p>
+                        </div>
+
+                        <div class="gu-card-bottom-col">
+                            <span class="gu-label">Último acceso</span>
+                            <p class="gu-text gu-text--strong">Hace 2 días</p>
+                        </div>
+
+                        <div class="gu-card-bottom-col gu-card-bottom-col--actions">
+                            <span class="gu-label">Acciones</span>
+                            <div class="gu-actions">
+                                <button class="gu-icon-btn" data-action="view" title="Ver detalle">👁</button>
+                                <button class="gu-icon-btn" data-action="edit" title="Editar">✏️</button>
+                                <button class="gu-icon-btn gu-icon-btn--success" data-action="unlock" title="Desbloquear">🔓</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </section>
+
+
+    <section id="screen-approvals" class="gu-screen">
+        <header class="gu-header gu-header--secondary">
+            <div class="gu-header-left">
+                <button type="button" class="gu-back" id="backFromApprovals">←</button>
+                <div class="gu-header-text">
+                    <h1>Solicitudes de elevación</h1>
+                    <p id="elevCount">2 solicitudes</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="elv-tabs">
+            <button type="button" class="elv-tab elv-tab--active" data-filter="todas">
+                Todas
+            </button>
+            <button type="button" class="elv-tab" data-filter="pendientes">
+                Pendientes
+            </button>
+            <button type="button" class="elv-tab" data-filter="aprobadas">
+                Aprobadas
+            </button>
+            <button type="button" class="elv-tab" data-filter="rechazadas">
+                Rechazadas
+            </button>
+        </section>
+
+        <section class="elv-content">
+            <div class="elv-row" id="elvCards">
+
+                <article class="elv-card" data-status="pendiente">
+                    <header class="elv-card-header">
+                        <div class="elv-card-title">
+                            <span class="elv-icon elv-icon--purple">🛡</span>
+                            <div>
+                                <p class="elv-name">María López</p>
+                                <p class="elv-role">Supervisor de zona</p>
+                            </div>
+                        </div>
+                        <p class="elv-time">Hace 15 min</p>
+                    </header>
+
+                    <section class="elv-perms">
+                        <span class="elv-label">Permisos solicitados:</span>
+                        <div class="elv-perms-tags">
+                            <span class="elv-perm-tag">Gestionar usuarios</span>
+                            <span class="elv-perm-tag">Editar permisos</span>
+                            <span class="elv-perm-tag elv-perm-tag--highlight">
+                Aprobar reportes
+              </span>
+                        </div>
+                    </section>
+
+                    <section class="elv-just">
+                        <span class="elv-label">Justificación:</span>
+                        <div class="elv-just-box">
+                            Necesito acceso temporal para cubrir ausencia del administrador
+                            durante las próximas 8 horas por situación de emergencia en el
+                            distrito norte.
+                        </div>
+                    </section>
+
+                    <section class="elv-duration">
+                        <span class="elv-duration-icon">⏱</span>
+                        <span class="elv-duration-text">
+              Duración solicitada: 8 horas
+            </span>
+                    </section>
+
+                    <footer class="elv-footer elv-footer--pending">
+                        <button type="button" class="elv-btn elv-btn-secondary" data-action="rechazar">
+                            Rechazar
+                        </button>
+                        <button type="button" class="elv-btn elv-btn-primary" data-action="aprobar">
+                            Aprobar
+                        </button>
+                    </footer>
+                </article>
+
+                <article id="elvCardJuan" class="elv-card" data-status="aprobada">
+                    <header class="elv-card-header">
+                        <div class="elv-card-title">
+                            <span class="elv-icon elv-icon--purple">🛡</span>
+                            <div>
+                                <p class="elv-name">Juan Pérez</p>
+                                <p class="elv-role">Policía motorizado</p>
+                            </div>
+                        </div>
+                        <p class="elv-time">Hace 45 min</p>
+                    </header>
+
+                    <section class="elv-perms">
+                        <span class="elv-label">Permisos solicitados:</span>
+                        <div class="elv-perms-tags">
+                            <span class="elv-perm-tag">Reasignar incidentes</span>
+                            <span class="elv-perm-tag">Gestionar SLA</span>
+                        </div>
+                    </section>
+
+                    <section class="elv-just">
+                        <span class="elv-label">Justificación:</span>
+                        <div class="elv-just-box">
+                            Operativo especial requiere coordinación de múltiples unidades
+                            durante el turno nocturno.
+                        </div>
+                    </section>
+
+                    <section class="elv-duration">
+                        <span class="elv-duration-icon">⏱</span>
+                        <span class="elv-duration-text">
+              Duración solicitada: 12 horas
+            </span>
+                    </section>
+
+                    <footer class="elv-footer elv-footer--pending">
+                        <button type="button" class="elv-btn elv-btn-secondary" data-action="rechazar">
+                            Rechazar
+                        </button>
+                        <button type="button" class="elv-btn elv-btn-primary" data-action="aprobar">
+                            Aprobar
+                        </button>
+                    </footer>
+
+                    <!-- Footer APROBADO (solo para pestaña Aprobadas) -->
+                    <footer class="elv-footer elv-footer--approved">
+                        <span class="elv-approved-icon">✔</span>
+                        <span class="elv-approved-text">Aprobado</span>
+                    </footer>
+                </article>
+            </div>
+
+            <div class="elv-empty" id="elvEmptyMessage">
+                No hay solicitudes rechazadas
+            </div>
+        </section>
+    </section>
+
+
+    <section id="screen-log" class="gu-screen">
+        <header class="gu-header gu-header--secondary">
+            <div class="gu-header-left">
+                <button type="button" class="gu-back" id="backFromLog">←</button>
+                <div class="gu-header-text">
+                    <h1>Bitácora de auditoría</h1>
+                    <p id="logCount">6 eventos</p>
+                </div>
+            </div>
+            <div class="gu-header-right">
+                <button type="button" class="gu-btn gu-btn-ghost" id="logExportBtn">
+                    ⭳ Exportar
+                </button>
+            </div>
+        </header>
+
+        <section class="log-search">
+            <div class="log-search-input">
+                <span class="log-search-icon">🔍</span>
+                <input
+                        type="search"
+                        id="logSearchInput"
+                        placeholder="Buscar en la bitácora..."
+                />
+            </div>
+        </section>
+
+        <section class="log-tabs">
+            <button type="button" class="log-tab log-tab--active" data-log-filter="todos">
+                Todos
+            </button>
+            <button type="button" class="log-tab" data-log-filter="creacion">
+                Creación
+            </button>
+            <button type="button" class="log-tab" data-log-filter="edicion">
+                Edición
+            </button>
+            <button type="button" class="log-tab" data-log-filter="bloqueos">
+                Bloqueos
+            </button>
+            <button type="button" class="log-tab" data-log-filter="permisos">
+                Permisos
+            </button>
+            <button type="button" class="log-tab" data-log-filter="cierres">
+                Cierres forzados
+            </button>
+        </section>
+
+        <section class="log-content">
+            <div class="log-panel">
+                <div class="log-events" id="logEvents">
+
+                    <article class="log-card" data-category="creacion">
+                        <header class="log-card-header">
+                            <span class="log-icon log-icon--green">👤</span>
+                            <div>
+                                <p class="log-title">
+                                    Usuario "Carlos Rodríguez" creado
+                                </p>
+                                <p class="log-meta">Por Admin Sistema • Hoy, 10:30</p>
+                            </div>
+                        </header>
+                    </article>
+
+                    <article class="log-card" data-category="permisos">
+                        <header class="log-card-header">
+                            <span class="log-icon log-icon--blue">⚙</span>
+                            <div>
+                                <p class="log-title">
+                                    Permisos modificados para "Carlos Rodríguez"
+                                </p>
+                                <p class="log-meta">Por Admin Sistema • Hoy, 10:35</p>
+                            </div>
+                        </header>
+                        <div class="log-body">
+                            <p><strong>Agregados:</strong> Reasignar incidentes, Gestionar SLA</p>
+                            <p><strong>Removidos:</strong> Ninguno</p>
+                        </div>
+                    </article>
+
+                    <article class="log-card" data-category="bloqueos">
+                        <header class="log-card-header">
+                            <span class="log-icon log-icon--red">🔒</span>
+                            <div>
+                                <p class="log-title">
+                                    Usuario "Juan Pérez" bloqueado
+                                </p>
+                                <p class="log-meta">Por Supervisor Norte • Ayer, 15:20</p>
+                            </div>
+                        </header>
+                        <div class="log-body">
+                            <p><strong>Motivo:</strong> Intentos fallidos de inicio de sesión</p>
+                        </div>
+                    </article>
+
+                    <article class="log-card" data-category="bloqueos" data-log-type="desbloqueo">
+                        <header class="log-card-header">
+                            <span class="log-icon log-icon--green">🔓</span>
+                            <div>
+                                <p class="log-title">
+                                    Usuario "Juan Pérez" desbloqueado
+                                </p>
+                                <p class="log-meta">Por Admin Sistema • Ayer, 16:00</p>
+                            </div>
+                        </header>
+                        <div class="log-body">
+                            <p><strong>Motivo:</strong> Verificación de identidad completada</p>
+                        </div>
+                    </article>
+
+                    <article class="log-card" data-category="cierres">
+                        <header class="log-card-header">
+                            <span class="log-icon log-icon--orange">⏹</span>
+                            <div>
+                                <p class="log-title">
+                                    Cierre forzado de sesión para "María López"
+                                </p>
+                                <p class="log-meta">Por Admin Sistema • Ayer, 18:45</p>
+                            </div>
+                        </header>
+                        <div class="log-body">
+                            <p><strong>Dispositivos:</strong> 2 dispositivos</p>
+                        </div>
+                    </article>
+
+                    <article class="log-card" data-category="permisos">
+                        <header class="log-card-header">
+                            <span class="log-icon log-icon--purple">🛡</span>
+                            <div>
+                                <p class="log-title">
+                                    Elevación temporal aprobada para "Supervisor Norte"
+                                </p>
+                                <p class="log-meta">Por Admin Sistema • Hoy, 09:00</p>
+                            </div>
+                        </header>
+                        <div class="log-body">
+                            <p><strong>Permisos:</strong> Gestionar usuarios</p>
+                            <p><strong>Duración:</strong> 8 horas</p>
+                            <p><strong>Expira:</strong> 17:00</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="log-empty" id="logEmptyMessage">
+                    No hay eventos registrados
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section id="screen-new-user" class="gu-screen">
+        <header class="gu-header gu-header--secondary">
+            <div class="gu-header-left">
+                <button type="button" class="gu-back" id="backFromNewUser">←</button>
+                <div class="gu-header-text">
+                    <h1>Nuevo usuario</h1>
+                    <p>Completa la información para crear una cuenta</p>
+                </div>
+            </div>
+        </header>
+
+        <form class="nu-form" id="newUserForm">
+            <section class="nu-section">
+                <h2 class="nu-section-title">Datos básicos</h2>
+
+                <div class="nu-grid">
+                    <label class="nu-field">
+                        Nombre completo <span class="nu-required">*</span>
+                        <input
+                                type="text"
+                                id="nuName"
+                                placeholder="Escribe aquí"
+                                required
+                        />
+                    </label>
+
+                    <label class="nu-field">
+                        Email <span class="nu-required">*</span>
+                        <input
+                                type="email"
+                                id="nuEmail"
+                                placeholder="nombre_de_correo@policia.gob"
+                                required
+                        />
+                    </label>
+
+                    <label class="nu-field">
+                        Documento de identidad <span class="nu-required">*</span>
+                        <input
+                                type="text"
+                                id="nuDni"
+                                placeholder="Ingresa 8 dígitos"
+                                maxlength="8"
+                                required
+                        />
+                    </label>
+
+                    <label class="nu-field">
+                        Teléfono
+                        <input
+                                type="tel"
+                                id="nuPhone"
+                                placeholder="+51 999 999 999"
+                        />
+                    </label>
+                </div>
+            </section>
+
+            <section class="nu-section">
+                <div class="nu-section-header">
+                    <h2 class="nu-section-title">Rol y permisos</h2>
+                    <span class="nu-required">*</span>
+                </div>
+                <p class="nu-section-sub">
+                    Plantilla de rol
+                </p>
+
+                <div class="nu-role-row" id="nuRoleRow">
+                    <button type="button" class="nu-role-card" data-role="estacion">
+                        <h3>Policía en estación</h3>
+                        <p>Operador de estación con acceso completo a incidentes y chat.</p>
+                        <span class="nu-role-perms">5 permisos</span>
+                    </button>
+
+                    <button type="button" class="nu-role-card" data-role="motorizado">
+                        <h3>Policía motorizado</h3>
+                        <p>Patrulla motorizada con navegación y reporte en campo.</p>
+                        <span class="nu-role-perms">5 permisos</span>
+                    </button>
+
+                    <button type="button" class="nu-role-card" data-role="supervisor">
+                        <h3>Supervisor</h3>
+                        <p>Supervisión con acceso a analytics y gestión de turnos.</p>
+                        <span class="nu-role-perms">6 permisos</span>
+                    </button>
+
+                    <button type="button" class="nu-role-card" data-role="admin">
+                        <h3>Administrador</h3>
+                        <p>Acceso completo incluyendo gestión de usuarios.</p>
+                        <span class="nu-role-perms">Todos los permisos</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="nu-section">
+                <h2 class="nu-section-title">Ámbitos territoriales</h2>
+                <p class="nu-section-sub">Sectores asignados</p>
+
+                <div class="nu-selected-tags" id="nuSelectedSectors">
+                </div>
+
+                <div class="nu-search-box">
+                    <input
+                            type="text"
+                            placeholder="Buscar sectores..."
+                            id="nuSectorSearch"
+                    />
+                </div>
+
+                <div class="nu-sector-grid" id="nuSectorList">
+                    <button type="button" class="nu-sector-card" data-sector="Norte 1" data-zone="Norte">
+                        <span class="nu-sector-name">Norte 1</span>
+                        <span class="nu-sector-zone">Norte</span>
+                    </button>
+                    <button type="button" class="nu-sector-card" data-sector="Norte 2" data-zone="Norte">
+                        <span class="nu-sector-name">Norte 2</span>
+                        <span class="nu-sector-zone">Norte</span>
+                    </button>
+                    <button type="button" class="nu-sector-card" data-sector="Sur 1" data-zone="Sur">
+                        <span class="nu-sector-name">Sur 1</span>
+                        <span class="nu-sector-zone">Sur</span>
+                    </button>
+                    <button type="button" class="nu-sector-card" data-sector="Sur 2" data-zone="Sur">
+                        <span class="nu-sector-name">Sur 2</span>
+                        <span class="nu-sector-zone">Sur</span>
+                    </button>
+                </div>
+
+                <p class="nu-section-sub" id="nuSelectedCount">0 sectores seleccionados</p>
+            </section>
+
+            <!-- SEGURIDAD -->
+            <section class="nu-section">
+                <h2 class="nu-section-title">Seguridad</h2>
+
+                <div class="nu-security-row">
+                    <label class="nu-security-option">
+                        <input type="checkbox" id="nuSendInvite" checked />
+                        <div>
+                            <p class="nu-security-title">Enviar invitación por correo</p>
+                            <p class="nu-security-desc">
+                                Se enviará un link de activación al email proporcionado.
+                            </p>
+                        </div>
+                    </label>
+
+                    <label class="nu-security-option">
+                        <input type="checkbox" id="nuRequire2FA" />
+                        <div>
+                            <p class="nu-security-title">
+                                Requerir autenticación de dos factores (2FA)
+                            </p>
+                            <p class="nu-security-desc">
+                                El usuario deberá configurar 2FA en el primer inicio de sesión.
+                            </p>
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <section class="nu-footer">
+                <button type="button" class="nu-btn nu-btn-secondary" id="nuCancelBtn">
+                    Cancelar
+                </button>
+                <button type="submit" class="nu-btn nu-btn-primary" id="nuSubmitBtn" disabled>
+                    Crear y enviar invitación
+                </button>
+            </section>
+        </form>
+    </section>
+</main>
+
+
+<script
+        src="Secured-Landing-Page/public/assets/scripts/gestion_usuarios.js"
+        defer
+></script>
+</body>
+</html>
