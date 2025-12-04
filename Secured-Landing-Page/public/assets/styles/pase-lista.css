@@ -531,9 +531,6 @@
     color: var(--pl-text-muted);
 }
 
-/* Responsivo básico */
-
-/* ======= Responsive Mejorado ======= */
 
 /* Tablet Grande (768px - 1024px) */
 @media (max-width: 1024px) {
