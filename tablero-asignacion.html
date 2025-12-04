@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tablero de asignaciones</title>
+
+    <!-- CSS específico de esta sección -->
+    <link rel="stylesheet"
+          href="Secured-Landing-Page/public/assets/styles/tablero-asignacion.css">
+
+    <!-- JS específico de esta sección -->
+    <script src="Secured-Landing-Page/public/assets/scripts/tablero-asignacion.js"
+            defer></script>
+</head>
+<body class="tas-page">
+<main class="tas-wrapper">
+
+    <!-- HEADER -->
+    <header class="tas-header">
+        <a href="home-serenazgo.html"
+           class="tas-back-btn"
+           aria-label="Volver al inicio">
+            ←
+        </a>
+
+        <div class="tas-header-text">
+            <h1 class="tas-title">Tablero de asignaciones</h1>
+            <p class="tas-subtitle">Seguimiento de acuses</p>
+        </div>
+    </header>
+
+    <!-- BANNER RESUMEN -->
+    <section class="tas-summary-banner">
+        <div class="tas-summary-left">
+            <span class="tas-summary-label">Pendientes de acuse</span>
+            <span id="tasPendingCount" class="tas-summary-number">3</span>
+        </div>
+        <button id="tasViewPendingsBtn"
+                type="button"
+                class="tas-btn tas-btn-warning">
+            Ver pendientes
+        </button>
+    </section>
+
+    <!-- FILTROS -->
+    <section class="tas-filters">
+        <div class="tas-filters-left">
+            <span class="tas-filter-title">Filtrar por estado</span>
+        </div>
+        <div class="tas-filters-right">
+            <button type="button"
+                    class="tas-filter-btn tas-filter-btn-active"
+                    data-filter="todas">
+                Todas
+            </button>
+            <button type="button"
+                    class="tas-filter-btn"
+                    data-filter="esperando">
+                Esperando
+            </button>
+            <button type="button"
+                    class="tas-filter-btn"
+                    data-filter="recordatorio">
+                Recordatorio
+            </button>
+            <button type="button"
+                    class="tas-filter-btn"
+                    data-filter="recibido">
+                Recibidas
+            </button>
+        </div>
+    </section>
+
+    <!-- GRID DE ASIGNACIONES -->
+    <section class="tas-grid" aria-label="Listado de asignaciones">
+
+        <!-- Esperando acuse -->
+        <article class="tas-card" data-status="esperando">
+            <header class="tas-card-header">
+                <div>
+                    <p class="tas-card-code">INC-2025-042</p>
+                    <p class="tas-card-title">Robo en progreso</p>
+                </div>
+                <button class="tas-card-menu" type="button" aria-label="Más opciones">
+                    ⋯
+                </button>
+            </header>
+
+            <p class="tas-card-subtitle">Unidad: Patrulla 3</p>
+            <p class="tas-card-meta">Hace 2 min</p>
+
+            <div class="tas-card-footer">
+                <span class="tas-badge tas-badge-pending">
+                    Esperando acuse
+                </span>
+            </div>
+        </article>
+
+        <!-- Recordatorio enviado -->
+        <article class="tas-card" data-status="recordatorio">
+            <header class="tas-card-header">
+                <div>
+                    <p class="tas-card-code">INC-2025-039</p>
+                    <p class="tas-card-title">Disturbio</p>
+                </div>
+                <button class="tas-card-menu" type="button" aria-label="Más opciones">
+                    ⋯
+                </button>
+            </header>
+
+            <p class="tas-card-subtitle">Unidad: Patrulla 7</p>
+            <p class="tas-card-meta">Hace 8 min</p>
+
+            <div class="tas-card-footer">
+                <span class="tas-badge tas-badge-info">
+                    Recordatorio enviado
+                </span>
+            </div>
+        </article>
+
+        <!-- Recibido (1) -->
+        <article class="tas-card" data-status="recibido">
+            <header class="tas-card-header">
+                <div>
+                    <p class="tas-card-code">INC-2025-041</p>
+                    <p class="tas-card-title">Accidente de tránsito</p>
+                </div>
+                <button class="tas-card-menu" type="button" aria-label="Más opciones">
+                    ⋯
+                </button>
+            </header>
+
+            <p class="tas-card-subtitle">Unidad: Serenazgo A</p>
+            <p class="tas-card-meta">Hace 15 min</p>
+
+            <div class="tas-card-footer">
+                <span class="tas-badge tas-badge-success">
+                    Recibido 10:45
+                </span>
+            </div>
+        </article>
+
+        <!-- Recibido (2) -->
+        <article class="tas-card" data-status="recibido">
+            <header class="tas-card-header">
+                <div>
+                    <p class="tas-card-code">INC-2025-037</p>
+                    <p class="tas-card-title">Violencia familiar</p>
+                </div>
+                <button class="tas-card-menu" type="button" aria-label="Más opciones">
+                    ⋯
+                </button>
+            </header>
+
+            <p class="tas-card-subtitle">Unidad: Serenazgo C</p>
+            <p class="tas-card-meta">Hace 30 min</p>
+
+            <div class="tas-card-footer">
+                <span class="tas-badge tas-badge-success">
+                    Recibido 10:30
+                </span>
+            </div>
+        </article>
+
+        <!-- Sin respuesta (también cuenta como pendiente) -->
+        <article class="tas-card" data-status="sin-respuesta">
+            <header class="tas-card-header">
+                <div>
+                    <p class="tas-card-code">INC-2025-038</p>
+                    <p class="tas-card-title">Robo de vehículo</p>
+                </div>
+                <button class="tas-card-menu" type="button" aria-label="Más opciones">
+                    ⋯
+                </button>
+            </header>
+
+            <p class="tas-card-subtitle">Unidad: Patrulla 12</p>
+            <p class="tas-card-meta">Hace 25 min</p>
+
+            <div class="tas-card-footer">
+                <span class="tas-badge tas-badge-danger">
+                    Sin respuesta
+                </span>
+            </div>
+        </article>
+
+    </section>
+</main>
+</body>
+</html>
