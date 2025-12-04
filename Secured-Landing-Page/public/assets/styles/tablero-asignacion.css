@@ -1,0 +1,661 @@
+:root {
+    --ta-bg: #f5f7fb;
+    --ta-card-bg: #ffffff;
+    --ta-primary: #0b3150;
+    --ta-primary-dark: #07253c;
+    --ta-border: #d7e0f0;
+    --ta-text: #1e293b;
+    --ta-muted: #6b7280;
+    --ta-danger: #fee4e2;
+    --ta-danger-text: #b42318;
+    --ta-danger-bg: #ff5630;
+    --ta-warning: #fef3c7;
+    --ta-warning-text: #92400e;
+    --ta-warning-bg: #f59e0b;
+    --ta-success: #16a34a;
+    --ta-success-soft: #dcfce7;
+    --ta-success-text: #166534;
+    --ta-info: #3b82f6;
+    --ta-info-soft: #dbeafe;
+    --ta-info-text: #1e40af;
+    --ta-soft-blue: #e7f0ff;
+    --ta-soft-orange: #fff4ed;
+    --ta-radius-lg: 16px;
+    --ta-radius-md: 12px;
+    --ta-radius-sm: 8px;
+    --ta-radius-pill: 999px;
+    --ta-shadow-card: 0 18px 40px rgba(15, 23, 42, 0.08);
+    --ta-shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+    --ta-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body.tablero-asignacion-page {
+    margin: 0;
+    font-family: var(--ta-font);
+    background-color: var(--ta-bg);
+    color: var(--ta-text);
+}
+
+.ta-wrapper {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 24px 32px 40px;
+}
+
+/* ============================================
+   VISTAS
+   ============================================ */
+
+.ta-view {
+    display: none;
+}
+
+.ta-view.ta-view-active {
+    display: block;
+}
+
+/* ============================================
+   CABECERA
+   ============================================ */
+
+.ta-page-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.ta-back-button {
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    border: 1px solid var(--ta-border);
+    background-color: var(--ta-card-bg);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 18px;
+    color: #64748b;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.ta-back-button:hover {
+    background-color: #f3f4f6;
+    transform: scale(1.05);
+}
+
+.ta-header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.ta-page-title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ta-primary-dark);
+}
+
+.ta-page-subtitle {
+    margin: 2px 0 0;
+    font-size: 13px;
+    color: var(--ta-muted);
+    font-weight: 500;
+}
+
+/* ============================================
+   TARJETA BASE
+   ============================================ */
+
+.ta-card {
+    background-color: var(--ta-card-bg);
+    border: 1px solid var(--ta-border);
+    border-radius: var(--ta-radius-lg);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--ta-shadow-card);
+}
+
+/* ============================================
+   TARJETA DE PENDIENTES
+   ============================================ */
+
+.ta-pending-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, var(--ta-soft-orange) 0%, #ffe8d9 100%);
+    border-color: #ffd4b3;
+    padding: 24px;
+}
+
+.ta-pending-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ta-pending-label {
+    font-size: 14px;
+    color: #92400e;
+    font-weight: 600;
+}
+
+.ta-pending-number {
+    font-size: 40px;
+    font-weight: 700;
+    color: #ea580c;
+    line-height: 1;
+}
+
+.ta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: var(--ta-radius-md);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    text-decoration: none;
+}
+
+.ta-btn-danger {
+    background-color: var(--ta-danger-bg);
+    color: #ffffff;
+}
+
+.ta-btn-danger:hover {
+    background-color: #de350b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 86, 48, 0.3);
+}
+
+/* ============================================
+   FILTROS
+   ============================================ */
+
+.ta-filters {
+    margin-bottom: 24px;
+}
+
+.ta-filter-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ta-text);
+    margin-bottom: 12px;
+}
+
+.ta-filter-icon {
+    font-size: 12px;
+}
+
+.ta-filter-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.ta-filter-tab {
+    padding: 10px 20px;
+    border-radius: var(--ta-radius-md);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--ta-border);
+    background-color: var(--ta-card-bg);
+    color: var(--ta-text);
+    transition: all 0.2s ease;
+}
+
+.ta-filter-tab:hover {
+    background-color: #f9fafb;
+    border-color: var(--ta-primary);
+}
+
+.ta-filter-tab-active {
+    background-color: var(--ta-info);
+    color: #ffffff;
+    border-color: var(--ta-info);
+}
+
+.ta-filter-tab-active:hover {
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+
+/* ============================================
+   LISTA DE ASIGNACIONES
+   ============================================ */
+
+.ta-assignments {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ta-assignments-count {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ta-muted);
+    margin-bottom: 4px;
+}
+
+/* ============================================
+   TARJETA DE ASIGNACIÓN
+   ============================================ */
+
+.ta-assignment-card {
+    background-color: var(--ta-card-bg);
+    border: 1px solid var(--ta-border);
+    border-radius: var(--ta-radius-lg);
+    padding: 20px;
+    box-shadow: var(--ta-shadow-card);
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.ta-assignment-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+}
+
+.ta-assignment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.ta-assignment-info {
+    flex: 1;
+}
+
+.ta-assignment-id {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ta-primary-dark);
+}
+
+.ta-assignment-type {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ta-text);
+    font-weight: 500;
+}
+
+.ta-menu-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: 1px solid var(--ta-border);
+    background-color: transparent;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 20px;
+    color: var(--ta-muted);
+    transition: all 0.2s ease;
+}
+
+.ta-menu-button:hover {
+    background-color: #f3f4f6;
+    border-color: var(--ta-primary);
+}
+
+.ta-assignment-unit {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.ta-unit-label {
+    font-size: 13px;
+    color: var(--ta-muted);
+    font-weight: 500;
+}
+
+.ta-unit-value {
+    font-size: 15px;
+    color: var(--ta-text);
+    font-weight: 600;
+}
+
+.ta-assignment-code {
+    display: inline-block;
+    padding: 4px 12px;
+    background-color: #f1f5f9;
+    border-radius: var(--ta-radius-sm);
+    font-size: 12px;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 12px;
+}
+
+.ta-assignment-time {
+    font-size: 13px;
+    color: var(--ta-muted);
+    margin-bottom: 16px;
+    position: absolute;
+    top: 24px;
+    right: 60px;
+}
+
+/* ============================================
+   BADGES DE ESTADO
+   ============================================ */
+
+.ta-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: var(--ta-radius-md);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.ta-status-icon {
+    font-size: 16px;
+}
+
+/* Estado: Esperando acuse */
+.ta-status-esperando {
+    background-color: var(--ta-warning);
+    color: var(--ta-warning-text);
+}
+
+/* Estado: Recordatorio enviado */
+.ta-status-recordatorio {
+    background-color: var(--ta-info-soft);
+    color: var(--ta-info-text);
+}
+
+/* Estado: Recibido */
+.ta-status-recibida {
+    background-color: var(--ta-success-soft);
+    color: var(--ta-success-text);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+    background-color: var(--ta-primary);
+    color: #ffffff;
+    padding: 48px 32px 24px;
+    margin-top: 80px;
+}
+
+.footer-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 40px;
+    margin-bottom: 32px;
+}
+
+.footer-column h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.footer-logo img {
+    width: 40px;
+    height: 40px;
+}
+
+.footer-logo h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.footer-description {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #ffffff;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-list .icon {
+    font-size: 16px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.social-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-bottom p {
+    margin: 8px 0;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.privacy-note a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: underline;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .ta-wrapper {
+        padding: 16px 20px 32px;
+    }
+
+    .ta-page-title {
+        font-size: 20px;
+    }
+
+    .ta-pending-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 20px;
+    }
+
+    .ta-pending-number {
+        font-size: 32px;
+    }
+
+    .ta-btn {
+        width: 100%;
+    }
+
+    .ta-filter-tabs {
+        flex-wrap: wrap;
+    }
+
+    .ta-filter-tab {
+        flex: 1;
+        min-width: 100px;
+        text-align: center;
+    }
+
+    .ta-assignment-card {
+        padding: 16px;
+    }
+
+    .ta-assignment-id {
+        font-size: 16px;
+    }
+
+    .ta-assignment-time {
+        position: static;
+        margin-bottom: 12px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ta-page-header {
+        gap: 10px;
+    }
+
+    .ta-back-button {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .ta-page-title {
+        font-size: 18px;
+    }
+
+    .ta-page-subtitle {
+        font-size: 12px;
+    }
+
+    .ta-pending-number {
+        font-size: 28px;
+    }
+
+    .ta-filter-tab {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .ta-assignment-id {
+        font-size: 15px;
+    }
+
+    .ta-assignment-type {
+        font-size: 13px;
+    }
+
+    .ta-status-badge {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ta-view.ta-view-active {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.ta-assignment-card {
+    animation: fadeIn 0.4s ease-out;
+}
+
+.ta-assignment-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.ta-assignment-card:nth-child(2) {
+    animation-delay: 0.05s;
+}
+
+.ta-assignment-card:nth-child(3) {
+    animation-delay: 0.1s;
+}
+
+.ta-assignment-card:nth-child(4) {
+    animation-delay: 0.15s;
+}
+
+.ta-assignment-card:nth-child(5) {
+    animation-delay: 0.2s;
+}
+

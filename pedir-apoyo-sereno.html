@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedir apoyo | Secured</title>
+
+    <!-- CSS específico de esta pantalla -->
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/pedir-apoyo.css" />
+</head>
+<body class="pedir-apoyo-page">
+<main class="pa-wrapper">
+
+    <!-- ============= -->
+    <!-- VISTA 1: DETALLE DEL INCIDENTE -->
+    <!-- ============= -->
+    <section class="pa-view pa-view-active" data-view="incident-detail">
+        <header class="pa-page-header">
+            <a href="home-serenazgo.html" class="pa-back-button" aria-label="Volver">
+                ←
+            </a>
+            <div class="pa-header-text">
+                <h1 class="pa-page-title">Detalle del incidente</h1>
+                <p class="pa-page-subtitle">INC-2025-056</p>
+            </div>
+        </header>
+
+        <section class="pa-incident-layout">
+            <!-- Columna izquierda -->
+            <div class="pa-column">
+                <!-- Tarjeta de incidente -->
+                <article class="pa-card pa-incident-card">
+                    <h2 class="pa-incident-title">
+                        Disturbio en vía pública - Av. Central
+                    </h2>
+
+                    <ul class="pa-incident-meta">
+                        <li>
+                            <span class="pa-meta-label">Tipo:</span>
+                            <span class="pa-meta-value">Disturbio</span>
+                        </li>
+                        <li>
+                            <span class="pa-meta-label">Dirección:</span>
+                            <span class="pa-meta-value">Av. Central 892, Sector Centro</span>
+                        </li>
+                        <li>
+                            <span class="pa-meta-label">Iniciado:</span>
+                            <span class="pa-meta-value">Hace 15 min</span>
+                        </li>
+                    </ul>
+
+                    <div class="pa-status-pill">
+                        <span class="pa-status-dot"></span>
+                        En curso
+                    </div>
+                </article>
+
+                <!-- Tarjeta de acción: Pedir apoyo -->
+                <article class="pa-card pa-support-card">
+                    <button
+                            type="button"
+                            id="btnOpenSupportRequest"
+                            class="pa-btn pa-btn-primary pa-btn-full"
+                    >
+                        👥 Pedir apoyo
+                    </button>
+
+                    <div class="pa-support-description">
+                        <h3 class="pa-support-title">Solicitar apoyo</h3>
+                        <p class="pa-support-text">
+                            Notifica a unidades cercanas para obtener asistencia inmediata
+                            en este incidente.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Columna derecha -->
+            <aside class="pa-column">
+                <article class="pa-card pa-how-card">
+                    <h2 class="pa-how-title">💡 Cómo funciona</h2>
+                    <ul class="pa-how-list">
+                        <li>Se notificará a unidades disponibles cercanas.</li>
+                        <li>La primera en aceptar quedará co-asignada.</li>
+                        <li>Podrás ver su ruta y coordinar por chat.</li>
+                    </ul>
+                </article>
+            </aside>
+        </section>
+    </section>
+
+    <!-- =============================== -->
+    <!-- VISTA 2: CONFIGURAR / CONFIRMAR SOLICITUD -->
+    <!-- =============================== -->
+    <section class="pa-view" data-view="configure-request">
+        <header class="pa-page-header pa-page-header-modal">
+            <div class="pa-header-text">
+                <h1 class="pa-page-title">Configurar solicitud</h1>
+            </div>
+            <button
+                    type="button"
+                    class="pa-close-button"
+                    aria-label="Cerrar"
+                    id="btnCloseConfig"
+            >
+                ✕
+            </button>
+        </header>
+
+        <section class="pa-modal-body">
+            <form id="supportRequestForm" class="pa-card pa-config-card">
+                <!-- Alcance -->
+                <div class="pa-field-group">
+                    <label class="pa-field-label">Alcance *</label>
+
+                    <div class="pa-range-options" id="rangeOptions">
+                        <label class="pa-range-option is-selected" data-range-option>
+                            <input
+                                    type="radio"
+                                    name="range"
+                                    value="cercano"
+                                    checked
+                            />
+                            <span class="pa-range-name">Cercano</span>
+                            <span class="pa-range-desc">Hasta 2 km</span>
+                        </label>
+
+                        <label class="pa-range-option" data-range-option>
+                            <input type="radio" name="range" value="medio" />
+                            <span class="pa-range-name">Medio</span>
+                            <span class="pa-range-desc">Hasta 5 km</span>
+                        </label>
+
+                        <label class="pa-range-option" data-range-option>
+                            <input type="radio" name="range" value="amplio" />
+                            <span class="pa-range-name">Amplio</span>
+                            <span class="pa-range-desc">Hasta 10 km</span>
+                        </label>
+                    </div>
+
+                    <p class="pa-field-helper">Unidades estimadas: ~5</p>
+                </div>
+
+                <!-- Tipo de unidad -->
+                <div class="pa-field-group">
+                    <label class="pa-field-label">Tipo de unidad</label>
+
+                    <div class="pa-unit-type-group" id="unitTypeGroup">
+                        <button
+                                type="button"
+                                class="pa-unit-pill is-selected"
+                                data-unit-type="todos"
+                        >
+                            Todos los tipos
+                        </button>
+
+                        <div class="pa-unit-type-row">
+                            <button
+                                    type="button"
+                                    class="pa-unit-type-chip"
+                                    data-unit-type="motorizado"
+                            >
+                                🚓 Motorizado
+                            </button>
+                            <button
+                                    type="button"
+                                    class="pa-unit-type-chip"
+                                    data-unit-type="apie"
+                            >
+                                🚶 A pie
+                            </button>
+                            <button
+                                    type="button"
+                                    class="pa-unit-type-chip"
+                                    data-unit-type="caseta"
+                            >
+                                🏠 Caseta
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mensaje -->
+                <div class="pa-field-group">
+                    <label for="supportMessage" class="pa-field-label">
+                        Mensaje *
+                    </label>
+                    <textarea
+                            id="supportMessage"
+                            rows="4"
+                            placeholder="Describe brevemente la situación..."
+                            required
+                    ></textarea>
+                </div>
+
+                <!-- Nota -->
+                <div class="pa-info-note">
+                    Las unidades disponibles en el alcance seleccionado recibirán la
+                    notificación. La primera en aceptar quedará co-asignada al
+                    incidente.
+                </div>
+
+                <!-- Botones -->
+                <div class="pa-config-actions">
+                    <button
+                            type="submit"
+                            class="pa-btn pa-btn-primary"
+                            id="btnSubmitRequest"
+                    >
+                        Enviar solicitud
+                    </button>
+                    <button
+                            type="button"
+                            class="pa-btn pa-btn-ghost"
+                            id="btnCancelConfig"
+                    >
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </section>
+    </section>
+
+    <!-- =============================== -->
+    <!-- VISTA 3: SEGUIMIENTO DE SOLICITUD -->
+    <!-- =============================== -->
+    <section class="pa-view" data-view="request-tracking">
+        <header class="pa-page-header">
+            <button
+                    type="button"
+                    class="pa-back-button"
+                    aria-label="Volver"
+                    id="btnBackFromTracking"
+            >
+                ←
+            </button>
+            <div class="pa-header-text">
+                <h1 class="pa-page-title">Seguimiento de solicitud</h1>
+                <p class="pa-page-subtitle">Esperando respuesta</p>
+            </div>
+        </header>
+
+        <section class="pa-tracking-layout">
+            <!-- Columna izquierda -->
+            <div class="pa-column">
+                <!-- Tiempo de espera -->
+                <article class="pa-card pa-time-card">
+                    <p class="pa-card-label">Tiempo de espera</p>
+                    <p class="pa-time-value">0:58</p>
+                    <div class="pa-progress-bar">
+                        <div class="pa-progress-fill"></div>
+                    </div>
+                </article>
+
+                <!-- Estado de solicitud -->
+                <article class="pa-card pa-status-card">
+                    <p class="pa-card-label">Estado de solicitud</p>
+
+                    <div class="pa-status-grid">
+                        <div class="pa-status-box">
+                            <p class="pa-status-number">5</p>
+                            <p class="pa-status-label">Notificados</p>
+                        </div>
+                        <div class="pa-status-box">
+                            <p class="pa-status-number">3</p>
+                            <p class="pa-status-label">Entregados</p>
+                        </div>
+                        <div class="pa-status-box">
+                            <p class="pa-status-number">0</p>
+                            <p class="pa-status-label">Aceptados</p>
+                        </div>
+                        <div class="pa-status-box pa-status-box-warning">
+                            <p class="pa-status-number">1</p>
+                            <p class="pa-status-label">Pendientes</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Nota -->
+                <article class="pa-card pa-waiting-note">
+                    <p>
+                        Aguardando respuesta de las unidades notificadas. La
+                        primera en aceptar quedará co-asignada al incidente.
+                    </p>
+                </article>
+            </div>
+
+            <!-- Columna derecha -->
+            <div class="pa-column">
+                <h2 class="pa-section-title">Destinatarios (5)</h2>
+
+                <div class="pa-recipient-list">
+                    <article class="pa-recipient-card">
+                        <div class="pa-recipient-main">
+                            <p class="pa-recipient-name">Patrulla 5</p>
+                            <p class="pa-recipient-code">P-005</p>
+                        </div>
+                        <div class="pa-recipient-status pa-recipient-status-success">
+                            ✓ Entregado · 10:45
+                        </div>
+                    </article>
+
+                    <article class="pa-recipient-card">
+                        <div class="pa-recipient-main">
+                            <p class="pa-recipient-name">Serenazgo B</p>
+                            <p class="pa-recipient-code">S-002</p>
+                        </div>
+                        <div class="pa-recipient-status pa-recipient-status-success">
+                            ✓ Entregado · 10:45
+                        </div>
+                    </article>
+
+                    <article class="pa-recipient-card">
+                        <div class="pa-recipient-main">
+                            <p class="pa-recipient-name">Patrulla 8</p>
+                            <p class="pa-recipient-code">P-008</p>
+                        </div>
+                        <div class="pa-recipient-status pa-recipient-status-warning">
+                            ⏱ Pendiente
+                        </div>
+                    </article>
+
+                    <article class="pa-recipient-card">
+                        <div class="pa-recipient-main">
+                            <p class="pa-recipient-name">Serenazgo F</p>
+                            <p class="pa-recipient-code">S-006</p>
+                        </div>
+                        <div class="pa-recipient-status pa-recipient-status-success">
+                            ✓ Entregado · 10:46
+                        </div>
+                    </article>
+
+                    <article class="pa-recipient-card">
+                        <div class="pa-recipient-main">
+                            <p class="pa-recipient-name">Patrulla 12</p>
+                            <p class="pa-recipient-code">P-012</p>
+                        </div>
+                        <div class="pa-recipient-status pa-recipient-status-muted">
+                            ✉ Sin cobertura
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Botones de acciones -->
+                <div class="pa-tracking-actions">
+                    <div class="pa-main-actions">
+                        <button type="button" class="pa-btn pa-btn-ghost">
+                            Reintentar
+                        </button>
+                        <button type="button" class="pa-btn pa-btn-ghost">
+                            Ampliar
+                        </button>
+                        <button
+                                type="button"
+                                class="pa-btn pa-btn-accent"
+                                id="btnEscalar"
+                        >
+                            ⤴ Escalar
+                        </button>
+                    </div>
+
+                    <button
+                            type="button"
+                            class="pa-btn pa-btn-link"
+                            id="btnOpenCancelModal"
+                    >
+                        ✕ Cancelar solicitud
+                    </button>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- =============================== -->
+    <!-- VISTA 4: ESCALAR SOLICITUD -->
+    <!-- =============================== -->
+    <section class="pa-view" data-view="escalate">
+        <header class="pa-page-header pa-page-header-modal">
+            <div class="pa-header-text">
+                <h1 class="pa-page-title">Escalar solicitud</h1>
+            </div>
+            <button
+                    type="button"
+                    class="pa-close-button"
+                    aria-label="Cerrar"
+                    id="btnCloseEscalate"
+            >
+                ✕
+            </button>
+        </header>
+
+        <section class="pa-modal-body">
+            <form id="escalateForm" class="pa-card pa-escalate-card">
+                <div class="pa-escalate-banner">
+                    El escalamiento notificará a una instancia superior
+                    o distrito vecino para solicitar apoyo adicional.
+                </div>
+
+                <!-- Destino -->
+                <div class="pa-field-group">
+                    <label class="pa-field-label">Destino de escalamiento *</label>
+
+                    <div class="pa-escalate-options" id="escalateOptions">
+                        <label class="pa-escalate-option is-selected" data-escalate-option>
+                            <input
+                                    type="radio"
+                                    name="escalate-destination"
+                                    value="central"
+                                    checked
+                            />
+                            <span class="pa-option-title">Estación Central</span>
+                            <span class="pa-option-subtitle">
+                                Comando central de operaciones
+                            </span>
+                        </label>
+
+                        <label class="pa-escalate-option" data-escalate-option>
+                            <input
+                                    type="radio"
+                                    name="escalate-destination"
+                                    value="norte"
+                            />
+                            <span class="pa-option-title">Distrito Norte</span>
+                            <span class="pa-option-subtitle">Distrito vecino</span>
+                        </label>
+
+                        <label class="pa-escalate-option" data-escalate-option>
+                            <input
+                                    type="radio"
+                                    name="escalate-destination"
+                                    value="sur"
+                            />
+                            <span class="pa-option-title">Distrito Sur</span>
+                            <span class="pa-option-subtitle">Distrito vecino</span>
+                        </label>
+
+                        <label class="pa-escalate-option" data-escalate-option>
+                            <input
+                                    type="radio"
+                                    name="escalate-destination"
+                                    value="regional"
+                            />
+                            <span class="pa-option-title">Comando Regional</span>
+                            <span class="pa-option-subtitle">Nivel superior</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Mensaje -->
+                <div class="pa-field-group">
+                    <label for="escalateMessage" class="pa-field-label">
+                        Mensaje de escalamiento *
+                    </label>
+                    <textarea
+                            id="escalateMessage"
+                            rows="4"
+                            placeholder="Describe la situación y por qué necesitas escalar..."
+                            required
+                    ></textarea>
+                </div>
+
+                <!-- Botones -->
+                <div class="pa-config-actions">
+                    <button
+                            type="submit"
+                            class="pa-btn pa-btn-accent pa-btn-full"
+                            id="btnEscalarAhora"
+                    >
+                        ⤴ Escalar ahora
+                    </button>
+                    <button
+                            type="button"
+                            class="pa-btn pa-btn-ghost pa-btn-full"
+                            id="btnBackFromEscalate"
+                    >
+                        Volver
+                    </button>
+                </div>
+            </form>
+        </section>
+    </section>
+
+    <!-- =============================== -->
+    <!-- VISTA 5: CONFIRMAR CANCELACIÓN -->
+    <!-- =============================== -->
+    <section class="pa-view" data-view="cancel-confirm">
+        <div class="pa-cancel-layout">
+            <div class="pa-cancel-dialog">
+                <div class="pa-cancel-icon">!</div>
+                <h2 class="pa-cancel-title">¿Cancelar solicitud de apoyo?</h2>
+                <p class="pa-cancel-text">
+                    Las unidades notificadas serán informadas de la cancelación.
+                    Esta acción quedará registrada en la bitácora del incidente.
+                </p>
+
+                <div class="pa-config-actions pa-config-actions-vertical">
+                    <button
+                            type="button"
+                            class="pa-btn pa-btn-danger pa-btn-full"
+                            id="btnConfirmCancel"
+                    >
+                        Sí, cancelar solicitud
+                    </button>
+                    <button
+                            type="button"
+                            class="pa-btn pa-btn-ghost pa-btn-full"
+                            id="btnBackFromCancel"
+                    >
+                        Volver
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="Secured-Landing-Page/public/assets/images/Secured_Logo_v1.png" alt="Secured Logo" />
+                <h3>Secured</h3>
+            </div>
+            <p class="footer-description">Coordinación inteligente para Serenazgo y Policía</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Solución</a></li>
+                <li><a href="#">Startup</a></li>
+                <li><a href="#">Equipo</a></li>
+                <li><a href="#">Seguridad</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="#">Soporte</a></li>
+                <li><a href="#">Documentación</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Términos de servicio</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul class="contact-list">
+                <li>
+                    <span class="icon">✉</span>
+                    <a href="mailto:contacto@secured.pe">contacto@secured.pe</a>
+                </li>
+                <li>
+                    <span class="icon">📞</span>
+                    <a href="tel:+51987654321">+51 987 654 321</a>
+                </li>
+                <li>
+                    <span class="icon">📍</span>
+                    <span>Lima, Perú</span>
+                </li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p class="privacy-note">Secured no recopila información personal identificable sin consentimiento explícito. Ver <a href="#">Política de Privacidad</a></p>
+    </div>
+</footer>
+
+<!-- JS específico de esta pantalla -->
+<script src="Secured-Landing-Page/public/assets/scripts/pedir-apoyo.js"></script>
+</body>
+</html>

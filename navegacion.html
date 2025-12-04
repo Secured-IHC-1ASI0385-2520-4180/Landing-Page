@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navegación - Secured</title>
+
+    <!-- CSS específico de esta pantalla -->
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/navegacion.css" />
+</head>
+<body class="navegacion-page">
+<main class="nav-wrapper">
+
+    <!-- VISTA 1: PREPARAR NAVEGACIÓN -->
+    <section class="nav-view nav-view-active" data-view="preparar">
+        <header class="nav-page-header">
+            <a href="home-serenazgo.html" class="nav-back-button" aria-label="Volver">
+                ←
+            </a>
+            <div class="nav-header-text">
+                <h1 class="nav-page-title">Preparar navegación</h1>
+                <p class="nav-page-subtitle">INC-2025-058</p>
+            </div>
+        </header>
+
+        <!-- Tarjeta de incidente -->
+        <section class="nav-card nav-incident-card">
+            <header class="nav-incident-header">
+                <div>
+                    <h2 class="nav-incident-title">Robo en progreso - Av. Central</h2>
+                </div>
+                <span class="nav-chip nav-chip-danger">Alta</span>
+            </header>
+
+            <ul class="nav-incident-meta">
+                <li>
+                    <span class="nav-meta-icon">⚠️</span>
+                    <span class="nav-meta-label">Tipo:</span>
+                    <span class="nav-meta-value">Robo</span>
+                </li>
+                <li>
+                    <span class="nav-meta-icon">📍</span>
+                    <span class="nav-meta-label">Dirección:</span>
+                    <span class="nav-meta-value">Av. Central 892, Sector Centro</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Información de ruta -->
+        <section class="nav-card nav-route-info">
+            <h2 class="nav-section-title">Información de ruta</h2>
+
+            <div class="nav-time-estimate">
+                <div class="nav-time-icon">🕐</div>
+                <div class="nav-time-content">
+                    <span class="nav-time-label">Tiempo estimado</span>
+                    <div class="nav-time-main">
+                        <span class="nav-time-value">6 min</span>
+                        <span class="nav-time-distance">• 3.2 km</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-sla-info">
+                <span class="nav-sla-icon">⏱️</span>
+                <span class="nav-sla-text">SLA: 14:57</span>
+            </div>
+        </section>
+
+        <!-- Navegación inteligente -->
+        <section class="nav-card nav-smart-features">
+            <h3 class="nav-smart-title">Navegación inteligente:</h3>
+            <ul class="nav-smart-list">
+                <li>
+                    <span class="nav-bullet">•</span>
+                    Recálculo automático ante tráfico o cierres
+                </li>
+                <li>
+                    <span class="nav-bullet">•</span>
+                    Alertas de límite de jurisdicción
+                </li>
+                <li>
+                    <span class="nav-bullet">•</span>
+                    Actualización de ETA en tiempo real
+                </li>
+            </ul>
+        </section>
+
+        <!-- Mapa de vista previa -->
+        <section class="nav-map-preview">
+            <div class="nav-map-container" id="mapPreview">
+                <!-- Mapa se cargará aquí con Google Maps API -->
+            </div>
+            <div class="nav-map-overlay">
+                <button type="button" class="nav-btn nav-btn-secondary">
+                    Vista previa
+                </button>
+            </div>
+        </section>
+
+        <!-- Acción principal -->
+        <div class="nav-actions">
+            <button
+                type="button"
+                class="nav-btn nav-btn-primary nav-btn-full"
+                id="btnIniciarNavegacion"
+            >
+                <span class="nav-btn-icon">🧭</span>
+                Iniciar navegación
+            </button>
+
+            <button
+                type="button"
+                class="nav-link-button"
+            >
+                Ver rutas alternativas
+            </button>
+        </div>
+    </section>
+
+    <!-- VISTA 2: NAVEGACIÓN ACTIVA -->
+    <section class="nav-view" data-view="navegando">
+        <header class="nav-active-header">
+            <button
+                class="nav-back-button"
+                type="button"
+                aria-label="Volver"
+                id="btnVolverPreparar"
+            >
+                ←
+            </button>
+
+            <div class="nav-active-info">
+                <div class="nav-active-time">
+                    <span class="nav-active-icon">🕐</span>
+                    <span class="nav-active-text">6 min • 3.2 km</span>
+                </div>
+            </div>
+
+            <button
+                class="nav-menu-button"
+                type="button"
+                aria-label="Menú"
+            >
+                ☰
+            </button>
+        </header>
+
+        <div class="nav-active-arrival">
+            <span class="nav-arrival-label">Llegada:</span>
+            <span class="nav-arrival-time">10:52</span>
+        </div>
+
+        <!-- Mapa principal de navegación -->
+        <section class="nav-map-main">
+            <div class="nav-map-full" id="mapNavegacion">
+                <!-- Mapa se cargará aquí con Google Maps API -->
+            </div>
+
+            <!-- Tarjeta de destino flotante -->
+            <div class="nav-destination-card">
+                <div class="nav-dest-label">Destino</div>
+                <div class="nav-dest-address">Av. Central 892, Sector Centro</div>
+            </div>
+
+            <!-- Instrucción actual -->
+            <div class="nav-instruction-card">
+                <div class="nav-instruction-icon">🧭</div>
+                <div class="nav-instruction-text">
+                    En 800 m gira a la derecha en Calle Los Pinos
+                </div>
+            </div>
+        </section>
+
+        <!-- Próxima indicación (parte inferior) -->
+        <section class="nav-next-instruction">
+            <h3 class="nav-next-title">Próxima indicación</h3>
+            <p class="nav-next-text">En 800 m gira a la derecha en Calle Los Pinos</p>
+        </section>
+
+        <!-- Botones de acción -->
+        <div class="nav-active-actions">
+            <button
+                type="button"
+                class="nav-btn nav-btn-danger"
+                id="btnFinalizar"
+            >
+                <span class="nav-btn-icon">✕</span>
+                Finalizar
+            </button>
+
+            <button
+                type="button"
+                class="nav-btn nav-btn-outline"
+                id="btnRecalcular"
+            >
+                <span class="nav-btn-icon">🔄</span>
+                Recalcular
+            </button>
+
+            <button
+                type="button"
+                class="nav-btn nav-btn-outline"
+                id="btnAbrirInstrucciones"
+            >
+                <span class="nav-btn-icon">💬</span>
+            </button>
+
+            <button
+                type="button"
+                class="nav-btn nav-btn-outline"
+            >
+                <span class="nav-btn-icon">📡</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- VISTA 3: INDICACIONES PASO A PASO -->
+    <section class="nav-view" data-view="instrucciones">
+        <header class="nav-instructions-header">
+            <div class="nav-instructions-top">
+                <button
+                    class="nav-back-button"
+                    type="button"
+                    aria-label="Volver"
+                    id="btnCerrarInstrucciones"
+                >
+                    ←
+                </button>
+
+                <div class="nav-active-info">
+                    <div class="nav-active-time">
+                        <span class="nav-active-icon">🕐</span>
+                        <span class="nav-active-text">6 min • 3.2 km</span>
+                    </div>
+                </div>
+
+                <button
+                    class="nav-menu-button"
+                    type="button"
+                    aria-label="Menú"
+                >
+                    ☰
+                </button>
+            </div>
+
+            <div class="nav-active-arrival">
+                <span class="nav-arrival-label">Llegada:</span>
+                <span class="nav-arrival-time">10:52</span>
+            </div>
+        </header>
+
+        <!-- Mapa pequeño -->
+        <section class="nav-map-small">
+            <div class="nav-map-mini" id="mapInstrucciones">
+                <!-- Mapa se cargará aquí con Google Maps API -->
+            </div>
+
+            <!-- Tarjeta de destino flotante -->
+            <div class="nav-destination-card nav-destination-card-small">
+                <div class="nav-dest-label">Destino</div>
+                <div class="nav-dest-address">Av. Central 892, Sector Centro</div>
+            </div>
+        </section>
+
+        <!-- Panel de indicaciones -->
+        <section class="nav-instructions-panel">
+            <div class="nav-instructions-header-bar">
+                <h2 class="nav-instructions-title">Indicaciones paso a paso</h2>
+                <button
+                    type="button"
+                    class="nav-close-instructions"
+                    id="btnCerrarPanel"
+                >
+                    ✕
+                </button>
+            </div>
+
+            <ul class="nav-instructions-list">
+                <li class="nav-instruction-item">
+                    <div class="nav-instruction-icon-wrapper nav-icon-straight">
+                        <span class="nav-instruction-icon-arrow">↑</span>
+                    </div>
+                    <div class="nav-instruction-details">
+                        <p class="nav-instruction-main">Continúa recto por Av. Principal</p>
+                        <p class="nav-instruction-distance">800 m</p>
+                    </div>
+                </li>
+
+                <li class="nav-instruction-item">
+                    <div class="nav-instruction-icon-wrapper nav-icon-right">
+                        <span class="nav-instruction-icon-arrow">→</span>
+                    </div>
+                    <div class="nav-instruction-details">
+                        <p class="nav-instruction-main">Gira a la derecha en Calle Los Pinos</p>
+                        <p class="nav-instruction-distance">1.2 km</p>
+                    </div>
+                </li>
+
+                <li class="nav-instruction-item">
+                    <div class="nav-instruction-icon-wrapper nav-icon-left">
+                        <span class="nav-instruction-icon-arrow">←</span>
+                    </div>
+                    <div class="nav-instruction-details">
+                        <p class="nav-instruction-main">Gira a la izquierda en Av. Central</p>
+                        <p class="nav-instruction-distance">600 m</p>
+                    </div>
+                </li>
+
+                <li class="nav-instruction-item">
+                    <div class="nav-instruction-icon-wrapper nav-icon-straight">
+                        <span class="nav-instruction-icon-arrow">↑</span>
+                    </div>
+                    <div class="nav-instruction-details">
+                        <p class="nav-instruction-main">Continúa recto</p>
+                        <p class="nav-instruction-distance">400 m</p>
+                    </div>
+                </li>
+
+                <li class="nav-instruction-item nav-instruction-final">
+                    <div class="nav-instruction-icon-wrapper nav-icon-destination">
+                        <span class="nav-instruction-icon-arrow">🎯</span>
+                    </div>
+                    <div class="nav-instruction-details">
+                        <p class="nav-instruction-main">Has llegado a tu destino</p>
+                        <p class="nav-instruction-distance">200 m</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Botones de acción inferiores -->
+        <div class="nav-active-actions nav-actions-with-panel">
+            <button
+                type="button"
+                class="nav-btn nav-btn-danger"
+                id="btnFinalizarInstrucciones"
+            >
+                <span class="nav-btn-icon">✕</span>
+                Finalizar
+            </button>
+
+            <button
+                type="button"
+                class="nav-btn nav-btn-outline"
+                id="btnRecalcularInstrucciones"
+            >
+                <span class="nav-btn-icon">🔄</span>
+                Recalcular
+            </button>
+
+            <button
+                type="button"
+                class="nav-btn nav-btn-outline"
+            >
+                <span class="nav-btn-icon">💬</span>
+            </button>
+
+            <button
+                type="button"
+                class="nav-btn nav-btn-outline"
+            >
+                <span class="nav-btn-icon">📡</span>
+            </button>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="Secured-Landing-Page/public/assets/images/Secured_Logo_v1.png" alt="Secured Logo" />
+                <h3>Secured</h3>
+            </div>
+            <p class="footer-description">Coordinación inteligente para Serenazgo y Policía</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Solución</a></li>
+                <li><a href="#">Startup</a></li>
+                <li><a href="#">Equipo</a></li>
+                <li><a href="#">Seguridad</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="#">Soporte</a></li>
+                <li><a href="#">Documentación</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Términos de servicio</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul class="contact-list">
+                <li>
+                    <span class="icon">✉</span>
+                    <a href="mailto:contacto@secured.pe">contacto@secured.pe</a>
+                </li>
+                <li>
+                    <span class="icon">📞</span>
+                    <a href="tel:+51987654321">+51 987 654 321</a>
+                </li>
+                <li>
+                    <span class="icon">📍</span>
+                    <span>Lima, Perú</span>
+                </li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p class="privacy-note">Secured no recopila información personal identificable sin consentimiento explícito. Ver <a href="#">Política de Privacidad</a></p>
+    </div>
+</footer>
+
+<!-- Google Maps API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+<!-- JS para manejar el flujo -->
+<script src="Secured-Landing-Page/public/assets/scripts/navegacion.js"></script>
+</body>
+</html>
+
