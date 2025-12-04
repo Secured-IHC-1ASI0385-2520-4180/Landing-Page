@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bloqueos Viales</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/bloqueos-viales.css" />
+</head>
+<body>
+
+<!-- VISTA 1: Lista de bloqueos viales (con mapa) -->
+<div id="vista-mapa-bloqueos" class="vista active">
+    <header class="header">
+        <button class="back-btn" onclick="window.location.href='home-serenazgo.html'">←</button>
+        <div class="header-content">
+            <h1>Bloqueos Viales</h1>
+            <p class="subtitle" id="contador-bloqueos">2 activos · 2 total</p>
+        </div>
+        <button class="nuevo-btn" onclick="abrirNuevoBloqueo()">+ Nuevo bloqueo</button>
+    </header>
+
+    <!-- Filtros y alerta -->
+    <div class="controles-bar">
+        <button class="filtros-btn" onclick="mostrarVistaFiltrada()">
+            <span class="filtro-icon">⚙️</span> Filtros
+        </button>
+    </div>
+
+    <!-- Alerta de reportes pendientes -->
+    <div class="alerta-reportes">
+        <div class="alerta-icon">⚠️</div>
+        <div class="alerta-content">
+            <strong>Reportes pendientes de validación</strong>
+            <p>1 reporte desde campo</p>
+        </div>
+    </div>
+
+    <!-- Mapa con bloqueos -->
+    <div class="mapa-container">
+        <img src="Secured-Landing-Page/public/assets/images/bloqueos-viales-1.png" alt="Mapa de bloqueos" class="mapa-img" />
+
+        <!-- Controles del mapa -->
+        <div class="mapa-controles">
+            <button class="control-btn recalcular">🔄 Recalcular ruta</button>
+            <button class="control-btn vista-movil">📱 Vista móvil</button>
+            <button class="control-btn estados">📊 Estados</button>
+        </div>
+    </div>
+</div>
+
+<!-- VISTA 2: Lista filtrada de bloqueos -->
+<div id="vista-lista-bloqueos" class="vista">
+    <header class="header">
+        <button class="back-btn" onclick="volverAMapaBloqueos()">←</button>
+        <div class="header-content">
+            <h1>Bloqueos Viales</h1>
+            <p class="subtitle">2 activos · 2 total</p>
+        </div>
+        <button class="nuevo-btn" onclick="abrirNuevoBloqueo()">+ Nuevo bloqueo</button>
+    </header>
+
+    <!-- Filtros activos -->
+    <div class="filtros-activos-bar">
+        <button class="filtro-chip active">
+            <span class="filtro-icon">⚙️</span> Filtros
+        </button>
+    </div>
+
+    <!-- Lista de bloqueos -->
+    <div class="bloqueos-lista">
+        <!-- Bloqueo 1: Av. Arequipa -->
+        <div class="bloqueo-card" onclick="verDetalleBloqueo('blq-001')">
+            <div class="bloqueo-header">
+                <div class="bloqueo-icon">📍</div>
+                <div class="bloqueo-info">
+                    <h3>Av. Arequipa</h3>
+                    <div class="bloqueo-badges">
+                        <span class="badge activo">⭕ Activo</span>
+                        <span class="badge total">⭕ Total</span>
+                        <span class="tipo-badge">Obra</span>
+                    </div>
+                </div>
+            </div>
+            <p class="bloqueo-descripcion">Obras de ampliación de veredas. Cierre total entre Jr. Lampa y Jr. Camaná.</p>
+            <div class="bloqueo-fechas">
+                <div class="fecha-item">
+                    <span class="fecha-icon">📅</span>
+                    <span>Inicio: 01-nov., 08:00 a. m.</span>
+                </div>
+                <div class="fecha-item">
+                    <span class="fecha-icon">📅</span>
+                    <span>Fin: 15-nov., 06:00 p. m.</span>
+                </div>
+            </div>
+            <div class="bloqueo-desvio">
+                <span class="desvio-icon">➜</span>
+                <span class="desvio-texto">Desvío sugerido</span>
+                <p class="desvio-ruta">+5 min · Jr. Lampa → Av. Tacna → Jr. Camaná</p>
+            </div>
+        </div>
+
+        <!-- Bloqueo 2: Jr. de la Unión -->
+        <div class="bloqueo-card" onclick="verDetalleBloqueo('blq-002')">
+            <div class="bloqueo-header">
+                <div class="bloqueo-icon">📍</div>
+                <div class="bloqueo-info">
+                    <h3>Jr. de la Unión</h3>
+                    <div class="bloqueo-badges">
+                        <span class="badge activo">⭕ Activo</span>
+                        <span class="badge parcial">⭕ Parcial</span>
+                        <span class="tipo-badge">Manifestación</span>
+                    </div>
+                </div>
+            </div>
+            <p class="bloqueo-descripcion">Manifestación pacífica. Permitir paso solo a vehículos de emergencia.</p>
+            <div class="bloqueo-fechas">
+                <div class="fecha-item">
+                    <span class="fecha-icon">📅</span>
+                    <span>Inicio: 01-nov., 02:00 p. m.</span>
+                </div>
+                <div class="fecha-item">
+                    <span class="fecha-icon">📅</span>
+                    <span>Fin: 01-nov., 06:00 p. m.</span>
+                </div>
+            </div>
+            <div class="bloqueo-advertencia">
+                <span class="advertencia-icon">⚠️</span>
+                <span>Paso permitido: Patrulla S-15, Patrulla S-22</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- VISTA 3: Nuevo bloqueo vial (formulario vacío) -->
+<div id="vista-nuevo-bloqueo" class="vista">
+    <header class="header">
+        <button class="back-btn" onclick="cerrarNuevoBloqueo()">←</button>
+        <div class="header-content">
+            <h1>Nuevo bloqueo vial</h1>
+            <p class="subtitle">Trazar tramo y definir vigencia</p>
+        </div>
+        <button class="publicar-btn" onclick="publicarBloqueo()">📄 Publicar</button>
+    </header>
+
+    <div class="formulario-container">
+        <!-- Columna izquierda: Información básica -->
+        <div class="formulario-izquierda">
+            <div class="seccion-form">
+                <h2>Información básica</h2>
+
+                <div class="form-group">
+                    <label>Nombre de la vía <span class="requerido">*</span></label>
+                    <input type="text" id="nombre-via" placeholder="Ej: Av. Arequipa" />
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Motivo <span class="requerido">*</span></label>
+                        <input type="text" id="motivo-bloqueo" placeholder="" />
+                    </div>
+                    <div class="form-group">
+                        <label>Nivel <span class="requerido">*</span></label>
+                        <input type="text" id="nivel-bloqueo" placeholder="" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Sector <span class="requerido">*</span></label>
+                    <input type="text" id="sector-bloqueo" placeholder="Ej: Centro" />
+                </div>
+
+                <div class="form-group">
+                    <label>Fecha/hora inicio <span class="requerido">*</span></label>
+                    <input type="datetime-local" id="inicio-bloqueo" />
+                </div>
+
+                <div class="form-group">
+                    <label>Fecha/hora fin <span class="requerido">*</span></label>
+                    <input type="datetime-local" id="fin-bloqueo" />
+                </div>
+
+                <div class="form-group">
+                    <label>Notas</label>
+                    <textarea id="notas-bloqueo" placeholder="Detalles adicionales..."></textarea>
+                </div>
+            </div>
+
+            <div class="seccion-desvio">
+                <button class="btn-desvio" onclick="definirDesvio()">
+                    <span class="desvio-icon">🔀</span>
+                    <span>Definir desvío sugerido</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Columna derecha: Mapa y herramientas -->
+        <div class="formulario-derecha">
+            <div class="seccion-mapa">
+                <div class="mapa-header">
+                    <div class="mapa-icon">📍</div>
+                    <h3>Tramo afectado</h3>
+                </div>
+
+                <div class="mapa-editor">
+                    <img src="Secured-Landing-Page/public/assets/images/bloqueos-viales-2.png" alt="Mapa editor" class="mapa-editor-img" />
+
+                    <div class="herramienta-trazo">
+                        <span class="herramienta-icon">✏️</span>
+                        <span class="herramienta-texto">Herramienta de trazo</span>
+                        <p class="herramienta-instruccion">Traza el segmento de vía afectado</p>
+                    </div>
+                </div>
+
+                <div class="instruccion-box">
+                    <span class="instruccion-icon">ℹ️</span>
+                    <p>Dibuja la polilínea sobre el tramo bloqueado en el mapa</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast de confirmación -->
+<div id="toast-confirmacion" class="toast">
+    <span class="toast-icon">✓</span>
+    <span class="toast-texto">ETA creado correctamente</span>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="Secured-Landing-Page/public/assets/images/Secured_Logo_v1.png" alt="Secured Logo" />
+                <h3>Secured</h3>
+            </div>
+            <p class="footer-description">Coordinación inteligente para Serenazgo y Policía</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Solución</a></li>
+                <li><a href="#">Startup</a></li>
+                <li><a href="#">Equipo</a></li>
+                <li><a href="#">Seguridad</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="#">Soporte</a></li>
+                <li><a href="#">Documentación</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Términos de servicio</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul class="contact-list">
+                <li>
+                    <span class="icon">✉</span>
+                    <a href="mailto:contacto@secured.pe">contacto@secured.pe</a>
+                </li>
+                <li>
+                    <span class="icon">📞</span>
+                    <a href="tel:+51987654321">+51 987 654 321</a>
+                </li>
+                <li>
+                    <span class="icon">📍</span>
+                    <span>Lima, Perú</span>
+                </li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p class="privacy-note">Secured no recopila información personal identificable sin consentimiento explícito. Ver <a href="#">Política de Privacidad</a></p>
+    </div>
+</footer>
+
+<!-- JS específico -->
+<script src="Secured-Landing-Page/public/assets/scripts/bloqueos-viales.js"></script>
+</body>
+</html>
+
