@@ -554,29 +554,355 @@ button {
 }
 
 /* ===== RESPONSIVE ===== */
+
+/* Tablet Grande y Desktop Pequeño (768px - 1024px) */
+@media (max-width: 1024px) {
+    .cfg-wrapper {
+        max-width: 100%;
+        padding: 20px 24px 32px;
+    }
+
+    .cfg-main-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .cfg-profile-layout {
+        gap: 24px;
+    }
+}
+
+/* Tablet (481px - 768px) */
 @media (max-width: 768px) {
     .cfg-wrapper {
-        padding: 16px 12px 28px;
+        padding: 16px 20px 28px;
+    }
+
+    .cfg-header {
+        margin-bottom: 20px;
+    }
+
+    .cfg-title {
+        font-size: 22px;
+    }
+
+    .cfg-back-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+    }
+
+    .cfg-main-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .cfg-group-card {
+        padding: 18px;
+    }
+
+    .cfg-group-title {
+        font-size: 15px;
+        margin-bottom: 14px;
+    }
+
+    .cfg-item-title {
+        font-size: 14px;
+    }
+
+    .cfg-item-subtitle {
+        font-size: 12px;
     }
 
     .cfg-profile-layout,
     .cfg-two-column {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .cfg-access-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
 
     .cfg-form-footer,
     .cfg-form-footer-left {
+        flex-direction: column;
         justify-content: stretch;
+        gap: 10px;
     }
 
     .cfg-form-footer .cfg-btn,
     .cfg-form-footer-left .cfg-btn {
         width: 100%;
         justify-content: center;
+    }
+
+    .cfg-form-card {
+        padding: 20px;
+    }
+
+    .cfg-subtitle {
+        font-size: 14px;
+    }
+
+    .cfg-photo-preview {
+        width: 100px;
+        height: 100px;
+    }
+
+    .cfg-device-item {
+        padding: 14px;
+    }
+
+    .cfg-toggle {
+        min-width: 42px;
+        height: 24px;
+    }
+
+    .cfg-toggle::after {
+        width: 18px;
+        height: 18px;
+    }
+
+    .cfg-toggle-input:checked + .cfg-toggle::after {
+        transform: translateX(18px);
+    }
+}
+
+/* Móvil (320px - 480px) */
+@media (max-width: 480px) {
+    .cfg-wrapper {
+        padding: 12px 16px 24px;
+    }
+
+    .cfg-header {
+        margin-bottom: 16px;
+        gap: 10px;
+    }
+
+    .cfg-title {
+        font-size: 20px;
+    }
+
+    .cfg-back-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .cfg-main-grid {
+        gap: 12px;
+    }
+
+    .cfg-group-card {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .cfg-group-title {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .cfg-item-row {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .cfg-item-title {
+        font-size: 13px;
+    }
+
+    .cfg-item-subtitle {
+        font-size: 11px;
+    }
+
+    .cfg-chevron {
+        font-size: 20px;
+    }
+
+    .cfg-form-card {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .cfg-subtitle {
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+
+    .cfg-label {
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+
+    .cfg-input,
+    .cfg-select {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .cfg-btn {
+        padding: 10px 18px;
+        font-size: 13px;
+    }
+
+    .cfg-photo-preview {
+        width: 90px;
+        height: 90px;
+    }
+
+    .cfg-upload-icon {
+        font-size: 20px;
+    }
+
+    .cfg-upload-text {
+        font-size: 12px;
+    }
+
+    .cfg-profile-stats {
+        gap: 16px;
+    }
+
+    .cfg-stat-item {
+        padding: 10px;
+    }
+
+    .cfg-stat-value {
+        font-size: 20px;
+    }
+
+    .cfg-stat-label {
+        font-size: 11px;
+    }
+
+    .cfg-device-item {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .cfg-device-name {
+        font-size: 13px;
+    }
+
+    .cfg-device-info {
+        font-size: 11px;
+    }
+
+    .cfg-device-actions {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .cfg-toggle {
+        min-width: 40px;
+        height: 22px;
+    }
+
+    .cfg-toggle::after {
+        width: 16px;
+        height: 16px;
+    }
+
+    .cfg-toggle-input:checked + .cfg-toggle::after {
+        transform: translateX(18px);
+    }
+
+    .cfg-form-footer,
+    .cfg-form-footer-left {
+        gap: 8px;
+    }
+
+    /* Ajustes para campos de formulario */
+    .cfg-field {
+        margin-bottom: 14px;
+    }
+
+    /* Ajustes para alertas */
+    .cfg-alert {
+        padding: 10px 12px;
+        font-size: 12px;
+        border-radius: 8px;
+    }
+
+    /* Ajustes para switches y checkboxes */
+    .cfg-switch-group {
+        gap: 10px;
+    }
+
+    /* Stack items en móvil */
+    .cfg-profile-layout {
+        gap: 16px;
+    }
+
+    .cfg-two-column {
+        gap: 16px;
+    }
+
+    /* Reducir espaciado entre secciones */
+    .cfg-section {
+        margin-bottom: 16px;
+    }
+}
+
+/* Móvil Muy Pequeño (< 360px) */
+@media (max-width: 360px) {
+    .cfg-wrapper {
+        padding: 10px 12px 20px;
+    }
+
+    .cfg-title {
+        font-size: 18px;
+    }
+
+    .cfg-back-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .cfg-group-card,
+    .cfg-form-card {
+        padding: 14px;
+    }
+
+    .cfg-item-row {
+        padding: 10px;
+    }
+
+    .cfg-btn {
+        padding: 9px 16px;
+        font-size: 12px;
+    }
+
+    .cfg-photo-preview {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Landscape en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+    .cfg-wrapper {
+        padding: 12px 20px;
+    }
+
+    .cfg-header {
+        margin-bottom: 12px;
+    }
+
+    .cfg-title {
+        font-size: 18px;
+    }
+
+    .cfg-group-card,
+    .cfg-form-card {
+        padding: 14px;
+    }
+
+    .cfg-main-grid {
+        gap: 10px;
     }
 }
 
