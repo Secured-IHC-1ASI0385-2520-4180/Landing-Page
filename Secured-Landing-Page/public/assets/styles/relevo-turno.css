@@ -734,11 +734,17 @@
     justify-content: flex-end;
 }
 
-/* ======= Responsivo sencillo ======= */
+/* ======= Responsive Mejorado ======= */
 
+/* Tablet Grande (768px - 1024px) */
 @media (max-width: 1024px) {
+    .rt-wrapper {
+        padding: 20px 24px 32px;
+    }
+
     .rt-main-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .rt-history-grid,
@@ -747,6 +753,7 @@
     .rt-firmas-grid,
     .rt-resumen-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
 
     .rt-column-action {
@@ -756,6 +763,295 @@
     .rt-button-primary {
         width: 100%;
         justify-content: center;
+    }
+}
+
+/* Tablet (480px - 768px) */
+@media (max-width: 768px) {
+    .rt-wrapper {
+        padding: 16px 20px 28px;
+    }
+
+    .rt-page-header {
+        margin-bottom: 20px;
+    }
+
+    .rt-page-title {
+        font-size: 22px;
+    }
+
+    .rt-back-button {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+    }
+
+    .rt-card {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .rt-card-title {
+        font-size: 16px;
+    }
+
+    .rt-input,
+    .rt-select,
+    .rt-textarea {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .rt-button-primary,
+    .rt-button-secondary {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+
+    .rt-history-item {
+        padding: 14px;
+    }
+
+    .rt-checklist-item {
+        padding: 12px;
+    }
+
+    .rt-evidence-item {
+        padding: 14px;
+    }
+}
+
+/* Móvil (320px - 480px) */
+@media (max-width: 480px) {
+    .rt-wrapper {
+        padding: 12px 14px 24px;
+    }
+
+    .rt-page-header {
+        margin-bottom: 16px;
+        gap: 10px;
+    }
+
+    .rt-page-title {
+        font-size: 20px;
+    }
+
+    .rt-back-button {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .rt-card {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .rt-card-title {
+        font-size: 15px;
+        margin-bottom: 14px;
+    }
+
+    .rt-form-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .rt-form-group {
+        margin-bottom: 14px;
+    }
+
+    .rt-label {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    .rt-input,
+    .rt-select,
+    .rt-textarea {
+        padding: 9px 12px;
+        font-size: 13px;
+        border-radius: 8px;
+    }
+
+    .rt-textarea {
+        min-height: 100px;
+    }
+
+    .rt-button-primary,
+    .rt-button-secondary {
+        padding: 9px 16px;
+        font-size: 13px;
+        width: 100%;
+    }
+
+    .rt-history-item {
+        padding: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .rt-history-time {
+        font-size: 11px;
+    }
+
+    .rt-history-title {
+        font-size: 14px;
+    }
+
+    .rt-history-text {
+        font-size: 13px;
+    }
+
+    .rt-checklist-item {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .rt-checkbox {
+        width: 20px;
+        height: 20px;
+    }
+
+    .rt-checklist-text {
+        font-size: 13px;
+    }
+
+    .rt-evidence-item {
+        padding: 12px;
+    }
+
+    .rt-evidence-preview {
+        width: 80px;
+        height: 80px;
+    }
+
+    .rt-evidence-name {
+        font-size: 13px;
+    }
+
+    .rt-evidence-size {
+        font-size: 11px;
+    }
+
+    .rt-firmas-grid {
+        gap: 12px;
+    }
+
+    .rt-firma-box {
+        padding: 30px 16px;
+    }
+
+    .rt-firma-label {
+        font-size: 12px;
+    }
+
+    .rt-resumen-grid {
+        gap: 12px;
+    }
+
+    .rt-stat-box {
+        padding: 14px;
+    }
+
+    .rt-stat-value {
+        font-size: 26px;
+    }
+
+    .rt-stat-label {
+        font-size: 12px;
+    }
+
+    .rt-column-action {
+        margin-top: 16px;
+        gap: 8px;
+    }
+
+    .rt-badge {
+        padding: 4px 10px;
+        font-size: 11px;
+    }
+}
+
+/* Móvil Pequeño (< 360px) */
+@media (max-width: 360px) {
+    .rt-wrapper {
+        padding: 10px 12px 20px;
+    }
+
+    .rt-page-title {
+        font-size: 18px;
+    }
+
+    .rt-back-button {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .rt-card {
+        padding: 14px;
+    }
+
+    .rt-card-title {
+        font-size: 14px;
+    }
+
+    .rt-input,
+    .rt-select,
+    .rt-textarea {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .rt-button-primary,
+    .rt-button-secondary {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+
+    .rt-history-title {
+        font-size: 13px;
+    }
+
+    .rt-history-text {
+        font-size: 12px;
+    }
+
+    .rt-stat-value {
+        font-size: 22px;
+    }
+
+    .rt-stat-label {
+        font-size: 11px;
+    }
+}
+
+/* Landscape en Móviles */
+@media (max-height: 600px) and (orientation: landscape) {
+    .rt-wrapper {
+        padding: 12px 20px;
+    }
+
+    .rt-page-header {
+        margin-bottom: 12px;
+    }
+
+    .rt-card {
+        padding: 12px 14px;
+    }
+
+    .rt-main-grid {
+        gap: 14px;
+    }
+
+    .rt-textarea {
+        min-height: 80px;
+    }
+
+    .rt-firma-box {
+        padding: 24px 14px;
     }
 }
 
