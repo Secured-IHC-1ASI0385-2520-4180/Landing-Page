@@ -533,27 +533,335 @@
 
 /* Responsivo básico */
 
+/* ======= Responsive Mejorado ======= */
+
+/* Tablet Grande (768px - 1024px) */
 @media (max-width: 1024px) {
+    .pl-wrapper {
+        padding: 20px 24px 32px;
+    }
+
     .pl-main-layout,
     .pl-checkin-layout,
     .pl-result-layout,
     .pl-change-layout {
         grid-template-columns: minmax(260px, 1fr);
+        gap: 20px;
     }
 
     .pl-footer-actions {
         flex-direction: column;
         align-items: stretch;
+        gap: 10px;
     }
 
     .pl-footer-actions-right {
         align-items: stretch;
+        gap: 10px;
     }
 
     .pl-primary-button,
     .pl-secondary-button {
         justify-content: center;
         width: 100%;
+    }
+}
+
+/* Tablet (480px - 768px) */
+@media (max-width: 768px) {
+    .pl-wrapper {
+        padding: 16px 20px 28px;
+    }
+
+    .pl-header {
+        margin-bottom: 20px;
+    }
+
+    .pl-title {
+        font-size: 22px;
+    }
+
+    .pl-back-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+    }
+
+    .pl-card {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .pl-card-header-title {
+        font-size: 16px;
+    }
+
+    .pl-agent-item {
+        padding: 14px;
+    }
+
+    .pl-agent-name {
+        font-size: 15px;
+    }
+
+    .pl-agent-code {
+        font-size: 12px;
+    }
+
+    .pl-primary-button,
+    .pl-secondary-button {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+
+    .pl-stat-value {
+        font-size: 26px;
+    }
+
+    .pl-stat-label {
+        font-size: 12px;
+    }
+}
+
+/* Móvil (320px - 480px) */
+@media (max-width: 480px) {
+    .pl-wrapper {
+        padding: 12px 14px 24px;
+    }
+
+    .pl-header {
+        margin-bottom: 16px;
+        gap: 10px;
+    }
+
+    .pl-title {
+        font-size: 20px;
+    }
+
+    .pl-back-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .pl-card {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .pl-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .pl-card-header-title {
+        font-size: 15px;
+    }
+
+    .pl-badge {
+        padding: 4px 10px;
+        font-size: 11px;
+    }
+
+    .pl-agent-list {
+        gap: 10px;
+    }
+
+    .pl-agent-item {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .pl-agent-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .pl-agent-name {
+        font-size: 14px;
+    }
+
+    .pl-agent-code {
+        font-size: 11px;
+    }
+
+    .pl-agent-status {
+        padding: 3px 8px;
+        font-size: 10px;
+    }
+
+    .pl-primary-button,
+    .pl-secondary-button {
+        padding: 9px 16px;
+        font-size: 13px;
+    }
+
+    .pl-footer-actions {
+        gap: 8px;
+    }
+
+    .pl-search-box {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .pl-filter-chips {
+        gap: 6px;
+    }
+
+    .pl-chip {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+
+    .pl-stat-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .pl-stat-card {
+        padding: 14px;
+    }
+
+    .pl-stat-value {
+        font-size: 24px;
+    }
+
+    .pl-stat-label {
+        font-size: 11px;
+    }
+
+    .pl-checkin-info {
+        padding: 12px;
+    }
+
+    .pl-checkin-label {
+        font-size: 12px;
+    }
+
+    .pl-checkin-value {
+        font-size: 14px;
+    }
+
+    .pl-timeline-item {
+        padding-left: 24px;
+    }
+
+    .pl-timeline-dot {
+        width: 10px;
+        height: 10px;
+        left: 0;
+    }
+
+    .pl-timeline-time {
+        font-size: 11px;
+    }
+
+    .pl-timeline-text {
+        font-size: 13px;
+    }
+
+    /* Formularios */
+    .pl-form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .pl-input,
+    .pl-select,
+    .pl-textarea {
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+
+    .pl-label {
+        font-size: 12px;
+    }
+}
+
+/* Móvil Pequeño (< 360px) */
+@media (max-width: 360px) {
+    .pl-wrapper {
+        padding: 10px 12px 20px;
+    }
+
+    .pl-title {
+        font-size: 18px;
+    }
+
+    .pl-back-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .pl-card {
+        padding: 14px;
+    }
+
+    .pl-card-header-title {
+        font-size: 14px;
+    }
+
+    .pl-agent-item {
+        padding: 10px;
+    }
+
+    .pl-agent-avatar {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .pl-agent-name {
+        font-size: 13px;
+    }
+
+    .pl-primary-button,
+    .pl-secondary-button {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+
+    .pl-stat-value {
+        font-size: 20px;
+    }
+
+    .pl-stat-label {
+        font-size: 10px;
+    }
+}
+
+/* Landscape en Móviles */
+@media (max-height: 600px) and (orientation: landscape) {
+    .pl-wrapper {
+        padding: 12px 20px;
+    }
+
+    .pl-header {
+        margin-bottom: 12px;
+    }
+
+    .pl-card {
+        padding: 12px 14px;
+    }
+
+    .pl-main-layout,
+    .pl-checkin-layout,
+    .pl-result-layout,
+    .pl-change-layout {
+        gap: 14px;
+    }
+
+    .pl-agent-list {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .pl-stat-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
