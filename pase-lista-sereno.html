@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Pase de lista – Secured</title>
+
+    <!-- CSS específico de esta sección -->
+    <link rel="stylesheet"
+          href="Secured-Landing-Page/public/assets/styles/pase-lista.css" />
+</head>
+
+<body class="pl-page">
+<main class="pl-wrapper">
+
+    <!-- VISTA 1: PASE DE LISTA (INICIAL / DISPONIBLE) -->
+    <section id="pl-view-pase-disponible"
+             class="pl-view pl-view-active"
+             aria-label="Pase de lista (disponible)">
+        <header class="pl-page-header">
+            <a href="home-serenazgo.html"
+               class="pl-back-button"
+               aria-label="Volver">
+                ←
+            </a>
+
+            <div class="pl-header-text">
+                <h1 class="pl-title">Pase de lista</h1>
+                <p class="pl-subtitle">Sgto. Carlos Mendoza</p>
+            </div>
+        </header>
+
+        <section class="pl-main-layout">
+            <article class="pl-card">
+                <h2 class="pl-card-title">Información de turno</h2>
+
+                <div class="pl-card-row">
+                    <span class="pl-label">Inicio:</span>
+                    <span class="pl-value">06:00</span>
+                </div>
+                <div class="pl-card-row">
+                    <span class="pl-label">Rol:</span>
+                    <span class="pl-value">Policía</span>
+                </div>
+                <div class="pl-card-row">
+                    <span class="pl-label">Sub-rol:</span>
+                    <span class="pl-value">Patrulla</span>
+                </div>
+                <div class="pl-card-row">
+                    <span class="pl-label">Base:</span>
+                    <span class="pl-value">Comisaría Central</span>
+                </div>
+                <div class="pl-card-row">
+                    <span class="pl-label">Sector:</span>
+                    <span class="pl-value">Norte</span>
+                </div>
+            </article>
+
+            <article class="pl-card pl-card-soft">
+                <h2 class="pl-card-title">Pasos del check-in</h2>
+                <ol class="pl-steps-list">
+                    <li>Confirmar estado de aptitud para el servicio</li>
+                    <li>Verificar dotación personal obligatoria</li>
+                    <li>Confirmar ubicación/base de salida</li>
+                    <li>Acusar disponibilidad para despacho</li>
+                </ol>
+            </article>
+
+            <article class="pl-card pl-card-warning">
+                <h2 class="pl-card-title">Importante</h2>
+                <ul class="pl-bullet-list">
+                    <li>Los ítems críticos son obligatorios para estar disponible.</li>
+                    <li>Si reportas “No apto” se solicitará revisión médica.</li>
+                    <li>El check-in registra tu disponibilidad para despacho.</li>
+                </ul>
+            </article>
+        </section>
+
+        <footer class="pl-footer-actions pl-footer-actions-right">
+            <button type="button"
+                    id="pl-btn-iniciar-checkin"
+                    class="pl-primary-button">
+                <span class="pl-button-icon">📝</span>
+                <span>Iniciar check-in</span>
+            </button>
+        </footer>
+    </section>
+
+
+
+    <!-- VISTA 2: CHECK-IN PERSONAL (PENDIENTE) -->
+    <section id="pl-view-checkin-pendiente"
+             class="pl-view"
+             aria-label="Check-in personal">
+        <header class="pl-page-header">
+            <a href="home-policia.html"
+               class="pl-back-button"
+               aria-label="Volver">
+                ←
+            </a>
+
+            <div class="pl-header-text">
+                <h1 class="pl-title">Check-in personal</h1>
+                <p class="pl-subtitle">Sgto. Carlos Mendoza</p>
+            </div>
+        </header>
+
+        <section class="pl-checkin-layout">
+            <article class="pl-card">
+                <h2 class="pl-card-title">Estado de aptitud</h2>
+                <p class="pl-helper-text">
+                    ¿Te encuentras en condiciones físicas y mentales para el servicio?
+                </p>
+                <div class="pl-toggle-group">
+                    <button type="button" class="pl-pill pl-pill-selected">
+                        Apto
+                    </button>
+                    <button type="button" class="pl-pill pl-pill-ghost">
+                        No apto
+                    </button>
+                </div>
+
+                <h3 class="pl-section-subtitle">Ubicación / Base de salida</h3>
+                <div class="pl-base-card">
+                    <div class="pl-base-name">Comisaría Central</div>
+                    <div class="pl-base-extra">Sector Norte · Auto-detectado</div>
+                </div>
+
+                <h3 class="pl-section-subtitle">Dotación personal</h3>
+                <p class="pl-helper-text">
+                    Verifica que cuentes con el equipamiento necesario.
+                </p>
+            </article>
+
+            <article class="pl-card pl-card-soft">
+                <h2 class="pl-card-title">Dotación y equipo</h2>
+
+                <div class="pl-checklist-grid">
+                    <div class="pl-check-item pl-check-item-pending">
+                        <div class="pl-check-item-header">
+                            <span class="pl-dot"></span>
+                            <span class="pl-check-item-title">
+                                Radio portátil
+                            </span>
+                            <span class="pl-badge pl-badge-critical">Crítico</span>
+                        </div>
+                        <div class="pl-check-item-actions">
+                            <span class="pl-tag pl-tag-ok">Tengo</span>
+                            <span class="pl-tag pl-tag-missing">Falta</span>
+                        </div>
+                    </div>
+
+                    <div class="pl-check-item pl-check-item-pending">
+                        <div class="pl-check-item-header">
+                            <span class="pl-dot"></span>
+                            <span class="pl-check-item-title">
+                                Chaleco antibalas
+                            </span>
+                            <span class="pl-badge pl-badge-critical">Crítico</span>
+                        </div>
+                        <div class="pl-check-item-actions">
+                            <span class="pl-tag pl-tag-ok">Tengo</span>
+                            <span class="pl-tag pl-tag-missing">Falta</span>
+                        </div>
+                    </div>
+
+                    <div class="pl-check-item pl-check-item-pending">
+                        <div class="pl-check-item-header">
+                            <span class="pl-dot"></span>
+                            <span class="pl-check-item-title">
+                                Body camera
+                            </span>
+                            <span class="pl-badge pl-badge-required">Obligatorio</span>
+                        </div>
+                        <div class="pl-check-item-actions">
+                            <span class="pl-tag pl-tag-ok">Tengo</span>
+                            <span class="pl-tag pl-tag-missing">Falta</span>
+                        </div>
+                    </div>
+
+                    <div class="pl-check-item pl-check-item-pending">
+                        <div class="pl-check-item-header">
+                            <span class="pl-dot"></span>
+                            <span class="pl-check-item-title">
+                                Linterna
+                            </span>
+                            <span class="pl-badge pl-badge-required">Obligatorio</span>
+                        </div>
+                        <div class="pl-check-item-actions">
+                            <span class="pl-tag pl-tag-ok">Tengo</span>
+                            <span class="pl-tag pl-tag-missing">Falta</span>
+                        </div>
+                    </div>
+
+                    <div class="pl-check-item pl-check-item-pending">
+                        <div class="pl-check-item-header">
+                            <span class="pl-dot"></span>
+                            <span class="pl-check-item-title">
+                                EPP básico (mascarilla, guantes)
+                            </span>
+                        </div>
+                        <div class="pl-check-item-actions">
+                            <span class="pl-tag pl-tag-ok">Tengo</span>
+                            <span class="pl-tag pl-tag-missing">Falta</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pl-helper-banner">
+                    Completa todos los campos requeridos para continuar.
+                </div>
+
+                <button type="button"
+                        id="pl-btn-marcar-checkin-completo"
+                        class="pl-secondary-button">
+                    Marcar dotación como verificada
+                </button>
+            </article>
+
+            <aside class="pl-card pl-card-muted">
+                <p class="pl-helper-text">
+                    El botón <strong>Confirmar check-in</strong> se habilitará automáticamente
+                    cuando toda la información requerida esté verificada.
+                </p>
+                <button type="button"
+                        class="pl-primary-button"
+                        disabled>
+                    Confirmar check-in
+                </button>
+            </aside>
+        </section>
+    </section>
+
+
+
+    <!-- VISTA 3: CHECK-IN PERSONAL (COMPLETO, BOTÓN HABILITADO) -->
+    <section id="pl-view-checkin-completo"
+             class="pl-view"
+             aria-label="Check-in personal completo">
+        <header class="pl-page-header">
+            <a href="home-policia.html"
+               class="pl-back-button"
+               aria-label="Volver">
+                ←
+            </a>
+
+            <div class="pl-header-text">
+                <h1 class="pl-title">Check-in personal</h1>
+                <p class="pl-subtitle">Sgto. Carlos Mendoza</p>
+            </div>
+        </header>
+
+        <section class="pl-checkin-layout">
+            <article class="pl-card">
+                <h2 class="pl-card-title">Estado de aptitud</h2>
+                <p class="pl-helper-text">
+                    Todos los campos obligatorios han sido verificados correctamente.
+                </p>
+
+                <div class="pl-status-pill pl-status-pill-success">
+                    <span class="pl-status-dot"></span>
+                    <span>Check-in listo para confirmar</span>
+                </div>
+
+                <div class="pl-base-card pl-base-card-soft">
+                    <div class="pl-base-name">Comisaría Central</div>
+                    <div class="pl-base-extra">Sector Norte · Verificado</div>
+                </div>
+            </article>
+
+            <article class="pl-card pl-card-soft">
+                <h2 class="pl-card-title">Dotación verificada</h2>
+
+                <div class="pl-checklist-grid">
+                    <div class="pl-check-item pl-check-item-ok">
+                        <div class="pl-check-item-header">
+                            <span class="pl-status-dot pl-status-dot-success"></span>
+                            <span class="pl-check-item-title">Radio portátil</span>
+                            <span class="pl-badge pl-badge-critical">Crítico</span>
+                        </div>
+                        <p class="pl-check-item-note">Verificado correctamente.</p>
+                    </div>
+
+                    <div class="pl-check-item pl-check-item-ok">
+                        <div class="pl-check-item-header">
+                            <span class="pl-status-dot pl-status-dot-success"></span>
+                            <span class="pl-check-item-title">PTT funcional</span>
+                            <span class="pl-badge pl-badge-critical">Crítico</span>
+                        </div>
+                        <p class="pl-check-item-note">Verificado correctamente.</p>
+                    </div>
+
+                    <div class="pl-check-item pl-check-item-ok">
+                        <div class="pl-check-item-header">
+                            <span class="pl-status-dot pl-status-dot-success"></span>
+                            <span class="pl-check-item-title">Chaleco antibalas</span>
+                            <span class="pl-badge pl-badge-critical">Crítico</span>
+                        </div>
+                        <p class="pl-check-item-note">Verificado correctamente.</p>
+                    </div>
+
+                    <div class="pl-check-item pl-check-item-ok">
+                        <div class="pl-check-item-header">
+                            <span class="pl-status-dot pl-status-dot-success"></span>
+                            <span class="pl-check-item-title">Body camera</span>
+                            <span class="pl-badge pl-badge-required">Obligatorio</span>
+                        </div>
+                        <p class="pl-check-item-note">Verificado correctamente.</p>
+                    </div>
+
+                    <div class="pl-check-item pl-check-item-ok">
+                        <div class="pl-check-item-header">
+                            <span class="pl-status-dot pl-status-dot-success"></span>
+                            <span class="pl-check-item-title">Linterna</span>
+                            <span class="pl-badge pl-badge-required">Obligatorio</span>
+                        </div>
+                        <p class="pl-check-item-note">Verificado correctamente.</p>
+                    </div>
+
+                    <div class="pl-check-item pl-check-item-ok">
+                        <div class="pl-check-item-header">
+                            <span class="pl-status-dot pl-status-dot-success"></span>
+                            <span class="pl-check-item-title">EPP básico (mascarilla, guantes)</span>
+                        </div>
+                        <p class="pl-check-item-note">Verificado correctamente.</p>
+                    </div>
+                </div>
+            </article>
+
+            <aside class="pl-card pl-card-muted">
+                <p class="pl-helper-text">
+                    Todo está listo. Confirma tu check-in para quedar disponible para despacho.
+                </p>
+
+                <button type="button"
+                        id="pl-btn-confirmar-checkin"
+                        class="pl-primary-button">
+                    Confirmar check-in
+                </button>
+            </aside>
+        </section>
+    </section>
+
+
+
+    <!-- VISTA 4: RESULTADO CHECK-IN (DISPONIBLE) -->
+    <section id="pl-view-resultado-disponible"
+             class="pl-view"
+             aria-label="Resultado de check-in (disponible)">
+        <header class="pl-page-header">
+            <a href="home-policia.html"
+               class="pl-back-button"
+               aria-label="Volver">
+                ←
+            </a>
+
+            <div class="pl-header-text">
+                <h1 class="pl-title">Resultado de check-in</h1>
+                <p class="pl-subtitle">Sgto. Carlos Mendoza</p>
+            </div>
+        </header>
+
+        <section class="pl-result-layout">
+            <article class="pl-card pl-card-success">
+                <h2 class="pl-card-title">
+                    Check-in confirmado
+                </h2>
+                <p class="pl-result-main">
+                    Estás disponible para recibir asignaciones.
+                </p>
+            </article>
+
+            <article class="pl-card">
+                <h2 class="pl-card-title">Resumen</h2>
+
+                <div class="pl-card-row">
+                    <span class="pl-label">Fecha y hora:</span>
+                    <span class="pl-value">2/11/2025, 12:08:03 a. m.</span>
+                </div>
+
+                <div class="pl-card-row">
+                    <span class="pl-label">Aptitud:</span>
+                    <span class="pl-chip pl-chip-success">Disponible</span>
+                </div>
+
+                <div class="pl-card-row">
+                    <span class="pl-label">Dotación personal:</span>
+                    <span class="pl-value">7 / 7 verificados</span>
+                </div>
+
+                <div class="pl-card-row">
+                    <span class="pl-label">Base de salida:</span>
+                    <span class="pl-value">Comisaría Central – Sector Norte</span>
+                </div>
+            </article>
+        </section>
+
+        <footer class="pl-footer-actions">
+            <button type="button"
+                    id="pl-btn-cambiar-estado"
+                    class="pl-secondary-button">
+                Cambiar estado
+            </button>
+
+            <button type="button"
+                    id="pl-btn-finalizar-disponible"
+                    class="pl-primary-button">
+                Finalizar
+            </button>
+        </footer>
+    </section>
+
+
+
+    <!-- VISTA 5: CAMBIAR ESTADO -->
+    <section id="pl-view-cambiar-estado"
+             class="pl-view"
+             aria-label="Cambiar estado">
+        <header class="pl-page-header">
+            <a href="home-policia.html"
+               class="pl-back-button"
+               aria-label="Volver">
+                ←
+            </a>
+
+            <div class="pl-header-text">
+                <h1 class="pl-title">Cambiar estado</h1>
+                <p class="pl-subtitle">Sgto. Carlos Mendoza</p>
+            </div>
+        </header>
+
+        <section class="pl-change-layout">
+            <article class="pl-card">
+                <h2 class="pl-card-title">Estado actual</h2>
+                <div class="pl-status-pill pl-status-pill-success">
+                    <span class="pl-status-dot"></span>
+                    <span>Disponible</span>
+                </div>
+                <p class="pl-helper-text">
+                    Habilitado para recibir asignaciones.
+                </p>
+            </article>
+
+            <article class="pl-card">
+                <h2 class="pl-card-title">Nuevo estado</h2>
+
+                <button type="button"
+                        class="pl-state-option"
+                        data-state="disponible">
+                    <span class="pl-state-label">Disponible</span>
+                    <span class="pl-state-helper">
+                        Habilitado para recibir asignaciones.
+                    </span>
+                </button>
+
+                <button type="button"
+                        class="pl-state-option"
+                        data-state="no-disponible">
+                    <span class="pl-state-label">No disponible</span>
+                    <span class="pl-state-helper">
+                        No recibirás asignaciones (requiere motivo).
+                    </span>
+                </button>
+
+                <button type="button"
+                        class="pl-state-option"
+                        data-state="revision">
+                    <span class="pl-state-label">En revisión</span>
+                    <span class="pl-state-helper">
+                        Pendiente de aprobación de supervisor.
+                    </span>
+                </button>
+            </article>
+
+            <aside id="pl-impacto-no-disponible"
+                   class="pl-card pl-card-warning pl-card-hidden">
+                <h2 class="pl-card-title">Impacto en despacho</h2>
+                <p class="pl-helper-text">
+                    No recibirás sugerencias de asignación mientras estés
+                    <strong>No disponible</strong>.
+                </p>
+                <label class="pl-field">
+                    <span class="pl-field-label">Motivo del cambio *</span>
+                    <textarea rows="3"
+                              id="pl-motivo-no-disponible"
+                              class="pl-textarea"
+                              placeholder="Describe el motivo del cambio de estado"></textarea>
+                </label>
+            </aside>
+        </section>
+
+        <footer class="pl-footer-actions pl-footer-actions-right">
+            <button type="button"
+                    id="pl-btn-confirmar-estado"
+                    class="pl-primary-button"
+                    disabled>
+                Confirmar cambio
+            </button>
+        </footer>
+    </section>
+
+
+
+    <!-- VISTA 6: RESULTADO CHECK-IN NO DISPONIBLE -->
+    <section id="pl-view-resultado-no-disponible"
+             class="pl-view"
+             aria-label="Resultado de check-in (no disponible)">
+        <header class="pl-page-header">
+            <a href="home-policia.html"
+               class="pl-back-button"
+               aria-label="Volver">
+                ←
+            </a>
+
+            <div class="pl-header-text">
+                <h1 class="pl-title">Resultado de check-in</h1>
+                <p class="pl-subtitle">Sgto. Carlos Mendoza</p>
+            </div>
+        </header>
+
+        <section class="pl-result-layout">
+            <article class="pl-card pl-card-danger">
+                <h2 class="pl-card-title">No disponible</h2>
+                <p class="pl-result-main">
+                    No recibirás asignaciones hasta actualizar tu estado.
+                </p>
+            </article>
+
+            <article class="pl-card">
+                <h2 class="pl-card-title">Resumen</h2>
+
+                <div class="pl-card-row">
+                    <span class="pl-label">Fecha y hora:</span>
+                    <span class="pl-value">2/11/2025, 12:08:03 a. m.</span>
+                </div>
+
+                <div class="pl-card-row">
+                    <span class="pl-label">Aptitud:</span>
+                    <span class="pl-chip pl-chip-danger">No disponible</span>
+                </div>
+
+                <div class="pl-card-row">
+                    <span class="pl-label">Dotación personal:</span>
+                    <span class="pl-value">7 / 7 verificados</span>
+                </div>
+
+                <div class="pl-card-row">
+                    <span class="pl-label">Base de salida:</span>
+                    <span class="pl-value">Comisaría Central – Sector Norte</span>
+                </div>
+            </article>
+
+            <article class="pl-card pl-card-warning">
+                <h2 class="pl-card-title">Impacto en despacho</h2>
+                <p class="pl-helper-text">
+                    No recibirás sugerencias de asignación hasta cambiar nuevamente
+                    a <strong>Disponible</strong>.
+                </p>
+            </article>
+        </section>
+
+        <footer class="pl-footer-actions pl-footer-actions-right">
+            <button type="button"
+                    id="pl-btn-finalizar-no-disponible"
+                    class="pl-primary-button">
+                Finalizar
+            </button>
+        </footer>
+    </section>
+
+
+
+    <!-- VISTA 7: PASE DE LISTA – NO DISPONIBLE -->
+    <section id="pl-view-pase-no-disponible"
+             class="pl-view"
+             aria-label="Pase de lista (no disponible)">
+        <header class="pl-page-header">
+            <a href="home-policia.html"
+               class="pl-back-button"
+               aria-label="Volver">
+                ←
+            </a>
+
+            <div class="pl-header-text">
+                <h1 class="pl-title">Pase de lista</h1>
+                <p class="pl-subtitle">Sgto. Carlos Mendoza</p>
+            </div>
+        </header>
+
+        <section class="pl-main-layout pl-main-layout-stack">
+            <article class="pl-card pl-card-danger">
+                <h2 class="pl-card-title">No disponible</h2>
+                <p class="pl-helper-text">
+                    No estás disponible para asignaciones.
+                </p>
+            </article>
+
+            <article class="pl-card">
+                <h2 class="pl-card-title">Información de turno</h2>
+
+                <div class="pl-card-row">
+                    <span class="pl-label">Inicio:</span>
+                    <span class="pl-value">06:00</span>
+                </div>
+                <div class="pl-card-row">
+                    <span class="pl-label">Rol:</span>
+                    <span class="pl-value">Policía</span>
+                </div>
+                <div class="pl-card-row">
+                    <span class="pl-label">Sub-rol:</span>
+                    <span class="pl-value">Patrulla</span>
+                </div>
+                <div class="pl-card-row">
+                    <span class="pl-label">Base:</span>
+                    <span class="pl-value">Comisaría Central</span>
+                </div>
+                <div class="pl-card-row">
+                    <span class="pl-label">Sector:</span>
+                    <span class="pl-value">Norte</span>
+                </div>
+            </article>
+
+            <article class="pl-card pl-card-soft">
+                <h2 class="pl-card-title">Pasos del check-in</h2>
+                <ol class="pl-steps-list">
+                    <li>Confirmar estado de aptitud para el servicio.</li>
+                    <li>Verificar dotación personal obligatoria.</li>
+                    <li>Confirmar ubicación/base de salida.</li>
+                    <li>Actualizar disponibilidad para despacho.</li>
+                </ol>
+            </article>
+
+            <article class="pl-card pl-card-warning">
+                <h2 class="pl-card-title">Importante</h2>
+                <p class="pl-helper-text">
+                    Para volver a estar disponible, actualiza tu check-in
+                    y confirma tu estado de aptitud.
+                </p>
+            </article>
+        </section>
+
+        <footer class="pl-footer-actions pl-footer-actions-right">
+            <button type="button"
+                    id="pl-btn-actualizar-checkin"
+                    class="pl-primary-button">
+                Actualizar check-in
+            </button>
+        </footer>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="Secured-Landing-Page/public/assets/images/Secured_Logo_v1.png" alt="Secured Logo" />
+                <h3>Secured</h3>
+            </div>
+            <p class="footer-description">Coordinación inteligente para Serenazgo y Policía</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Solución</a></li>
+                <li><a href="#">Startup</a></li>
+                <li><a href="#">Equipo</a></li>
+                <li><a href="#">Seguridad</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="#">Soporte</a></li>
+                <li><a href="#">Documentación</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Términos de servicio</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul class="contact-list">
+                <li>
+                    <span class="icon">✉</span>
+                    <a href="mailto:contacto@secured.pe">contacto@secured.pe</a>
+                </li>
+                <li>
+                    <span class="icon">📞</span>
+                    <a href="tel:+51987654321">+51 987 654 321</a>
+                </li>
+                <li>
+                    <span class="icon">📍</span>
+                    <span>Lima, Perú</span>
+                </li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p class="privacy-note">Secured no recopila información personal identificable sin consentimiento explícito. Ver <a href="#">Política de Privacidad</a></p>
+    </div>
+</footer>
+
+<!-- JS específico de esta sección -->
+<script src="Secured-Landing-Page/public/assets/scripts/pase-lista.js"></script>
+</body>
+</html>

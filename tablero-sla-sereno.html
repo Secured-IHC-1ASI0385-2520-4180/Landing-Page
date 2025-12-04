@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tablero SLA | Secured</title>
+
+    <!-- CSS específico de esta sección -->
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/tablero-sla.css" />
+</head>
+<body class="sla-page">
+<main class="sla-wrapper">
+    <section id="view-sla-board" class="sla-view sla-view-active">
+        <header class="sla-page-header">
+            <a href="home-serenazgo.html" class="sla-back-link" aria-label="Volver">
+                ←
+            </a>
+            <div class="sla-header-text">
+                <h1 class="sla-title">Tablero de SLA</h1>
+                <p class="sla-subtitle">
+                    <span id="slaTotalIncidents">3</span> incidentes
+                </p>
+            </div>
+        </header>
+
+        <div class="sla-kpi-row">
+            <div class="sla-kpi-pill sla-kpi-warning">
+                <span class="sla-kpi-number">1</span>
+                <span class="sla-kpi-label">por vencer</span>
+            </div>
+            <div class="sla-kpi-pill sla-kpi-danger">
+                <span class="sla-kpi-number">1</span>
+                <span class="sla-kpi-label">vencidos</span>
+            </div>
+        </div>
+
+        <div class="sla-filters">
+            <span class="sla-filters-label">Filtros rápidos</span>
+            <button type="button" class="filter-pill is-active" data-filter="todos">Todos</button>
+            <button type="button" class="filter-pill" data-filter="por-vencer">Por vencer</button>
+            <button type="button" class="filter-pill" data-filter="vencido">Vencidos</button>
+        </div>
+
+        <div class="sla-board-grid">
+
+            <!-- INCIDENTE 1 - Por vencer -->
+            <article
+                    class="sla-incident-card"
+                    data-incident-id="INC-2025-082"
+                    data-incident-title="Robo en progreso"
+                    data-incident-priority="Alta"
+                    data-sla-status="por-vencer"
+            >
+                <div class="sla-incident-card-top">
+                    <span class="incident-id">INC-2025-082</span>
+                    <span class="priority-chip priority-alta">Alta</span>
+                </div>
+
+                <h2 class="incident-title">Robo en progreso</h2>
+
+                <div class="sla-incident-times">
+                    <span class="sla-chip sla-chip-warning">Acuse 4:30</span>
+                    <span class="sla-chip sla-chip-muted">Llegada 0:00</span>
+                    <span class="sla-chip sla-chip-muted">Resolución 0:00</span>
+                </div>
+            </article>
+
+            <!-- INCIDENTE 2 - En tiempo -->
+            <article
+                    class="sla-incident-card"
+                    data-incident-id="INC-2025-081"
+                    data-incident-title="Accidente de tránsito"
+                    data-incident-priority="Media"
+                    data-sla-status="en-tiempo"
+            >
+                <div class="sla-incident-card-top">
+                    <span class="incident-id">INC-2025-081</span>
+                    <span class="priority-chip priority-media">Media</span>
+                </div>
+
+                <h2 class="incident-title">Accidente de tránsito</h2>
+
+                <div class="sla-incident-times">
+                    <span class="sla-chip sla-chip-success">Acuse 2:15</span>
+                    <span class="sla-chip sla-chip-success">Llegada 18:30</span>
+                    <span class="sla-chip sla-chip-success">Resolución 20:45</span>
+                </div>
+            </article>
+
+            <!-- INCIDENTE 3 - Vencido -->
+            <article
+                    class="sla-incident-card"
+                    data-incident-id="INC-2025-080"
+                    data-incident-title="Disturbio en vía pública"
+                    data-incident-priority="Alta"
+                    data-sla-status="vencido"
+            >
+                <div class="sla-incident-card-top">
+                    <span class="incident-id">INC-2025-080</span>
+                    <span class="priority-chip priority-alta">Alta</span>
+                </div>
+
+                <h2 class="incident-title">Disturbio en vía pública</h2>
+
+                <div class="sla-incident-times">
+                    <span class="sla-chip sla-chip-success">Acuse 1:45</span>
+                    <span class="sla-chip sla-chip-info">Llegada 8:00</span>
+                    <span class="sla-chip sla-chip-danger">Resolución 10:30</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ======================= -->
+    <!-- 2) SLA DEL INCIDENTE   -->
+    <!-- ======================= -->
+    <section id="view-sla-incident" class="sla-view">
+        <header class="sla-page-header">
+            <button
+                    type="button"
+                    class="sla-back-link js-back-to-board"
+                    aria-label="Volver al tablero"
+            >
+                ←
+            </button>
+            <div class="sla-header-text">
+                <h1 class="sla-title">SLA del incidente</h1>
+                <p class="sla-subtitle" id="slaIncidentIdLabel">INC-2025-082</p>
+            </div>
+            <span id="slaPausedBadge" class="sla-paused-badge" hidden>En pausa</span>
+        </header>
+
+        <div class="sla-segments-row">
+            <div class="segment-pill is-completed">
+                <span class="segment-name">Acuse</span>
+                <span class="segment-time">4:30 / 5 min</span>
+            </div>
+            <div class="segment-pill is-active">
+                <span class="segment-name">Llegada</span>
+                <span class="segment-time">0:02 / 15 min</span>
+            </div>
+            <div class="segment-pill">
+                <span class="segment-name">Resolución</span>
+                <span class="segment-time">15:00 / 45 min</span>
+            </div>
+        </div>
+
+        <div class="sla-incident-grid">
+            <!-- Columna izquierda -->
+            <div class="sla-incident-column">
+                <section class="card segment-card">
+                    <h2 class="card-title">Segmento activo: Llegada</h2>
+                    <div class="segment-status-box is-on-time">
+                        <div class="segment-status-icon">🕒</div>
+                        <div>
+                            <p class="segment-status-label">En tiempo</p>
+                            <p class="segment-status-helper">0:02 / 15 min</p>
+                        </div>
+                    </div>
+
+                    <div class="segment-progress">
+                        <div class="segment-progress-bar"></div>
+                    </div>
+                </section>
+
+                <section class="card control-card">
+                    <h3 class="card-title">Control de SLA</h3>
+
+                    <button type="button" id="btnSlaControl" class="sla-control-btn">
+                        <div class="sla-control-icon">⏸</div>
+                        <div class="sla-control-text">
+                            <span id="slaControlLabel">Pausar SLA</span>
+                            <span id="slaControlHelper">Con motivo justificado</span>
+                        </div>
+                    </button>
+                </section>
+            </div>
+
+            <!-- Columna central -->
+            <section class="card quick-actions-card">
+                <h2 class="card-title">Acciones rápidas</h2>
+
+                <button class="quick-action">
+                    <span class="quick-action-main">Enviar recordatorio</span>
+                    <span class="quick-action-helper">
+                        Notificar a la unidad asignada
+                    </span>
+                </button>
+
+                <button class="quick-action">
+                    <span class="quick-action-main">Tablero-sla</span>
+                    <span class="quick-action-helper">
+                        Solicitar unidades cercanas
+                    </span>
+                </button>
+
+                <button class="quick-action">
+                    <span class="quick-action-main">Reasignar</span>
+                    <span class="quick-action-helper">
+                        Cambiar a otra unidad
+                    </span>
+                </button>
+
+                <button class="quick-action">
+                    <span class="quick-action-main">Recalcular ruta</span>
+                    <span class="quick-action-helper">
+                        Actualizar ETA de llegada
+                    </span>
+                </button>
+            </section>
+
+            <!-- Columna derecha -->
+            <section class="card log-card">
+                <h2 class="card-title">Bitácora de SLA</h2>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot timeline-dot-send"></div>
+                        <div class="timeline-content">
+                            <p class="timeline-title">Incidente despachado a Patrulla 5</p>
+                            <p class="timeline-meta">Por: Operador Central · 10:00</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot timeline-dot-warning"></div>
+                        <div class="timeline-content">
+                            <p class="timeline-title">
+                                Alerta: Por vencer SLA de acuse
+                            </p>
+                            <p class="timeline-meta">Segmento: Acuse · 10:04</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot timeline-dot-success"></div>
+                        <div class="timeline-content">
+                            <p class="timeline-title">Acuse recibido</p>
+                            <p class="timeline-meta">Por: Patrulla 5 · 10:04:30</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- ======================= -->
+    <!-- 3) PAUSAR / REANUDAR SLA -->
+    <!-- ======================= -->
+    <section id="view-pause-sla" class="sla-view">
+        <header class="sla-modal-header">
+            <div class="sla-modal-title-group">
+                <span class="sla-modal-icon">⏸</span>
+                <div>
+                    <h1 id="pauseViewTitle" class="sla-modal-title">Pausar SLA</h1>
+                    <p class="sla-modal-subtitle">
+                        Incidente <span id="pauseIncidentId">INC-2025-082</span>
+                    </p>
+                </div>
+            </div>
+
+            <button
+                    type="button"
+                    class="sla-modal-close js-back-to-board"
+                    aria-label="Volver al tablero"
+            >
+                ✕
+            </button>
+        </header>
+
+        <form id="pauseForm" class="card pause-form" autocomplete="off">
+            <div class="form-group">
+                <label class="form-label">Segmento a pausar *</label>
+                <div class="option-list option-list-pill">
+                    <label class="option-pill">
+                        <input type="radio" name="segment" value="llegada" checked />
+                        <span class="option-main">Llegada</span>
+                        <span class="option-helper">
+                            Tiempo de arribo a la escena
+                        </span>
+                    </label>
+
+                    <label class="option-pill">
+                        <input type="radio" name="segment" value="resolucion" />
+                        <span class="option-main">Resolución</span>
+                        <span class="option-helper">
+                            Tiempo hasta el cierre del incidente
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Motivo de la pausa *</label>
+
+                <div class="option-list">
+                    <label class="option-row">
+                        <input type="radio" name="reason" value="cierre-vial" checked />
+                        <span>Cierre vial en la ruta</span>
+                    </label>
+
+                    <label class="option-row">
+                        <input type="radio" name="reason" value="clima" />
+                        <span>Condiciones climáticas adversas</span>
+                    </label>
+
+                    <label class="option-row">
+                        <input type="radio" name="reason" value="autoridades" />
+                        <span>Espera de autoridades adicionales</span>
+                    </label>
+
+                    <label class="option-row">
+                        <input type="radio" name="reason" value="coordinacion" />
+                        <span>Coordinación con otras instituciones</span>
+                    </label>
+
+                    <label class="option-row">
+                        <input type="radio" name="reason" value="informacion" />
+                        <span>Espera de información del solicitante</span>
+                    </label>
+
+                    <label class="option-row">
+                        <input type="radio" name="reason" value="evaluacion" />
+                        <span>Situación requiere evaluación adicional</span>
+                    </label>
+
+                    <label class="option-row">
+                        <input type="radio" name="reason" value="recursos" />
+                        <span>Recursos técnicos no disponibles</span>
+                    </label>
+
+                    <label class="option-row">
+                        <input type="radio" name="reason" value="otro" />
+                        <span>Otro motivo...</span>
+                    </label>
+                </div>
+            </div>
+
+            <p class="pause-note">
+                El cronómetro se detendrá hasta que se reanude manualmente. Esta
+                acción quedará registrada en la bitácora.
+            </p>
+
+            <button type="submit" class="btn-primary btn-full">
+                <span id="pauseCtaLabel">Pausar cronómetro</span>
+            </button>
+        </form>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="Secured-Landing-Page/public/assets/images/Secured_Logo_v1.png" alt="Secured Logo" />
+                <h3>Secured</h3>
+            </div>
+            <p class="footer-description">Coordinación inteligente para Serenazgo y Policía</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Solución</a></li>
+                <li><a href="#">Startup</a></li>
+                <li><a href="#">Equipo</a></li>
+                <li><a href="#">Seguridad</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="#">Soporte</a></li>
+                <li><a href="#">Documentación</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Términos de servicio</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul class="contact-list">
+                <li>
+                    <span class="icon">✉</span>
+                    <a href="mailto:contacto@secured.pe">contacto@secured.pe</a>
+                </li>
+                <li>
+                    <span class="icon">📞</span>
+                    <a href="tel:+51987654321">+51 987 654 321</a>
+                </li>
+                <li>
+                    <span class="icon">📍</span>
+                    <span>Lima, Perú</span>
+                </li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p class="privacy-note">Secured no recopila información personal identificable sin consentimiento explícito. Ver <a href="#">Política de Privacidad</a></p>
+    </div>
+</footer>
+
+<!-- JS específico de esta sección -->
+<script src="Secured-Landing-Page/public/assets/scripts/tablero-sla.js"></script>
+</body>
+</html>

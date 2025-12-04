@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Relevo de turno - Secured</title>
+
+    <!-- CSS específico de esta sección -->
+    <link rel="stylesheet"
+          href="Secured-Landing-Page/public/assets/styles/relevo-turno.css" />
+</head>
+<body class="rt-page">
+<main class="rt-wrapper">
+
+    <!-- VISTA PRINCIPAL: RELEVO DE TURNO -->
+    <section id="view-rt-main" class="rt-view rt-view-active" data-view="principal">
+        <header class="rt-page-header">
+            <!-- back al menú de variaciones -->
+            <a href="home-serenazgo.html"
+               class="rt-back-main"
+               aria-label="Volver">
+                ←
+            </a>
+
+            <div class="rt-header-text">
+                <h1 class="rt-page-title">Relevo de turno</h1>
+                <p class="rt-page-subtitle">Patrulla PNP-102</p>
+            </div>
+
+            <!-- botón historial -->
+            <button type="button"
+                    class="rt-icon-button"
+                    aria-label="Historial de relevos"
+                    data-rt-go="historial">
+                ⏱
+            </button>
+        </header>
+
+        <div class="rt-main-grid">
+            <!-- Columna: información de unidad -->
+            <div class="rt-column">
+                <article class="rt-card rt-card-info">
+                    <h2 class="rt-card-title">Información de unidad</h2>
+                    <dl class="rt-info-list">
+                        <div class="rt-info-row">
+                            <dt>Unidad</dt>
+                            <dd>PNP-102</dd>
+                        </div>
+                        <div class="rt-info-row">
+                            <dt>Rol</dt>
+                            <dd>Policía</dd>
+                        </div>
+                        <div class="rt-info-row">
+                            <dt>Subrol</dt>
+                            <dd>Patrulla motorizada</dd>
+                        </div>
+                    </dl>
+                </article>
+
+                <article class="rt-card rt-card-status">
+                    <div class="rt-status-icon">✔</div>
+                    <div class="rt-status-text">
+                        <p class="rt-status-title">Unidad operativa</p>
+                        <p class="rt-status-subtitle">Habilitada para despacho</p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Columna: pasos del relevo -->
+            <div class="rt-column">
+                <article class="rt-card rt-card-steps">
+                    <h2 class="rt-card-title">Pasos del relevo</h2>
+                    <ol class="rt-step-list">
+                        <li>Completar checklist de equipo y móvil</li>
+                        <li>Capturar evidencias fotográficas obligatorias</li>
+                        <li>Firmas de entrega y recepción</li>
+                        <li>Validación y cierre del relevo</li>
+                    </ol>
+                </article>
+
+                <article class="rt-card rt-card-important">
+                    <h2 class="rt-card-title">Importante</h2>
+                    <ul class="rt-important-list">
+                        <li>Los ítems críticos son obligatorios para habilitar despacho.</li>
+                        <li>Las faltas de daños y odómetro son obligatorias.</li>
+                        <li>Se requieren dos firmas digitales: entrega y recepción.</li>
+                    </ul>
+                </article>
+            </div>
+
+            <!-- Columna: acción principal -->
+            <div class="rt-column rt-column-action">
+                <button type="button"
+                        class="rt-button rt-button-primary"
+                        data-rt-go="checklist">
+                    Iniciar relevo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISTA: HISTORIAL DE RELEVOS -->
+    <section id="view-rt-historial" class="rt-view" data-view="historial">
+        <header class="rt-page-header">
+            <button type="button"
+                    class="rt-back-button"
+                    aria-label="Volver"
+                    data-rt-go="principal">
+                ←
+            </button>
+
+            <div class="rt-header-text">
+                <h1 class="rt-page-title">Historial de relevos</h1>
+                <p class="rt-page-subtitle">Registros recientes</p>
+            </div>
+
+            <span class="rt-header-spacer"></span>
+        </header>
+
+        <div class="rt-history-toolbar">
+            <input type="text"
+                   class="rt-input"
+                   placeholder="Buscar por ID o unidad…" />
+        </div>
+
+        <div class="rt-history-grid">
+            <article class="rt-card rt-history-card rt-history-ok">
+                <header class="rt-history-header">
+                    <div>
+                        <span class="rt-history-id">HO-003</span>
+                        <span class="rt-tag rt-tag-unit">PNP-102</span>
+                    </div>
+                    <span class="rt-tag rt-tag-success">Habilitado</span>
+                </header>
+                <dl class="rt-history-details">
+                    <div>
+                        <dt>Entregó</dt>
+                        <dd>Sgo. Carlos Mendoza</dd>
+                    </div>
+                    <div>
+                        <dt>Recibió</dt>
+                        <dd>Sgo. Ana Torres</dd>
+                    </div>
+                </dl>
+                <button type="button" class="rt-button rt-button-outline rt-history-cta">
+                    Ver detalles
+                </button>
+            </article>
+
+            <article class="rt-card rt-history-card rt-history-ok">
+                <header class="rt-history-header">
+                    <div>
+                        <span class="rt-history-id">HO-001</span>
+                        <span class="rt-tag rt-tag-unit">U24</span>
+                    </div>
+                    <span class="rt-tag rt-tag-success">Habilitado</span>
+                </header>
+                <dl class="rt-history-details">
+                    <div>
+                        <dt>Entregó</dt>
+                        <dd>Agente Pedro García</dd>
+                    </div>
+                    <div>
+                        <dt>Recibió</dt>
+                        <dd>Agente Marita López</dd>
+                    </div>
+                </dl>
+                <button type="button" class="rt-button rt-button-outline rt-history-cta">
+                    Ver detalles
+                </button>
+            </article>
+
+            <article class="rt-card rt-history-card rt-history-block">
+                <header class="rt-history-header">
+                    <div>
+                        <span class="rt-history-id">HO-002</span>
+                        <span class="rt-tag rt-tag-unit">PNP-102</span>
+                    </div>
+                    <span class="rt-tag rt-tag-danger">Bloqueado</span>
+                </header>
+                <dl class="rt-history-details">
+                    <div>
+                        <dt>Entregó</dt>
+                        <dd>Sgo. Luis Ramírez</dd>
+                    </div>
+                    <div>
+                        <dt>Recibió</dt>
+                        <dd>Sgo. Carlos Mendoza</dd>
+                    </div>
+                    <div>
+                        <dt>Faltantes críticos</dt>
+                        <dd>1</dd>
+                    </div>
+                </dl>
+                <button type="button" class="rt-button rt-button-outline rt-history-cta">
+                    Ver detalles
+                </button>
+            </article>
+        </div>
+
+        <div class="rt-history-footer">
+            <button type="button" class="rt-button rt-button-secondary">
+                ⬇ Exportar historial
+            </button>
+        </div>
+    </section>
+
+    <!-- VISTA: CHECKLIST - ESTADO INICIAL -->
+    <section id="view-rt-checklist" class="rt-view" data-view="checklist">
+        <header class="rt-page-header">
+            <button type="button"
+                    class="rt-back-button"
+                    aria-label="Volver"
+                    data-rt-go="principal">
+                ←
+            </button>
+
+            <div class="rt-header-text">
+                <h1 class="rt-page-title">Checklist</h1>
+                <p class="rt-page-subtitle">PNP-102</p>
+            </div>
+
+            <span class="rt-header-spacer"></span>
+        </header>
+
+        <div class="rt-step-header">
+            <div class="rt-progress">
+                <div class="rt-progress-labels">
+                    <span>Progreso</span>
+                    <span>0/11</span>
+                </div>
+                <div class="rt-progress-bar">
+                    <div class="rt-progress-fill rt-progress-fill-low"></div>
+                </div>
+            </div>
+
+            <div class="rt-card rt-critical-summary">
+                <p class="rt-critical-title">Ítems críticos: 0/4</p>
+                <p class="rt-critical-subtitle">4 pendientes</p>
+            </div>
+        </div>
+
+        <p class="rt-simulation-hint">
+            Simulación: haz clic en los ítems del checklist para avanzar al siguiente estado.
+        </p>
+
+        <div class="rt-checklist-grid">
+            <section class="rt-check-column">
+                <h2 class="rt-check-heading">Comunicación</h2>
+                <button type="button" class="rt-check-item" data-rt-check-item>
+                    <span>Radio operativo</span>
+                    <span class="rt-pill rt-pill-critical">Crítico</span>
+                </button>
+                <button type="button" class="rt-check-item" data-rt-check-item>
+                    <span>PTT funcional</span>
+                    <span class="rt-pill rt-pill-obligatorio">Obligatorio</span>
+                </button>
+            </section>
+
+            <section class="rt-check-column">
+                <h2 class="rt-check-heading">Vehículo</h2>
+                <button type="button" class="rt-check-item" data-rt-check-item>
+                    <span>Combustible (&gt;50%)</span>
+                    <span class="rt-pill rt-pill-critical">Crítico</span>
+                </button>
+                <button type="button" class="rt-check-item" data-rt-check-item>
+                    <span>Neumáticos en buen estado</span>
+                    <span class="rt-pill rt-pill-normal">Normal</span>
+                </button>
+                <button type="button" class="rt-check-item" data-rt-check-item>
+                    <span>Sirena operativa</span>
+                    <span class="rt-pill rt-pill-obligatorio">Obligatorio</span>
+                </button>
+            </section>
+
+            <section class="rt-check-column">
+                <h2 class="rt-check-heading">Seguridad</h2>
+                <button type="button" class="rt-check-item" data-rt-check-item>
+                    <span>Botiquín completo</span>
+                    <span class="rt-pill rt-pill-obligatorio">Obligatorio</span>
+                </button>
+                <button type="button" class="rt-check-item" data-rt-check-item>
+                    <span>Chaleco antibalas</span>
+                    <span class="rt-pill rt-pill-critical">Crítico</span>
+                </button>
+                <button type="button" class="rt-check-item" data-rt-check-item>
+                    <span>Extintor vigente</span>
+                    <span class="rt-pill rt-pill-obligatorio">Obligatorio</span>
+                </button>
+            </section>
+        </div>
+
+        <div class="rt-step-footer">
+            <button type="button" class="rt-button rt-button-disabled">
+                Continuar
+            </button>
+        </div>
+    </section>
+
+    <!-- VISTA: CHECKLIST COMPLETO (BOTÓN CONTINUAR HABILITADO) -->
+    <section id="view-rt-checklist-ok" class="rt-view" data-view="checklist-ok">
+        <header class="rt-page-header">
+            <button type="button"
+                    class="rt-back-button"
+                    aria-label="Volver"
+                    data-rt-go="checklist">
+                ←
+            </button>
+
+            <div class="rt-header-text">
+                <h1 class="rt-page-title">Checklist</h1>
+                <p class="rt-page-subtitle">PNP-102 · Checklist completado</p>
+            </div>
+
+            <span class="rt-header-spacer"></span>
+        </header>
+
+        <div class="rt-step-header">
+            <div class="rt-progress">
+                <div class="rt-progress-labels">
+                    <span>Progreso</span>
+                    <span>11/11</span>
+                </div>
+                <div class="rt-progress-bar">
+                    <div class="rt-progress-fill rt-progress-fill-full"></div>
+                </div>
+            </div>
+
+            <div class="rt-card rt-critical-summary rt-critical-summary-ok">
+                <p class="rt-critical-title">Ítems críticos: 3/4</p>
+                <p class="rt-critical-subtitle">1 pendiente</p>
+            </div>
+        </div>
+
+        <div class="rt-checklist-grid">
+            <!-- Aquí solo mostramos el estado final de algunos ítems, modo resumen visual -->
+            <section class="rt-check-column">
+                <h2 class="rt-check-heading">Comunicación</h2>
+                <div class="rt-check-item rt-check-item-ok">
+                    <span>Radio operativo</span>
+                    <span class="rt-pill rt-pill-ok">Verificado</span>
+                </div>
+                <div class="rt-check-item rt-check-item-fail">
+                    <span>PTT funcional</span>
+                    <span class="rt-pill rt-pill-warning">Reportado como faltante</span>
+                </div>
+            </section>
+
+            <section class="rt-check-column">
+                <h2 class="rt-check-heading">Vehículo</h2>
+                <div class="rt-check-item rt-check-item-fail">
+                    <span>Combustible (&gt;50%)</span>
+                    <span class="rt-pill rt-pill-warning">Faltante crítico</span>
+                </div>
+                <div class="rt-check-item rt-check-item-ok">
+                    <span>Neumáticos en buen estado</span>
+                    <span class="rt-pill rt-pill-ok">Verificado</span>
+                </div>
+                <div class="rt-check-item rt-check-item-ok">
+                    <span>Sirena operativa</span>
+                    <span class="rt-pill rt-pill-ok">Verificado</span>
+                </div>
+            </section>
+
+            <section class="rt-check-column">
+                <h2 class="rt-check-heading">Seguridad</h2>
+                <div class="rt-check-item rt-check-item-ok">
+                    <span>Botiquín completo</span>
+                    <span class="rt-pill rt-pill-ok">Verificado</span>
+                </div>
+                <div class="rt-check-item rt-check-item-ok">
+                    <span>Chaleco antibalas</span>
+                    <span class="rt-pill rt-pill-ok">Verificado</span>
+                </div>
+                <div class="rt-check-item rt-check-item-ok">
+                    <span>Extintor vigente</span>
+                    <span class="rt-pill rt-pill-ok">Verificado</span>
+                </div>
+            </section>
+        </div>
+
+        <div class="rt-step-footer">
+            <button type="button"
+                    class="rt-button rt-button-primary"
+                    data-rt-go="evidencias">
+                Continuar
+            </button>
+        </div>
+    </section>
+
+    <!-- VISTA: EVIDENCIAS FOTOGRÁFICAS (INICIAL) -->
+    <section id="view-rt-evidencias" class="rt-view" data-view="evidencias">
+        <header class="rt-page-header">
+            <button type="button"
+                    class="rt-back-button"
+                    aria-label="Volver"
+                    data-rt-go="checklist-ok">
+                ←
+            </button>
+
+            <div class="rt-header-text">
+                <h1 class="rt-page-title">Evidencias fotográficas</h1>
+                <p class="rt-page-subtitle">PNP-102</p>
+            </div>
+
+            <span class="rt-header-spacer"></span>
+        </header>
+
+        <div class="rt-info-banner rt-info-banner-warning">
+            <p class="rt-info-banner-title">
+                Las fotografías son obligatorias
+            </p>
+            <p class="rt-info-banner-text">
+                y quedan anexadas al historial del relevo.
+            </p>
+        </div>
+
+        <p class="rt-simulation-hint">
+            Simulación: haz clic en las tarjetas de foto para marcarlas como capturadas.
+        </p>
+
+        <div class="rt-evidencias-grid">
+            <article class="rt-card rt-photo-card" data-rt-photo-slot>
+                <h2 class="rt-photo-title">Foto de daños</h2>
+                <p class="rt-photo-subtitle">
+                    Captura daños visibles en el vehículo o equipo.
+                </p>
+                <button type="button" class="rt-button rt-button-outline">
+                    Capturar foto
+                </button>
+            </article>
+
+            <article class="rt-card rt-photo-card" data-rt-photo-slot>
+                <h2 class="rt-photo-title">Foto del odómetro</h2>
+                <p class="rt-photo-subtitle">
+                    Captura el kilometraje actual del vehículo.
+                </p>
+                <button type="button" class="rt-button rt-button-outline">
+                    Capturar foto
+                </button>
+            </article>
+
+            <article class="rt-card rt-photo-tips">
+                <h2 class="rt-photo-title">Recomendaciones</h2>
+                <ul class="rt-important-list">
+                    <li>Asegúrate de que las fotos estén nítidas y bien iluminadas.</li>
+                    <li>Los daños deben ser claramente visibles.</li>
+                    <li>El odómetro debe ser legible.</li>
+                </ul>
+            </article>
+        </div>
+
+        <div class="rt-step-footer">
+            <button type="button" class="rt-button rt-button-disabled">
+                Continuar
+            </button>
+        </div>
+    </section>
+
+    <!-- VISTA: EVIDENCIAS COMPLETAS -->
+    <section id="view-rt-evidencias-ok" class="rt-view" data-view="evidencias-ok">
+        <header class="rt-page-header">
+            <button type="button"
+                    class="rt-back-button"
+                    aria-label="Volver"
+                    data-rt-go="evidencias">
+                ←
+            </button>
+
+            <div class="rt-header-text">
+                <h1 class="rt-page-title">Evidencias fotográficas</h1>
+                <p class="rt-page-subtitle">PNP-102 · Evidencias capturadas</p>
+            </div>
+
+            <span class="rt-header-spacer"></span>
+        </header>
+
+        <div class="rt-evidencias-grid">
+            <article class="rt-card rt-photo-card rt-photo-card-ok">
+                <h2 class="rt-photo-title">Foto de daños</h2>
+                <p class="rt-photo-subtitle">
+                    Evidencia capturada correctamente.
+                </p>
+                <button type="button" class="rt-button rt-button-outline">
+                    Repetir foto
+                </button>
+            </article>
+
+            <article class="rt-card rt-photo-card rt-photo-card-ok">
+                <h2 class="rt-photo-title">Foto del odómetro</h2>
+                <p class="rt-photo-subtitle">
+                    Evidencia capturada correctamente.
+                </p>
+                <button type="button" class="rt-button rt-button-outline">
+                    Repetir foto
+                </button>
+            </article>
+
+            <article class="rt-card rt-photo-tips">
+                <h2 class="rt-photo-title">Recomendaciones</h2>
+                <ul class="rt-important-list">
+                    <li>Verifica que los archivos se vean claramente.</li>
+                    <li>Repite la captura si hay dudas.</li>
+                </ul>
+            </article>
+        </div>
+
+        <div class="rt-step-footer">
+            <button type="button"
+                    class="rt-button rt-button-primary"
+                    data-rt-go="firmas">
+                Continuar
+            </button>
+        </div>
+    </section>
+
+    <!-- VISTA: FIRMAS (FORMULARIO) -->
+    <section id="view-rt-firmas" class="rt-view" data-view="firmas">
+        <header class="rt-page-header">
+            <button type="button"
+                    class="rt-back-button"
+                    aria-label="Volver"
+                    data-rt-go="evidencias-ok">
+                ←
+            </button>
+
+            <div class="rt-header-text">
+                <h1 class="rt-page-title">Firmas</h1>
+                <p class="rt-page-subtitle">PNP-102</p>
+            </div>
+
+            <span class="rt-header-spacer"></span>
+        </header>
+
+        <div class="rt-info-banner">
+            <p class="rt-info-banner-title">
+                Firmas requeridas
+            </p>
+            <p class="rt-info-banner-text">
+                Se requieren dos firmas digitales: quien entrega y quien recibe el turno.
+            </p>
+        </div>
+
+        <p class="rt-simulation-hint">
+            Simulación: pulsa "Confirmar" en ambas firmas para continuar.
+        </p>
+
+        <div class="rt-firmas-grid">
+            <article class="rt-card rt-firma-card">
+                <h2 class="rt-firma-title">Firma de entrega</h2>
+
+                <label class="rt-field">
+                    <span class="rt-field-label">Nombre completo</span>
+                    <input type="text" class="rt-input" placeholder="Nombre completo" />
+                </label>
+
+                <label class="rt-field">
+                    <span class="rt-field-label">Área de firma</span>
+                    <textarea class="rt-textarea" placeholder="Firme en el recuadro"></textarea>
+                </label>
+
+                <div class="rt-firma-actions">
+                    <button type="button" class="rt-button rt-button-outline">
+                        Limpiar
+                    </button>
+                    <button type="button"
+                            class="rt-button rt-button-primary"
+                            data-rt-firma-confirm>
+                        Confirmar
+                    </button>
+                </div>
+            </article>
+
+            <article class="rt-card rt-firma-card">
+                <h2 class="rt-firma-title">Firma de recepción</h2>
+
+                <label class="rt-field">
+                    <span class="rt-field-label">Nombre completo</span>
+                    <input type="text" class="rt-input" placeholder="Nombre completo" />
+                </label>
+
+                <label class="rt-field">
+                    <span class="rt-field-label">Área de firma</span>
+                    <textarea class="rt-textarea" placeholder="Firme en el recuadro"></textarea>
+                </label>
+
+                <div class="rt-firma-actions">
+                    <button type="button" class="rt-button rt-button-outline">
+                        Limpiar
+                    </button>
+                    <button type="button"
+                            class="rt-button rt-button-primary"
+                            data-rt-firma-confirm>
+                        Confirmar
+                    </button>
+                </div>
+            </article>
+        </div>
+
+        <div class="rt-step-footer">
+            <button type="button" class="rt-button rt-button-disabled">
+                Continuar
+            </button>
+        </div>
+    </section>
+
+    <!-- VISTA: FIRMAS CAPTURADAS -->
+    <section id="view-rt-firmas-ok" class="rt-view" data-view="firmas-ok">
+        <header class="rt-page-header">
+            <button type="button"
+                    class="rt-back-button"
+                    aria-label="Volver"
+                    data-rt-go="firmas">
+                ←
+            </button>
+
+            <div class="rt-header-text">
+                <h1 class="rt-page-title">Firmas</h1>
+                <p class="rt-page-subtitle">PNP-102 · Firmas capturadas</p>
+            </div>
+
+            <span class="rt-header-spacer"></span>
+        </header>
+
+        <div class="rt-firmas-grid">
+            <article class="rt-card rt-firma-card rt-firma-ok">
+                <h2 class="rt-firma-title">Firma de entrega</h2>
+                <p class="rt-firma-status">Firmado correctamente.</p>
+                <p class="rt-firma-meta">1 de noviembre, 11:54 p. m.</p>
+            </article>
+
+            <article class="rt-card rt-firma-card rt-firma-ok">
+                <h2 class="rt-firma-title">Firma de recepción</h2>
+                <p class="rt-firma-status">Firmado correctamente.</p>
+                <p class="rt-firma-meta">1 de noviembre, 11:54 p. m.</p>
+            </article>
+        </div>
+
+        <div class="rt-step-footer">
+            <button type="button"
+                    class="rt-button rt-button-primary"
+                    data-rt-go="resumen">
+                Continuar
+            </button>
+        </div>
+    </section>
+
+    <!-- VISTA: RESUMEN Y VALIDACIÓN -->
+    <section id="view-rt-resumen" class="rt-view" data-view="resumen">
+        <header class="rt-page-header">
+            <button type="button"
+                    class="rt-back-button"
+                    aria-label="Volver"
+                    data-rt-go="firmas-ok">
+                ←
+            </button>
+
+            <div class="rt-header-text">
+                <h1 class="rt-page-title">Resumen y validación</h1>
+                <p class="rt-page-subtitle">PNP-102</p>
+            </div>
+
+            <span class="rt-header-spacer"></span>
+        </header>
+
+        <div class="rt-resumen-grid">
+            <article class="rt-card rt-resumen-alert">
+                <p class="rt-resumen-alert-title">
+                    Bloqueado por faltantes críticos
+                </p>
+                <p class="rt-resumen-alert-text">
+                    La unidad no puede ser despachada. Registra la acción correctiva.
+                </p>
+                <button type="button" class="rt-button rt-button-outline">
+                    Registrar acción correctiva
+                </button>
+            </article>
+
+            <article class="rt-card rt-resumen-card">
+                <h2 class="rt-resumen-title">Checklist</h2>
+                <ul class="rt-resumen-list">
+                    <li><strong>Ítems verificados:</strong> 6/11</li>
+                    <li><strong>Faltantes críticos:</strong> 1</li>
+                    <li><strong>Faltantes obligatorios:</strong> 2</li>
+                </ul>
+            </article>
+
+            <article class="rt-card rt-resumen-card">
+                <h2 class="rt-resumen-title">Evidencias fotográficas</h2>
+                <ul class="rt-resumen-list">
+                    <li>✅ Foto de daños</li>
+                    <li>✅ Foto de odómetro</li>
+                </ul>
+            </article>
+
+            <article class="rt-card rt-resumen-card">
+                <h2 class="rt-resumen-title">Firmas</h2>
+                <ul class="rt-resumen-list">
+                    <li>✅ Firma de entrega</li>
+                    <li>✅ Firma de recepción</li>
+                </ul>
+            </article>
+        </div>
+
+        <div class="rt-resumen-footer">
+            <button type="button"
+                    class="rt-button rt-button-primary"
+                    data-rt-go="principal">
+                Finalizar relevo
+            </button>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="Secured-Landing-Page/public/assets/images/Secured_Logo_v1.png" alt="Secured Logo" />
+                <h3>Secured</h3>
+            </div>
+            <p class="footer-description">Coordinación inteligente para Serenazgo y Policía</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Solución</a></li>
+                <li><a href="#">Startup</a></li>
+                <li><a href="#">Equipo</a></li>
+                <li><a href="#">Seguridad</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="#">Soporte</a></li>
+                <li><a href="#">Documentación</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Términos de servicio</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul class="contact-list">
+                <li>
+                    <span class="icon">✉</span>
+                    <a href="mailto:contacto@secured.pe">contacto@secured.pe</a>
+                </li>
+                <li>
+                    <span class="icon">📞</span>
+                    <a href="tel:+51987654321">+51 987 654 321</a>
+                </li>
+                <li>
+                    <span class="icon">📍</span>
+                    <span>Lima, Perú</span>
+                </li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p class="privacy-note">Secured no recopila información personal identificable sin consentimiento explícito. Ver <a href="#">Política de Privacidad</a></p>
+    </div>
+</footer>
+
+<!-- JS específico de esta sección -->
+<script src="Secured-Landing-Page/public/assets/scripts/relevo-turno.js"></script>
+</body>
+</html>

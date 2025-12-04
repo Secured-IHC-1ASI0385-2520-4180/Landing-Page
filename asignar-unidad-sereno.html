@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asignar unidad</title>
+
+    <!-- CSS específico de esta pantalla -->
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/asignar-unidad.css" />
+</head>
+<body class="asignar-unidad-page">
+<main class="au-wrapper">
+
+    <!-- VISTA 1: ASIGNAR UNIDAD (INICIO) -->
+    <section class="au-view au-view-active" data-view="inicio">
+        <header class="au-page-header">
+            <a href="home-serenazgo.html" class="au-back-button" aria-label="Volver">
+                ←
+            </a>
+            <div class="au-header-text">
+                <h1 class="au-page-title">Asignar unidad</h1>
+                <p class="au-page-subtitle">INC-2025-042</p>
+            </div>
+        </header>
+
+        <!-- Tarjeta de incidente -->
+        <section class="au-card au-incident-card">
+            <header class="au-incident-header">
+                <div>
+                    <h2 class="au-incident-title">Robo en progreso - Av. Principal</h2>
+                </div>
+                <span class="au-chip au-chip-danger">Alta</span>
+            </header>
+
+            <ul class="au-incident-meta">
+                <li>
+                    <span class="au-meta-label">Tipo:</span>
+                    <span class="au-meta-value">Robo</span>
+                </li>
+                <li>
+                    <span class="au-meta-label">Dirección:</span>
+                    <span class="au-meta-value">Av. Principal 425, Sector Norte</span>
+                </li>
+                <li>
+                    <span class="au-meta-label">Reportado:</span>
+                    <span class="au-meta-value">Hace 2 min</span>
+                </li>
+            </ul>
+
+            <div class="au-time-limit">
+                <div class="au-time-limit-header">
+                    <span class="au-time-title">Tiempo límite de respuesta</span>
+                    <span class="au-time-remaining">8 min restantes</span>
+                </div>
+                <div class="au-time-progress">
+                    <div class="au-time-progress-bar"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Opciones de asignación -->
+        <section class="au-assignment-options">
+            <h2 class="au-section-title">Opciones de asignación</h2>
+
+            <button
+                    class="au-option-card au-option-card-primary"
+                    type="button"
+                    data-goto="auto"
+            >
+                <div class="au-option-icon">⚡</div>
+                <div class="au-option-content">
+                    <div class="au-option-title">Asignación automática</div>
+                    <div class="au-option-description">
+                        Recomendada: más rápida y eficiente
+                    </div>
+                </div>
+            </button>
+
+            <button
+                    class="au-option-card"
+                    type="button"
+                    data-goto="manual"
+            >
+                <div class="au-option-icon">👋</div>
+                <div class="au-option-content">
+                    <div class="au-option-title">Seleccionar manualmente</div>
+                    <div class="au-option-description">
+                        Elige entre todas las unidades disponibles
+                    </div>
+                </div>
+            </button>
+        </section>
+
+        <!-- Sugerencia -->
+        <section class="au-card au-hint-card">
+            <div class="au-hint-icon">💡</div>
+            <div class="au-hint-text">
+                <strong>Sugerencia:</strong>
+                <p>
+                    La asignación automática considera proximidad, disponibilidad,
+                    tipo de móvil y capacidades de la unidad.
+                </p>
+            </div>
+        </section>
+    </section>
+
+    <!-- VISTA 2: UNIDAD SUGERIDA (ASIGNACIÓN AUTOMÁTICA) -->
+    <section class="au-view" data-view="auto">
+        <header class="au-page-header">
+            <button
+                    class="au-back-button"
+                    type="button"
+                    aria-label="Volver"
+                    data-goto="inicio"
+            >
+                ←
+            </button>
+            <div class="au-header-text">
+                <h1 class="au-page-title">Asignación automática</h1>
+                <p class="au-page-subtitle">Recomendación del sistema</p>
+            </div>
+        </header>
+
+        <section class="au-card au-suggested-section">
+            <h2 class="au-section-title">Unidad sugerida</h2>
+            <div class="au-suggestion-pill">
+                Más cercana + disponible + tipo adecuado
+            </div>
+
+            <article class="au-unit-card au-unit-card-highlight">
+                <div class="au-unit-icon">🚓</div>
+                <div class="au-unit-info">
+                    <header class="au-unit-header">
+                        <div>
+                            <h3 class="au-unit-name">Patrulla 3</h3>
+                            <p class="au-unit-code">P-003</p>
+                        </div>
+                        <div class="au-unit-tags">
+                            <span class="au-chip au-chip-info">Sugerida</span>
+                            <span class="au-chip au-chip-success">Disponible</span>
+                        </div>
+                    </header>
+
+                    <div class="au-unit-meta">
+                        <div>
+                            <span class="au-meta-label">ETA</span>
+                            <span class="au-meta-value">4 min</span>
+                        </div>
+                        <div>
+                            <span class="au-meta-label">Distancia</span>
+                            <span class="au-meta-value">1.2 km</span>
+                        </div>
+                    </div>
+
+                    <dl class="au-unit-details">
+                        <div>
+                            <dt>Tipo</dt>
+                            <dd>Motorizado</dd>
+                        </div>
+                        <div>
+                            <dt>Sector</dt>
+                            <dd>Sector Norte</dd>
+                        </div>
+                        <div>
+                            <dt>Rol</dt>
+                            <dd>
+                                <span class="au-tag">Primera respuesta</span>
+                                <span class="au-tag">Patrullaje</span>
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+            </article>
+        </section>
+
+        <div class="au-actions">
+            <button
+                    type="button"
+                    class="au-btn au-btn-primary"
+                    data-goto="confirmacion"
+            >
+                ✔ Confirmar asignación
+            </button>
+
+            <button
+                    type="button"
+                    class="au-link-button"
+                    data-goto="manual"
+            >
+                Elegir otra unidad
+            </button>
+        </div>
+    </section>
+
+    <!-- VISTA 3: SELECCIONAR MANUALMENTE (LISTA / MAPA) -->
+    <section class="au-view" data-view="manual">
+        <header class="au-page-header">
+            <button
+                    class="au-back-button"
+                    type="button"
+                    aria-label="Volver"
+                    data-goto="inicio"
+            >
+                ←
+            </button>
+            <div class="au-header-text">
+                <h1 class="au-page-title">Seleccionar unidad</h1>
+                <p class="au-page-subtitle">Elige manualmente</p>
+            </div>
+        </header>
+
+        <!-- Tabs Lista / Mapa -->
+        <div class="au-manual-header">
+            <div class="au-tabs">
+                <input
+                        type="radio"
+                        name="au-tab"
+                        id="au-tab-lista"
+                        class="au-tabs-radio"
+                        checked
+                />
+                <label for="au-tab-lista" class="au-tab-label">Lista</label>
+
+                <input
+                        type="radio"
+                        name="au-tab"
+                        id="au-tab-mapa"
+                        class="au-tabs-radio"
+                />
+                <label for="au-tab-mapa" class="au-tab-label">Mapa</label>
+            </div>
+        </div>
+
+        <div class="au-manual-content">
+            <!-- Panel LISTA -->
+            <div class="au-manual-panel au-panel-lista">
+                <div class="au-filters-row">
+                    <span class="au-filters-title">Filtros</span>
+                    <span class="au-chip au-chip-outline">Activos</span>
+                </div>
+
+                <p class="au-results-count">4 unidades encontradas</p>
+
+                <!-- Unidad 1 -->
+                <button
+                        type="button"
+                        class="au-unit-card au-unit-card-highlight au-unit-card-clickable"
+                        data-goto="confirmacion"
+                >
+                    <div class="au-unit-icon">🚓</div>
+                    <div class="au-unit-info">
+                        <header class="au-unit-header">
+                            <div>
+                                <h3 class="au-unit-name">Patrulla 3</h3>
+                                <p class="au-unit-code">P-003</p>
+                            </div>
+                            <div class="au-unit-tags">
+                                <span class="au-chip au-chip-info">Sugerida</span>
+                                <span class="au-chip au-chip-success">Disponible</span>
+                            </div>
+                        </header>
+
+                        <div class="au-unit-meta">
+                            <div>
+                                <span class="au-meta-label">ETA</span>
+                                <span class="au-meta-value">4 min</span>
+                            </div>
+                            <div>
+                                <span class="au-meta-label">Distancia</span>
+                                <span class="au-meta-value">1.2 km</span>
+                            </div>
+                        </div>
+
+                        <dl class="au-unit-details">
+                            <div>
+                                <dt>Tipo</dt>
+                                <dd>Motorizado</dd>
+                            </div>
+                            <div>
+                                <dt>Sector</dt>
+                                <dd>Sector Norte</dd>
+                            </div>
+                            <div>
+                                <dt>Rol</dt>
+                                <dd>
+                                    <span class="au-tag">Primera respuesta</span>
+                                    <span class="au-tag">Patrullaje</span>
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+                </button>
+
+                <!-- Unidad 2 -->
+                <button
+                        type="button"
+                        class="au-unit-card au-unit-card-clickable"
+                        data-goto="confirmacion"
+                >
+                    <div class="au-unit-icon">🚓</div>
+                    <div class="au-unit-info">
+                        <header class="au-unit-header">
+                            <div>
+                                <h3 class="au-unit-name">Serenazgo A</h3>
+                                <p class="au-unit-code">S-001</p>
+                            </div>
+                            <div class="au-unit-tags">
+                                <span class="au-chip au-chip-success">Disponible</span>
+                            </div>
+                        </header>
+
+                        <div class="au-unit-meta">
+                            <div>
+                                <span class="au-meta-label">ETA</span>
+                                <span class="au-meta-value">5 min</span>
+                            </div>
+                            <div>
+                                <span class="au-meta-label">Distancia</span>
+                                <span class="au-meta-value">1.8 km</span>
+                            </div>
+                        </div>
+
+                        <dl class="au-unit-details">
+                            <div>
+                                <dt>Tipo</dt>
+                                <dd>Motorizado</dd>
+                            </div>
+                            <div>
+                                <dt>Sector</dt>
+                                <dd>Sector Norte</dd>
+                            </div>
+                            <div>
+                                <dt>Rol</dt>
+                                <dd>
+                                    <span class="au-tag">Patrullaje</span>
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Panel MAPA -->
+            <div class="au-manual-panel au-panel-mapa">
+                <div class="au-filters-row">
+                    <span class="au-filters-title">Filtros</span>
+                    <span class="au-chip au-chip-outline">Activos</span>
+                </div>
+
+                <div class="au-map-card">
+                    <div class="au-map-wrapper">
+                        <!-- Mapa de Google Maps centrado en Lima, Perú -->
+                        <iframe
+                                title="Mapa de Lima, Perú"
+                                src="https://www.google.com/maps?q=Lima,Peru&z=13&output=embed"
+                                loading="lazy"
+                                class="au-map-iframe"
+                        ></iframe>
+
+                        <div class="au-map-overlay">
+                            <p class="au-map-title">Mapa de zona</p>
+                            <button type="button" class="au-btn au-btn-secondary">
+                                Vista de unidades disponibles
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="au-results-count">
+                    Unidades en el mapa (4 disponibles)
+                </p>
+
+                <div class="au-map-units-grid">
+                    <button
+                            type="button"
+                            class="au-map-unit-card"
+                            data-goto="confirmacion"
+                    >
+                        <span class="au-map-unit-name">Patrulla 3</span>
+                        <span class="au-map-unit-meta">P-003 · 4 min · 1.2 km</span>
+                    </button>
+
+                    <button
+                            type="button"
+                            class="au-map-unit-card"
+                            data-goto="confirmacion"
+                    >
+                        <span class="au-map-unit-name">Serenazgo A</span>
+                        <span class="au-map-unit-meta">S-001 · 5 min · 1.8 km</span>
+                    </button>
+
+                    <button
+                            type="button"
+                            class="au-map-unit-card"
+                            data-goto="confirmacion"
+                    >
+                        <span class="au-map-unit-name">Patrulla 1</span>
+                        <span class="au-map-unit-meta">P-001 · 6 min · 2.0 km</span>
+                    </button>
+
+                    <button
+                            type="button"
+                            class="au-map-unit-card"
+                            data-goto="confirmacion"
+                    >
+                        <span class="au-map-unit-name">Patrulla 7</span>
+                        <span class="au-map-unit-meta">P-007 · 8 min · 0.6 km</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISTA 4: CONFIRMACIÓN UNIDAD ASIGNADA -->
+    <section class="au-view" data-view="confirmacion">
+        <section class="au-confirm-hero">
+            <div class="au-confirm-icon">✔</div>
+            <h1 class="au-confirm-title">Unidad asignada</h1>
+            <p class="au-confirm-subtitle">
+                La unidad ha sido notificada correctamente
+            </p>
+        </section>
+
+        <section class="au-card au-confirm-details">
+            <h2 class="au-section-title">Detalles de asignación</h2>
+            <dl class="au-summary-list">
+                <div>
+                    <dt>Unidad</dt>
+                    <dd>Patrulla 3 (P-003)</dd>
+                </div>
+                <div>
+                    <dt>Incidente</dt>
+                    <dd>INC-2025-042</dd>
+                </div>
+                <div>
+                    <dt>Asignado</dt>
+                    <dd>02:27 a. m.</dd>
+                </div>
+                <div>
+                    <dt>ETA estimada</dt>
+                    <dd>
+                        <span class="au-chip au-chip-soft">4 min</span>
+                    </dd>
+                </div>
+            </dl>
+        </section>
+
+        <!-- NUEVAS ACCIONES -->
+        <section class="au-card au-confirm-actions">
+            <h2 class="au-section-title">Acciones</h2>
+            <div class="au-confirm-actions-row">
+                <a
+                        href="seguimiento-mapa.html"
+                        class="au-btn au-btn-secondary au-btn-fullwidth-sm"
+                >
+                    Ver seguimiento en mapa
+                </a>
+
+                <button
+                        type="button"
+                        id="au-cancel-assignment"
+                        class="au-btn au-btn-danger-outline au-btn-fullwidth-sm"
+                >
+                    Anular unidad asignada
+                </button>
+            </div>
+            <p id="au-cancel-message" class="au-cancel-message" hidden>
+                La unidad asignada ha sido anulada. Puedes seleccionar otra unidad
+                desde la pantalla inicial.
+            </p>
+        </section>
+
+        <section class="au-card au-next-steps">
+            <h2 class="au-section-title">Próximos pasos</h2>
+            <ul class="au-next-steps-list">
+                <li>La unidad recibirá notificación en su dispositivo</li>
+                <li>Debe acusar recibo en los próximos minutos</li>
+                <li>Puedes hacer seguimiento en el timeline del incidente</li>
+            </ul>
+        </section>
+
+        <!-- Volver al dashboard -->
+        <a href="home-policia.html" class="au-btn au-btn-primary au-btn-full">
+            Volver al dashboard
+        </a>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="Secured-Landing-Page/public/assets/images/Secured_Logo_v1.png" alt="Secured Logo" />
+                <h3>Secured</h3>
+            </div>
+            <p class="footer-description">Coordinación inteligente para Serenazgo y Policía</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Solución</a></li>
+                <li><a href="#">Startup</a></li>
+                <li><a href="#">Equipo</a></li>
+                <li><a href="#">Seguridad</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="#">Soporte</a></li>
+                <li><a href="#">Documentación</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Términos de servicio</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul class="contact-list">
+                <li>
+                    <span class="icon">✉</span>
+                    <a href="mailto:contacto@secured.pe">contacto@secured.pe</a>
+                </li>
+                <li>
+                    <span class="icon">📞</span>
+                    <a href="tel:+51987654321">+51 987 654 321</a>
+                </li>
+                <li>
+                    <span class="icon">📍</span>
+                    <span>Lima, Perú</span>
+                </li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p class="privacy-note">Secured no recopila información personal identificable sin consentimiento explícito. Ver <a href="#">Política de Privacidad</a></p>
+    </div>
+</footer>
+
+<!-- JS para manejar el flujoo -->
+<script src="Secured-Landing-Page/public/assets/scripts/asignar-unidad.js"></script>
+</body>
+</html>
