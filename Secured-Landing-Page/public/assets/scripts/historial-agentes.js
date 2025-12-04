@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo(0, 0);
         } else if (pantalla1.classList.contains('active')) {
             // Estás en pantalla 1 → ir al menú principal
-            const menu = 'variaciones-varias.html';
+            const menu = 'home-policia.html';
             fetch(menu, { method: 'HEAD' })
                 .then(resp => {
                     if (resp.ok) window.location.href = menu;
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
     URL.revokeObjectURL(url);
  }
     function volverAlMenu() {
-        const menu = 'variaciones-varias.html';
+        const menu = 'home-policia.html';
         fetch(menu, {method:'HEAD'}).then(resp=>{
             if (resp.ok) {
                 window.location.href = menu;

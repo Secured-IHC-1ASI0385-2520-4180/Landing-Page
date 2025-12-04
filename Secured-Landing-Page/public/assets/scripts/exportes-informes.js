@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
             vistaMisExportes.style.display = 'none';
             lista.style.display = 'flex';
         } else {
-            window.location.href = 'variaciones-varias.html'; // tu ruta principal
+            window.location.href = 'home-policia.html'; // tu ruta principal
         }
     });
 

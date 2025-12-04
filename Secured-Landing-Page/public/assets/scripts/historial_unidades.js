@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     btnBackFromSelect.addEventListener("click", () => {
-        window.location.href = "variaciones-varias.html";
+        window.location.href = "home-policia.html";
     });
 
     btnBackFromPlayback.addEventListener("click", () => {

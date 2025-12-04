@@ -17,7 +17,7 @@
 
     const gcBackToHome = document.getElementById("gcBackToHome");
     gcBackToHome.addEventListener("click", () => {
-        window.location.href = "variaciones-varias.html";
+        window.location.href = "home-policia.html";
     });
 
 

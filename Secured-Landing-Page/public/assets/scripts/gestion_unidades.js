@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const backButton = document.querySelector(".back-button");
     if (backButton) {
         backButton.addEventListener("click", () => {
-            window.location.href = "variaciones-varias.html";
+            window.location.href = "home-policia.html";
         });
     }
 

@@ -82,7 +82,7 @@
     if (backToMainFromUsers) {
         backToMainFromUsers.addEventListener("click", () => {
             // si el archivo está en otra ruta, ajusta el path
-            window.location.href = "variaciones-varias.html";
+            window.location.href = "home-policia.html";
         });
     }
 
