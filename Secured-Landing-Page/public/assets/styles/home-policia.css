@@ -1,10 +1,10 @@
-??body {
+body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f2f4f7;
 }
 
-/* Botón del menú */
+/* Botï¿½n del menï¿½ */
 #menuBtn {
     position: fixed;
     top: 15px;
@@ -59,7 +59,7 @@
     font-size: 14px;
 }
 
-/* Menú */
+/* Menï¿½ */
 .menu {
     list-style: none;
     padding: 0;
