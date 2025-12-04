@@ -1,5 +1,4 @@
-// Secured - Pedir apoyo
-// Manejo de vistas y pequeñas interacciones de selección
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const views = document.querySelectorAll(".pa-view");
@@ -11,9 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
         window.scrollTo({ top: 0, behavior: "instant" });
     };
 
-    // ========================
-    // Navegación principal
-    // ========================
 
     // 1) Detalle incidente -> Configurar solicitud
     const btnOpenSupportRequest = document.getElementById("btnOpenSupportRequest");
@@ -96,10 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
             showView("incident-detail");
         });
     }
-
-    // ========================
-    // Pequeñas interacciones visuales
-    // ========================
 
     // Alcance: cambiar selección visual
     const rangeOptionsContainer = document.getElementById("rangeOptions");

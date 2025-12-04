@@ -1,0 +1,531 @@
+/* Chat Incidente Styles - Patrón Zonas Temporales */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f4f7;
+    margin: 0;
+}
+
+/* Header - Patrón Zonas Temporales */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.back-btn {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    min-width: 40px;
+}
+
+.header-title {
+    flex: 1;
+    text-align: center;
+}
+
+.header-title h1 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.header-subtitle {
+    font-size: 13px;
+    color: #86868b;
+    font-weight: normal;
+}
+
+.header-spacer {
+    min-width: 40px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: #005dff;
+}
+
+/* Views */
+.view {
+    display: none;
+    min-height: 100vh;
+}
+
+.view.active {
+    display: block;
+}
+
+.content {
+    padding: 0;
+}
+
+/* ================================
+   LISTA DE CHATS
+================================= */
+
+.chat-item {
+    background: white;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+.chat-item:hover {
+    background: #f9f9f9;
+}
+
+.chat-left {
+    flex: 1;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.chat-header h3 {
+    font-size: 16px;
+    margin: 0;
+    color: #1d1d1f;
+}
+
+.chat-title {
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+}
+
+.chat-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.chat-time {
+    font-size: 12px;
+    color: #86868b;
+}
+
+/* Badges */
+.badge-alta,
+.badge-media,
+.badge-baja {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    color: white;
+    font-weight: 600;
+}
+
+.badge-alta {
+    background: #ef5350;
+}
+
+.badge-media {
+    background: #ff9800;
+}
+
+.badge-baja {
+    background: #9e9e9e;
+}
+
+.badge-unread {
+    background: #005dff;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ================================
+   CHAT INDIVIDUAL
+================================= */
+
+.chat-messages {
+    padding: 15px;
+    min-height: calc(100vh - 200px);
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    background: #f2f4f7;
+}
+
+/* Mensaje del sistema */
+.system-message {
+    text-align: center;
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin: 15px auto;
+    max-width: 80%;
+}
+
+/* Grupo de mensajes */
+.message-group {
+    margin-bottom: 20px;
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.sender-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+.sender-role {
+    font-size: 12px;
+    color: #005dff;
+    background: #e3f2fd;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+/* Mensajes */
+.message {
+    max-width: 75%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    margin-bottom: 5px;
+    word-wrap: break-word;
+}
+
+.message p {
+    margin: 0 0 4px 0;
+    font-size: 14px;
+}
+
+.message-time {
+    font-size: 11px;
+    color: #86868b;
+}
+
+/* Mensajes recibidos */
+.message.received {
+    background: white;
+    border: 1px solid #ddd;
+    color: #1d1d1f;
+}
+
+/* Mensajes enviados */
+.message.sent {
+    background: #0a3a6b;
+    color: white;
+    margin-left: auto;
+    display: block;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+.message.sent .message-time {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Mensajes con imagen */
+.message.with-image {
+    padding: 8px;
+}
+
+.message-image {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.message-image img {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+}
+
+/* ================================
+   INPUT DE MENSAJE
+================================= */
+
+.chat-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    background: white;
+    border-top: 1px solid #ddd;
+}
+
+.attach-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: #86868b;
+}
+
+.attach-btn:hover {
+    color: #005dff;
+}
+
+#message-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    outline: none;
+}
+
+#message-input:focus {
+    border-color: #005dff;
+}
+
+.send-btn {
+    background: #005dff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.send-btn:hover {
+    background: #0047cc;
+}
+
+/* ================================
+   ACCIONES RÁPIDAS
+================================= */
+
+.quick-actions {
+    display: flex;
+    gap: 10px;
+    padding: 10px 15px;
+    background: white;
+    border-top: 1px solid #ddd;
+}
+
+.quick-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    background: #f2f4f7;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #1d1d1f;
+    transition: all 0.3s;
+}
+
+.quick-btn:hover {
+    background: #e3f2fd;
+    border-color: #005dff;
+    color: #005dff;
+}
+
+.quick-btn svg {
+    stroke: currentColor;
+}
+
+/* ================================
+   MODAL ADJUNTAR
+================================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin: 0;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #86868b;
+    line-height: 1;
+}
+
+.close-modal:hover {
+    color: #1d1d1f;
+}
+
+.modal-body {
+    padding: 15px;
+}
+
+/* Grid de opciones */
+.attach-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.attach-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.attach-option:hover {
+    border-color: #005dff;
+    background: #f9f9f9;
+}
+
+.attach-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.attach-icon.camera {
+    background: #e3f2fd;
+    color: #2196f3;
+}
+
+.attach-icon.gallery {
+    background: #e8f5e9;
+    color: #4caf50;
+}
+
+.attach-icon.voice {
+    background: #fff3e0;
+    color: #ff9800;
+}
+
+.attach-icon.files {
+    background: #f3e5f5;
+    color: #9c27b0;
+}
+
+.attach-icon svg {
+    stroke: currentColor;
+}
+
+.attach-option span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1d1d1f;
+}
+
+/* ================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 768px) {
+    .header {
+        padding: 12px;
+    }
+
+    .chat-messages {
+        min-height: calc(100vh - 180px);
+        max-height: calc(100vh - 180px);
+    }
+
+    .message {
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 480px) {
+    .attach-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .attach-option {
+        padding: 15px;
+    }
+
+    .attach-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .attach-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+

@@ -1,0 +1,658 @@
+/* ================================
+   ESTILOS GENERALES
+================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background-color: #f2f4f7;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+}
+
+/* ================================
+   ACCESIBILIDAD
+================================= */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ================================
+   HEADER
+================================= */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.back-btn {
+    text-decoration: none;
+    font-size: 28px;
+    color: #333;
+    padding: 4px 8px;
+    margin-right: 12px;
+}
+
+.header-title {
+    flex: 1;
+}
+
+.header-title h1 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.codigo-incidente {
+    font-size: 14px;
+    color: #666;
+    margin: 2px 0 0 0;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+/* ================================
+   VISTAS (NAVEGACIÓN)
+================================= */
+.view {
+    display: none;
+}
+
+.view.active {
+    display: block;
+}
+
+/* ================================
+   CONTENIDO
+================================= */
+.content {
+    padding: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ================================
+   CARDS
+================================= */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* ================================
+   DETALLES DEL INCIDENTE
+================================= */
+.info-card {
+    margin-bottom: 12px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-row .label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.detail-row .value {
+    font-size: 14px;
+    color: #1a1a1a;
+    text-align: right;
+    flex: 1;
+    margin-left: 16px;
+}
+
+/* ================================
+   BADGES / ESTADOS
+================================= */
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-en-curso {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.badge-cerrada {
+    background: #e8f5e9;
+    color: #388e3c;
+}
+
+.badge-borrador {
+    background: #f5f5f5;
+    color: #757575;
+}
+
+/* ================================
+   BOTONES
+================================= */
+.btn {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    transition: all 0.2s;
+}
+
+.btn .icon {
+    font-size: 18px;
+}
+
+.btn-primary {
+    background: #2962ff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1e4fd6;
+}
+
+.btn-secondary {
+    background: white;
+    color: #2962ff;
+    border: 1px solid #2962ff;
+}
+
+.btn-secondary:hover {
+    background: #f5f8ff;
+}
+
+.btn-outline {
+    background: white;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.btn-text {
+    background: transparent;
+    color: #2962ff;
+    border: none;
+}
+
+.btn-capture {
+    background: #f0f0f0;
+    color: #999;
+}
+
+.btn-capture.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-add {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    color: #2962ff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* ================================
+   INFO BOX
+================================= */
+.info-box {
+    background: #f0f4ff;
+    border: 1px solid #d0deff;
+}
+
+.info-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2962ff;
+    margin-bottom: 12px;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+}
+
+.info-list li {
+    font-size: 14px;
+    color: #555;
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.info-list li:before {
+    content: "•";
+    color: #2962ff;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* ================================
+   BARRA DE PROGRESO
+================================= */
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.progress-text {
+    font-size: 14px;
+    color: #666;
+}
+
+.progress-count {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2962ff, #448aff);
+    transition: width 0.3s ease;
+}
+
+/* ================================
+   ACCORDION
+================================= */
+.accordion-item {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.accordion-header:hover {
+    background: #f9f9f9;
+}
+
+.accordion-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.accordion-title h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.status-text {
+    font-size: 13px;
+    color: #666;
+    margin: 4px 0 0 0;
+}
+
+.check-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #4caf50;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.check-icon.empty {
+    background: transparent;
+    border: 2px solid #ccc;
+    color: #ccc;
+}
+
+.alert-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ff9800;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.required-tag {
+    font-size: 12px;
+    color: #f44336;
+    font-weight: normal;
+}
+
+.arrow {
+    font-size: 24px;
+    color: #999;
+    transition: transform 0.3s;
+}
+
+.accordion-item.open .arrow {
+    transform: rotate(90deg);
+}
+
+.accordion-content {
+    padding: 0 16px 16px 52px;
+    display: none;
+}
+
+.accordion-item.open .accordion-content {
+    display: block;
+}
+
+/* ================================
+   FORMULARIOS
+================================= */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2962ff;
+}
+
+.form-group input[readonly] {
+    background: #f5f5f5;
+    color: #666;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.char-count {
+    font-size: 12px;
+    color: #ff9800;
+    margin-top: 6px;
+}
+
+.remaining-count {
+    font-size: 12px;
+    color: #999;
+    margin-top: 4px;
+}
+
+.info-text {
+    font-size: 14px;
+    color: #666;
+}
+
+/* ================================
+   ALERT BOX
+================================= */
+.alert-box {
+    background: #fff9e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.alert-icon-large {
+    width: 32px;
+    height: 32px;
+    background: #ff9800;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.alert-box h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+
+.alert-box p {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+}
+
+/* ================================
+   BOTONES DE ACCIÓN
+================================= */
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.action-buttons .btn {
+    margin-bottom: 0;
+}
+
+/* ================================
+   HISTORIAL - ACTAS
+================================= */
+.acta-card {
+    margin-bottom: 20px;
+}
+
+.acta-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.acta-icon {
+    font-size: 36px;
+    color: #2962ff;
+}
+
+.acta-info {
+    flex: 1;
+}
+
+.acta-info h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+
+.acta-code {
+    font-size: 14px;
+    color: #2962ff;
+    margin: 0 0 4px 0;
+}
+
+.acta-date {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+}
+
+.acta-details {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 12px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detail-label {
+    font-size: 12px;
+    color: #999;
+}
+
+.detail-value {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+.acta-access {
+    font-size: 13px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.clock-icon {
+    font-size: 14px;
+}
+
+.acta-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.acta-actions .btn {
+    margin-bottom: 0;
+}
+
+/* ================================
+   RESPONSIVE
+================================= */
+@media (max-width: 480px) {
+    .header-title h1 {
+        font-size: 18px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .acta-actions {
+        flex-direction: column;
+    }
+
+    .acta-actions .btn {
+        width: 100%;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 768px) {
+    .content {
+        padding: 24px;
+    }
+}
+

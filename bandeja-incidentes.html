@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bandeja de Incidentes</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/bandeja-incidentes.css" />
+</head>
+<body>
+
+<!-- VISTA 1: Detalle del incidente -->
+<div id="vista-detalle" class="vista active">
+    <header class="header">
+        <button class="back-btn" onclick="window.location.href='variaciones-varias.html'">←</button>
+        <div class="header-content">
+            <h1>Detalle del incidente</h1>
+            <p class="subtitle">INC-2025-062</p>
+        </div>
+        <button class="menu-btn">⋮</button>
+    </header>
+
+    <div class="content">
+        <!-- Información del incidente -->
+        <div class="incident-card">
+            <div class="incident-header">
+                <h3>Disturbio en vía pública - Av. Central</h3>
+                <span class="badge-alta">Alta</span>
+            </div>
+
+            <div class="incident-details">
+                <div class="detail-item">
+                    <span class="icon">⚠️</span>
+                    <span>Tipo: Disturbio</span>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">📍</span>
+                    <span>Av. Central 892, Sector Centro</span>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">⏱</span>
+                    <span>SLA: 11:56</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unidad actual con error -->
+        <div class="current-unit-card error">
+            <div class="unit-header">
+                <span class="icon">👥</span>
+                <div>
+                    <h4>Unidad actual</h4>
+                    <h3>Patrulla 5</h3>
+                    <p class="unit-code">P-005</p>
+                </div>
+            </div>
+            <div class="error-message">
+                <strong>Estado: Inactiva / Sin respuesta</strong>
+                <p>La unidad requiere ser reemplazada para continuar la atención del incidente.</p>
+            </div>
+        </div>
+
+        <!-- Reasignación inteligente -->
+        <div class="info-box blue">
+            <h4>Reasignación inteligente:</h4>
+            <ul>
+                <li>• Recomendación automática por ETA y disponibilidad</li>
+                <li>• Recálculo de SLA con la nueva unidad</li>
+                <li>• Notificación a unidades saliente y entrante</li>
+            </ul>
+        </div>
+
+        <button class="btn-primary" onclick="mostrarSeleccionUnidad()">
+            <span class="icon">👥</span> Reasignar
+        </button>
+        <button class="btn-secondary">Ver alternativas</button>
+    </div>
+</div>
+
+<!-- VISTA 2: Seleccionar unidad (Lista) -->
+<div id="vista-seleccion-lista" class="vista">
+    <header class="header">
+        <button class="back-btn" onclick="volverDetalle()">←</button>
+        <div class="header-content">
+            <h1>Seleccionar unidad</h1>
+            <p class="subtitle">2 unidades disponibles</p>
+        </div>
+        <button class="menu-btn">⋮</button>
+    </header>
+
+    <div class="content">
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="cambiarTab('lista')">≡ Lista</button>
+            <button class="tab-btn" onclick="cambiarTab('mapa')">🗺 Mapa</button>
+        </div>
+
+        <!-- Buscador -->
+        <div class="search-box">
+            <input type="text" placeholder="🔍 Buscar unidad..." aria-label="Buscar unidad" />
+        </div>
+
+        <!-- Filtros -->
+        <div class="filters-section">
+            <div class="filter-group">
+                <p class="filter-label">⚡ Ordenar por</p>
+                <div class="btn-group">
+                    <button class="chip active" onclick="activarChip(this)">ETA</button>
+                    <button class="chip" onclick="activarChip(this)">Distancia</button>
+                    <button class="chip" onclick="activarChip(this)">Disponibilidad</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <p class="filter-label">Tipo de unidad</p>
+                <div class="btn-group">
+                    <button class="chip active" onclick="activarChip(this)">Motorizado</button>
+                    <button class="chip" onclick="activarChip(this)">A pie</button>
+                    <button class="chip" onclick="activarChip(this)">Caseta</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <p class="filter-label">Disponibilidad</p>
+                <div class="btn-group">
+                    <button class="chip active" onclick="activarChip(this)">Disponible</button>
+                    <button class="chip" onclick="activarChip(this)">Ocupada</button>
+                    <button class="chip" onclick="activarChip(this)">Offline</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de unidades -->
+        <div class="units-list">
+            <!-- Patrulla 7 -->
+            <div class="unit-card recommended" data-unidad="patrulla7">
+                <div class="unit-header-card">
+                    <div class="unit-icon">🚔</div>
+                    <div class="unit-info">
+                        <h3>Patrulla 7</h3>
+                        <p class="code">P-007</p>
+                    </div>
+                    <button class="btn-refresh">🔄</button>
+                </div>
+                <div class="unit-stats">
+                    <span>⏱ ETA: 4 min</span>
+                    <span>📍 2.1 km</span>
+                </div>
+                <div class="unit-badges">
+                    <span class="badge green">Disponible</span>
+                    <span class="badge blue">En jurisdicción</span>
+                    <span class="badge gray">K9</span>
+                    <span class="badge gray">2 agentes</span>
+                </div>
+                <div class="recommendation">⭐ Recomendada por el sistema</div>
+                <button class="btn-assign" onclick="mostrarConfirmacion('patrulla7')">Reasignar</button>
+            </div>
+
+            <!-- Serenazgo C -->
+            <div class="unit-card" data-unidad="serenazgoC">
+                <div class="unit-header-card">
+                    <div class="unit-icon">👤</div>
+                    <div class="unit-info">
+                        <h3>Serenazgo C</h3>
+                        <p class="code">S-003</p>
+                    </div>
+                </div>
+                <div class="unit-stats">
+                    <span>⏱ ETA: 8 min</span>
+                    <span>📍 1.5 km</span>
+                </div>
+                <div class="unit-badges">
+                    <span class="badge green">Disponible</span>
+                    <span class="badge blue">En jurisdicción</span>
+                    <span class="badge gray">1 agente</span>
+                </div>
+                <button class="btn-assign" onclick="irAMapa()">Reasignar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- VISTA 3: Seleccionar unidad (Mapa) -->
+<div id="vista-seleccion-mapa" class="vista">
+    <header class="header">
+        <button class="back-btn" onclick="volverLista()">←</button>
+        <div class="header-content">
+            <h1>Seleccionar unidad</h1>
+            <p class="subtitle">2 unidades disponibles</p>
+        </div>
+        <button class="menu-btn">⋮</button>
+    </header>
+
+    <div class="content">
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn" onclick="cambiarTab('lista')">≡ Lista</button>
+            <button class="tab-btn active" onclick="cambiarTab('mapa')">🗺 Mapa</button>
+        </div>
+
+        <!-- Buscador -->
+        <div class="search-box">
+            <input type="text" placeholder="🔍 Buscar unidad..." aria-label="Buscar unidad" />
+        </div>
+
+        <!-- Mapa -->
+        <div class="map-container">
+            <img src="Secured-Landing-Page/public/assets/images/bandeja-incidentes.png" alt="Mapa de unidades" />
+        </div>
+
+        <!-- Filtros rápidos -->
+        <div class="filters-quick">
+            <div class="btn-group">
+                <button class="chip active" onclick="activarChip(this)">Motorizado</button>
+                <button class="chip" onclick="activarChip(this)">A pie</button>
+                <button class="chip" onclick="activarChip(this)">Caseta</button>
+            </div>
+            <div class="btn-group">
+                <button class="chip active" onclick="activarChip(this)">Disponible</button>
+                <button class="chip" onclick="activarChip(this)">Ocupada</button>
+                <button class="chip" onclick="activarChip(this)">Offline</button>
+            </div>
+        </div>
+
+        <button class="btn-floating" onclick="mostrarConfirmacionMotivo()">Continuar</button>
+    </div>
+</div>
+
+<!-- MODAL: Confirmación simple (Patrulla 7) -->
+<div id="modal-confirmacion" class="modal">
+    <div class="modal-overlay" onclick="cerrarModal()"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Confirmar reasignación</h2>
+            <button class="btn-close" onclick="cerrarModal()">✕</button>
+        </div>
+
+        <div class="modal-body">
+            <div class="info-section">
+                <h3>Incidente</h3>
+                <h4>INC-2025-062</h4>
+                <p>Disturbio en vía pública - Av. Central</p>
+            </div>
+
+            <div class="unit-comparison">
+                <div class="unit-column">
+                    <p class="label">Actual</p>
+                    <h4>Patrulla 5</h4>
+                    <p class="code">P-005</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="unit-column">
+                    <p class="label">Nueva</p>
+                    <h4>Patrulla 7</h4>
+                    <p class="code">P-007</p>
+                </div>
+            </div>
+
+            <div class="eta-info">
+                ETA recalculada: <strong>4 min</strong>
+            </div>
+
+            <div class="alert-box warning">
+                <span class="icon">⚠️</span>
+                <p>Se notificará a ambas unidades y se actualizará el SLA del incidente.</p>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-primary" onclick="mostrarEstado()">Confirmar y notificar</button>
+            <button class="btn-secondary" onclick="cerrarModal()">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL: Confirmación con motivo (Serenazgo C) -->
+<div id="modal-confirmacion-motivo" class="modal">
+    <div class="modal-overlay" onclick="cerrarModalMotivo()"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Confirmar reasignación</h2>
+            <button class="btn-close" onclick="cerrarModalMotivo()">✕</button>
+        </div>
+
+        <div class="modal-body">
+            <div class="info-section">
+                <h3>Incidente</h3>
+                <h4>INC-2025-062</h4>
+                <p>Disturbio en vía pública - Av. Central</p>
+            </div>
+
+            <div class="unit-comparison">
+                <div class="unit-column">
+                    <p class="label">Actual</p>
+                    <h4>Patrulla 5</h4>
+                    <p class="code">P-005</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="unit-column">
+                    <p class="label">Nueva</p>
+                    <h4>Serenazgo C</h4>
+                    <p class="code">S-003</p>
+                </div>
+            </div>
+
+            <div class="eta-info">
+                ETA recalculada: <strong>8 min</strong>
+            </div>
+
+            <div class="form-group">
+                <label>Motivo de reasignación <span class="required">*</span></label>
+                <p class="help-text">Estás anulando la recomendación del sistema. Indica el motivo para registro.</p>
+                <textarea
+                    id="motivo-textarea"
+                    placeholder="Describe el motivo de la reasignación..."
+                    maxlength="200"
+                ></textarea>
+                <div class="char-counter">
+                    <span id="char-count">0</span>/200
+                </div>
+            </div>
+
+            <div class="alert-box warning">
+                <span class="icon">⚠️</span>
+                <p>Se notificará a ambas unidades y se actualizará el SLA del incidente.</p>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-primary" id="btn-confirmar-motivo" disabled onclick="mostrarEstado()">Confirmar y notificar</button>
+            <button class="btn-secondary" onclick="cerrarModalMotivo()">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<!-- VISTA 4: Estado de reasignación -->
+<div id="vista-estado" class="vista">
+    <header class="header">
+        <button class="back-btn" onclick="window.location.href='variaciones-varias.html'">←</button>
+        <div class="header-content">
+            <h1>Estado de reasignación</h1>
+            <p class="subtitle">INC-2025-062</p>
+        </div>
+        <button class="menu-btn">⋮</button>
+    </header>
+
+    <div class="content">
+        <!-- Estado exitoso -->
+        <div class="status-card success">
+            <div class="status-icon">✓</div>
+            <p>Reasignación enviada. Aguardando confirmación de la unidad.</p>
+        </div>
+
+        <!-- Esperando respuesta -->
+        <div class="status-card waiting">
+            <div class="status-icon-clock">⏱</div>
+            <h4>Esperando acuse</h4>
+            <p>Aguardando confirmación de</p>
+            <p class="time-remaining">Tiempo restante: <strong id="countdown">4:58</strong></p>
+
+            <button class="btn-primary">🔔 Enviar recordatorio</button>
+            <div class="btn-group-horizontal">
+                <button class="btn-secondary" onclick="volverLista()">👥 Elegir otra</button>
+                <button class="btn-secondary" onclick="volverDetalle()">Cancelar</button>
+            </div>
+        </div>
+
+        <!-- Historial -->
+        <div class="history-section">
+            <h3>Historial de reasignación</h3>
+            <div class="history-item">
+                <div class="history-icon">📍</div>
+                <div class="history-details">
+                    <h4>Incidente reasignado a Patrulla 7</h4>
+                    <p>Motivo: Unidad anterior quedó inactiva</p>
+                    <p>Por: Operador Central</p>
+                    <p class="time">10:52</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Información adicional -->
+        <div class="info-box blue">
+            <span class="icon">ℹ️</span>
+            <p>La unidad entrante recibirá una notificación con los detalles del incidente y deberá confirmar su disponibilidad.</p>
+        </div>
+
+        <button class="btn-floating-success" onclick="mostrarCompletado()">Continuar</button>
+    </div>
+</div>
+
+<!-- MODAL: Completado -->
+<div id="modal-completado" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content modal-success">
+        <div class="success-icon">✓</div>
+        <h2>Reasignación completada</h2>
+        <p>La unidad Patrulla 7 ha confirmado y está en camino al incidente INC-2025-062</p>
+        <button class="btn-primary" onclick="finalizarReasignacion()">Aceptar</button>
+    </div>
+</div>
+
+<script src="Secured-Landing-Page/public/assets/scripts/bandeja-incidentes.js"></script>
+</body>
+</html>
+

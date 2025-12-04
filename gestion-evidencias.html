@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Evidencias</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/gestion-evidencias.css" />
+</head>
+<body>
+
+<!-- ================================
+   VISTA PRINCIPAL: GRID DE EVIDENCIAS
+================================= -->
+<div id="vista-grid" class="view active">
+    <header class="header">
+        <a href="variaciones-varias.html" class="back-btn">←</a>
+        <div class="header-title">
+            <h1>Incidente INC-2025-001</h1>
+            <span class="header-subtitle">Robo de vehículo - Av. Larco</span>
+        </div>
+        <button class="view-toggle-btn" onclick="toggleView()">
+            <svg id="grid-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="2"/>
+                <rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="2"/>
+                <rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="2"/>
+                <rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <svg id="list-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: none;">
+                <line x1="8" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2"/>
+                <line x1="8" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2"/>
+                <line x1="8" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2"/>
+                <line x1="3" y1="6" x2="3.01" y2="6" stroke="currentColor" stroke-width="2"/>
+                <line x1="3" y1="12" x2="3.01" y2="12" stroke="currentColor" stroke-width="2"/>
+                <line x1="3" y1="18" x2="3.01" y2="18" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </button>
+    </header>
+
+    <!-- Tabs de navegación -->
+    <div class="tabs-container">
+        <button class="tab">Timeline</button>
+        <button class="tab">Chat</button>
+        <button class="tab active">Evidencias (3)</button>
+    </div>
+
+    <!-- Estado de conexión -->
+    <div class="connection-status">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        Conectado
+    </div>
+
+    <div class="content">
+        <!-- Botón agregar evidencia -->
+        <button class="add-evidence-btn" onclick="openAddModal()">
+            + Agregar evidencia
+        </button>
+
+        <!-- Grid de evidencias -->
+        <div id="evidence-grid" class="evidence-grid">
+            <!-- Evidencia 1 - Imagen -->
+            <div class="evidence-card" onclick="openDetailModal('evidencia_001.jpg', 'image')">
+                <div class="evidence-image">
+                    <img src="Secured-Landing-Page/public/assets/images/gestion-evidencias.png" alt="Evidencia" />
+                </div>
+                <div class="evidence-info">
+                    <h4>evidencia_001.jpg</h4>
+                    <div class="evidence-meta">
+                        <span class="evidence-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            24/10/2025 14:30
+                        </span>
+                        <span class="evidence-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Av. Larco 345, Miraflores
+                        </span>
+                    </div>
+                    <p class="evidence-description">Vehículo sospechoso estacionado en zona prohibida</p>
+                    <div class="evidence-tags">
+                        <span class="tag tag-vehicle">vehicle</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Evidencia 2 - Audio -->
+            <div class="evidence-card" onclick="openDetailModal('testimonio_testigo.m4a', 'audio')">
+                <div class="evidence-image audio-placeholder">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" stroke="currentColor" stroke-width="2"/>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="evidence-info">
+                    <h4>testimonio_testigo.m4a</h4>
+                    <div class="evidence-meta">
+                        <span class="evidence-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            24/10/2025 14:35
+                        </span>
+                    </div>
+                    <p class="evidence-description">Testimonio del testigo presencial</p>
+                    <div class="evidence-tags">
+                        <span class="tag tag-person">person</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Evidencia 3 - Cargando -->
+            <div class="evidence-card uploading">
+                <div class="evidence-image">
+                    <div class="upload-progress">
+                        <svg width="48" height="48" viewBox="0 0 48 48">
+                            <circle cx="24" cy="24" r="20" fill="none" stroke="#e0e0e0" stroke-width="4"/>
+                            <circle cx="24" cy="24" r="20" fill="none" stroke="#005dff" stroke-width="4"
+                                    stroke-dasharray="125.6" stroke-dashoffset="31.4"
+                                    stroke-linecap="round" transform="rotate(-90 24 24)"/>
+                        </svg>
+                        <span class="progress-text">Enviando... 65%</span>
+                    </div>
+                </div>
+                <div class="evidence-info">
+                    <h4>evidencia_002.jpg</h4>
+                    <div class="evidence-meta">
+                        <span class="evidence-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            24/10/2025 14:40
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista de lista (oculta por defecto) -->
+        <div id="evidence-list" class="evidence-list" style="display: none;">
+            <div class="list-item" onclick="openDetailModal('evidencia_001.jpg', 'image')">
+                <div class="list-thumbnail">
+                    <img src="Secured-Landing-Page/public/assets/images/gestion-evidencias.png" alt="Evidencia" />
+                </div>
+                <div class="list-content">
+                    <h4>evidencia_001.jpg</h4>
+                    <p>24/10/2025 14:30 • Av. Larco 345, Miraflores</p>
+                    <p class="list-description">Vehículo sospechoso estacionado en zona prohibida</p>
+                </div>
+                <span class="tag tag-vehicle">vehicle</span>
+            </div>
+
+            <div class="list-item" onclick="openDetailModal('testimonio_testigo.m4a', 'audio')">
+                <div class="list-thumbnail audio-thumb">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="list-content">
+                    <h4>testimonio_testigo.m4a</h4>
+                    <p>24/10/2025 14:35</p>
+                    <p class="list-description">Testimonio del testigo presencial</p>
+                </div>
+                <span class="tag tag-person">person</span>
+            </div>
+
+            <div class="list-item uploading">
+                <div class="list-thumbnail">
+                    <div class="list-upload-progress">65%</div>
+                </div>
+                <div class="list-content">
+                    <h4>evidencia_002.jpg</h4>
+                    <p>24/10/2025 14:40 • Enviando...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================================
+   MODAL: DETALLE DE EVIDENCIA
+================================= -->
+<div id="detail-modal" class="modal">
+    <div class="modal-fullscreen">
+        <div class="modal-header-dark">
+            <button class="icon-btn-white" onclick="closeDetailModal()">×</button>
+            <div class="header-actions">
+                <button class="icon-btn-white">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+                <button class="icon-btn-white">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+                <button class="icon-btn-white">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="modal-image-container">
+            <img id="detail-image" src="" alt="Evidencia detalle" />
+            <div id="audio-player" class="audio-player" style="display: none;">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" stroke="white" stroke-width="2"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" stroke="white" stroke-width="2"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="modal-info-dark">
+            <h3 id="detail-filename">evidencia_001.jpg</h3>
+            <div class="detail-tags">
+                <span class="tag-detail tag-vehicle">Vehículo</span>
+                <span class="tag-detail tag-location">Ubicación</span>
+            </div>
+            <p id="detail-description">Vehículo sospechoso estacionado en zona prohibida</p>
+
+            <div class="detail-meta">
+                <div class="meta-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <div>
+                        <span class="meta-label">Autor</span>
+                        <span class="meta-value">J. Pérez</span>
+                    </div>
+                </div>
+                <div class="meta-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <div>
+                        <span class="meta-label">Fecha y hora</span>
+                        <span class="meta-value">24/10/2025 14:30</span>
+                    </div>
+                </div>
+                <div class="meta-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <div>
+                        <span class="meta-label">Ubicación</span>
+                        <span class="meta-value">Av. Larco 345, Miraflores</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================================
+   MODAL: AGREGAR EVIDENCIA
+================================= -->
+<div id="add-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Adjuntar evidencia</h3>
+            <button class="close-modal" onclick="closeAddModal()">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="attach-grid">
+                <button class="attach-option" onclick="selectAttachment('camera')">
+                    <div class="attach-icon camera">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="13" r="4" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span>Tomar foto</span>
+                </button>
+
+                <button class="attach-option" onclick="selectAttachment('gallery')">
+                    <div class="attach-icon gallery">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/>
+                            <polyline points="21 15 16 10 5 21" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span>Elegir de galería</span>
+                </button>
+
+                <button class="attach-option" onclick="selectAttachment('video')">
+                    <div class="attach-icon video">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <polygon points="23 7 16 12 23 17 23 7" stroke="currentColor" stroke-width="2"/>
+                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span>Grabar video</span>
+                </button>
+
+                <button class="attach-option" onclick="openAudioModal()">
+                    <div class="attach-icon audio">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span>Grabar audio</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================================
+   MODAL: PREVISUALIZACIÓN DE AUDIO
+================================= -->
+<div id="audio-preview-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Previsualización de audio</h3>
+            <button class="close-modal" onclick="closeAudioModal()">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label>Comentario (opcional)</label>
+                <textarea id="audio-comment" placeholder="Agrega una descripción breve sobre esta evidencia..." rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Etiquetas (opcional) <span class="label-info">Máximo 3</span></label>
+                <div class="tag-selector">
+                    <button class="tag-btn" data-tag="vehicle">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="7" cy="17" r="2" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="17" cy="17" r="2" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Vehículo
+                    </button>
+                    <button class="tag-btn" data-tag="object">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Objeto
+                    </button>
+                    <button class="tag-btn" data-tag="building">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <rect x="4" y="2" width="16" height="20" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01M12 14h.01" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Edificio
+                    </button>
+                </div>
+            </div>
+
+            <div class="location-option">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <div>
+                    <strong>Usar ubicación actual</strong>
+                    <p>Se registrará la ubicación GPS en el momento de captura</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 16v-4M12 8h.01" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <div>
+                    <strong>Sugerencia:</strong> Agrega etiquetas y comentarios para facilitar la búsqueda y organización de evidencias.
+                </div>
+            </div>
+
+            <button class="btn-primary" onclick="uploadAudioEvidence()">
+                Adjuntar evidencia
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="Secured-Landing-Page/public/assets/scripts/gestion-evidencias.js"></script>
+</body>
+</html>
+

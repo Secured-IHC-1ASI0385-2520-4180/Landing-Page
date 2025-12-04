@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POI y Zonas Críticas</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/puntos-interes.css" />
+</head>
+<body>
+<header class="header">
+    <a href="variaciones-varias.html" class="back-btn">←</a>
+    <h1>POI y Zonas Críticas</h1>
+</header>
+
+<section class="poi-card">
+    <p class="subtitle">8 puntos de interés</p>
+
+    <!-- Botones de navegación -->
+    <div class="action-buttons">
+        <button class="action-btn" data-view="filtros">🔍 Filtros</button>
+        <button class="action-btn" data-view="zonas-criticas">🗺️ Zonas críticas</button>
+        <button class="action-btn" data-view="administrar">⚙️ Administrar POI</button>
+        <button class="action-btn" data-view="cercanos">📍 Ver POI cercanos</button>
+    </div>
+
+    <!-- Preview de imagen -->
+    <div class="preview">
+        <div class="preview-frame">
+            <img id="mainPreview" src="Secured-Landing-Page/public/assets/images/puntos-interes.png" alt="Vista POI" />
+        </div>
+    </div>
+
+    <div id="contentArea">
+        <!-- VISTA BASE (lista de POI) -->
+        <div class="view active" id="view-base">
+            <div class="search-bar">
+                <input type="text" placeholder="🔍 Buscar por nombre o dirección..." />
+            </div>
+
+            <button class="filter-btn">Solo críticos</button>
+
+            <div class="category-section">
+                <h3>Categoría</h3>
+                <div class="category-chips">
+                    <span class="chip">🛡️ Comisaría</span>
+                    <span class="chip">❤️ Hospital</span>
+                    <span class="chip">🏫 Colegio</span>
+                    <span class="chip">🏪 Mercado</span>
+                    <span class="chip">🏛️ Plaza</span>
+                    <span class="chip">📷 Cámara</span>
+                    <span class="chip">🔔 Alarma vecinal</span>
+                    <span class="chip">⚠️ Hotspot delictivo</span>
+                </div>
+            </div>
+
+            <div class="sector-section">
+                <h3>Sector</h3>
+                <div class="sector-chips">
+                    <span class="chip-sector">Centro</span>
+                    <span class="chip-sector">Norte</span>
+                    <span class="chip-sector">Sur</span>
+                    <span class="chip-sector">Este</span>
+                    <span class="chip-sector">Oeste</span>
+                </div>
+            </div>
+
+            <div class="poi-list">
+                <div class="poi-item">
+                    <div class="poi-icon blue">🛡️</div>
+                    <div class="poi-info">
+                        <strong>Comisaría Central Lima</strong>
+                        <div class="poi-meta">Comisaría</div>
+                        <div class="poi-address">📍 Av. España N° 323</div>
+                        <div class="poi-badges">
+                            <span class="badge critical">Crítico</span>
+                            <span class="badge active">Activo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="poi-item">
+                    <div class="poi-icon red">❤️</div>
+                    <div class="poi-info">
+                        <strong>Hospital Nacional Dos de Mayo</strong>
+                        <div class="poi-meta">Hospital</div>
+                        <div class="poi-address">📍 Av. Miguel Grau N° 13</div>
+                        <div class="poi-badges">
+                            <span class="badge critical">Crítico</span>
+                            <span class="badge active">Activo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="poi-item">
+                    <div class="poi-icon purple">🏫</div>
+                    <div class="poi-info">
+                        <strong>IE Mariano Melgar</strong>
+                        <div class="poi-meta">Colegio</div>
+                        <div class="poi-address">📍 Jr. Huallaga N° 545</div>
+                        <div class="poi-badges">
+                            <span class="badge critical">Crítico</span>
+                            <span class="badge restricted">Restringido</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="poi-item">
+                    <div class="poi-icon green">🏪</div>
+                    <div class="poi-info">
+                        <strong>Mercado Central</strong>
+                        <div class="poi-meta">Mercado</div>
+                        <div class="poi-address">📍 Jr. Ucayali N° 500</div>
+                        <div class="poi-badges">
+                            <span class="badge critical">Crítico</span>
+                            <span class="badge hotspot">Hotspot</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISTA FILTROS (imagen 2) -->
+        <div class="view" id="view-filtros">
+            <h3 class="section-title">Filtros avanzados</h3>
+            <p class="section-desc">Aplica criterios para refinar tu búsqueda</p>
+
+            <div class="filter-group">
+                <label>Estado</label>
+                <select>
+                    <option>Todos</option>
+                    <option>Activo</option>
+                    <option>Inactivo</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Criticidad</label>
+                <select>
+                    <option>Todos</option>
+                    <option>Crítico</option>
+                    <option>Medio</option>
+                    <option>Bajo</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Distancia máxima</label>
+                <input type="range" min="0" max="5000" value="1000" />
+                <span>1 km</span>
+            </div>
+
+            <button class="apply-btn">Aplicar filtros</button>
+        </div>
+
+        <!-- VISTA ZONAS CRÍTICAS (imagen 3) -->
+        <div class="view" id="view-zonas-criticas">
+            <h3 class="section-title">Zonas críticas</h3>
+            <p class="section-desc">Últimos 30 días</p>
+
+            <div class="viz-tabs">
+                <button class="viz-tab active">Heatmap</button>
+                <button class="viz-tab">Polígonos</button>
+            </div>
+
+            <div class="time-range">
+                <h4>Rango temporal</h4>
+                <button class="time-btn">Últimos 7 días</button>
+                <button class="time-btn active">Últimos 30 días</button>
+                <button class="time-btn">Últimos 90 días</button>
+            </div>
+
+            <div class="legend">
+                <h4>Leyenda</h4>
+                <div class="legend-item">
+                    <span class="legend-color red"></span>
+                    <span>Zona crítica (alta)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color orange"></span>
+                    <span>Zona de alerta (media)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color blue"></span>
+                    <span>Zona normal (baja)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISTA ADMINISTRAR POI (imagen 4) -->
+        <div class="view" id="view-administrar">
+            <h3 class="section-title">Administración de POI</h3>
+            <p class="section-desc">8 puntos registrados</p>
+
+            <div class="admin-actions">
+                <button class="btn-primary">+ Crear POI</button>
+                <button class="btn-secondary">📄 Importar CSV</button>
+            </div>
+
+            <h4>POI registrados</h4>
+
+            <div class="poi-list">
+                <div class="poi-item admin">
+                    <div class="poi-icon blue">🛡️</div>
+                    <div class="poi-info">
+                        <strong>Comisaría Central Lima</strong>
+                        <div class="poi-meta">Comisaría</div>
+                        <div class="poi-address">📍 Av. España N° 323</div>
+                        <div class="poi-badges">
+                            <span class="badge critical">Crítico</span>
+                            <span class="badge active">Activo</span>
+                        </div>
+                    </div>
+                    <button class="edit-btn">→</button>
+                </div>
+
+                <div class="poi-item admin">
+                    <div class="poi-icon red">❤️</div>
+                    <div class="poi-info">
+                        <strong>Hospital Nacional Dos de Mayo</strong>
+                        <div class="poi-meta">Hospital</div>
+                        <div class="poi-address">📍 Av. Miguel Grau N° 13</div>
+                        <div class="poi-badges">
+                            <span class="badge critical">Crítico</span>
+                            <span class="badge active">Activo</span>
+                        </div>
+                    </div>
+                    <button class="edit-btn">→</button>
+                </div>
+
+                <div class="poi-item admin">
+                    <div class="poi-icon purple">🏫</div>
+                    <div class="poi-info">
+                        <strong>IE Mariano Melgar</strong>
+                        <div class="poi-meta">Colegio</div>
+                        <div class="poi-address">📍 Jr. Huallaga N° 545</div>
+                        <div class="poi-badges">
+                            <span class="badge critical">Crítico</span>
+                            <span class="badge restricted">Restringido</span>
+                        </div>
+                    </div>
+                    <button class="edit-btn">→</button>
+                </div>
+            </div>
+
+            <div class="validation-note">
+                <strong>Validación de duplicados</strong>
+                <p>El sistema verifica POI a menos de 50m con el mismo nombre/categoría antes de guardar.</p>
+            </div>
+        </div>
+
+        <!-- VISTA POI CERCANOS (imagen 5) -->
+        <div class="view" id="view-cercanos">
+            <h3 class="section-title">POI cercanos</h3>
+            <p class="section-desc">Vista móvil</p>
+
+            <div class="nearby-list">
+                <div class="nearby-item">
+                    <div class="poi-icon blue">🛡️</div>
+                    <div class="nearby-info">
+                        <strong>Comisaría Central Lima</strong>
+                        <div class="poi-meta">Comisaría</div>
+                        <div class="poi-distance">📍 0 m</div>
+                        <div class="nearby-actions">
+                            <button class="btn-route">🧭 Ruta</button>
+                            <button class="btn-use">Usar en caso</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nearby-item">
+                    <div class="poi-icon purple">🏫</div>
+                    <div class="nearby-info">
+                        <strong>IE Mariano Melgar</strong>
+                        <div class="poi-meta">Colegio</div>
+                        <div class="poi-distance">📍 328 m</div>
+                        <div class="nearby-actions">
+                            <button class="btn-route">🧭 Ruta</button>
+                            <button class="btn-use">Usar en caso</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nearby-item">
+                    <div class="poi-icon yellow">🔔</div>
+                    <div class="nearby-info">
+                        <strong>Alarma Vecinal - Jirón Cusco</strong>
+                        <div class="poi-meta">Alarma vecinal</div>
+                        <div class="poi-distance">📍 451 m</div>
+                        <div class="nearby-actions">
+                            <button class="btn-route">🧭 Ruta</button>
+                            <button class="btn-use">Usar en caso</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nearby-item">
+                    <div class="poi-icon green">🏪</div>
+                    <div class="nearby-info">
+                        <strong>Mercado Central</strong>
+                        <div class="poi-meta">Mercado</div>
+                        <div class="poi-distance">📍 499 m</div>
+                        <div class="nearby-actions">
+                            <button class="btn-route">🧭 Ruta</button>
+                            <button class="btn-use">Usar en caso</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="Secured-Landing-Page/public/assets/scripts/puntos-interes.js"></script>
+</body>
+</html>
+

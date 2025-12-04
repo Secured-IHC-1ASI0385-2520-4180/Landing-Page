@@ -1,0 +1,682 @@
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body.chk-page {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+    background: #f5f7fb;
+    color: #0f172a;
+}
+
+.chk-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 32px 40px;
+}
+
+.chk-view {
+    display: none;
+}
+
+.chk-view-active {
+    display: block;
+}
+
+/* ======== HEADER ======== */
+
+.chk-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.chk-page-header-left {
+    justify-content: flex-start;
+}
+
+.chk-back-link {
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    color: #0f172a;
+}
+
+.chk-back-link:hover {
+    background: #e5ecff;
+}
+
+.chk-header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.chk-page-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.chk-page-subtitle {
+    margin: 0;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.chk-icon-button {
+    border: none;
+    background: #ffffff;
+    border-radius: 999px;
+    padding: 8px 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+    font-size: 16px;
+}
+
+/* ======== CARDS / COMPONENTES ======== */
+
+.chk-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.chk-card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.chk-card-title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.chk-card-subtitle {
+    margin: 2px 0 0;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.chk-card-body {
+    margin: 0;
+    font-size: 13px;
+    color: #4b5563;
+}
+
+/* ======== BADGES & CHIPS ======== */
+
+.chk-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+}
+
+.chk-badge-warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.chk-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    background: #e5f1ff;
+    color: #1d4ed8;
+}
+
+.chk-chip-critical {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* ======== PROGRESO GENERAL ======== */
+
+.chk-progress-card {
+    margin-bottom: 24px;
+}
+
+.chk-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.chk-progress-labels {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chk-progress-title {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.chk-progress-pill {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: #e0ecff;
+    color: #1d4ed8;
+}
+
+.chk-progress-steps {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.chk-progress-bar-wrapper {
+    margin-bottom: 6px;
+}
+
+.chk-progress-bar {
+    width: 100%;
+    height: 7px;
+    border-radius: 999px;
+    background: #e5e7eb;
+    overflow: hidden;
+}
+
+.chk-progress-bar-fill {
+    width: 25%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.chk-progress-meta {
+    margin: 0;
+    font-size: 11px;
+    color: #6b7280;
+}
+
+.chk-progress-meta-separator {
+    margin: 0 4px;
+}
+
+/* ======== LAYOUT DOS COLUMNAS ======== */
+
+.chk-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+    gap: 24px;
+}
+
+.chk-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ======== TARJETAS ESPECIALES ======== */
+
+.chk-critical-card {
+    border-left: 4px solid #f97316;
+}
+
+.chk-block-card {
+    border-left: 4px solid #ef4444;
+    background: #fef2f2;
+}
+
+.chk-conditional-card {
+    background: #f9fafb;
+}
+
+.chk-conditional-item h3 {
+    margin: 6px 0 2px;
+    font-size: 13px;
+}
+
+.chk-conditional-text {
+    margin: 0;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* ======== LISTA DE PASOS ======== */
+
+.chk-steps-card {
+    padding: 16px 0 4px;
+}
+
+.chk-steps-card .chk-card-title {
+    padding: 0 20px 8px;
+}
+
+.chk-step-row {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-top: 1px solid #e5e7eb;
+}
+
+.chk-step-row:last-child {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.chk-step-row:hover {
+    background: #f3f4ff;
+}
+
+.chk-step-row-completed {
+    background: #ecfdf5;
+}
+
+.chk-step-number {
+    min-width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: #eef2ff;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f46e5;
+    margin-top: 2px;
+}
+
+.chk-step-number-danger {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.chk-step-main {
+    flex: 1;
+}
+
+.chk-step-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2px;
+}
+
+.chk-step-title {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.chk-step-description {
+    margin: 0 0 3px;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.chk-step-meta {
+    margin: 0;
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+.chk-step-status {
+    font-size: 11px;
+    color: #6b7280;
+    white-space: nowrap;
+    margin-top: 4px;
+}
+
+.chk-step-status-done {
+    color: #16a34a;
+}
+
+/* ======== BOTONES GENERALES ======== */
+
+.chk-btn {
+    border-radius: 999px;
+    border: none;
+    padding: 10px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.chk-btn-full {
+    width: 100%;
+    justify-content: center;
+}
+
+.chk-btn-primary {
+    background: #1d4ed8;
+    color: #ffffff;
+}
+
+.chk-btn-primary:hover {
+    background: #1e40af;
+}
+
+.chk-btn-secondary {
+    background: #e5ecff;
+    color: #1d4ed8;
+}
+
+.chk-btn-secondary:hover {
+    background: #d0e0ff;
+}
+
+.chk-btn-ghost {
+    background: transparent;
+    border: 1px solid #e5e7eb;
+    color: #111827;
+}
+
+.chk-btn-disabled {
+    background: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.chk-btn-outline-danger {
+    background: #fff1f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+}
+
+.chk-btn-outline-danger:hover {
+    background: #fee2e2;
+}
+
+.chk-btn-full {
+    width: 100%;
+}
+
+/* ======== VISTAS DE PASO ======== */
+
+.chk-step-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.chk-step-detail-card {
+    padding-bottom: 20px;
+}
+
+.chk-step-info-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 12px 0;
+}
+
+.chk-step-info-block {
+    min-width: 180px;
+}
+
+.chk-step-info-label {
+    display: block;
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+.chk-step-info-value {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.chk-evidence-list {
+    margin-top: 10px;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 10px;
+}
+
+.chk-evidence-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+}
+
+.chk-evidence-icon {
+    font-size: 18px;
+}
+
+.chk-evidence-name {
+    font-weight: 500;
+}
+
+.chk-evidence-time {
+    margin-left: auto;
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+.chk-step-actions-row {
+    display: flex;
+    gap: 12px;
+}
+
+.chk-step-actions-row-split {
+    justify-content: flex-end;
+}
+
+/* ======== EVIDENCIA EN PASO 3 ======== */
+
+.chk-evidence-area {
+    margin-top: 12px;
+}
+
+.chk-evidence-title {
+    margin: 0 0 8px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.chk-evidence-buttons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.chk-evidence-btn {
+    border-radius: 999px;
+    border: 1px dashed #cbd5f5;
+    background: #f9fafb;
+    font-size: 13px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.chk-note-input {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 8px 10px;
+    font-size: 13px;
+    resize: vertical;
+}
+
+.chk-note-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 1px #bfdbfe;
+}
+
+.chk-add-note {
+    margin-top: 6px;
+    font-size: 12px;
+    border: none;
+    background: transparent;
+    color: #2563eb;
+    cursor: pointer;
+}
+
+.chk-evidence-warning {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #92400e;
+    background: #fff7ed;
+    padding: 8px 10px;
+    border-radius: 10px;
+}
+
+/* ======== MOTIVO DE SALTO ======== */
+
+.chk-motivo-card {
+    max-width: 640px;
+}
+
+.chk-motivo-label {
+    margin: 0 0 8px;
+    font-size: 13px;
+    color: #4b5563;
+}
+
+.chk-motivo-textarea {
+    width: 100%;
+    min-height: 140px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 10px;
+    font-size: 13px;
+    resize: vertical;
+}
+
+.chk-motivo-textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 1px #bfdbfe;
+}
+
+.chk-motivo-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4px;
+}
+
+.chk-motivo-hint {
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+/* ======== RESUMEN DE CUMPLIMIENTO ======== */
+
+.chk-resumen-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+    gap: 24px;
+}
+
+.chk-resumen-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.chk-resumen-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 14px 16px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.chk-resumen-card-success {
+    background: #ecfdf3;
+}
+
+.chk-resumen-card-info {
+    background: #eef2ff;
+}
+
+.chk-resumen-card-warning {
+    background: #fef3c7;
+}
+
+.chk-resumen-label {
+    display: block;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.chk-resumen-value {
+    display: block;
+    margin-top: 4px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.chk-resumen-extra {
+    font-size: 11px;
+    color: #16a34a;
+}
+
+.chk-pendientes-card {
+    padding: 16px;
+}
+
+.chk-pendiente-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-top: 1px solid #e5e7eb;
+}
+
+.chk-pendiente-row:first-of-type {
+    margin-top: 6px;
+}
+
+.chk-arrow {
+    margin-left: auto;
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+/* ======== RESPONSIVE SIMPLE ======== */
+
+@media (max-width: 880px) {
+    .chk-layout,
+    .chk-resumen-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .chk-wrapper {
+        padding-inline: 16px;
+    }
+
+    .chk-resumen-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .chk-resumen-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chk-step-actions-row-split {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .chk-step-actions-row .chk-btn {
+        width: 100%;
+    }
+}

@@ -16,9 +16,7 @@
     </button>
 </header>
 
-<!-- ================================
-   LISTA DE ZONAS
-================================= -->
+
 <section id="lista" class="view active">
     <h2 class="sub">3 zonas</h2>
 
@@ -165,27 +163,7 @@
     </div>
 </section>
 
-<script>
-    function showView(id) {
-        document
-            .querySelectorAll(".view")
-            .forEach((v) => v.classList.remove("active"));
-        document.getElementById(id).classList.add("active");
-    }
-
-    function showTab(id) {
-        document
-            .querySelectorAll(".tab")
-            .forEach((t) => t.classList.remove("active"));
-        document
-            .querySelectorAll(".tab-content")
-            .forEach((c) => c.classList.remove("active"));
-
-        document
-            .querySelector(`.tab[onclick="showTab('${id}')"]`)
-            .classList.add("active");
-        document.getElementById(id).classList.add("active");
-    }
-</script>
+<!-- JS específico de esta sección -->
+<script src="Secured-Landing-Page/public/assets/scripts/zonas-temporales.js"></script>
 </body>
 </html>

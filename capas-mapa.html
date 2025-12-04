@@ -98,26 +98,7 @@
     </main>
 </div>
 
-<script>
-    function cambiarMapa(ruta) {
-        document.getElementById("mapImage").src = ruta;
-    }
-
-    function activar(btn) {
-        let grupo = btn.parentElement;
-        [...grupo.children].forEach((x) => x.classList.remove("active"));
-        btn.classList.add("active");
-    }
-
-    function toggleSidebar() {
-        const sidebar = document.getElementById("sidebar");
-        const arrow = document.getElementById("toggleArrow");
-
-        sidebar.classList.toggle("collapsed");
-        arrow.classList.toggle("collapsed");
-
-        arrow.textContent = sidebar.classList.contains("collapsed") ? "▶" : "◀";
-    }
-</script>
+<!-- JS específico de esta sección -->
+<script src="Secured-Landing-Page/public/assets/scripts/capas-mapa.js"></script>
 </body>
 </html>
