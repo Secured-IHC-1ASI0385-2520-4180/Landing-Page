@@ -1,4 +1,4 @@
-﻿﻿:root {
+?:root {
     --bg: #f7fafc;
     --card: #ffffff;
     --muted: #6b7280;
@@ -316,9 +316,7 @@ body.blurred .map-container {
 }
 
 .footer-logo img {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
+    width: 120px; height: auto;
 }
 
 .footer-logo h3 {

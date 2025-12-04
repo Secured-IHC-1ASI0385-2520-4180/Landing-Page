@@ -1,4 +1,4 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
@@ -11,13 +11,13 @@
 <!-- PANTALLA 1: Cobertura por Sector -->
 <div id="vista-cobertura" class="vista active">
     <header class="header">
-        <button class="back-btn" onclick="window.location.href='home-policia.html'">‚Üê</button>
+        <button class="back-btn" onclick="window.location.href='home-policia.html'">?</button>
         <div class="header-content">
             <h1>Cobertura por Sector</h1>
-            <p class="subtitle">3 sectores ¬∑ 1 con d√©ficit</p>
+            <p class="subtitle">3 sectores ∑ 1 con dÈficit</p>
         </div>
         <button class="reglas-btn" onclick="irAReglas()">
-            ‚öôÔ∏è Reglas
+            ?? Reglas
         </button>
     </header>
 
@@ -32,26 +32,26 @@
             <div class="sugerencia-card">
                 <div class="sugerencia-ruta">
                     <span class="sector-origen">Sector C - Sur</span>
-                    <span class="arrow">‚Üí</span>
+                    <span class="arrow">?</span>
                     <span class="sector-destino">Sector A - Centro</span>
                 </div>
 
                 <div class="patrulla-info">
                     <span class="patrulla-nombre">Patrulla M-45</span>
-                    <span class="patrulla-tipo">¬∑ motorizado</span>
+                    <span class="patrulla-tipo">∑ motorizado</span>
                 </div>
 
                 <p class="descripcion">
-                    Sector A tiene 8 incidentes activos (umbral: 5) y d√©ficit de 2 unidades motorizadas
+                    Sector A tiene 8 incidentes activos (umbral: 5) y dÈficit de 2 unidades motorizadas
                 </p>
 
                 <div class="metricas">
                     <div class="metrica">
                         <span class="metrica-label">Impacto estimado</span>
-                        <span class="metrica-valor positivo">‚Üò ETA: ~4 min</span>
+                        <span class="metrica-valor positivo">? ETA: ~4 min</span>
                     </div>
                     <div class="metrica">
-                        <span class="metrica-label">D√©ficit resultante</span>
+                        <span class="metrica-label">DÈficit resultante</span>
                         <span class="metrica-valor">Destino: -2</span>
                     </div>
                     <div class="metrica">
@@ -61,16 +61,16 @@
                 </div>
 
                 <div class="acciones">
-                    <button class="btn-aceptar" onclick="aceptarSugerencia()">‚úì Aceptar</button>
-                    <button class="btn-rechazar" onclick="rechazarSugerencia()">‚úï Rechazar</button>
+                    <button class="btn-aceptar" onclick="aceptarSugerencia()">? Aceptar</button>
+                    <button class="btn-rechazar" onclick="rechazarSugerencia()">? Rechazar</button>
                 </div>
             </div>
         </section>
 
         <!-- Alerta de cobertura -->
         <div class="alerta">
-            <span class="alerta-icono">‚ö†Ô∏è</span>
-            <span class="alerta-texto">Sector A - Centro tiene d√©ficit de unidades</span>
+            <span class="alerta-icono">??</span>
+            <span class="alerta-texto">Sector A - Centro tiene dÈficit de unidades</span>
         </div>
 
         <!-- Lista de sectores -->
@@ -86,9 +86,9 @@
                 </div>
 
                 <div class="sector-status">
-                    <span class="status-badge ok">‚úì OK</span>
+                    <span class="status-badge ok">? OK</span>
                     <div class="tipo-unidad">
-                        <span class="icono-motorizado">üèç</span>
+                        <span class="icono-motorizado">??</span>
                         <span class="tipo-texto">Motorizado</span>
                     </div>
                     <div class="unidades-ratio">
@@ -102,7 +102,7 @@
                 </div>
             </div>
 
-            <!-- Sector A - Centro (D√©ficit) -->
+            <!-- Sector A - Centro (DÈficit) -->
             <div class="sector-card deficit">
                 <div class="sector-header">
                     <h3 class="sector-nombre">Sector A - Centro</h3>
@@ -113,9 +113,9 @@
                 </div>
 
                 <div class="sector-status">
-                    <span class="status-badge deficit">‚ö†Ô∏è D√©ficit</span>
+                    <span class="status-badge deficit">?? DÈficit</span>
                     <div class="tipo-unidad">
-                        <span class="icono-motorizado">üèç</span>
+                        <span class="icono-motorizado">??</span>
                         <span class="tipo-texto">Motorizado</span>
                     </div>
                     <div class="unidades-ratio">
@@ -140,9 +140,9 @@
                 </div>
 
                 <div class="sector-status">
-                    <span class="status-badge ok">‚úì OK</span>
+                    <span class="status-badge ok">? OK</span>
                     <div class="tipo-unidad">
-                        <span class="icono-motorizado">üèç</span>
+                        <span class="icono-motorizado">??</span>
                         <span class="tipo-texto">Motorizado</span>
                     </div>
                     <div class="unidades-ratio">
@@ -159,20 +159,20 @@
     </main>
 </div>
 
-<!-- PANTALLA 2: Editor de Reglas Din√°micas -->
+<!-- PANTALLA 2: Editor de Reglas Din·micas -->
 <div id="vista-reglas" class="vista">
     <header class="header">
-        <button class="back-btn" onclick="volverACobertura()">‚Üê</button>
+        <button class="back-btn" onclick="volverACobertura()">?</button>
         <div class="header-content">
-            <h1>Editor de Reglas Din√°micas</h1>
-            <p class="subtitle">Configurar m√≠nimos por sector y franja horaria</p>
+            <h1>Editor de Reglas Din·micas</h1>
+            <p class="subtitle">Configurar mÌnimos por sector y franja horaria</p>
         </div>
         <button class="guardar-btn" onclick="guardarRegla()">Guardar regla</button>
     </header>
 
     <main class="content-reglas">
         <section class="config-general">
-            <h2>Configuraci√≥n general</h2>
+            <h2>ConfiguraciÛn general</h2>
 
             <div class="form-group">
                 <label>Nombre de la regla</label>
@@ -185,7 +185,7 @@
                     <input type="number" id="umbralIncidentes" value="5" />
                 </div>
                 <div class="form-group">
-                    <label>Ventana de reacci√≥n (minutos)</label>
+                    <label>Ventana de reacciÛn (minutos)</label>
                     <input type="number" id="ventanaReaccion" value="15" />
                 </div>
             </div>
@@ -197,18 +197,18 @@
 
             <div class="form-check">
                 <input type="checkbox" id="checkBloquearTraslado" />
-                <label for="checkBloquearTraslado">Bloquear traslado si SLA del sector origen est√° bajo objetivo</label>
+                <label for="checkBloquearTraslado">Bloquear traslado si SLA del sector origen est· bajo objetivo</label>
             </div>
         </section>
 
         <section class="config-minimos">
-            <h2>M√≠nimos por franja - motorizado</h2>
+            <h2>MÌnimos por franja - motorizado</h2>
 
             <div class="tabla-container">
                 <table class="tabla-minimos">
                     <thead>
                         <tr>
-                            <th>D√≠a</th>
+                            <th>DÌa</th>
                             <th>0</th>
                             <th>1</th>
                             <th>2</th>
@@ -258,7 +258,7 @@
                             <td><input type="number" value="2" /></td>
                         </tr>
                         <tr>
-                            <td class="dia-label">Mi√©</td>
+                            <td class="dia-label">MiÈ</td>
                             <td><input type="number" value="2" /></td>
                             <td><input type="number" value="2" /></td>
                             <td><input type="number" value="2" /></td>
@@ -294,7 +294,7 @@
                             <td><input type="number" value="2" /></td>
                         </tr>
                         <tr>
-                            <td class="dia-label">S√°b</td>
+                            <td class="dia-label">S·b</td>
                             <td><input type="number" value="2" /></td>
                             <td><input type="number" value="2" /></td>
                             <td><input type="number" value="2" /></td>
@@ -310,15 +310,15 @@
             </div>
 
             <div class="info-link">
-                <a href="#" onclick="return false">Configura los m√≠nimos de unidades requeridas por hora y d√≠a de la semana</a>
+                <a href="#" onclick="return false">Configura los mÌnimos de unidades requeridas por hora y dÌa de la semana</a>
             </div>
         </section>
 
         <div class="advertencia">
-            <span class="advertencia-icono">‚ö†Ô∏è</span>
+            <span class="advertencia-icono">??</span>
             <div class="advertencia-texto">
                 <strong>Advertencia</strong>
-                <p>Aseg√∫rate de que los m√≠nimos configurados no superen el inventario disponible de unidades</p>
+                <p>Aseg˙rate de que los mÌnimos configurados no superen el inventario disponible de unidades</p>
             </div>
         </div>
     </main>
@@ -329,17 +329,16 @@
     <div class="footer-container">
         <div class="footer-column">
             <div class="footer-logo">
-                <img src="Secured-Landing-Page/public/assets/images/Secured_Logo_v1.png" alt="Secured Logo" />
-                <h3>Secured</h3>
+                <img src="Secured-Landing-Page/public/assets/images/secured-logo-white.png" alt="Secured Logo" />
             </div>
-            <p class="footer-description">Coordinaci√≥n inteligente para Serenazgo y Polic√≠a</p>
+            <p class="footer-description">CoordinaciÛn inteligente para Serenazgo y PolicÌa</p>
         </div>
 
         <div class="footer-column">
-            <h4>Navegaci√≥n</h4>
+            <h4>NavegaciÛn</h4>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="#">Soluci√≥n</a></li>
+                <li><a href="#">SoluciÛn</a></li>
                 <li><a href="#">Startup</a></li>
                 <li><a href="#">Equipo</a></li>
                 <li><a href="#">Seguridad</a></li>
@@ -350,9 +349,9 @@
             <h4>Recursos</h4>
             <ul>
                 <li><a href="#">Soporte</a></li>
-                <li><a href="#">Documentaci√≥n</a></li>
+                <li><a href="#">DocumentaciÛn</a></li>
                 <li><a href="#">Privacidad</a></li>
-                <li><a href="#">T√©rminos de servicio</a></li>
+                <li><a href="#">TÈrminos de servicio</a></li>
             </ul>
         </div>
 
@@ -360,33 +359,33 @@
             <h4>Contacto</h4>
             <ul class="contact-list">
                 <li>
-                    <span class="icon">‚úâ</span>
+                    <span class="icon">?</span>
                     <a href="mailto:contacto@secured.pe">contacto@secured.pe</a>
                 </li>
                 <li>
-                    <span class="icon">üìû</span>
+                    <span class="icon">??</span>
                     <a href="tel:+51987654321">+51 987 654 321</a>
                 </li>
                 <li>
-                    <span class="icon">üìç</span>
-                    <span>Lima, Per√∫</span>
+                    <span class="icon">??</span>
+                    <span>Lima, Per˙</span>
                 </li>
             </ul>
             <div class="social-icons">
                 <a href="#" class="social-icon">f</a>
-                <a href="#" class="social-icon">üê¶</a>
+                <a href="#" class="social-icon">??</a>
                 <a href="#" class="social-icon">in</a>
             </div>
         </div>
     </div>
 
     <div class="footer-bottom">
-        <p>¬© 2025 Secured. Todos los derechos reservados.</p>
-        <p class="privacy-note">Secured no recopila informaci√≥n personal identificable sin consentimiento expl√≠cito. Ver <a href="#">Pol√≠tica de Privacidad</a></p>
+        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p class="privacy-note">Secured no recopila informaciÛn personal identificable sin consentimiento explÌcito. Ver <a href="#">PolÌtica de Privacidad</a></p>
     </div>
 </footer>
 
-<!-- JS espec√≠fico de esta secci√≥n -->
+<!-- JS especÌfico de esta secciÛn -->
 <script src="Secured-Landing-Page/public/assets/scripts/cobertura-sectores.js"></script>
 </body>
 </html>

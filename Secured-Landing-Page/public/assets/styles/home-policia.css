@@ -1,10 +1,10 @@
-ï»¿ï»¿body {
+??body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f2f4f7;
 }
 
-/* BotÃ³n del menÃº */
+/* Botón del menú */
 #menuBtn {
     position: fixed;
     top: 15px;
@@ -59,7 +59,7 @@
     font-size: 14px;
 }
 
-/* MenÃº */
+/* Menú */
 .menu {
     list-style: none;
     padding: 0;
@@ -127,9 +127,8 @@
 }
 
 .footer-logo img {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
+    width: 120px;
+    height: auto;
 }
 
 .footer-logo h3 {
