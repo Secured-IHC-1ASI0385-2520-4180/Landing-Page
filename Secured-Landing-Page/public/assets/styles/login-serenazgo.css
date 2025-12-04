@@ -1,4 +1,4 @@
-﻿
+﻿﻿
 
 :root {
     --bg-hero: #020617;
@@ -1978,7 +1978,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 56px 16px 40px;
+    padding: 80px 16px 40px; /* Aumentado de 56px a 80px para el role-strip fixed */
     background:
             radial-gradient(circle at top, rgba(37, 99, 235, 0.35), transparent 55%),
             #020617;
@@ -2136,25 +2136,40 @@ a {
 }
 /* Tira superior de roles (Policía / Serenazgo) */
 .role-strip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     background: #f3f4f6;
     border-bottom: 1px solid #e5e7eb;
-    padding: 6px 32px;
+    padding: 12px 32px;
     display: flex;
     gap: 16px;
     font-size: 13px;
+    z-index: 1000;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .role-strip-link {
     border: none;
     background: none;
-    padding: 4px 0;
+    padding: 6px 12px;
     cursor: pointer;
     color: #4b5563;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+}
+
+.role-strip-link:hover {
+    background: #e5e7eb;
+    color: #111827;
 }
 
 .role-strip-link--active {
     color: #111827;
     font-weight: 600;
+    background: #dbeafe;
     border-bottom: 2px solid #2563eb;
 }
 
@@ -2193,18 +2208,20 @@ a {
 =============================== */
 .login-illustration {
     width: 50%;
-    background: #1b594f; /* azul oscuro igual a la maqueta */
+    background: #1b594f; /* verde oscuro serenazgo */
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px;
+    padding: 60px 40px 40px; /* Más padding superior para no chocar */
+    overflow: hidden; /* Evita desbordamiento */
 }
 
 .login-illustration img {
     max-width: 400px; /* controla el ancho de la imagen */
-    width: 150%;
+    width: 100%;
     height: auto;
     object-fit: contain;
+    max-height: 500px; /* Limita la altura máxima */
 }
 
 
@@ -2296,27 +2313,315 @@ a {
 /* ============================
    RESPONSIVE
 =============================== */
-@media (max-width: 900px) {
-    .login-page {
-        flex-direction: column;
+
+/* Tablet Grande (768px - 1024px) */
+@media (max-width: 1024px) {
+    .login-page,
+    .login-page-sereno {
+        padding: 70px 24px 32px; /* Ajustado para role-strip fixed */
     }
 
+    .login-illustration {
+        padding: 50px 20px 40px; /* Ajustado padding superior */
+    }
+
+    .login-illustration img {
+        max-width: 400px;
+    }
+
+    .auth-card {
+        max-width: 460px;
+        padding: 32px;
+    }
+}
+
+/* Tablet (768px - 900px) */
+@media (max-width: 900px) {
+    .login-page,
     .login-page-sereno {
         flex-direction: column;
+        padding: 65px 20px 32px; /* Aumentado para role-strip fixed */
+        gap: 24px;
     }
 
     .login-illustration {
         width: 100%;
         padding: 30px;
+        order: 1;
+        min-height: auto; /* Permite que se ajuste al contenido */
     }
 
     .auth-card {
         width: 100%;
-        padding: 40px 30px;
+        max-width: 500px;
+        padding: 36px 32px;
+        order: 2;
     }
 
     .login-illustration img {
-        max-width: 300px;
+        max-width: 320px;
+        max-height: 280px; /* Limita altura en tablet */
+    }
+}
+
+/* Tablet Pequeña y Móvil Grande (480px - 768px) */
+@media (max-width: 768px) {
+    .login-page,
+    .login-page-sereno {
+        padding: 60px 16px 24px; /* Aumentado para role-strip fixed */
+        gap: 20px;
+    }
+
+    .login-illustration {
+        padding: 20px 24px;
+    }
+
+    .login-illustration img {
+        max-width: 280px;
+        max-height: 240px; /* Limita altura */
+    }
+
+    .auth-card {
+        max-width: 100%;
+        padding: 28px 24px;
+        border-radius: 20px;
+    }
+
+    .auth-card h1 {
+        font-size: 22px;
+    }
+
+    .auth-subtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .auth-form {
+        gap: 16px;
+    }
+
+    .auth-input {
+        padding: 12px 14px;
+        font-size: 15px;
+    }
+
+    .auth-btn {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    /* Role strip responsive */
+    .role-strip {
+        padding: 12px 16px;
+    }
+
+    .role-strip-link {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Móvil (320px - 480px) */
+@media (max-width: 480px) {
+    .login-page,
+    .login-page-sereno {
+        padding: 56px 12px 20px; /* Aumentado para role-strip fixed */
+        gap: 16px;
+    }
+
+    .login-illustration {
+        padding: 16px 12px;
+    }
+
+    .login-illustration img {
+        max-width: 240px;
+        max-height: 220px; /* Limita altura en móvil */
+    }
+
+    .auth-card {
+        padding: 24px 20px;
+        border-radius: 18px;
+    }
+
+    .auth-card h1 {
+        font-size: 20px;
+        margin-bottom: 6px;
+    }
+
+    .auth-subtitle {
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+
+    .auth-form {
+        gap: 14px;
+    }
+
+    .auth-label {
+        font-size: 13px;
+        gap: 5px;
+    }
+
+    .auth-input {
+        padding: 11px 12px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    .auth-btn {
+        padding: 11px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+    .auth-link {
+        font-size: 13px;
+    }
+
+    .btn-primary {
+        padding: 10px 18px;
+        font-size: 13px;
+    }
+
+    /* Role strip mobile */
+    .role-strip {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+
+    .role-strip-link {
+        padding: 9px 16px;
+        font-size: 13px;
+        border-radius: 8px;
+    }
+
+    /* Checkbox de recordar */
+    .auth-checkbox-label {
+        font-size: 13px;
+    }
+
+    /* Links auxiliares */
+    .auth-footer {
+        font-size: 13px;
+        gap: 8px;
+    }
+}
+
+/* Móvil Pequeño (< 360px) */
+@media (max-width: 360px) {
+    .login-page,
+    .login-page-sereno {
+        padding: 54px 10px 16px; /* Aumentado para role-strip fixed */
+    }
+
+    .login-illustration {
+        padding: 12px 8px;
+    }
+
+    .login-illustration img {
+        max-width: 200px;
+        max-height: 200px; /* Limita altura */
+    }
+
+    .auth-card {
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .auth-card h1 {
+        font-size: 18px;
+    }
+
+    .auth-subtitle {
+        font-size: 12px;
+    }
+
+    .auth-form {
+        gap: 12px;
+    }
+
+    .auth-input {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .auth-btn {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .role-strip {
+        padding: 8px 10px;
+    }
+
+    .role-strip-link {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+}
+
+/* Landscape en Móviles */
+@media (max-height: 600px) and (orientation: landscape) {
+    .login-page,
+    .login-page-sereno {
+        padding: 50px 20px 16px; /* Ajustado para role-strip fixed */
+    }
+
+    .login-illustration {
+        display: none; /* Oculta la ilustración para ahorrar espacio */
+    }
+
+    .auth-card {
+        max-width: 450px;
+        padding: 20px 24px;
+    }
+
+    .auth-card h1 {
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+
+    .auth-subtitle {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .auth-form {
+        gap: 10px;
+    }
+
+    .auth-input {
+        padding: 8px 12px;
+    }
+
+    .auth-btn {
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+
+    .role-strip {
+        padding: 8px 20px; /* Más compacto en landscape */
+    }
+}
+
+/* Ajustes adicionales para pantallas muy anchas */
+@media (min-width: 1440px) {
+    .login-page,
+    .login-page-sereno {
+        padding: 80px 24px 48px;
+    }
+
+    .login-illustration img {
+        max-width: 550px;
+    }
+
+    .auth-card {
+        max-width: 480px;
+        padding: 40px 36px;
+    }
+
+    .auth-card h1 {
+        font-size: 24px;
     }
 }
 

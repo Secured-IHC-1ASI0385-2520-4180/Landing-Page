@@ -598,14 +598,22 @@
     cursor: default;
 }
 
-/* ===== Responsive ===== */
+/* ===== Responsive Mejorado ===== */
+
+/* Tablet Grande (768px - 1024px) */
 @media (max-width: 1024px) {
+    .bit-wrapper {
+        padding: 20px 24px 32px;
+    }
+
     .bit-entries-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
     }
 
     .exp-layout {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .exp-options {
@@ -613,14 +621,26 @@
     }
 }
 
+/* Tablet (480px - 768px) */
 @media (max-width: 768px) {
     .bit-wrapper {
-        padding: 16px;
+        padding: 16px 20px 28px;
     }
 
     .bit-header {
         grid-template-columns: auto 1fr;
-        row-gap: 8px;
+        row-gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .bit-title {
+        font-size: 22px;
+    }
+
+    .back-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
     }
 
     .bit-header-actions {
@@ -629,5 +649,200 @@
 
     .bit-entries-grid {
         grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .bit-card {
+        padding: 16px;
+    }
+
+    .bit-entry-header {
+        gap: 10px;
+    }
+
+    .bit-entry-time {
+        font-size: 13px;
+    }
+
+    .bit-entry-title {
+        font-size: 15px;
+    }
+
+    .bit-entry-text {
+        font-size: 14px;
+    }
+
+    .bit-btn {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+}
+
+/* Móvil (320px - 480px) */
+@media (max-width: 480px) {
+    .bit-wrapper {
+        padding: 12px 14px 24px;
+    }
+
+    .bit-header {
+        grid-template-columns: auto 1fr;
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .bit-title {
+        font-size: 20px;
+    }
+
+    .back-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .bit-header-actions {
+        grid-column: 1 / -1;
+        justify-self: stretch;
+        display: flex;
+        gap: 8px;
+    }
+
+    .bit-header-actions .bit-btn {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .bit-entries-grid {
+        gap: 12px;
+    }
+
+    .bit-card {
+        padding: 14px;
+        border-radius: 12px;
+    }
+
+    .bit-entry-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .bit-entry-time {
+        font-size: 12px;
+    }
+
+    .bit-entry-title {
+        font-size: 14px;
+    }
+
+    .bit-entry-text {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .bit-entry-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .bit-badge {
+        padding: 4px 10px;
+        font-size: 11px;
+    }
+
+    .bit-btn {
+        padding: 9px 16px;
+        font-size: 13px;
+    }
+
+    /* Formulario de nueva entrada */
+    .bit-form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .bit-form-row .bit-btn {
+        width: 100%;
+    }
+
+    .bit-textarea {
+        min-height: 100px;
+    }
+
+    /* Exportación */
+    .exp-options {
+        gap: 10px;
+    }
+
+    .exp-checkbox-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .exp-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .exp-actions .bit-btn {
+        width: 100%;
+    }
+}
+
+/* Móvil Pequeño (< 360px) */
+@media (max-width: 360px) {
+    .bit-wrapper {
+        padding: 10px 12px 20px;
+    }
+
+    .bit-title {
+        font-size: 18px;
+    }
+
+    .back-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .bit-card {
+        padding: 12px;
+    }
+
+    .bit-entry-title {
+        font-size: 13px;
+    }
+
+    .bit-entry-text {
+        font-size: 12px;
+    }
+
+    .bit-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+}
+
+/* Landscape en Móviles */
+@media (max-height: 600px) and (orientation: landscape) {
+    .bit-wrapper {
+        padding: 12px 20px;
+    }
+
+    .bit-header {
+        margin-bottom: 12px;
+    }
+
+    .bit-card {
+        padding: 12px 14px;
+    }
+
+    .bit-entries-grid {
+        gap: 10px;
+    }
+
+    .bit-textarea {
+        min-height: 80px;
     }
 }
