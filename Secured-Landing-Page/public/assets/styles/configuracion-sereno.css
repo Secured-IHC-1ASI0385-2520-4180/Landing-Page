@@ -1,0 +1,586 @@
+/* ===== RESET SIMPLE ===== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body.cfg-page {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #111827;
+    background: #f5f7fb;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* ===== LAYOUT GENERAL ===== */
+.cfg-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 24px 40px;
+}
+
+.cfg-view {
+    display: none;
+}
+
+.cfg-view-active {
+    display: block;
+}
+
+.cfg-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.cfg-header-inline {
+    justify-content: space-between;
+}
+
+.cfg-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.cfg-back-link {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px 8px;
+}
+
+/* ===== MAIN CONFIG GRID ===== */
+.cfg-main-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.cfg-group-card,
+.cfg-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+.cfg-group-title,
+.cfg-block-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: #374151;
+}
+
+/* ===== FILAS DE ITEM ===== */
+.cfg-item-row {
+    width: 100%;
+    margin: 4px 0;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: none;
+    background: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    text-align: left;
+}
+
+.cfg-item-row:hover {
+    background: #eef2ff;
+}
+
+.cfg-item-title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cfg-item-subtitle {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.cfg-chevron {
+    font-size: 18px;
+    color: #9ca3af;
+}
+
+/* ===== BOTONES ===== */
+.cfg-btn {
+    border-radius: 999px;
+    padding: 8px 18px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.cfg-btn-primary {
+    background: #1d4ed8;
+    color: #ffffff;
+}
+
+.cfg-btn-primary:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.cfg-btn-secondary {
+    background: #e5edff;
+    color: #1d4ed8;
+}
+
+.cfg-btn-danger {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.cfg-link-btn {
+    border: none;
+    background: none;
+    color: #2563eb;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.cfg-link-btn-danger {
+    color: #b91c1c;
+}
+
+/* ===== PERFILES ===== */
+.cfg-profile-layout {
+    display: grid;
+    grid-template-columns: minmax(280px, 1.1fr) minmax(260px, 1fr);
+    gap: 16px;
+}
+
+.cfg-avatar-wrapper {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    border-radius: 999px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+.cfg-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cfg-avatar-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.4), transparent);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 4px;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.cfg-profile-name {
+    margin: 0;
+    font-weight: 600;
+}
+
+.cfg-profile-id {
+    margin: 2px 0 16px;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.cfg-profile-block {
+    margin-top: 8px;
+}
+
+/* ===== LISTAS DEFINICIÓN ===== */
+.cfg-definition-list {
+    margin: 0;
+}
+
+.cfg-definition-list > div {
+    margin-bottom: 8px;
+}
+
+.cfg-definition-list dt {
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+.cfg-definition-list dd {
+    margin: 2px 0 0;
+    font-size: 13px;
+}
+
+/* ===== CHIPS / BADGES ===== */
+.cfg-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 500;
+    background: #e0ebff;
+    color: #1d4ed8;
+}
+
+.cfg-badge-success {
+    background: #dcfce7;
+    color: #166534;
+}
+
+/* ===== NOTAS INLINE ===== */
+.cfg-inline-note {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 12px;
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+.cfg-inline-note-strong {
+    background: #fff7ed;
+    color: #92400e;
+}
+
+.cfg-inline-note-soft {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.cfg-inline-note-warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* ===== FORMULARIOS ===== */
+.cfg-two-column {
+    display: grid;
+    grid-template-columns: minmax(280px, 1.5fr) minmax(260px, 1fr);
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.cfg-form .cfg-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.cfg-field span {
+    font-size: 12px;
+    color: #374151;
+}
+
+.cfg-field input {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+.cfg-field input:focus {
+    outline: 2px solid #1d4ed8;
+    outline-offset: 1px;
+}
+
+.cfg-help {
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+.cfg-form-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cfg-form-footer-left {
+    justify-content: flex-start;
+}
+
+/* ===== SWITCHES ===== */
+.cfg-switch-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 10px 0;
+}
+
+.cfg-switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 24px;
+}
+
+.cfg-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.cfg-switch-slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: #e5e7eb;
+    border-radius: 999px;
+    transition: 0.2s;
+}
+
+.cfg-switch-slider::before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    top: 3px;
+    border-radius: 999px;
+    background: #ffffff;
+    transition: 0.2s;
+}
+
+.cfg-switch input:checked + .cfg-switch-slider {
+    background: #22c55e;
+}
+
+.cfg-switch input:checked + .cfg-switch-slider::before {
+    transform: translateX(18px);
+}
+
+/* ===== DIVIDER ===== */
+.cfg-divider {
+    margin: 12px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* ===== OPCIONES (PILLS) ===== */
+.cfg-option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.cfg-option-pill {
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    padding: 6px 14px;
+    font-size: 12px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.cfg-option-pill-active {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+    color: #ffffff;
+}
+
+/* ===== VISTA PREVIA ===== */
+.cfg-preview-card {
+    grid-column: span 2;
+}
+
+.cfg-preview-box {
+    border-radius: 12px;
+    padding: 12px 14px;
+    background: #f3f4ff;
+}
+
+.cfg-preview-title {
+    margin: 0 0 4px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.cfg-preview-text {
+    margin: 0 0 8px;
+    font-size: 13px;
+}
+
+.cfg-preview-button {
+    font-size: 12px;
+}
+
+/* ===== ACCESS GRID ===== */
+.cfg-access-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+/* ===== DEVICES ===== */
+.cfg-device-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: #f9fafb;
+    margin-bottom: 8px;
+}
+
+/* ===== PRIVACIDAD Y DATOS ===== */
+.cfg-privacy-list .cfg-item-row {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+}
+
+/* ===== ABOUT ===== */
+.cfg-about-main {
+    margin-bottom: 12px;
+}
+
+.cfg-about-app {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cfg-about-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    background: #1d4ed8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.cfg-about-links .cfg-item-row {
+    background: #ffffff;
+}
+
+.cfg-about-footer-card {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.cfg-about-footer-text {
+    margin: 0;
+    font-size: 12px;
+    color: #4b5563;
+}
+
+.cfg-about-footer-subtext {
+    margin: 2px 0 0;
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+/* ===== MODAL AVATAR ===== */
+.cfg-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    z-index: 40;
+}
+
+.cfg-modal-active {
+    display: block;
+}
+
+.cfg-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.25);
+}
+
+.cfg-modal-bottom-sheet {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 100%;
+    max-width: 480px;
+    background: #ffffff;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.2);
+}
+
+.cfg-modal-sheet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.cfg-modal-sheet-body {
+    padding: 8px 0 8px;
+}
+
+.cfg-modal-close {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.cfg-sheet-row {
+    width: 100%;
+    padding: 10px 16px;
+    border: none;
+    background: #ffffff;
+    text-align: left;
+    cursor: pointer;
+}
+
+.cfg-sheet-row:hover {
+    background: #f3f4f6;
+}
+
+.cfg-sheet-row-cancel {
+    color: #ef4444;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .cfg-wrapper {
+        padding: 16px 12px 28px;
+    }
+
+    .cfg-profile-layout,
+    .cfg-two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .cfg-access-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cfg-form-footer,
+    .cfg-form-footer-left {
+        justify-content: stretch;
+    }
+
+    .cfg-form-footer .cfg-btn,
+    .cfg-form-footer-left .cfg-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ===== UTILIDADES ===== */
+.cfg-text-danger {
+    color: #b91c1c;
+}
