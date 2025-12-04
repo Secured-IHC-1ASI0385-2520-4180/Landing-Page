@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitácora - Secured</title>
+
+    <!-- CSS específico de Bitácora -->
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/bitacora-policia.css" />
+
+    <!-- JS específico de Bitácora -->
+    <script src="Secured-Landing-Page/public/assets/scripts/bitacora-policia.js" defer></script>
+</head>
+<body class="bit-page">
+<main class="bit-wrapper">
+
+    <!-- ================= VISTA 1: BITÁCORA ================= -->
+    <section id="bit-main-view" class="bit-view bit-view-active">
+
+        <!-- Header -->
+        <header class="bit-header">
+            <button class="back-btn" onclick="window.location.href='home-policia.html'">←</button>
+
+            <div class="bit-header-text">
+                <p class="bit-case-code">INC-2024-004</p>
+                <h1 class="bit-title">Bitácora</h1>
+            </div>
+
+            <div class="bit-header-actions">
+                <button type="button"
+                        class="bit-icon-btn"
+                        aria-label="Buscar en bitácora"
+                        id="bitSearchBtn">
+                    🔍
+                </button>
+                <button type="button"
+                        class="bit-icon-btn"
+                        aria-label="Exportar bitácora a PDF"
+                        id="bitExportBtn">
+                    ⬇
+                </button>
+            </div>
+        </header>
+
+        <!-- Filtros -->
+        <section class="bit-filters-section">
+            <div class="bit-filters-header">
+                <span class="bit-filters-label">Filtros</span>
+                <button type="button"
+                        class="bit-filters-reset"
+                        id="bitResetFiltersBtn"
+                        hidden>
+                    Limpiar todo
+                </button>
+            </div>
+
+            <div class="bit-filters-row" role="list">
+                <button type="button" class="bit-filter-pill" data-tag="Asignación">Asignación</button>
+                <button type="button" class="bit-filter-pill" data-tag="Acuse">Acuse</button>
+                <button type="button" class="bit-filter-pill" data-tag="Estado">Estado</button>
+                <button type="button" class="bit-filter-pill" data-tag="Evidencia">Evidencia</button>
+                <button type="button" class="bit-filter-pill" data-tag="Nota">Nota</button>
+                <button type="button" class="bit-filter-pill" data-tag="Geo">Geo</button>
+                <button type="button" class="bit-filter-pill" data-tag="Sistema">Sistema</button>
+                <button type="button" class="bit-filter-pill" data-tag="Usuario">Usuario</button>
+            </div>
+
+            <p class="bit-entries-counter" id="bitEntriesCounter">
+                Mostrando 7 de 7 entradas
+            </p>
+        </section>
+
+        <!-- Entradas de la bitácora -->
+        <section class="bit-entries-grid" aria-label="Entradas de la bitácora">
+
+            <!-- 1. Asignación / Sistema -->
+            <article class="bit-entry-card" data-tags="Asignación,Sistema">
+                <header class="bit-entry-header">
+                    <div class="bit-avatar bit-avatar-system">S</div>
+                    <div class="bit-entry-title">
+                        <p class="bit-entry-author">Sistema</p>
+                        <p class="bit-entry-role">Asignación</p>
+                    </div>
+                    <span class="bit-entry-pill bit-pill-assignment">Asignación</span>
+                </header>
+
+                <p class="bit-entry-main">
+                    Unidad PNP-102 asignada al incidente.
+                </p>
+
+                <footer class="bit-entry-meta">
+                    <span>Hace 1 h</span>
+                </footer>
+            </article>
+
+            <!-- 2. Cambio de estado / Usuario -->
+            <article class="bit-entry-card" data-tags="Estado,Usuario">
+                <header class="bit-entry-header">
+                    <div class="bit-avatar">S</div>
+                    <div class="bit-entry-title">
+                        <p class="bit-entry-author">Sgto. Carlos Mendoza</p>
+                        <p class="bit-entry-role">Patrulla · PNP-102</p>
+                    </div>
+                    <span class="bit-entry-pill bit-pill-status">Estado</span>
+                </header>
+
+                <p class="bit-entry-main">
+                    Cambió estado del caso a <strong>“En curso”</strong>.
+                </p>
+
+                <footer class="bit-entry-meta">
+                    <span>Hace 54 min</span>
+                </footer>
+            </article>
+
+            <!-- 3. Nota / Usuario -->
+            <article class="bit-entry-card" data-tags="Nota,Usuario">
+                <header class="bit-entry-header">
+                    <div class="bit-avatar">S</div>
+                    <div class="bit-entry-title">
+                        <p class="bit-entry-author">Sgto. Luis Ramírez</p>
+                        <p class="bit-entry-role">Apoyo · U-23</p>
+                    </div>
+                    <span class="bit-entry-pill bit-pill-note">Nota</span>
+                </header>
+
+                <p class="bit-entry-main">
+                    Perímetro asegurado. Coordinando con ambulancia.
+                </p>
+
+                <footer class="bit-entry-meta">
+                    <span>Hace 40 min</span>
+                    <span class="bit-entry-meta-separator">•</span>
+                    <span>Editado</span>
+                </footer>
+            </article>
+
+            <!-- 4. Acuse / Usuario -->
+            <article class="bit-entry-card" data-tags="Acuse,Usuario">
+                <header class="bit-entry-header">
+                    <div class="bit-avatar">S</div>
+                    <div class="bit-entry-title">
+                        <p class="bit-entry-author">Sgto. Carlos Mendoza</p>
+                        <p class="bit-entry-role">Patrulla · PNP-102</p>
+                    </div>
+                    <span class="bit-entry-pill bit-pill-ack">Acuse</span>
+                </header>
+
+                <p class="bit-entry-main">
+                    Acuse confirmado. En ruta al lugar.
+                </p>
+
+                <footer class="bit-entry-meta">
+                    <span>Hace 59 min</span>
+                </footer>
+            </article>
+
+            <!-- 5. Geo / Sistema -->
+            <article class="bit-entry-card" data-tags="Geo,Sistema">
+                <header class="bit-entry-header">
+                    <div class="bit-avatar bit-avatar-system">S</div>
+                    <div class="bit-entry-title">
+                        <p class="bit-entry-author">Sistema</p>
+                        <p class="bit-entry-role">Geo</p>
+                    </div>
+                    <span class="bit-entry-pill bit-pill-geo">Geo</span>
+                </header>
+
+                <p class="bit-entry-main">
+                    PNP-102 llegó al sitio del incidente.
+                </p>
+
+                <div class="bit-geo-box">
+                    <p class="bit-geo-title">Ubicación registrada</p>
+                    <p class="bit-geo-address">
+                        Av. Universitaria con Av. Venezuela
+                    </p>
+                    <p class="bit-geo-coords">
+                        -12.05210, -77.08210
+                    </p>
+                </div>
+
+                <footer class="bit-entry-meta">
+                    <span>Hace 55 min</span>
+                </footer>
+            </article>
+
+            <!-- 6. Evidencia / Usuario -->
+            <article class="bit-entry-card" data-tags="Evidencia,Usuario">
+                <header class="bit-entry-header">
+                    <div class="bit-avatar">S</div>
+                    <div class="bit-entry-title">
+                        <p class="bit-entry-author">Sgto. Carlos Mendoza</p>
+                        <p class="bit-entry-role">Patrulla · PNP-102</p>
+                    </div>
+                    <span class="bit-entry-pill bit-pill-evidence">Evidencia</span>
+                </header>
+
+                <p class="bit-entry-main">
+                    Adjuntó evidencia fotográfica.
+                </p>
+
+                <div class="bit-attachment">
+                    <span class="bit-attachment-icon">📎</span>
+                    <span class="bit-attachment-name">escena_accidente.jpg</span>
+                </div>
+
+                <footer class="bit-entry-meta">
+                    <span>Hace 45 min</span>
+                </footer>
+            </article>
+
+            <!-- 7. Nota / Sistema -->
+            <article class="bit-entry-card" data-tags="Nota,Sistema">
+                <header class="bit-entry-header">
+                    <div class="bit-avatar bit-avatar-system">S</div>
+                    <div class="bit-entry-title">
+                        <p class="bit-entry-author">Sistema</p>
+                        <p class="bit-entry-role">Nota automática</p>
+                    </div>
+                    <span class="bit-entry-pill bit-pill-note">Nota</span>
+                </header>
+
+                <p class="bit-entry-main">
+                    Se registró la apertura del caso y se notificó a la central.
+                </p>
+
+                <footer class="bit-entry-meta">
+                    <span>Hace 1 h 5 min</span>
+                </footer>
+            </article>
+
+        </section>
+
+        <!-- CTA inferior -->
+        <section class="bit-footer-cta">
+            <button type="button" class="bit-primary-btn" id="bitNewEntryBtn">
+                + Nueva entrada
+            </button>
+        </section>
+
+    </section> <!-- /bit-main-view -->
+
+
+    <!-- ================= VISTA 2: EXPORTAR BITÁCORA ================= -->
+    <section id="bit-export-view" class="bit-view">
+
+        <header class="exp-header">
+            <button type="button"
+                    class="exp-back-btn"
+                    id="bitExportBackBtn"
+                    aria-label="Volver a bitácora">
+                ←
+            </button>
+            <div class="exp-header-text">
+                <p class="exp-case-code">INC-2024-004</p>
+                <h1 class="exp-title">Exportar bitácora</h1>
+            </div>
+        </header>
+
+        <section class="exp-layout">
+
+            <!-- Tarjeta resumen -->
+            <article class="exp-summary-card">
+                <div class="exp-summary-icon">📄</div>
+                <div class="exp-summary-body">
+                    <h2 class="exp-summary-title">Bitácora PDF</h2>
+                    <p class="exp-summary-code">INC-2024-004</p>
+                    <dl class="exp-summary-meta">
+                        <div>
+                            <dt>Total de entradas</dt>
+                            <dd>7</dd>
+                        </div>
+                        <div>
+                            <dt>Filtros aplicados</dt>
+                            <dd>No</dd>
+                        </div>
+                    </dl>
+                </div>
+            </article>
+
+            <!-- Panel derecho -->
+            <section class="exp-options">
+                <article class="exp-card">
+                    <h2 class="exp-card-title">Opciones de exportación</h2>
+
+                    <div class="exp-field-group">
+                        <p class="exp-field-label">Rango de fechas</p>
+
+                        <label class="exp-radio">
+                            <input type="radio" name="range" value="todas" checked>
+                            <span>Todas las entradas</span>
+                        </label>
+
+                        <label class="exp-radio">
+                            <input type="radio" name="range" value="hoy">
+                            <span>Solo hoy</span>
+                        </label>
+
+                        <label class="exp-radio">
+                            <input type="radio" name="range" value="semana">
+                            <span>Última semana</span>
+                        </label>
+                    </div>
+
+                    <div class="exp-field-group">
+                        <label class="exp-checkbox">
+                            <input type="checkbox" id="bitIncludeAttachments" checked>
+                            <span>Incluir adjuntos como referencias en el PDF</span>
+                        </label>
+                        <p class="exp-help-text">
+                            Los archivos adjuntos se listarán con sus IDs de referencia.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="exp-card exp-info-card">
+                    <h2 class="exp-card-title">Información del PDF</h2>
+                    <ul class="exp-info-list">
+                        <li>El PDF incluirá código de caso y folio único.</li>
+                        <li>Se registrarán metadatos de exportación (usuario, fecha y hora).</li>
+                        <li>Los filtros aplicados quedarán documentados en la portada.</li>
+                    </ul>
+                </article>
+            </section>
+
+        </section>
+
+        <section class="exp-footer">
+            <button type="button" class="exp-primary-btn" id="bitGeneratePdfBtn">
+                Generar PDF
+            </button>
+        </section>
+
+    </section> <!-- /bit-export-view -->
+
+</main>
+</body>
+</html>

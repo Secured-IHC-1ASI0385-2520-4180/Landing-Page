@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de geocercas</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/geocercas.css" />
+</head>
+<body>
+
+<!-- VISTA 1: Lista de geocercas -->
+<div id="vista-lista" class="vista active">
+    <header class="header">
+        <button class="back-btn" onclick="window.location.href='home-serenazgo.html'">←</button>
+        <div class="header-content">
+            <h1>Gestión de geocercas</h1>
+            <p class="subtitle" id="contador-geocercas">4 geocercas</p>
+        </div>
+        <button class="nueva-btn" onclick="crearNuevaGeocerca()">+ Nueva</button>
+    </header>
+
+    <!-- Búsqueda y filtros -->
+    <div class="busqueda-bar">
+        <input type="text" id="buscar-geocerca" placeholder="Filtros" />
+        <button class="descargar-btn" onclick="irAImportarExportar()">⬇</button>
+    </div>
+
+    <!-- Lista de geocercas -->
+    <div class="geocercas-lista">
+        <!-- Geocerca 1: Zona Centro -->
+        <div class="geocerca-card" onclick="editarGeocerca('geo-ctr-001')">
+            <div class="geocerca-icon zona">📍</div>
+            <div class="geocerca-info">
+                <div class="geocerca-header">
+                    <span class="geocerca-nombre">Zona Centro</span>
+                    <span class="geocerca-codigo">• GEO-CTR-001</span>
+                    <span class="estado-badge publicado">Publicado</span>
+                </div>
+                <div class="geocerca-meta">
+                    <span>Jurisdicción • Centro • v3</span>
+                </div>
+                <div class="geocerca-vigencia">
+                    📅 Vigencia: 01/11/2024
+                </div>
+                <div class="geocerca-modificado">
+                    Modificado: 28/10/2024 15:30 • Carlos Supervisor
+                </div>
+                <div class="geocerca-acciones">
+                    <button class="btn-icono" onclick="editarGeocerca('geo-ctr-001'); event.stopPropagation()">✏️ Editar</button>
+                    <button class="btn-icono" onclick="verImpacto('geo-ctr-001'); event.stopPropagation()">📊</button>
+                    <button class="btn-icono" onclick="verHistorial('geo-ctr-001'); event.stopPropagation()">🔄</button>
+                    <button class="btn-icono" onclick="verMas('geo-ctr-001'); event.stopPropagation()">›</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Geocerca 2: Zona de Riesgo -->
+        <div class="geocerca-card" onclick="editarGeocerca('geo-nrt-002')">
+            <div class="geocerca-icon riesgo">📍</div>
+            <div class="geocerca-info">
+                <div class="geocerca-header">
+                    <span class="geocerca-nombre">Zona de Riesgo</span>
+                    <span class="geocerca-codigo">• GEO-NRT-002</span>
+                    <span class="estado-badge publicado">Publicado</span>
+                </div>
+                <div class="geocerca-meta">
+                    <span>Zona de riesgo • Norte • v2</span>
+                </div>
+                <div class="geocerca-vigencia">
+                    📅 Vigencia: 15/10/2024 - 31/12/2024
+                </div>
+                <div class="geocerca-modificado">
+                    Modificado: 20/10/2024 10:15 • Ana Jefa
+                </div>
+                <div class="geocerca-acciones">
+                    <button class="btn-icono" onclick="editarGeocerca('geo-nrt-002'); event.stopPropagation()">✏️ Editar</button>
+                    <button class="btn-icono" onclick="verImpacto('geo-nrt-002'); event.stopPropagation()">📊</button>
+                    <button class="btn-icono" onclick="verHistorial('geo-nrt-002'); event.stopPropagation()">🔄</button>
+                    <button class="btn-icono" onclick="verMas('geo-nrt-002'); event.stopPropagation()">›</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Geocerca 3: Perímetro -->
+        <div class="geocerca-card" onclick="editarGeocerca('geo-sur-003')">
+            <div class="geocerca-icon perimetro">🏫</div>
+            <div class="geocerca-info">
+                <div class="geocerca-header">
+                    <span class="geocerca-nombre">Perímetro</span>
+                    <span class="geocerca-codigo">• GEO-SUR-003</span>
+                    <span class="estado-badge programado">Programado</span>
+                </div>
+                <div class="geocerca-meta">
+                    <span>Perímetro escuela • Sur • v1</span>
+                </div>
+                <div class="geocerca-vigencia">
+                    📅 Vigencia: 01/11/2024 07:00 - 31/12/2024 18:00
+                </div>
+                <div class="geocerca-modificado">
+                    Modificado: 29/10/2024 09:00 • Luis Admin
+                </div>
+                <div class="geocerca-acciones">
+                    <button class="btn-icono" onclick="editarGeocerca('geo-sur-003'); event.stopPropagation()">✏️ Editar</button>
+                    <button class="btn-icono" onclick="verImpacto('geo-sur-003'); event.stopPropagation()">📊</button>
+                    <button class="btn-icono" onclick="verHistorial('geo-sur-003'); event.stopPropagation()">🔄</button>
+                    <button class="btn-icono" onclick="verMas('geo-sur-003'); event.stopPropagation()">›</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Geocerca 4: Ruta Patrullaje -->
+        <div class="geocerca-card" onclick="editarGeocerca('geo-est-004')">
+            <div class="geocerca-icon ruta">🧭</div>
+            <div class="geocerca-info">
+                <div class="geocerca-header">
+                    <span class="geocerca-nombre">Ruta Patrullaje</span>
+                    <span class="geocerca-codigo">• GEO-EST-004</span>
+                    <span class="estado-badge borrador">Borrador</span>
+                </div>
+                <div class="geocerca-meta">
+                    <span>Ruta de patrullaje • Este • v1</span>
+                </div>
+                <div class="geocerca-vigencia">
+                    📅
+                </div>
+                <div class="geocerca-modificado">
+                    Modificado: 30/10/2024 16:45 • Pedro Operador
+                </div>
+                <div class="geocerca-acciones">
+                    <button class="btn-icono" onclick="editarGeocerca('geo-est-004'); event.stopPropagation()">✏️ Editar</button>
+                    <button class="btn-publicar-lista" onclick="publicarDirecto('geo-est-004'); event.stopPropagation()">📄 Publicar</button>
+                    <button class="btn-icono" onclick="verImpacto('geo-est-004'); event.stopPropagation()">📊</button>
+                    <button class="btn-icono" onclick="verMas('geo-est-004'); event.stopPropagation()">›</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- VISTA 2: Editar geocerca -->
+<div id="vista-editar" class="vista">
+    <header class="header">
+        <button class="back-btn" onclick="volverALista()">←</button>
+        <div class="header-content">
+            <h1>Editar geocerca</h1>
+            <p class="subtitle">Modo: polygon</p>
+        </div>
+    </header>
+
+    <div class="editor-content">
+        <div class="seccion-formulario">
+            <h2>Atributos</h2>
+
+            <div class="form-group">
+                <label>Nombre <span class="requerido">*</span></label>
+                <div class="input-con-check">
+                    <input type="text" id="nombre-geocerca" value="Zona Centro - Jurisdicción PNP" />
+                    <span class="check-icon">✓</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Código único <span class="requerido">*</span></label>
+                <div class="input-con-check">
+                    <input type="text" id="codigo-geocerca" value="GEO-CTR-001" />
+                    <span class="check-icon">✓</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Tipo <span class="requerido">*</span></label>
+                <input type="text" id="tipo-geocerca" placeholder="" />
+            </div>
+
+            <div class="form-group">
+                <label>Sector / Jurisdicción <span class="requerido">*</span></label>
+                <input type="text" id="sector-geocerca" placeholder="" />
+            </div>
+
+            <div class="form-group">
+                <label>Vigencia desde</label>
+                <input type="datetime-local" id="vigencia-desde" />
+            </div>
+
+            <div class="form-group">
+                <label>Vigencia hasta (opcional)</label>
+                <input type="datetime-local" id="vigencia-hasta" />
+            </div>
+
+            <div class="form-group">
+                <label>Notas</label>
+                <textarea id="notas-geocerca" placeholder="Información adicional..."></textarea>
+            </div>
+        </div>
+
+        <div class="seccion-validaciones">
+            <h3>Validaciones</h3>
+            <div class="validacion-item ok">
+                <span class="validacion-icon">✓</span>
+                <span>Topología válida (sin autointersecciones)</span>
+            </div>
+            <div class="validacion-item ok">
+                <span class="validacion-icon">✓</span>
+                <span>Sin solapes no permitidos</span>
+            </div>
+        </div>
+
+        <div class="botones-footer">
+            <button class="btn-secundario" onclick="guardarBorrador()">
+                📄 Guardar borrador
+            </button>
+            <button class="btn-primario" onclick="abrirModalPublicar()">
+                📄 Publicar
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- VISTA 3: Vista de impacto -->
+<div id="vista-impacto" class="vista">
+    <header class="header">
+        <button class="back-btn" onclick="volverALista()">←</button>
+        <div class="header-content">
+            <h1>Vista de impacto</h1>
+            <p class="subtitle">Zona Centro - Jurisdicción PNP</p>
+        </div>
+    </header>
+
+    <div class="impacto-content">
+        <!-- Resumen de impacto -->
+        <div class="resumen-impacto">
+            <h2>Resumen de impacto</h2>
+            <div class="impacto-grid">
+                <div class="impacto-card">
+                    <div class="impacto-icono azul">📍</div>
+                    <div class="impacto-info">
+                        <span class="impacto-label">Sectores afectados</span>
+                        <span class="impacto-valor">3</span>
+                    </div>
+                </div>
+                <div class="impacto-card">
+                    <div class="impacto-icono verde">👥</div>
+                    <div class="impacto-info">
+                        <span class="impacto-label">Unidades dentro</span>
+                        <span class="impacto-valor">12</span>
+                    </div>
+                </div>
+                <div class="impacto-card">
+                    <div class="impacto-icono naranja">⚠️</div>
+                    <div class="impacto-info">
+                        <span class="impacto-label">Unidades fuera</span>
+                        <span class="impacto-valor">8</span>
+                    </div>
+                </div>
+                <div class="impacto-card">
+                    <div class="impacto-icono rojo">🔴</div>
+                    <div class="impacto-info">
+                        <span class="impacto-label">Incidentes activos</span>
+                        <span class="impacto-valor">5</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Impacto en jurisdicción -->
+        <div class="impacto-seccion">
+            <div class="seccion-titulo">
+                <span class="titulo-icon">📍</span>
+                <h3>Impacto en jurisdicción (HU08)</h3>
+            </div>
+            <ul class="lista-impacto">
+                <li>Cambios en elegibilidad de unidades para despacho automático</li>
+                <li>Redefinición de límites de competencia PNP vs Serenazgo</li>
+                <li>Actualización de rutas de derivación entre jurisdicciones</li>
+            </ul>
+        </div>
+
+        <!-- Impacto en navegación -->
+        <div class="impacto-seccion">
+            <div class="seccion-titulo">
+                <span class="titulo-icon">🧭</span>
+                <h3>Impacto en navegación (HU17)</h3>
+            </div>
+            <ul class="lista-impacto">
+                <li>Rutas calculadas considerarán nueva geocerca como referencia</li>
+                <li>ETAs ajustados para unidades que ingresen/salgan de la zona</li>
+                <li>Alertas de cruce de jurisdicción activadas</li>
+            </ul>
+        </div>
+
+        <!-- Notas para analítica -->
+        <div class="impacto-seccion">
+            <div class="seccion-titulo">
+                <span class="titulo-icon">📊</span>
+                <h3>Notas para analítica (HU25)</h3>
+            </div>
+            <ul class="lista-impacto">
+                <li>KPIs se segmentarán por nueva área geográfica</li>
+                <li>Dashboards de sector Centro se actualizarán automáticamente</li>
+                <li>Reportes históricos mantendrán geocerca previa para comparación</li>
+            </ul>
+        </div>
+
+        <!-- Simulación de despacho -->
+        <div class="simulacion-box">
+            <div class="simulacion-icono">⚡</div>
+            <div class="simulacion-texto">
+                <strong>Simulación de despacho</strong>
+                <p>Los cambios en esta geocerca afectarán la elegibilidad de 12 unidad(es) para asignación automática según las reglas de jurisdicción.</p>
+            </div>
+        </div>
+
+        <div class="botones-footer">
+            <button class="btn-secundario" onclick="volverALista()">Volver</button>
+            <button class="btn-primario" onclick="confirmarCambios()">Confirmar cambios</button>
+        </div>
+    </div>
+</div>
+
+<!-- VISTA 4: Historial de versiones -->
+<div id="vista-historial" class="vista">
+    <header class="header">
+        <button class="back-btn" onclick="volverALista()">←</button>
+        <div class="header-content">
+            <h1>Historial de versiones</h1>
+            <p class="subtitle">Zona Centro - Jurisdicción PNP</p>
+        </div>
+    </header>
+
+    <div class="historial-content">
+        <h2>Historial de versiones</h2>
+
+        <!-- Versión 3 - Actual -->
+        <div class="version-card actual">
+            <div class="version-icon">📝</div>
+            <div class="version-info">
+                <div class="version-header">
+                    <span class="version-numero">v3</span>
+                    <span class="version-badge">Actual</span>
+                </div>
+                <p class="version-descripcion">Ajuste de límites norte según nueva jurisdicción</p>
+                <p class="version-meta">28/10/2024 15:30 • Carlos Supervisor</p>
+                <div class="version-acciones">
+                    <button class="btn-link" onclick="verCambiosVersion('v3')">Ver cambios</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Versión 2 -->
+        <div class="version-card">
+            <div class="version-icon">📝</div>
+            <div class="version-info">
+                <div class="version-header">
+                    <span class="version-numero">v2</span>
+                </div>
+                <p class="version-descripcion">Expansión de área de cobertura sector este</p>
+                <p class="version-meta">15/10/2024 10:20 • Ana Jefa</p>
+                <div class="version-acciones">
+                    <button class="btn-link" onclick="verCambiosVersion('v2')">Ver cambios</button>
+                    <button class="btn-link revertir" onclick="revertirVersion('v2')">Revertir a esta versión</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Versión 1 -->
+        <div class="version-card">
+            <div class="version-icon verde">📄</div>
+            <div class="version-info">
+                <div class="version-header">
+                    <span class="version-numero">v1</span>
+                </div>
+                <p class="version-descripcion">Versión inicial - Definición de jurisdicción Centro</p>
+                <p class="version-meta">01/10/2024 08:00 • Luis Admin</p>
+                <div class="version-acciones">
+                    <button class="btn-link" onclick="verCambiosVersion('v1')">Ver cambios</button>
+                    <button class="btn-link revertir" onclick="revertirVersion('v1')">Revertir a esta versión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- VISTA 5: Importar/Exportar -->
+<div id="vista-importar-exportar" class="vista">
+    <header class="header">
+        <button class="back-btn" onclick="volverALista()">←</button>
+        <div class="header-content">
+            <h1>Importar / Exportar</h1>
+            <p class="subtitle">Gestión masiva de geocercas</p>
+        </div>
+    </header>
+
+    <div class="importar-exportar-content">
+        <!-- Exportar -->
+        <div class="seccion-exportar">
+            <div class="seccion-header">
+                <div class="seccion-icon verde">⬇️</div>
+                <div>
+                    <h2>Exportar geocercas</h2>
+                    <p class="seccion-descripcion">Descarga las geocercas seleccionadas con metadatos</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Formato</label>
+                <select id="formato-exportar">
+                    <option value="">Seleccionar formato...</option>
+                    <option value="geojson">GeoJSON</option>
+                    <option value="kml">KML</option>
+                    <option value="shapefile">Shapefile</option>
+                </select>
+            </div>
+
+            <div class="checkbox-group">
+                <h4>Incluir metadatos</h4>
+                <label class="checkbox-label">
+                    <input type="checkbox" checked />
+                    <span>Atributos (nombre, código, tipo, sector)</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" checked />
+                    <span>Vigencia y programación</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" />
+                    <span>Historial de versiones</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" />
+                    <span>Auditoría (autor, modificaciones)</span>
+                </label>
+            </div>
+
+            <button class="btn-exportar" onclick="descargarExportacion()">
+                ⬇️ Descargar exportación
+            </button>
+        </div>
+
+        <!-- Importar -->
+        <div class="seccion-importar">
+            <div class="seccion-header">
+                <div class="seccion-icon azul">⬆️</div>
+                <div>
+                    <h2>Importar geocercas</h2>
+                    <p class="seccion-descripcion">Carga masiva desde KML o GeoJSON</p>
+                </div>
+            </div>
+
+            <div class="upload-area" onclick="document.getElementById('archivo-importar').click()">
+                <div class="upload-icon">⬆️</div>
+                <p class="upload-texto">Arrastra un archivo KML/ GeoJSON aquí</p>
+                <p class="upload-subtexto">o haz clic para seleccionar</p>
+                <input type="file" id="archivo-importar" accept=".kml,.geojson,.json" style="display: none;" onchange="procesarArchivoImportado(this)" />
+            </div>
+
+            <button class="btn-seleccionar" onclick="document.getElementById('archivo-importar').click()">
+                Seleccionar archivo
+            </button>
+
+            <div class="validaciones-box">
+                <div class="validaciones-icon">📋</div>
+                <div class="validaciones-texto">
+                    <strong>Validaciones automáticas</strong>
+                    <ul>
+                        <li>Reproyección al sistema de coordenadas interno</li>
+                        <li>Detección de autointersecciones</li>
+                        <li>Verificación de códigos únicos</li>
+                        <li>Validación de estructura GeoJSON/KML</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL: Publicar geocerca -->
+<div id="modal-publicar" class="modal">
+    <div class="modal-overlay" onclick="cerrarModalPublicar()"></div>
+    <div class="modal-content publicar-modal">
+        <button class="close-btn-top" onclick="cerrarModalPublicar()">✕</button>
+
+        <div class="modal-header-publicar">
+            <h2>Publicar geocerca</h2>
+            <p class="modal-subtitulo" id="modal-nombre-geocerca">Zona Centro - Jurisdicción PNP</p>
+        </div>
+
+        <div class="modal-body-publicar">
+            <!-- Checklist de validaciones -->
+            <div class="checklist-seccion">
+                <h3>Checklist de validaciones</h3>
+                <div class="checklist-item ok">
+                    <span class="checklist-icon">✓</span>
+                    <span>Topología válida (sin autointersecciones)</span>
+                </div>
+                <div class="checklist-item ok">
+                    <span class="checklist-icon">✓</span>
+                    <span>Sin solapes no permitidos</span>
+                </div>
+                <div class="checklist-item ok">
+                    <span class="checklist-icon">✓</span>
+                    <span>Atributos completos</span>
+                </div>
+            </div>
+
+            <!-- Modo de publicación -->
+            <div class="publicacion-modo">
+                <h3>Modo de publicación</h3>
+                <div class="modo-opcion seleccionada" onclick="seleccionarModoPublicacion(this)">
+                    <div class="modo-radio">
+                        <div class="radio-dot"></div>
+                    </div>
+                    <div class="modo-info">
+                        <strong>📄 Publicar ahora</strong>
+                        <p>Activa inmediatamente</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Justificación -->
+            <div class="form-group">
+                <label>Justificación (opcional)</label>
+                <textarea id="justificacion-publicar" placeholder="Describe el motivo de esta publicación..."></textarea>
+            </div>
+        </div>
+
+        <div class="modal-footer-publicar">
+            <button class="btn-modal-secundario" onclick="cerrarModalPublicar()">Cancelar</button>
+            <button class="btn-modal-primario" onclick="publicarGeocerca()">Publicar ahora</button>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="Secured-Landing-Page/public/assets/images/secured-logo-white.png" alt="Secured Logo" />
+            </div>
+            <p class="footer-description">Coordinación inteligente para Serenazgo y Policía</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Solución</a></li>
+                <li><a href="#">Startup</a></li>
+                <li><a href="#">Equipo</a></li>
+                <li><a href="#">Seguridad</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="#">Soporte</a></li>
+                <li><a href="#">Documentación</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Términos de servicio</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul class="contact-list">
+                <li>
+                    <span class="icon">✉</span>
+                    <a href="mailto:contacto@secured.pe">contacto@secured.pe</a>
+                </li>
+                <li>
+                    <span class="icon">📞</span>
+                    <a href="tel:+51987654321">+51 987 654 321</a>
+                </li>
+                <li>
+                    <span class="icon">📍</span>
+                    <span>Lima, Perú</span>
+                </li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p class="privacy-note">Secured no recopila información personal identificable sin consentimiento explícito. Ver <a href="#">Política de Privacidad</a></p>
+    </div>
+</footer>
+
+<!-- JS específico -->
+<script src="Secured-Landing-Page/public/assets/scripts/geocercas.js"></script>
+</body>
+</html>
+

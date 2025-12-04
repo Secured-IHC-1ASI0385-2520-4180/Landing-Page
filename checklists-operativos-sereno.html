@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checklists operativos</title>
+
+    <!-- CSS específico de esta sección -->
+    <link
+            rel="stylesheet"
+            href="Secured-Landing-Page/public/assets/styles/checklists-operativos.css"
+    />
+</head>
+<body class="chk-page">
+<main class="chk-wrapper">
+
+    <!-- VISTA PRINCIPAL: CHECKLIST OPERATIVO -->
+    <section class="chk-view chk-view-active" data-view="principal">
+        <header class="chk-page-header">
+            <!-- AQUÍ ESTÁ EL CAMBIO: link fijo en lugar de history.back() -->
+            <a
+                    href="home-serenazgo.html"
+                    class="chk-back-link"
+                    aria-label="Volver"
+            >
+                ←
+            </a>
+
+            <div class="chk-header-text">
+                <h1 class="chk-page-title">Checklist operativo</h1>
+                <p class="chk-page-subtitle">INC-2024-003</p>
+            </div>
+
+            <button
+                    class="chk-icon-button"
+                    type="button"
+                    aria-label="Ver métricas"
+            >
+                📊
+            </button>
+        </header>
+
+        <!-- Progreso general -->
+        <section class="chk-progress-card">
+            <div class="chk-progress-header">
+                <span class="chk-progress-label">Progreso</span>
+                <span class="chk-progress-stage">Accidente de tránsito</span>
+                <span class="chk-progress-steps">1/4 pasos</span>
+            </div>
+            <div class="chk-progress-bar-wrapper">
+                <div class="chk-progress-bar">
+                    <div class="chk-progress-bar-fill" style="width: 25%;"></div>
+                </div>
+            </div>
+            <p class="chk-progress-meta">
+                ⏱ Transcurrido: 0 min · Objetivo: 15 min
+            </p>
+        </section>
+
+        <!-- Bloques de estado (izquierda) + pasos (derecha) -->
+        <section class="chk-main-layout">
+            <div class="chk-main-left">
+                <!-- Bloque de pasos críticos -->
+                <article class="chk-critical-card">
+                    <header class="chk-critical-header">
+                        <div>
+                            <p class="chk-critical-title">Pasos críticos:</p>
+                            <p class="chk-critical-count">1/2</p>
+                        </div>
+                        <span class="chk-critical-pendiente">1 pendiente</span>
+                    </header>
+                    <p class="chk-critical-warning">
+                        🚫 No se puede cerrar el caso<br />
+                        <span>
+                            Hay pasos críticos pendientes que deben completarse o
+                            justificarse antes de cerrar el incidente.
+                        </span>
+                    </p>
+                </article>
+
+                <!-- Texto de ayuda -->
+                <article class="chk-help-card">
+                    <p class="chk-help-title">Pasos del checklist</p>
+                    <p class="chk-help-text">
+                        Completa los pasos obligatorios y adjunta evidencia cuando sea
+                        requerida. Los pasos críticos son indispensables.
+                    </p>
+                </article>
+            </div>
+
+            <!-- Lista de pasos -->
+            <div class="chk-main-right">
+                <section class="chk-steps-section">
+                    <h2 class="chk-section-title">Pasos del checklist</h2>
+
+                    <!-- Paso 1: va a vista paso1 -->
+                    <button
+                            type="button"
+                            class="chk-step-card chk-step-completed"
+                            data-goto="paso1"
+                    >
+                        <div class="chk-step-number-pill">#1</div>
+                        <div class="chk-step-main">
+                            <div class="chk-step-header-row">
+                                <h3 class="chk-step-title">Asegurar la escena</h3>
+                                <span class="chk-badge chk-badge-critical">Crítico</span>
+                            </div>
+                            <p class="chk-step-description">
+                                Colocar señalización y delimitar el área
+                            </p>
+                            <p class="chk-step-meta">
+                                📷 Evidencia requerida: foto · ⏱ Objetivo: 2 min
+                            </p>
+                        </div>
+                        <span class="chk-step-status chk-step-status-done">
+                            ✔ Completado
+                        </span>
+                    </button>
+
+                    <!-- Paso 2 (solo display) -->
+                    <div class="chk-step-card">
+                        <div class="chk-step-number-pill">#2</div>
+                        <div class="chk-step-main">
+                            <div class="chk-step-header-row">
+                                <h3 class="chk-step-title">Evaluar heridos</h3>
+                                <span class="chk-badge chk-badge-critical">Crítico</span>
+                            </div>
+                            <p class="chk-step-description">
+                                Verificar estado de personas y solicitar ambulancia si es
+                                necesario
+                            </p>
+                            <p class="chk-step-meta">
+                                📝 Evidencia requerida: nota, foto · ⏱ Objetivo: 3 min
+                            </p>
+                        </div>
+                        <span class="chk-step-status chk-step-status-pending">
+                            Pendiente
+                        </span>
+                    </div>
+
+                    <!-- Paso 3: va a vista paso3 -->
+                    <button
+                            type="button"
+                            class="chk-step-card"
+                            data-goto="paso3"
+                    >
+                        <div class="chk-step-number-pill">#3</div>
+                        <div class="chk-step-main">
+                            <div class="chk-step-header-row">
+                                <h3 class="chk-step-title">
+                                    Identificar vehículos involucrados
+                                </h3>
+                                <span class="chk-badge chk-badge-obligatorio">
+                                    Obligatorio
+                                </span>
+                            </div>
+                            <p class="chk-step-description">
+                                Registrar placas y datos de conductores
+                            </p>
+                            <p class="chk-step-meta">
+                                📷 Evidencia requerida: foto o nota · ⏱ Objetivo: 5 min
+                            </p>
+                        </div>
+                        <span class="chk-step-status chk-step-status-pending">
+                            Pendiente
+                        </span>
+                    </button>
+
+                    <!-- Paso 4 (solo display) -->
+                    <div class="chk-step-card">
+                        <div class="chk-step-number-pill">#4</div>
+                        <div class="chk-step-main">
+                            <div class="chk-step-header-row">
+                                <h3 class="chk-step-title">Fotografiar la escena</h3>
+                                <span class="chk-badge chk-badge-obligatorio">
+                                    Obligatorio
+                                </span>
+                            </div>
+                            <p class="chk-step-description">
+                                Capturar ángulos generales y detalles de daños
+                            </p>
+                            <p class="chk-step-meta">
+                                📷 Evidencia requerida: foto
+                            </p>
+                        </div>
+                        <span class="chk-step-status chk-step-status-pending">
+                            Pendiente
+                        </span>
+                    </div>
+                </section>
+
+                <!-- Pasos condicionales -->
+                <section class="chk-conditional-section">
+                    <h2 class="chk-section-title">Pasos condicionales no activos</h2>
+                    <p class="chk-conditional-description">
+                        Los siguientes pasos se activarán si se cumplen sus condiciones:
+                    </p>
+                    <ul class="chk-conditional-list">
+                        <li>
+                            Notificar a SUTRAN ·
+                            <span class="chk-conditional-note">
+                                Si el accidente involucra transporte público
+                            </span>
+                        </li>
+                    </ul>
+
+                    <button
+                            type="button"
+                            class="chk-secondary-button"
+                            data-goto="resumen"
+                    >
+                        👁 Ver revisión completa
+                    </button>
+                </section>
+            </div>
+        </section>
+    </section>
+
+    <!-- VISTA PASO 1 -->
+    <section class="chk-view" data-view="paso1">
+        <header class="chk-page-header">
+            <button
+                    type="button"
+                    class="chk-back-link"
+                    aria-label="Volver"
+                    data-goto="principal"
+            >
+                ←
+            </button>
+            <div class="chk-header-text">
+                <h1 class="chk-page-title">Paso #1</h1>
+                <p class="chk-page-subtitle">INC-2024-003</p>
+            </div>
+        </header>
+
+        <section class="chk-step-detail">
+            <article class="chk-step-detail-card">
+                <header class="chk-step-detail-header">
+                    <h2 class="chk-step-detail-title">Asegurar la escena</h2>
+                    <span class="chk-badge chk-badge-critical">Crítico</span>
+                </header>
+                <p class="chk-step-detail-text">
+                    Colocar señalización y delimitar el área.
+                </p>
+
+                <div class="chk-detail-block">
+                    <h3 class="chk-detail-block-title">Criterios de cumplimiento</h3>
+                    <p class="chk-detail-block-text">
+                        Conos/cintas colocados, tráfico desviado.
+                    </p>
+                </div>
+
+                <div class="chk-detail-block">
+                    <h3 class="chk-detail-block-title">Tiempo objetivo</h3>
+                    <p class="chk-detail-block-text">2 minutos</p>
+                </div>
+
+                <div class="chk-detail-block">
+                    <h3 class="chk-detail-block-title">Evidencia requerida</h3>
+                    <p class="chk-detail-block-text">
+                        📷 Foto (1 evidencia adjunta en este ejemplo)
+                    </p>
+                </div>
+            </article>
+
+            <div class="chk-step-detail-footer">
+                <button
+                        type="button"
+                        class="chk-primary-button"
+                        data-goto="principal"
+                >
+                    ✔ Paso completado
+                </button>
+            </div>
+        </section>
+    </section>
+
+    <!-- VISTA PASO 3 -->
+    <section class="chk-view" data-view="paso3">
+        <header class="chk-page-header">
+            <button
+                    type="button"
+                    class="chk-back-link"
+                    aria-label="Volver"
+                    data-goto="principal"
+            >
+                ←
+            </button>
+            <div class="chk-header-text">
+                <h1 class="chk-page-title">Paso #3</h1>
+                <p class="chk-page-subtitle">INC-2024-003</p>
+            </div>
+        </header>
+
+        <section class="chk-step-detail">
+            <article class="chk-step-detail-card">
+                <header class="chk-step-detail-header">
+                    <h2 class="chk-step-detail-title">
+                        Identificar vehículos involucrados
+                    </h2>
+                    <span class="chk-badge chk-badge-obligatorio">
+                        Obligatorio
+                    </span>
+                </header>
+                <p class="chk-step-detail-text">
+                    Registrar placas y datos de conductores.
+                </p>
+
+                <div class="chk-detail-block">
+                    <h3 class="chk-detail-block-title">Tiempo objetivo</h3>
+                    <p class="chk-detail-block-text">5 minutos</p>
+                </div>
+
+                <div class="chk-detail-block">
+                    <h3 class="chk-detail-block-title">Evidencia requerida</h3>
+                    <p class="chk-detail-block-text">
+                        Foto o nota. Debes adjuntar al menos una evidencia para
+                        completar este paso.
+                    </p>
+                </div>
+
+                <p class="chk-warning-inline">
+                    ⚠ Debes adjuntar al menos una evidencia para completar este paso.
+                </p>
+            </article>
+
+            <div class="chk-step-detail-footer chk-step-detail-footer-split">
+                <button
+                        type="button"
+                        class="chk-secondary-button"
+                >
+                    Marcar en curso
+                </button>
+
+                <button
+                        type="button"
+                        class="chk-disabled-button"
+                        disabled
+                >
+                    Completar paso
+                </button>
+
+                <button
+                        type="button"
+                        class="chk-tertiary-button chk-tertiary-danger"
+                        data-goto="motivo-salto"
+                >
+                    ⛔ Saltar paso
+                </button>
+            </div>
+        </section>
+    </section>
+
+    <!-- VISTA MOTIVO DE SALTO (MODAL A PANTALLA COMPLETA) -->
+    <section class="chk-view" data-view="motivo-salto">
+        <div class="chk-modal-overlay">
+            <div class="chk-modal">
+                <header class="chk-modal-header">
+                    <h1 class="chk-modal-title">Motivo de salto</h1>
+                    <p class="chk-modal-subtitle">
+                        Paso: Identificar vehículos involucrados
+                    </p>
+                    <button
+                            type="button"
+                            class="chk-modal-close"
+                            aria-label="Cerrar"
+                            data-goto="paso3"
+                    >
+                        ✕
+                    </button>
+                </header>
+
+                <div class="chk-modal-body">
+                    <label class="chk-field-label" for="motivo-salto-textarea">
+                        Explica por qué no se puede completar este paso...
+                    </label>
+                    <textarea
+                            id="motivo-salto-textarea"
+                            class="chk-textarea"
+                            rows="5"
+                            placeholder="Mínimo 20 caracteres..."
+                    ></textarea>
+                    <p class="chk-field-helper">
+                        Mínimo 20 caracteres.
+                    </p>
+                </div>
+
+                <footer class="chk-modal-footer">
+                    <button
+                            type="button"
+                            class="chk-secondary-button"
+                            data-goto="paso3"
+                    >
+                        Cancelar
+                    </button>
+                    <button
+                            type="button"
+                            class="chk-primary-button"
+                            data-goto="resumen"
+                    >
+                        Confirmar salto
+                    </button>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISTA RESUMEN DE CUMPLIMIENTO -->
+    <section class="chk-view" data-view="resumen">
+        <header class="chk-page-header">
+            <button
+                    type="button"
+                    class="chk-back-link"
+                    aria-label="Volver"
+                    data-goto="principal"
+            >
+                ←
+            </button>
+            <div class="chk-header-text">
+                <h1 class="chk-page-title">Resumen de cumplimiento</h1>
+                <p class="chk-page-subtitle">INC-2024-003</p>
+            </div>
+        </header>
+
+        <section class="chk-resumen-layout">
+            <div class="chk-resumen-left">
+                <div class="chk-resumen-grid">
+                    <article class="chk-resumen-card">
+                        <p class="chk-resumen-label">Total de pasos</p>
+                        <p class="chk-resumen-value">4</p>
+                    </article>
+
+                    <article class="chk-resumen-card chk-resumen-card-success">
+                        <p class="chk-resumen-label">Completados</p>
+                        <p class="chk-resumen-value">1</p>
+                        <p class="chk-resumen-extra">25%</p>
+                    </article>
+
+                    <article class="chk-resumen-card chk-resumen-card-info">
+                        <p class="chk-resumen-label">Pasos críticos</p>
+                        <p class="chk-resumen-value">1/2</p>
+                    </article>
+
+                    <article class="chk-resumen-card chk-resumen-card-warning">
+                        <p class="chk-resumen-label">Saltados</p>
+                        <p class="chk-resumen-value">0</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="chk-resumen-right">
+                <h2 class="chk-section-title">Pasos pendientes (4)</h2>
+
+                <button
+                        type="button"
+                        class="chk-resumen-step"
+                        data-goto="paso3"
+                >
+                    <div class="chk-resumen-step-number">#2</div>
+                    <div class="chk-resumen-step-main">
+                        <p class="chk-resumen-step-title">Evaluar heridos</p>
+                        <p class="chk-resumen-step-subtitle">Crítico</p>
+                    </div>
+                    <span class="chk-resumen-step-arrow">➝</span>
+                </button>
+
+                <button
+                        type="button"
+                        class="chk-resumen-step"
+                        data-goto="paso3"
+                >
+                    <div class="chk-resumen-step-number">#3</div>
+                    <div class="chk-resumen-step-main">
+                        <p class="chk-resumen-step-title">
+                            Identificar vehículos involucrados
+                        </p>
+                        <p class="chk-resumen-step-subtitle">Obligatorio</p>
+                    </div>
+                    <span class="chk-resumen-step-arrow">➝</span>
+                </button>
+
+                <button
+                        type="button"
+                        class="chk-resumen-step"
+                >
+                    <div class="chk-resumen-step-number">#4</div>
+                    <div class="chk-resumen-step-main">
+                        <p class="chk-resumen-step-title">
+                            Fotografiar la escena
+                        </p>
+                        <p class="chk-resumen-step-subtitle">Obligatorio</p>
+                    </div>
+                    <span class="chk-resumen-step-arrow">➝</span>
+                </button>
+            </div>
+        </section>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="Secured-Landing-Page/public/assets/images/secured-logo-white.png" alt="Secured Logo" />
+            </div>
+            <p class="footer-description">Coordinación inteligente para Serenazgo y Policía</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Solución</a></li>
+                <li><a href="#">Startup</a></li>
+                <li><a href="#">Equipo</a></li>
+                <li><a href="#">Seguridad</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="#">Soporte</a></li>
+                <li><a href="#">Documentación</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Términos de servicio</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul class="contact-list">
+                <li>
+                    <span class="icon">✉</span>
+                    <a href="mailto:contacto@secured.pe">contacto@secured.pe</a>
+                </li>
+                <li>
+                    <span class="icon">📞</span>
+                    <a href="tel:+51987654321">+51 987 654 321</a>
+                </li>
+                <li>
+                    <span class="icon">📍</span>
+                    <span>Lima, Perú</span>
+                </li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p class="privacy-note">Secured no recopila información personal identificable sin consentimiento explícito. Ver <a href="#">Política de Privacidad</a></p>
+    </div>
+</footer>
+
+<!-- JS para manejar el flujo -->
+<script src="Secured-Landing-Page/public/assets/scripts/checklists-operativos.js"></script>
+</body>
+</html>

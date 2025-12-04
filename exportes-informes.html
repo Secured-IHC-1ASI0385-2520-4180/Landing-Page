@@ -43,6 +43,95 @@
             padding: 10px;
             border-radius: 6px;
         }
+        /* Estilos para el footer */
+        .footer {
+            background-color: #111827; /* gris muy oscuro */
+            color: white;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-right: 20px;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .footer-logo img {
+            max-width: 50px;
+            margin-right: 10px;
+        }
+        .footer-description {
+            font-size: 14px;
+            color: #9ca3af; /* gris claro */
+        }
+        .footer h4 {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #f3f4f6; /* gris muy claro */
+        }
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer ul li {
+            margin-bottom: 8px;
+        }
+        .footer ul li a {
+            color: #60a5fa; /* azul claro */
+            text-decoration: none;
+        }
+        .footer ul li a:hover {
+            text-decoration: underline;
+        }
+        .contact-list {
+            padding-left: 0;
+        }
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .contact-list .icon {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+        .social-icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: #374151; /* gris oscuro */
+            color: white;
+            text-align: center;
+            line-height: 24px;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        .social-icon:hover {
+            background-color: #60a5fa; /* azul claro */
+        }
+        .footer-bottom {
+            margin-top: 20px;
+            border-top: 1px solid #374151; /* línea superior gris oscuro */
+            padding-top: 10px;
+            text-align: center;
+        }
+        .privacy-note {
+            font-size: 12px;
+            color: #9ca3af; /* gris claro */
+        }
     </style>
 </head>
 <body>
@@ -213,6 +302,68 @@
         </div>
     </div>
 </div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="Secured-Landing-Page/public/assets/images/secured-logo-white.png" alt="Secured Logo" />
+            </div>
+            <p class="footer-description">Coordinación inteligente para Serenazgo y Policía</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Solución</a></li>
+                <li><a href="#">Startup</a></li>
+                <li><a href="#">Equipo</a></li>
+                <li><a href="#">Seguridad</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="#">Soporte</a></li>
+                <li><a href="#">Documentación</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Términos de servicio</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul class="contact-list">
+                <li>
+                    <span class="icon">✉</span>
+                    <a href="mailto:contacto@secured.pe">contacto@secured.pe</a>
+                </li>
+                <li>
+                    <span class="icon">📞</span>
+                    <a href="tel:+51987654321">+51 987 654 321</a>
+                </li>
+                <li>
+                    <span class="icon">📍</span>
+                    <span>Lima, Perú</span>
+                </li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p class="privacy-note">Secured no recopila información personal identificable sin consentimiento explícito. Ver <a href="#">Política de Privacidad</a></p>
+    </div>
+</footer>
+
 <script src="Secured-Landing-Page/public/assets/scripts/exportes-informes.js"></script>
 </body>
 </html>

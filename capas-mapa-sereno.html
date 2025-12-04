@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapa con Capas</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/capas-mapa.css" />
+</head>
+<body>
+
+<div class="container">
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar" id="sidebar">
+        <header class="topbar">
+            <a href="home-serenazgo.html" class="back" aria-label="volver">←</a>
+            <div class="title">
+                Mapa de calor <span class="subtitle">Análisis de concentración</span>
+            </div>
+        </header>
+        <p>Vista actual: <strong>Calle</strong></p>
+
+        <!-- Vista base -->
+        <div class="section">
+            <h3>Vista base</h3>
+            <button class="layer-btn" onclick="cambiarMapa('Secured-Landing-Page/public/assets/images/capa.png')">
+                Calle
+            </button>
+            <button class="layer-btn" onclick="cambiarMapa('Secured-Landing-Page/public/assets/images/satelite.png')">
+                Satélite
+            </button>
+        </div>
+
+        <!-- Capas operativas -->
+        <div class="section">
+            <h3>Capas operativas</h3>
+            <button class="mini-btn">Incidentes</button>
+            <button class="mini-btn">Unidades</button>
+            <button class="mini-btn">POI</button>
+            <button class="mini-btn">Cámaras</button>
+            <button class="mini-btn">Alarmas vecinales</button>
+            <button class="mini-btn">Geocercas</button>
+            <button class="mini-btn">Sectores</button>
+        </div>
+
+        <!-- Filtros rápidos -->
+        <div class="section">
+            <h3>Filtros rápidos</h3>
+
+            <p>Incidentes - Prioridad</p>
+            <div class="btn-group">
+                <button onclick="activar(this)">Alta</button>
+                <button onclick="activar(this)">Media</button>
+                <button onclick="activar(this)">Baja</button>
+            </div>
+
+            <p>Incidentes - Estado</p>
+            <div class="btn-group">
+                <button onclick="activar(this)">Pendiente</button>
+                <button onclick="activar(this)">En curso</button>
+                <button onclick="activar(this)">Cerrado</button>
+            </div>
+
+            <p>Unidades - Estado</p>
+            <div class="btn-group">
+                <button onclick="activar(this)">Disponible</button>
+                <button onclick="activar(this)">En servicio</button>
+                <button onclick="activar(this)">Fuera de servicio</button>
+            </div>
+        </div>
+
+        <!-- Leyenda -->
+        <div class="section">
+            <h3>Leyenda</h3>
+            <p><strong>Incidentes</strong></p>
+            <ul>
+                <li>🔴 Alta prioridad</li>
+                <li>🟠 Media prioridad</li>
+                <li>🔵 Baja prioridad</li>
+            </ul>
+
+            <p><strong>Unidades</strong></p>
+            <ul>
+                <li>🟢 Disponible</li>
+                <li>🔵 En servicio</li>
+                <li>⚫ Fuera de servicio</li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- FLECHA PARA PLEGAR -->
+    <div class="toggle-arrow" id="toggleArrow" onclick="toggleSidebar()">
+        ◀
+    </div>
+
+    <!-- MAPA -->
+    <main class="map-area">
+        <img id="mapImage" src="Secured-Landing-Page/public/assets/images/capa.png" alt="Mapa" />
+    </main>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="Secured-Landing-Page/public/assets/images/secured-logo-white.png" alt="Secured Logo" />
+            </div>
+            <p class="footer-description">Coordinación inteligente para Serenazgo y Policía</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Solución</a></li>
+                <li><a href="#">Startup</a></li>
+                <li><a href="#">Equipo</a></li>
+                <li><a href="#">Seguridad</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="#">Soporte</a></li>
+                <li><a href="#">Documentación</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Términos de servicio</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul class="contact-list">
+                <li>
+                    <span class="icon">✉</span>
+                    <a href="mailto:contacto@secured.pe">contacto@secured.pe</a>
+                </li>
+                <li>
+                    <span class="icon">📞</span>
+                    <a href="tel:+51987654321">+51 987 654 321</a>
+                </li>
+                <li>
+                    <span class="icon">📍</span>
+                    <span>Lima, Perú</span>
+                </li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p class="privacy-note">Secured no recopila información personal identificable sin consentimiento explícito. Ver <a href="#">Política de Privacidad</a></p>
+    </div>
+</footer>
+
+<!-- JS específico de esta sección -->
+<script src="Secured-Landing-Page/public/assets/scripts/capas-mapa.js"></script>
+</body>
+</html>

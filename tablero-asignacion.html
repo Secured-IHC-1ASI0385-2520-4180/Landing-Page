@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tablero de Asignaciones - Secured</title>
+
+    <!-- CSS específico de esta pantalla -->
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/tablero-asignacion.css" />
+</head>
+<body class="tablero-asignacion-page">
+<main class="ta-wrapper">
+
+    <!-- VISTA 1: TODAS LAS ASIGNACIONES -->
+    <section class="ta-view ta-view-active" data-view="todas">
+        <header class="ta-page-header">
+            <a href="home-serenazgo.html" class="ta-back-button" aria-label="Volver">
+                ←
+            </a>
+            <div class="ta-header-text">
+                <h1 class="ta-page-title">Tablero de asignaciones</h1>
+                <p class="ta-page-subtitle">Seguimiento de acuses</p>
+            </div>
+        </header>
+
+        <!-- Tarjeta de pendientes -->
+        <section class="ta-card ta-pending-card">
+            <div class="ta-pending-info">
+                <div class="ta-pending-label">Pendientes de acuse</div>
+                <div class="ta-pending-number">3</div>
+            </div>
+            <button type="button" class="ta-btn ta-btn-danger" id="btnVerPendientes">
+                Ver pendientes
+            </button>
+        </section>
+
+        <!-- Filtros -->
+        <section class="ta-filters">
+            <div class="ta-filter-label">
+                <span class="ta-filter-icon">🔽</span>
+                Filtrar por estado
+            </div>
+            <div class="ta-filter-tabs">
+                <button type="button" class="ta-filter-tab ta-filter-tab-active" data-filter="todas">
+                    Todas
+                </button>
+                <button type="button" class="ta-filter-tab" data-filter="esperando">
+                    Esperando
+                </button>
+                <button type="button" class="ta-filter-tab" data-filter="recordatorio">
+                    Recordatorio
+                </button>
+                <button type="button" class="ta-filter-tab" data-filter="recibidas">
+                    Recibidas
+                </button>
+            </div>
+        </section>
+
+        <!-- Lista de asignaciones -->
+        <section class="ta-assignments">
+            <div class="ta-assignments-count">5 asignaciones</div>
+
+            <!-- Asignación 1 -->
+            <article class="ta-assignment-card">
+                <header class="ta-assignment-header">
+                    <div class="ta-assignment-info">
+                        <h3 class="ta-assignment-id">INC-2025-042</h3>
+                        <p class="ta-assignment-type">Robo en progreso</p>
+                    </div>
+                    <button type="button" class="ta-menu-button" aria-label="Más opciones">
+                        ⋮
+                    </button>
+                </header>
+
+                <div class="ta-assignment-unit">
+                    <span class="ta-unit-label">Unidad:</span>
+                    <span class="ta-unit-value">Patrulla 3</span>
+                </div>
+                <div class="ta-assignment-code">P-003</div>
+
+                <div class="ta-assignment-time">Hace 2 min</div>
+
+                <div class="ta-status-badge ta-status-esperando">
+                    <span class="ta-status-icon">⏱️</span>
+                    Esperando acuse
+                </div>
+            </article>
+
+            <!-- Asignación 2 -->
+            <article class="ta-assignment-card">
+                <header class="ta-assignment-header">
+                    <div class="ta-assignment-info">
+                        <h3 class="ta-assignment-id">INC-2025-041</h3>
+                        <p class="ta-assignment-type">Accidente de tránsito</p>
+                    </div>
+                    <button type="button" class="ta-menu-button" aria-label="Más opciones">
+                        ⋮
+                    </button>
+                </header>
+
+                <div class="ta-assignment-unit">
+                    <span class="ta-unit-label">Unidad:</span>
+                    <span class="ta-unit-value">Serenazgo A</span>
+                </div>
+                <div class="ta-assignment-code">S-001</div>
+
+                <div class="ta-assignment-time">Hace 15 min</div>
+
+                <div class="ta-status-badge ta-status-recibida">
+                    <span class="ta-status-icon">✓</span>
+                    Recibido 10:45
+                </div>
+            </article>
+
+            <!-- Asignación 3 -->
+            <article class="ta-assignment-card">
+                <header class="ta-assignment-header">
+                    <div class="ta-assignment-info">
+                        <h3 class="ta-assignment-id">INC-2025-039</h3>
+                        <p class="ta-assignment-type">Disturbio</p>
+                    </div>
+                    <button type="button" class="ta-menu-button" aria-label="Más opciones">
+                        ⋮
+                    </button>
+                </header>
+
+                <div class="ta-assignment-unit">
+                    <span class="ta-unit-label">Unidad:</span>
+                    <span class="ta-unit-value">Patrulla 7</span>
+                </div>
+                <div class="ta-assignment-code">P-007</div>
+
+                <div class="ta-assignment-time">Hace 8 min</div>
+
+                <div class="ta-status-badge ta-status-recordatorio">
+                    <span class="ta-status-icon">🔔</span>
+                    Recordatorio enviado
+                </div>
+            </article>
+
+            <!-- Asignación 4 -->
+            <article class="ta-assignment-card">
+                <header class="ta-assignment-header">
+                    <div class="ta-assignment-info">
+                        <h3 class="ta-assignment-id">INC-2025-038</h3>
+                        <p class="ta-assignment-type">Alarma activada</p>
+                    </div>
+                    <button type="button" class="ta-menu-button" aria-label="Más opciones">
+                        ⋮
+                    </button>
+                </header>
+
+                <div class="ta-assignment-unit">
+                    <span class="ta-unit-label">Unidad:</span>
+                    <span class="ta-unit-value">Patrulla 2</span>
+                </div>
+                <div class="ta-assignment-code">P-002</div>
+
+                <div class="ta-assignment-time">Hace 20 min</div>
+
+                <div class="ta-status-badge ta-status-esperando">
+                    <span class="ta-status-icon">⏱️</span>
+                    Esperando acuse
+                </div>
+            </article>
+
+            <!-- Asignación 5 -->
+            <article class="ta-assignment-card">
+                <header class="ta-assignment-header">
+                    <div class="ta-assignment-info">
+                        <h3 class="ta-assignment-id">INC-2025-037</h3>
+                        <p class="ta-assignment-type">Violencia familiar</p>
+                    </div>
+                    <button type="button" class="ta-menu-button" aria-label="Más opciones">
+                        ⋮
+                    </button>
+                </header>
+
+                <div class="ta-assignment-unit">
+                    <span class="ta-unit-label">Unidad:</span>
+                    <span class="ta-unit-value">Serenazgo C</span>
+                </div>
+                <div class="ta-assignment-code">S-003</div>
+
+                <div class="ta-assignment-time">Hace 30 min</div>
+
+                <div class="ta-status-badge ta-status-recibida">
+                    <span class="ta-status-icon">✓</span>
+                    Recibido 12:00
+                </div>
+            </article>
+        </section>
+    </section>
+
+    <!-- VISTA 2: ESPERANDO ACUSE -->
+    <section class="ta-view" data-view="esperando">
+        <header class="ta-page-header">
+            <button type="button" class="ta-back-button" aria-label="Volver" id="btnVolverEsperando">
+                ←
+            </button>
+            <div class="ta-header-text">
+                <h1 class="ta-page-title">Tablero de asignaciones</h1>
+                <p class="ta-page-subtitle">Seguimiento de acuses</p>
+            </div>
+        </header>
+
+        <!-- Tarjeta de pendientes -->
+        <section class="ta-card ta-pending-card">
+            <div class="ta-pending-info">
+                <div class="ta-pending-label">Pendientes de acuse</div>
+                <div class="ta-pending-number">3</div>
+            </div>
+            <button type="button" class="ta-btn ta-btn-danger" id="btnVerPendientes2">
+                Ver pendientes
+            </button>
+        </section>
+
+        <!-- Filtros -->
+        <section class="ta-filters">
+            <div class="ta-filter-label">
+                <span class="ta-filter-icon">🔽</span>
+                Filtrar por estado
+            </div>
+            <div class="ta-filter-tabs">
+                <button type="button" class="ta-filter-tab" data-filter="todas" data-from="esperando">
+                    Todas
+                </button>
+                <button type="button" class="ta-filter-tab ta-filter-tab-active" data-filter="esperando">
+                    Esperando
+                </button>
+                <button type="button" class="ta-filter-tab" data-filter="recordatorio" data-from="esperando">
+                    Recordatorio
+                </button>
+                <button type="button" class="ta-filter-tab" data-filter="recibidas" data-from="esperando">
+                    Recibidas
+                </button>
+            </div>
+        </section>
+
+        <!-- Lista de asignaciones esperando -->
+        <section class="ta-assignments">
+            <div class="ta-assignments-count">1 asignación</div>
+
+            <!-- Asignación 1 -->
+            <article class="ta-assignment-card">
+                <header class="ta-assignment-header">
+                    <div class="ta-assignment-info">
+                        <h3 class="ta-assignment-id">INC-2025-042</h3>
+                        <p class="ta-assignment-type">Robo en progreso</p>
+                    </div>
+                    <button type="button" class="ta-menu-button" aria-label="Más opciones">
+                        ⋮
+                    </button>
+                </header>
+
+                <div class="ta-assignment-unit">
+                    <span class="ta-unit-label">Unidad:</span>
+                    <span class="ta-unit-value">Patrulla</span>
+                </div>
+                <div class="ta-assignment-code">P-003</div>
+
+                <div class="ta-assignment-time">Hace 2 min</div>
+
+                <div class="ta-status-badge ta-status-esperando">
+                    <span class="ta-status-icon">⏱️</span>
+                    Esperando acuse
+                </div>
+            </article>
+        </section>
+    </section>
+
+    <!-- VISTA 3: RECORDATORIO -->
+    <section class="ta-view" data-view="recordatorio">
+        <header class="ta-page-header">
+            <button type="button" class="ta-back-button" aria-label="Volver" id="btnVolverRecordatorio">
+                ←
+            </button>
+            <div class="ta-header-text">
+                <h1 class="ta-page-title">Tablero de asignaciones</h1>
+                <p class="ta-page-subtitle">Seguimiento de acuses</p>
+            </div>
+        </header>
+
+        <!-- Tarjeta de pendientes -->
+        <section class="ta-card ta-pending-card">
+            <div class="ta-pending-info">
+                <div class="ta-pending-label">Pendientes de acuse</div>
+                <div class="ta-pending-number">3</div>
+            </div>
+            <button type="button" class="ta-btn ta-btn-danger" id="btnVerPendientes3">
+                Ver pendientes
+            </button>
+        </section>
+
+        <!-- Filtros -->
+        <section class="ta-filters">
+            <div class="ta-filter-label">
+                <span class="ta-filter-icon">🔽</span>
+                Filtrar por estado
+            </div>
+            <div class="ta-filter-tabs">
+                <button type="button" class="ta-filter-tab" data-filter="todas" data-from="recordatorio">
+                    Todas
+                </button>
+                <button type="button" class="ta-filter-tab" data-filter="esperando" data-from="recordatorio">
+                    Esperando
+                </button>
+                <button type="button" class="ta-filter-tab ta-filter-tab-active" data-filter="recordatorio">
+                    Recordatorio
+                </button>
+                <button type="button" class="ta-filter-tab" data-filter="recibidas" data-from="recordatorio">
+                    Recibidas
+                </button>
+            </div>
+        </section>
+
+        <!-- Lista de asignaciones con recordatorio -->
+        <section class="ta-assignments">
+            <div class="ta-assignments-count">1 asignación</div>
+
+            <!-- Asignación 1 -->
+            <article class="ta-assignment-card">
+                <header class="ta-assignment-header">
+                    <div class="ta-assignment-info">
+                        <h3 class="ta-assignment-id">INC-2025-039</h3>
+                        <p class="ta-assignment-type">Disturbio</p>
+                    </div>
+                    <button type="button" class="ta-menu-button" aria-label="Más opciones">
+                        ⋮
+                    </button>
+                </header>
+
+                <div class="ta-assignment-unit">
+                    <span class="ta-unit-label">Unidad:</span>
+                    <span class="ta-unit-value">Patrulla</span>
+                </div>
+                <div class="ta-assignment-code">P-007</div>
+
+                <div class="ta-assignment-time">Hace 8 min</div>
+
+                <div class="ta-status-badge ta-status-recordatorio">
+                    <span class="ta-status-icon">🔔</span>
+                    Recordatorio enviado
+                </div>
+            </article>
+        </section>
+    </section>
+
+    <!-- VISTA 4: RECIBIDAS -->
+    <section class="ta-view" data-view="recibidas">
+        <header class="ta-page-header">
+            <button type="button" class="ta-back-button" aria-label="Volver" id="btnVolverRecibidas">
+                ←
+            </button>
+            <div class="ta-header-text">
+                <h1 class="ta-page-title">Tablero de asignaciones</h1>
+                <p class="ta-page-subtitle">Seguimiento de acuses</p>
+            </div>
+        </header>
+
+        <!-- Tarjeta de pendientes -->
+        <section class="ta-card ta-pending-card">
+            <div class="ta-pending-info">
+                <div class="ta-pending-label">Pendientes de acuse</div>
+                <div class="ta-pending-number">3</div>
+            </div>
+            <button type="button" class="ta-btn ta-btn-danger" id="btnVerPendientes4">
+                Ver pendientes
+            </button>
+        </section>
+
+        <!-- Filtros -->
+        <section class="ta-filters">
+            <div class="ta-filter-label">
+                <span class="ta-filter-icon">🔽</span>
+                Filtrar por estado
+            </div>
+            <div class="ta-filter-tabs">
+                <button type="button" class="ta-filter-tab" data-filter="todas" data-from="recibidas">
+                    Todas
+                </button>
+                <button type="button" class="ta-filter-tab" data-filter="esperando" data-from="recibidas">
+                    Esperando
+                </button>
+                <button type="button" class="ta-filter-tab" data-filter="recordatorio" data-from="recibidas">
+                    Recordatorio
+                </button>
+                <button type="button" class="ta-filter-tab ta-filter-tab-active" data-filter="recibidas">
+                    Recibidas
+                </button>
+            </div>
+        </section>
+
+        <!-- Lista de asignaciones recibidas -->
+        <section class="ta-assignments">
+            <div class="ta-assignments-count">2 asignaciones</div>
+
+            <!-- Asignación 1 -->
+            <article class="ta-assignment-card">
+                <header class="ta-assignment-header">
+                    <div class="ta-assignment-info">
+                        <h3 class="ta-assignment-id">INC-2025-041</h3>
+                        <p class="ta-assignment-type">Accidente de tránsito</p>
+                    </div>
+                    <button type="button" class="ta-menu-button" aria-label="Más opciones">
+                        ⋮
+                    </button>
+                </header>
+
+                <div class="ta-assignment-unit">
+                    <span class="ta-unit-label">Unidad:</span>
+                    <span class="ta-unit-value">Serenazgo</span>
+                </div>
+                <div class="ta-assignment-code">S-001</div>
+
+                <div class="ta-assignment-time">Hace 15 min</div>
+
+                <div class="ta-status-badge ta-status-recibida">
+                    <span class="ta-status-icon">✓</span>
+                    Recibido 12:15
+                </div>
+            </article>
+
+            <!-- Asignación 2 -->
+            <article class="ta-assignment-card">
+                <header class="ta-assignment-header">
+                    <div class="ta-assignment-info">
+                        <h3 class="ta-assignment-id">INC-2025-037</h3>
+                        <p class="ta-assignment-type">Violencia familiar</p>
+                    </div>
+                    <button type="button" class="ta-menu-button" aria-label="Más opciones">
+                        ⋮
+                    </button>
+                </header>
+
+                <div class="ta-assignment-unit">
+                    <span class="ta-unit-label">Unidad:</span>
+                    <span class="ta-unit-value">Serenazgo</span>
+                </div>
+                <div class="ta-assignment-code">S-003</div>
+
+                <div class="ta-assignment-time">Hace 30 min</div>
+
+                <div class="ta-status-badge ta-status-recibida">
+                    <span class="ta-status-icon">✓</span>
+                    Recibido 12:00
+                </div>
+            </article>
+        </section>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="Secured-Landing-Page/public/assets/images/secured-logo-white.png" alt="Secured Logo" />
+            </div>
+            <p class="footer-description">Coordinación inteligente para Serenazgo y Policía</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Solución</a></li>
+                <li><a href="#">Startup</a></li>
+                <li><a href="#">Equipo</a></li>
+                <li><a href="#">Seguridad</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="#">Soporte</a></li>
+                <li><a href="#">Documentación</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Términos de servicio</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul class="contact-list">
+                <li>
+                    <span class="icon">✉</span>
+                    <a href="mailto:contacto@secured.pe">contacto@secured.pe</a>
+                </li>
+                <li>
+                    <span class="icon">📞</span>
+                    <a href="tel:+51987654321">+51 987 654 321</a>
+                </li>
+                <li>
+                    <span class="icon">📍</span>
+                    <span>Lima, Perú</span>
+                </li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p class="privacy-note">Secured no recopila información personal identificable sin consentimiento explícito. Ver <a href="#">Política de Privacidad</a></p>
+    </div>
+</footer>
+
+<!-- JS para manejar el flujo -->
+<script src="Secured-Landing-Page/public/assets/scripts/tablero-asignacion.js"></script>
+</body>
+</html>
+

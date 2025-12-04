@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Navegación – Secured</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS específico de navegación -->
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/navegacion.css" />
+
+    <!-- JS específico de navegación -->
+    <script src="Secured-Landing-Page/public/assets/scripts/navegacion.js" defer></script>
+</head>
+
+<body class="nav-page">
+<main class="nav-wrapper">
+
+    <!-- ========== VISTA 1: PREPARAR NAVEGACIÓN ========== -->
+    <section id="nav-prepare-view" class="nav-view nav-view-active">
+
+        <header class="nav-header">
+            <!-- Ajusta el href al flujo real de tu app (detalle de incidente, por ejemplo) -->
+            <a href="home-serenazgo.html" class="nav-back-btn" aria-label="Volver">
+                ←
+            </a>
+            <div class="nav-header-text">
+                <h1 class="nav-title">Preparar navegación</h1>
+                <p class="nav-subtitle">INC-2025-058</p>
+            </div>
+        </header>
+
+        <section class="nav-prepare-layout">
+
+            <!-- Columna izquierda: información del incidente y ruta -->
+            <div class="nav-col-left">
+                <!-- Incidente principal -->
+                <article class="nav-card nav-incident-card">
+                    <header class="nav-card-header">
+                        <div>
+                            <p class="nav-pill-title">Robo en progreso - Av. Central</p>
+                            <p class="nav-card-subtext">Caso asignado a la unidad PNP-102</p>
+                        </div>
+                        <span class="nav-chip nav-chip-danger">Alta</span>
+                    </header>
+
+                    <dl class="nav-incident-meta">
+                        <div>
+                            <dt>Tipo</dt>
+                            <dd>Robo</dd>
+                        </div>
+                        <div>
+                            <dt>Dirección</dt>
+                            <dd>Av. Central 892, Sector Centro</dd>
+                        </div>
+                    </dl>
+                </article>
+
+                <!-- Información de ruta -->
+                <article class="nav-card nav-route-card">
+                    <h2 class="nav-card-title">Información de ruta</h2>
+
+                    <div class="nav-route-grid">
+                        <div class="nav-route-block">
+                            <p class="nav-route-label">Tiempo estimado</p>
+                            <p class="nav-route-value">6 min</p>
+                            <p class="nav-route-subvalue">3.2 km</p>
+                        </div>
+                        <div class="nav-route-block">
+                            <p class="nav-route-label">SLA</p>
+                            <p class="nav-route-value">14:57</p>
+                            <p class="nav-route-subvalue">Límite de llegada</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Navegación inteligente -->
+                <article class="nav-card nav-smart-card">
+                    <h2 class="nav-card-title">Navegación inteligente</h2>
+                    <ul class="nav-smart-list">
+                        <li>Re-cálculo automático ante tráfico o cierres.</li>
+                        <li>Alertas de límite de jurisdicción.</li>
+                        <li>Actualización de ETA en tiempo real.</li>
+                    </ul>
+                </article>
+            </div>
+
+            <!-- Columna derecha: mapa -->
+            <div class="nav-col-right">
+                <section class="nav-card nav-map-card">
+                    <div class="nav-map-header">
+                        <h2 class="nav-card-title">Vista previa de la ruta</h2>
+                        <span class="nav-map-badge">Google Maps · Lima</span>
+                    </div>
+
+                    <div class="nav-map-embed-wrapper">
+                        <!-- Mapa de Google centrado en Lima -->
+                        <iframe
+                                title="Mapa de navegación hacia Av. Central, Lima"
+                                class="nav-map-embed"
+                                src="https://www.google.com/maps?q=Lima,Per%C3%BA&hl=es&z=13&output=embed"
+                                loading="lazy"
+                                allowfullscreen
+                                referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+
+                        <button type="button" class="nav-map-preview-btn">
+                            Vista previa
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <footer class="nav-footer">
+            <button type="button" class="nav-btn nav-btn-ghost" id="navAltRoutesBtn">
+                Ver rutas alternativas
+            </button>
+            <button type="button" class="nav-btn nav-btn-primary" id="navStartBtn">
+                Iniciar navegación
+            </button>
+        </footer>
+    </section>
+
+    <!-- ========== VISTA 2: NAVEGACIÓN EN CURSO ========== -->
+    <section id="nav-running-view" class="nav-view">
+
+        <header class="nav-header">
+            <button type="button" class="nav-back-btn nav-back-btn-soft" id="navBackToPrepareBtn"
+                    aria-label="Volver a preparar navegación">
+                ←
+            </button>
+            <div class="nav-header-text">
+                <h1 class="nav-title">Iniciando navegación</h1>
+                <p class="nav-subtitle">INC-2025-058 · Unidad PNP-102</p>
+            </div>
+        </header>
+
+        <section class="nav-running-layout">
+            <!-- Columna izquierda: mapa en vivo -->
+            <div class="nav-running-map-col">
+                <div class="nav-top-badges">
+                    <span class="nav-chip nav-chip-primary">
+                        6 min · 3.2 km
+                    </span>
+                    <span class="nav-chip nav-chip-soft">
+                        Llegada estimada · 10:52
+                    </span>
+                </div>
+
+                <div class="nav-running-map-wrapper">
+                    <!-- Reutilizamos el mismo Google Maps embebido -->
+                    <iframe
+                            title="Mapa de navegación en curso"
+                            class="nav-map-embed nav-map-embed-running"
+                            src="https://www.google.com/maps?q=Lima,Per%C3%BA&hl=es&z=14&output=embed"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+
+                    <div class="nav-destination-pill">
+                        <p class="nav-destination-title">Destino</p>
+                        <p class="nav-destination-address">Av. Central 892, Sector Centro</p>
+                    </div>
+
+                    <div class="nav-current-instruction-pill">
+                        En 800 m gira a la derecha en Calle Los Pinos
+                    </div>
+                </div>
+
+                <div class="nav-running-actions">
+                    <button type="button" class="nav-btn nav-btn-danger" id="navEndBtn">
+                        Finalizar
+                    </button>
+                    <button type="button" class="nav-btn nav-btn-secondary" id="navRecalcBtn">
+                        Recalcular
+                    </button>
+                    <button type="button" class="nav-btn nav-btn-ghost nav-btn-icon" id="navMuteBtn">
+                        🔊
+                    </button>
+                </div>
+            </div>
+
+            <!-- Columna derecha: indicaciones paso a paso -->
+            <aside class="nav-steps-panel">
+                <header class="nav-steps-header">
+                    <h2 class="nav-card-title">Indicaciones paso a paso</h2>
+                    <button type="button" class="nav-steps-close" aria-label="Ocultar panel de indicaciones">
+                        ✕
+                    </button>
+                </header>
+
+                <ol class="nav-steps-list">
+                    <li class="nav-step-item nav-step-item-active" data-step>
+                        <div class="nav-step-icon">↑</div>
+                        <div class="nav-step-text">
+                            <p class="nav-step-title">Continúa recto por Av. Principal</p>
+                            <p class="nav-step-distance">800 m</p>
+                        </div>
+                    </li>
+                    <li class="nav-step-item" data-step>
+                        <div class="nav-step-icon">↱</div>
+                        <div class="nav-step-text">
+                            <p class="nav-step-title">Gira a la derecha en Calle Los Pinos</p>
+                            <p class="nav-step-distance">1.2 km</p>
+                        </div>
+                    </li>
+                    <li class="nav-step-item" data-step>
+                        <div class="nav-step-icon">↰</div>
+                        <div class="nav-step-text">
+                            <p class="nav-step-title">Gira a la izquierda en Av. Central</p>
+                            <p class="nav-step-distance">600 m</p>
+                        </div>
+                    </li>
+                    <li class="nav-step-item" data-step>
+                        <div class="nav-step-icon">↑</div>
+                        <div class="nav-step-text">
+                            <p class="nav-step-title">Continúa recto</p>
+                            <p class="nav-step-distance">400 m</p>
+                        </div>
+                    </li>
+                    <li class="nav-step-item" data-step>
+                        <div class="nav-step-icon">✓</div>
+                        <div class="nav-step-text">
+                            <p class="nav-step-title">Has llegado a tu destino</p>
+                            <p class="nav-step-distance">200 m</p>
+                        </div>
+                    </li>
+                </ol>
+            </aside>
+        </section>
+    </section>
+
+    <!-- Toast / aviso simple -->
+    <div id="navToast" class="nav-toast" role="status" aria-live="polite">
+        Ruta recalculada con información de tráfico actualizada.
+    </div>
+
+</main>
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="Secured-Landing-Page/public/assets/images/secured-logo-white.png" alt="Secured Logo" />
+            </div>
+            <p class="footer-description">Coordinación inteligente para Serenazgo y Policía</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Solución</a></li>
+                <li><a href="#">Startup</a></li>
+                <li><a href="#">Equipo</a></li>
+                <li><a href="#">Seguridad</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="#">Soporte</a></li>
+                <li><a href="#">Documentación</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Términos de servicio</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul class="contact-list">
+                <li>
+                    <span class="icon">✉</span>
+                    <a href="mailto:contacto@secured.pe">contacto@secured.pe</a>
+                </li>
+                <li>
+                    <span class="icon">📞</span>
+                    <a href="tel:+51987654321">+51 987 654 321</a>
+                </li>
+                <li>
+                    <span class="icon">📍</span>
+                    <span>Lima, Perú</span>
+                </li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p class="privacy-note">Secured no recopila información personal identificable sin consentimiento explícito. Ver <a href="#">Política de Privacidad</a></p>
+    </div>
+</footer>
+
+<script src="Secured-Landing-Page/public/assets/scripts/navegacion.js"></script>
+</body>
+</html>

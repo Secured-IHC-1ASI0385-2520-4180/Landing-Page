@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monitor de cámaras</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/monitor-camaras.css" />
+</head>
+<body>
+<header class="header">
+    <a href="home-serenazgo.html" class="back-btn">←</a>
+    <h1>Monitor de cámaras</h1>
+</header>
+
+<section class="monitor-card">
+    <p class="subtitle">Vista multivista en tiempo real</p>
+
+    <div class="tabs-row">
+        <button class="tab-btn active" data-image="Secured-Landing-Page/public/assets/images/monitor-camaras-2.png" data-view="camara">Cámara</button>
+        <button class="tab-btn" data-view="salud">Salud</button>
+        <button class="tab-btn" data-image="Secured-Landing-Page/public/assets/images/monitor-camaras-4.png" data-view="galeria">Galería</button>
+    </div>
+
+    <div class="preview">
+        <div class="preview-frame">
+            <!-- Imagen base (monitor-camaras-1) -->
+            <img id="mainPreview" src="Secured-Landing-Page/public/assets/images/monitor-camaras-1.png" alt="Preview cámara" />
+        </div>
+    </div>
+
+    <div id="contentArea">
+        <!-- CAMARA view (lista simple) -->
+        <div class="view active" id="view-camara">
+            <h3 class="section-title">Cámaras cercanas</h3>
+            <div class="list">
+                <div class="list-item" data-image="Secured-Landing-Page/public/assets/images/monitor-camaras-2.png">
+                    <div class="thumb"></div>
+                    <div>
+                        <strong>Plaza Principal</strong>
+                        <div class="meta">Centro · 150m <span class="status live">En vivo</span></div>
+                    </div>
+                </div>
+                <div class="list-item" data-image="Secured-Landing-Page/public/assets/images/monitor-camaras-2.png">
+                    <div class="thumb"></div>
+                    <div>
+                        <strong>Av. Central - Cruce</strong>
+                        <div class="meta">Norte · 320m <span class="status live">En vivo</span></div>
+                    </div>
+                </div>
+                <div class="list-item" data-image="Secured-Landing-Page/public/assets/images/monitor-camaras-2.png">
+                    <div class="thumb"></div>
+                    <div>
+                        <strong>Parque San Martín</strong>
+                        <div class="meta">Sur · 450m <span class="status degraded">Degradado</span></div>
+                    </div>
+                </div>
+                <div class="list-item" data-image="Secured-Landing-Page/public/assets/images/monitor-camaras-2.png">
+                    <div class="thumb"></div>
+                    <div>
+                        <strong>Mercado Municipal</strong>
+                        <div class="meta">Este · 680m <span class="status down">Sin señal</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SALUD view -->
+        <div class="view" id="view-salud">
+            <h3 class="section-title">Salud de fuentes</h3>
+            <p class="subtitle">Monitoreo de disponibilidad</p>
+            <div class="health-cards">
+                <div class="health">
+                    <strong>Plaza Principal</strong>
+                    <div class="meta">Centro</div>
+                    <div style="display: flex; justify-content: space-between; margin: 12px 0 8px;">
+                        <div>
+                            <div style="font-size: 11px; color: #6b7280;">Último ping</div>
+                            <div style="font-weight: 600;">hace 2 min</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 11px; color: #6b7280;">Latencia</div>
+                            <div style="font-weight: 600;">120ms</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 11px; color: #6b7280;">Uptime 24h</div>
+                            <div style="font-weight: 600; color: #10b981;">99.8%</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <button class="btn-secondary small">🔄 Probar</button>
+                        <button class="btn-secondary small">Ver historial</button>
+                    </div>
+                </div>
+
+                <div class="health">
+                    <strong>Av. Central</strong>
+                    <div class="meta">Norte</div>
+                    <div style="display: flex; justify-content: space-between; margin: 12px 0 8px;">
+                        <div>
+                            <div style="font-size: 11px; color: #6b7280;">Último ping</div>
+                            <div style="font-weight: 600;">hace 5 min</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 11px; color: #6b7280;">Latencia</div>
+                            <div style="font-weight: 600;">245ms</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 11px; color: #6b7280;">Uptime 24h</div>
+                            <div style="font-weight: 600; color: #10b981;">95.2%</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <button class="btn-secondary small">🔄 Probar</button>
+                        <button class="btn-secondary small">Ver historial</button>
+                    </div>
+                </div>
+
+                <div class="health">
+                    <strong>Parque San Martín</strong>
+                    <div class="meta">Sur</div>
+                    <div style="display: flex; justify-content: space-between; margin: 12px 0 8px;">
+                        <div>
+                            <div style="font-size: 11px; color: #6b7280;">Último ping</div>
+                            <div style="font-weight: 600;">hace 45 min</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 11px; color: #6b7280;">Latencia</div>
+                            <div style="font-weight: 600;">N/A</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 11px; color: #6b7280;">Uptime 24h</div>
+                            <div style="font-weight: 600; color: #ef4444;">78.3%</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <button class="btn-secondary small">🔄 Probar</button>
+                        <button class="btn-secondary small">Ver historial</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GALERIA view -->
+        <div class="view" id="view-galeria">
+            <h3 class="section-title">Galería de evidencias</h3>
+            <p class="subtitle">Todas las capturas</p>
+
+            <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                <button class="tab-btn active" style="font-size: 13px; padding: 8px 16px;">Todas</button>
+                <button class="tab-btn" style="font-size: 13px; padding: 8px 16px;">📸 Capturas</button>
+                <button class="tab-btn" style="font-size: 13px; padding: 8px 16px;">🎥 Clips</button>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="card-thumb">
+                    <img src="Secured-Landing-Page/public/assets/images/monitor-camaras-1.png" alt="cap-1"/>
+                    <div style="padding: 8px; font-size: 12px;">
+                        <div style="font-weight: 600; color: #2563eb;">📸 CAP-001</div>
+                        <div style="color: #6b7280; font-size: 11px;">Plaza Principal</div>
+                        <div style="color: #9ca3af; font-size: 10px;">31 oct 2025, 15:42:18</div>
+                    </div>
+                </div>
+                <div class="card-thumb">
+                    <img src="Secured-Landing-Page/public/assets/images/monitor-camaras-2.png" alt="cap-2"/>
+                    <div style="padding: 8px; font-size: 12px;">
+                        <div style="font-weight: 600; color: #2563eb;">🎥 CAP-002</div>
+                        <div style="color: #6b7280; font-size: 11px;">Av. Central</div>
+                        <div style="color: #9ca3af; font-size: 10px;">31 oct 2025, 14:30:45</div>
+                    </div>
+                </div>
+                <div class="card-thumb">
+                    <img src="Secured-Landing-Page/public/assets/images/monitor-camaras-3.png" alt="cap-3"/>
+                    <div style="padding: 8px; font-size: 12px;">
+                        <div style="font-weight: 600; color: #2563eb;">📸 CAP-003</div>
+                        <div style="color: #6b7280; font-size: 11px;">Parque San Martín</div>
+                        <div style="color: #9ca3af; font-size: 10px;">31 oct 2025, 13:15:22</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="Secured-Landing-Page/public/assets/images/secured-logo-white.png" alt="Secured Logo" />
+            </div>
+            <p class="footer-description">Coordinación inteligente para Serenazgo y Policía</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Solución</a></li>
+                <li><a href="#">Startup</a></li>
+                <li><a href="#">Equipo</a></li>
+                <li><a href="#">Seguridad</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="#">Soporte</a></li>
+                <li><a href="#">Documentación</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Términos de servicio</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul class="contact-list">
+                <li>
+                    <span class="icon">✉</span>
+                    <a href="mailto:contacto@secured.pe">contacto@secured.pe</a>
+                </li>
+                <li>
+                    <span class="icon">📞</span>
+                    <a href="tel:+51987654321">+51 987 654 321</a>
+                </li>
+                <li>
+                    <span class="icon">📍</span>
+                    <span>Lima, Perú</span>
+                </li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p class="privacy-note">Secured no recopila información personal identificable sin consentimiento explícito. Ver <a href="#">Política de Privacidad</a></p>
+    </div>
+</footer>
+
+<script src="Secured-Landing-Page/public/assets/scripts/monitor-camaras.js"></script>
+</body>
+</html>
+

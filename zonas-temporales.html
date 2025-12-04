@@ -1,4 +1,4 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
@@ -7,9 +7,9 @@
     <link rel="stylesheet" href=Secured-Landing-Page/public/assets/styles/zonas-temporales.css />
 </head>
 <body>
-<!-- SimulaciÃ³n de regresar a landing -->
+<!-- Simulación de regresar a landing -->
 <header class="header">
-    <a href="home-policia.html" class="back-btn">â†</a>
+    <a href="home-policia.html" class="back-btn">?</a>
     <h1>Zonas Temporales</h1>
     <button class="crear-btn" onclick="showView('crear')">
         + Crear zona
@@ -36,10 +36,10 @@
 
         <p class="desc">Evento masivo - Concierto</p>
 
-        <p class="info">ğŸ“… 15 nov. 2025, 06:00 p. m. â€“ 11:00 p. m.</p>
-        <p class="info">ğŸ“ Centro, Norte</p>
+        <p class="info">?? 15 nov. 2025, 06:00 p. m. – 11:00 p. m.</p>
+        <p class="info">?? Centro, Norte</p>
 
-        <p class="creado">Creado por Operador Juan PÃ©rez</p>
+        <p class="creado">Creado por Operador Juan Pérez</p>
 
         <button class="ver-btn" onclick="showView('detalle')">
             Ver detalle
@@ -48,32 +48,32 @@
 
     <!-- Zona 2 -->
     <div class="card">
-        <h3>ManifestaciÃ³n Plaza<br /><span class="lugar">San MartÃ­n</span></h3>
+        <h3>Manifestación Plaza<br /><span class="lugar">San Martín</span></h3>
 
         <span class="estado activa">Activa</span>
 
         <p class="desc">Protesta ciudadana</p>
 
-        <p class="info">ğŸ“… 02 nov. 2025, 02:00 p. m. â€“ 06:00 p. m.</p>
-        <p class="info">ğŸ“ Centro</p>
+        <p class="info">?? 02 nov. 2025, 02:00 p. m. – 06:00 p. m.</p>
+        <p class="info">?? Centro</p>
 
-        <p class="creado">Creado por Supervisor MarÃ­a GarcÃ­a</p>
+        <p class="creado">Creado por Supervisor María García</p>
 
         <button class="ver-btn">Ver detalle</button>
     </div>
 
     <!-- Zona 3 -->
     <div class="card">
-        <h3>Partido de fÃºtbol - Alianza vs U</h3>
+        <h3>Partido de fútbol - Alianza vs U</h3>
 
         <span class="estado expirada">Expirada</span>
 
         <p class="desc">Evento deportivo de alta concurrencia</p>
 
-        <p class="info">ğŸ“… 28 oct. 2025, 03:00 p. m. â€“ 08:00 p. m.</p>
-        <p class="info">ğŸ“ Sur</p>
+        <p class="info">?? 28 oct. 2025, 03:00 p. m. – 08:00 p. m.</p>
+        <p class="info">?? Sur</p>
 
-        <p class="creado">Creado por Operador Carlos LÃ³pez</p>
+        <p class="creado">Creado por Operador Carlos López</p>
 
         <button class="ver-btn">Ver detalle</button>
     </div>
@@ -84,12 +84,12 @@
 ================================= -->
 <section id="crear" class="view">
     <header class="sub-header">
-        <button class="back-btn" onclick="showView('lista')">â†</button>
+        <button class="back-btn" onclick="showView('lista')">?</button>
         <h2>Crear zona temporal</h2>
     </header>
 
     <div class="form">
-        <h3>InformaciÃ³n bÃ¡sica</h3>
+        <h3>Información básica</h3>
 
         <label>Nombre del evento *</label>
         <input type="text" placeholder="Ej: Concierto" />
@@ -128,24 +128,24 @@
 ================================= -->
 <section id="detalle" class="view">
     <header class="sub-header">
-        <button class="back-btn" onclick="showView('lista')">â†</button>
+        <button class="back-btn" onclick="showView('lista')">?</button>
         <h2>Concierto Estadio Nacional</h2>
     </header>
 
     <div class="tabs">
         <button class="tab active" onclick="showTab('info')">
-            InformaciÃ³n
+            Información
         </button>
         <button class="tab" onclick="showTab('historial')">Historial</button>
     </div>
 
-    <!-- InformaciÃ³n -->
+    <!-- Información -->
     <div id="info" class="tab-content active">
         <div class="card">
             <h3>Detalles</h3>
             <p><strong>Motivo:</strong> Evento masivo - Concierto</p>
             <p>
-                <strong>Vigencia:</strong> 15 nov. 2025 â€” 06:00 p. m. a 11:00 p. m.
+                <strong>Vigencia:</strong> 15 nov. 2025 — 06:00 p. m. a 11:00 p. m.
             </p>
             <p><strong>Sectores:</strong> Centro, Norte</p>
             <p><strong>Notas:</strong> Afluencia esperada: 30,000.</p>
@@ -157,13 +157,74 @@
         <div class="card">
             <h3>Historial de cambios</h3>
             <p>
-                Zona creada â€” 31 oct. 2025 â€” 07:00 p. m.<br />Operador Juan PÃ©rez
+                Zona creada — 31 oct. 2025 — 07:00 p. m.<br />Operador Juan Pérez
             </p>
         </div>
     </div>
 </section>
 
-<!-- JS especÃ­fico de esta secciÃ³n -->
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="Secured-Landing-Page/public/assets/images/secured-logo-white.png" alt="Secured Logo" />
+            </div>
+            <p class="footer-description">Coordinación inteligente para Serenazgo y Policía</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Solución</a></li>
+                <li><a href="#">Startup</a></li>
+                <li><a href="#">Equipo</a></li>
+                <li><a href="#">Seguridad</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="#">Soporte</a></li>
+                <li><a href="#">Documentación</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Términos de servicio</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul class="contact-list">
+                <li>
+                    <span class="icon">?</span>
+                    <a href="mailto:contacto@secured.pe">contacto@secured.pe</a>
+                </li>
+                <li>
+                    <span class="icon">??</span>
+                    <a href="tel:+51987654321">+51 987 654 321</a>
+                </li>
+                <li>
+                    <span class="icon">??</span>
+                    <span>Lima, Perú</span>
+                </li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">??</a>
+                <a href="#" class="social-icon">in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p class="privacy-note">Secured no recopila información personal identificable sin consentimiento explícito. Ver <a href="#">Política de Privacidad</a></p>
+    </div>
+</footer>
+
+<!-- JS específico de esta sección -->
 <script src="Secured-Landing-Page/public/assets/scripts/zonas-temporales.js"></script>
 </body>
 </html>

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configuración</title>
+
+    <!-- CSS específico de esta sección -->
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/configuracion-sereno.css" />
+
+    <!-- JS específico de esta sección -->
+    <script src="Secured-Landing-Page/public/assets/scripts/configuracion-sereno.js" defer></script>
+</head>
+<body class="cfg-page">
+<main class="cfg-wrapper">
+
+    <!-- ========== VISTA 0: CONFIGURACIÓN (HOME) ========== -->
+    <section id="cfg-main-view" class="cfg-view cfg-view-active">
+        <header class="cfg-header">
+            <a href="home-serenazgo.html" class="cfg-back-btn" aria-label="Volver al inicio">
+                ←
+            </a>
+            <h1 class="cfg-title">Configuración</h1>
+        </header>
+
+
+        <div class="cfg-main-grid">
+            <!-- Columna izquierda -->
+            <section class="cfg-group-card">
+                <h2 class="cfg-group-title">Perfil y datos</h2>
+                <button class="cfg-item-row" data-view-target="cfg-profile-view">
+                    <div>
+                        <p class="cfg-item-title">Mi perfil</p>
+                        <p class="cfg-item-subtitle">Foto, nombre visible y rol</p>
+                    </div>
+                    <span class="cfg-chevron">›</span>
+                </button>
+
+                <button class="cfg-item-row" data-view-target="cfg-personal-data-view">
+                    <div>
+                        <p class="cfg-item-title">Datos personales</p>
+                        <p class="cfg-item-subtitle">DNI, teléfono, correo institucional</p>
+                    </div>
+                    <span class="cfg-chevron">›</span>
+                </button>
+            </section>
+
+            <section class="cfg-group-card">
+                <h2 class="cfg-group-title">Preferencias</h2>
+                <button class="cfg-item-row" data-view-target="cfg-notifications-view">
+                    <div>
+                        <p class="cfg-item-title">Notificaciones</p>
+                        <p class="cfg-item-subtitle">Canales, tipos y silencios</p>
+                    </div>
+                    <span class="cfg-chevron">›</span>
+                </button>
+
+                <button class="cfg-item-row" data-view-target="cfg-accessibility-view">
+                    <div>
+                        <p class="cfg-item-title">Accesibilidad y apariencia</p>
+                        <p class="cfg-item-subtitle">Contraste, tamaño de letra e iconos</p>
+                    </div>
+                    <span class="cfg-chevron">›</span>
+                </button>
+            </section>
+
+            <!-- Columna derecha -->
+            <section class="cfg-group-card">
+                <h2 class="cfg-group-title">Seguridad y privacidad</h2>
+                <button class="cfg-item-row" data-view-target="cfg-security-view">
+                    <div>
+                        <p class="cfg-item-title">Seguridad</p>
+                        <p class="cfg-item-subtitle">Contraseña, 2FA y dispositivos</p>
+                    </div>
+                    <span class="cfg-chevron">›</span>
+                </button>
+
+                <button class="cfg-item-row" data-view-target="cfg-privacy-view">
+                    <div>
+                        <p class="cfg-item-title">Privacidad y datos</p>
+                        <p class="cfg-item-subtitle">Exportar datos y borrar caché</p>
+                    </div>
+                    <span class="cfg-chevron">›</span>
+                </button>
+            </section>
+
+            <section class="cfg-group-card">
+                <h2 class="cfg-group-title">Cuenta</h2>
+                <button class="cfg-item-row" data-view-target="cfg-account-view">
+                    <div>
+                        <p class="cfg-item-title">Cuenta</p>
+                        <p class="cfg-item-subtitle">Eliminar cuenta o cerrar sesión</p>
+                    </div>
+                    <span class="cfg-chevron">›</span>
+                </button>
+
+                <button class="cfg-item-row" data-view-target="cfg-about-view">
+                    <div>
+                        <p class="cfg-item-title">Acerca de</p>
+                        <p class="cfg-item-subtitle">Versión, términos y contacto</p>
+                    </div>
+                    <span class="cfg-chevron">›</span>
+                </button>
+            </section>
+        </div>
+    </section>
+
+    <!-- ========== VISTA 1: MI PERFIL ========== -->
+    <section id="cfg-profile-view" class="cfg-view">
+        <header class="cfg-header cfg-header-inline">
+            <button type="button" class="cfg-back-link" data-back-to="cfg-main-view">←</button>
+            <h1 class="cfg-title">Mi perfil</h1>
+            <button class="cfg-link-btn" data-view-target="cfg-personal-data-view">Editar</button>
+        </header>
+
+        <div class="cfg-profile-layout">
+            <!-- Izquierda: avatar + rol -->
+            <div class="cfg-avatar-wrapper" id="cfgAvatarTrigger">
+                <img src="Secured-Landing-Page/public/assets/images/serenazgo-imagen.png"
+                     alt="Foto de perfil de Jorge Torres"
+                     class="cfg-avatar" />
+                <div class="cfg-avatar-overlay">
+                    <span class="cfg-avatar-icon"></span>
+                </div>
+            </div>
+    <section>
+            <h2 class="cfg-profile-name">Jorge Torres</h2>
+                <p class="cfg-profile-id">PN-2847</p>
+
+                <div class="cfg-profile-block">
+                    <h3 class="cfg-block-title">Rol y asignación</h3>
+                    <dl class="cfg-definition-list">
+                        <div>
+                            <dt>Rol</dt>
+                            <dd><span class="cfg-badge">Serenazgo</span></dd>
+                        </div>
+                        <div>
+                            <dt>Sub-rol</dt>
+                            <dd>Oficial de Patrulla</dd>
+                        </div>
+                        <div>
+                            <dt>Sector asignado</dt>
+                            <dd>Sector A-3</dd>
+                        </div>
+                        <div>
+                            <dt>Turno actual</dt>
+                            <dd>Turno Tarde (14:00 - 22:00)</dd>
+                        </div>
+                    </dl>
+
+                    <div class="cfg-inline-note">
+                        <strong>Nota:</strong> Los datos de rol, sector y turno son gestionados por el área de RRHH y no pueden ser modificados desde aquí.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Derecha: contacto -->
+            <section class="cfg-card">
+                <h3 class="cfg-block-title">Información de contacto</h3>
+                <dl class="cfg-definition-list">
+                    <div>
+                        <dt>Correo institucional</dt>
+                        <dd>jorge.torres@serenazgo.gob.pe</dd>
+                    </div>
+                </dl>
+            </section>
+        </div>
+
+        <!-- MODAL CAMBIAR FOTO PERFIL -->
+        <div id="cfgAvatarModal" class="cfg-modal" aria-hidden="true">
+            <div class="cfg-modal-backdrop"></div>
+            <div class="cfg-modal-bottom-sheet" role="dialog" aria-modal="true" aria-labelledby="cfgAvatarModalTitle">
+                <header class="cfg-modal-sheet-header">
+                    <h2 id="cfgAvatarModalTitle">Cambiar foto de perfil</h2>
+                    <button type="button" class="cfg-modal-close" data-close-modal>✕</button>
+                </header>
+                <div class="cfg-modal-sheet-body">
+                    <button class="cfg-sheet-row" type="button">
+                        <span>📷 Tomar foto</span>
+                    </button>
+                    <button class="cfg-sheet-row" type="button">
+                        <span>🖼️ Elegir de galería</span>
+                    </button>
+                    <button class="cfg-sheet-row cfg-sheet-row-cancel" type="button" data-close-modal>
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== VISTA 2: DATOS PERSONALES ========== -->
+    <section id="cfg-personal-data-view" class="cfg-view">
+        <header class="cfg-header cfg-header-inline">
+            <button type="button" class="cfg-back-link" data-back-to="cfg-main-view">←</button>
+            <h1 class="cfg-title">Datos personales</h1>
+        </header>
+
+        <div class="cfg-two-column">
+            <form class="cfg-card cfg-form" id="cfgPersonalForm">
+                <label class="cfg-field">
+                    <span>Nombres</span>
+                    <input type="text" value="Jorge" />
+                </label>
+                <label class="cfg-field">
+                    <span>Apellidos</span>
+                    <input type="text" value="Torres" />
+                </label>
+                <label class="cfg-field">
+                    <span>DNI</span>
+                    <input type="text" value="47825691" />
+                    <span class="cfg-help">Solo dígitos, sin espacios ni guiones</span>
+                </label>
+                <label class="cfg-field">
+                    <span>Teléfono</span>
+                    <input type="tel" value="+51 987 654 321" />
+                </label>
+                <label class="cfg-field">
+                    <span>Correo institucional</span>
+                    <input type="email" value="jorge.torres@serenazgo.gob.pe" />
+                    <span class="cfg-help">Solo editable con permisos especiales</span>
+                </label>
+            </form>
+
+            <aside class="cfg-inline-note cfg-inline-note-strong">
+                <strong>Importante:</strong> Algunos cambios podrían requerir aprobación del supervisor o RRHH.
+            </aside>
+        </div>
+
+        <div class="cfg-form-footer">
+            <button type="button" class="cfg-btn cfg-btn-primary" id="cfgSavePersonalBtn">
+                Guardar cambios
+            </button>
+        </div>
+    </section>
+
+    <!-- ========== VISTA 3: NOTIFICACIONES ========== -->
+    <section id="cfg-notifications-view" class="cfg-view">
+        <header class="cfg-header cfg-header-inline">
+            <button type="button" class="cfg-back-link" data-back-to="cfg-main-view">←</button>
+            <h1 class="cfg-title">Notificaciones</h1>
+        </header>
+
+        <div class="cfg-two-column">
+            <section class="cfg-card">
+                <h2 class="cfg-block-title">Canales de notificación</h2>
+
+                <div class="cfg-switch-row">
+                    <div>
+                        <p class="cfg-item-title">Notificaciones push</p>
+                        <p class="cfg-item-subtitle">Alertas en tiempo real en el dispositivo</p>
+                    </div>
+                    <label class="cfg-switch">
+                        <input type="checkbox" checked />
+                        <span class="cfg-switch-slider"></span>
+                    </label>
+                </div>
+
+                <div class="cfg-switch-row">
+                    <div>
+                        <p class="cfg-item-title">Email</p>
+                        <p class="cfg-item-subtitle">Resumen diario al correo institucional</p>
+                    </div>
+                    <label class="cfg-switch">
+                        <input type="checkbox" checked />
+                        <span class="cfg-switch-slider"></span>
+                    </label>
+                </div>
+
+                <div class="cfg-switch-row">
+                    <div>
+                        <p class="cfg-item-title">SMS</p>
+                        <p class="cfg-item-subtitle">Solo para emergencias críticas</p>
+                    </div>
+                    <label class="cfg-switch">
+                        <input type="checkbox" />
+                        <span class="cfg-switch-slider"></span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="cfg-card">
+                <h2 class="cfg-block-title">Tipos de notificación</h2>
+
+                <div class="cfg-switch-row">
+                    <div>
+                        <p class="cfg-item-title">Incidentes asignados</p>
+                    </div>
+                    <label class="cfg-switch">
+                        <input type="checkbox" checked />
+                        <span class="cfg-switch-slider"></span>
+                    </label>
+                </div>
+
+                <div class="cfg-switch-row">
+                    <div>
+                        <p class="cfg-item-title">Alertas vecinales</p>
+                    </div>
+                    <label class="cfg-switch">
+                        <input type="checkbox" checked />
+                        <span class="cfg-switch-slider"></span>
+                    </label>
+                </div>
+
+                <div class="cfg-switch-row">
+                    <div>
+                        <p class="cfg-item-title">Mensajes de canal</p>
+                    </div>
+                    <label class="cfg-switch">
+                        <input type="checkbox" checked />
+                        <span class="cfg-switch-slider"></span>
+                    </label>
+                </div>
+
+                <div class="cfg-switch-row">
+                    <div>
+                        <p class="cfg-item-title">Recordatorios de turno</p>
+                    </div>
+                    <label class="cfg-switch">
+                        <input type="checkbox" checked />
+                        <span class="cfg-switch-slider"></span>
+                    </label>
+                </div>
+
+                <div class="cfg-divider"></div>
+
+                <h2 class="cfg-block-title">No molestar</h2>
+                <p class="cfg-item-subtitle">Silenciar notificaciones en horarios específicos</p>
+
+                <div class="cfg-switch-row">
+                    <p class="cfg-item-title">Activar No Molestar</p>
+                    <label class="cfg-switch">
+                        <input type="checkbox" id="cfgDndSwitch" />
+                        <span class="cfg-switch-slider"></span>
+                    </label>
+                </div>
+
+                <button type="button" class="cfg-btn cfg-btn-secondary" id="cfgSendTestNotificationBtn">
+                    Enviar notificación de prueba
+                </button>
+            </section>
+        </div>
+
+        <div class="cfg-form-footer">
+            <button type="button" class="cfg-btn cfg-btn-primary" id="cfgSaveNotificationsBtn">
+                Guardar cambios
+            </button>
+        </div>
+    </section>
+
+    <!-- ========== VISTA 4: ACCESIBILIDAD Y APARIENCIA ========== -->
+    <section id="cfg-accessibility-view" class="cfg-view">
+        <header class="cfg-header cfg-header-inline">
+            <button type="button" class="cfg-back-link" data-back-to="cfg-main-view">←</button>
+            <h1 class="cfg-title">Accesibilidad y apariencia</h1>
+        </header>
+
+        <div class="cfg-access-grid">
+            <section class="cfg-card">
+                <h2 class="cfg-block-title">Contraste</h2>
+                <p class="cfg-item-subtitle">Ajustes de contraste para mejor legibilidad</p>
+
+                <div class="cfg-option-group" data-radio-group="contrast">
+                    <button class="cfg-option-pill" data-value="normal">Normal</button>
+                    <button class="cfg-option-pill cfg-option-pill-active" data-value="high">Alto contraste</button>
+                </div>
+            </section>
+
+            <section class="cfg-card">
+                <h2 class="cfg-block-title">Tamaño de letra</h2>
+                <p class="cfg-item-subtitle">Ajusta el tamaño del texto en la aplicación</p>
+
+                <div class="cfg-option-group" data-radio-group="font-size">
+                    <button class="cfg-option-pill" data-value="small">Pequeño</button>
+                    <button class="cfg-option-pill cfg-option-pill-active" data-value="medium">Medio (recomendado)</button>
+                    <button class="cfg-option-pill" data-value="large">Grande</button>
+                </div>
+            </section>
+
+            <section class="cfg-card">
+                <h2 class="cfg-block-title">Tamaño de iconos y controles</h2>
+                <p class="cfg-item-subtitle">Ajusta el tamaño de botones e iconos táctiles</p>
+
+                <div class="cfg-option-group" data-radio-group="controls-size">
+                    <button class="cfg-option-pill cfg-option-pill-active" data-value="normal">Normal</button>
+                    <button class="cfg-option-pill" data-value="large">Grande</button>
+                </div>
+            </section>
+
+            <section class="cfg-card">
+                <h2 class="cfg-block-title">Animaciones</h2>
+                <p class="cfg-item-subtitle">Reduce o desactiva animaciones</p>
+
+                <div class="cfg-switch-row">
+                    <p class="cfg-item-title">Reducir animaciones</p>
+                    <label class="cfg-switch">
+                        <input type="checkbox" id="cfgReduceMotionSwitch" />
+                        <span class="cfg-switch-slider"></span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="cfg-card cfg-preview-card">
+                <h2 class="cfg-block-title">Vista previa</h2>
+                <p class="cfg-item-subtitle">Ejemplo de cómo se verá tu configuración</p>
+
+                <div class="cfg-preview-box">
+                    <p class="cfg-preview-title">Incidente #2847</p>
+                    <p class="cfg-preview-text">
+                        Este es un ejemplo de cómo se verá el texto con la configuración actual.
+                    </p>
+                    <button type="button" class="cfg-btn cfg-btn-secondary cfg-preview-button">
+                        Botón de ejemplo
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <div class="cfg-form-footer">
+            <button type="button" class="cfg-btn cfg-btn-primary" id="cfgApplyAccessibilityBtn">
+                Aplicar cambios
+            </button>
+        </div>
+    </section>
+
+    <!-- ========== VISTA 5: SEGURIDAD ========== -->
+    <section id="cfg-security-view" class="cfg-view">
+        <header class="cfg-header cfg-header-inline">
+            <button type="button" class="cfg-back-link" data-back-to="cfg-main-view">←</button>
+            <h1 class="cfg-title">Seguridad</h1>
+        </header>
+
+        <section class="cfg-card">
+            <button class="cfg-item-row" data-view-target="cfg-change-password-view">
+                <div>
+                    <p class="cfg-item-title">Cambiar contraseña</p>
+                    <p class="cfg-item-subtitle">Actualiza tu contraseña de acceso</p>
+                </div>
+                <span class="cfg-chevron">›</span>
+            </button>
+
+            <button class="cfg-item-row" data-view-target="cfg-2fa-view">
+                <div>
+                    <p class="cfg-item-title">Autenticación de dos factores (2FA)</p>
+                    <p class="cfg-item-subtitle">Añade una capa extra de seguridad</p>
+                </div>
+                <span class="cfg-chevron">›</span>
+            </button>
+
+            <button class="cfg-item-row" data-view-target="cfg-devices-view">
+                <div>
+                    <p class="cfg-item-title">Dispositivos activos</p>
+                    <p class="cfg-item-subtitle">Sesiones abiertas en otros dispositivos</p>
+                </div>
+                <span class="cfg-chevron">›</span>
+            </button>
+        </section>
+
+        <div class="cfg-inline-note cfg-inline-note-soft">
+            <strong>Recomendación:</strong> Activa la autenticación de dos factores para mayor seguridad de tu cuenta.
+        </div>
+    </section>
+
+    <!-- ========== VISTA 5.1: CAMBIAR CONTRASEÑA ========== -->
+    <section id="cfg-change-password-view" class="cfg-view">
+        <header class="cfg-header cfg-header-inline">
+            <button type="button" class="cfg-back-link" data-back-to="cfg-security-view">←</button>
+            <h1 class="cfg-title">Cambiar contraseña</h1>
+        </header>
+
+        <form class="cfg-card cfg-form" id="cfgPasswordForm">
+            <label class="cfg-field">
+                <span>Contraseña actual</span>
+                <input type="password" />
+            </label>
+            <label class="cfg-field">
+                <span>Nueva contraseña</span>
+                <input type="password" />
+                <span class="cfg-help">Mínimo 8 caracteres</span>
+            </label>
+            <label class="cfg-field">
+                <span>Repetir nueva contraseña</span>
+                <input type="password" />
+            </label>
+        </form>
+
+        <div class="cfg-form-footer">
+            <button type="button" class="cfg-btn cfg-btn-primary" id="cfgSavePasswordBtn">
+                Cambiar contraseña
+            </button>
+        </div>
+    </section>
+
+    <!-- ========== VISTA 5.2: 2FA ========== -->
+    <section id="cfg-2fa-view" class="cfg-view">
+        <header class="cfg-header cfg-header-inline">
+            <button type="button" class="cfg-back-link" data-back-to="cfg-security-view">←</button>
+            <h1 class="cfg-title">Autenticación de dos factores</h1>
+        </header>
+
+        <section class="cfg-card">
+            <div class="cfg-switch-row">
+                <div>
+                    <p class="cfg-item-title">2FA activado</p>
+                    <p class="cfg-item-subtitle">Protege tu cuenta con un código adicional</p>
+                </div>
+                <label class="cfg-switch">
+                    <input type="checkbox" id="cfg2faSwitch" checked />
+                    <span class="cfg-switch-slider"></span>
+                </label>
+            </div>
+
+            <div class="cfg-divider"></div>
+
+            <p class="cfg-item-subtitle">
+                Método configurado: SMS al +51 987 *** 321
+            </p>
+
+            <button type="button" class="cfg-btn cfg-btn-secondary" id="cfgChange2faMethodBtn">
+                Cambiar método
+            </button>
+        </section>
+    </section>
+
+    <!-- ========== VISTA 5.3: DISPOSITIVOS ACTIVOS ========== -->
+    <section id="cfg-devices-view" class="cfg-view">
+        <header class="cfg-header cfg-header-inline">
+            <button type="button" class="cfg-back-link" data-back-to="cfg-security-view">←</button>
+            <h1 class="cfg-title">Dispositivos activos</h1>
+        </header>
+
+        <section class="cfg-card">
+            <article class="cfg-device-row">
+                <div>
+                    <p class="cfg-item-title">iPhone 13 Pro <span class="cfg-badge cfg-badge-success">Actual</span></p>
+                    <p class="cfg-item-subtitle">Lima, Perú · Ahora</p>
+                </div>
+                <button class="cfg-link-btn cfg-link-btn-danger" disabled>Sesión actual</button>
+            </article>
+
+            <article class="cfg-device-row">
+                <div>
+                    <p class="cfg-item-title">Chrome en Windows</p>
+                    <p class="cfg-item-subtitle">Lima, Perú · Hace 2 horas</p>
+                </div>
+                <button class="cfg-link-btn cfg-link-btn-danger cfg-close-session-btn" type="button">
+                    Cerrar sesión
+                </button>
+            </article>
+
+            <article class="cfg-device-row">
+                <div>
+                    <p class="cfg-item-title">Safari en iPad</p>
+                    <p class="cfg-item-subtitle">Lima, Perú · Hace 1 día</p>
+                </div>
+                <button class="cfg-link-btn cfg-link-btn-danger cfg-close-session-btn" type="button">
+                    Cerrar sesión
+                </button>
+            </article>
+        </section>
+
+        <div class="cfg-form-footer cfg-form-footer-left">
+            <button type="button" class="cfg-btn cfg-btn-danger" id="cfgCloseAllSessionsBtn">
+                Cerrar todas las sesiones remotas
+            </button>
+        </div>
+    </section>
+
+    <!-- ========== VISTA 6: PRIVACIDAD Y DATOS ========== -->
+    <section id="cfg-privacy-view" class="cfg-view">
+        <header class="cfg-header cfg-header-inline">
+            <button type="button" class="cfg-back-link" data-back-to="cfg-main-view">←</button>
+            <h1 class="cfg-title">Privacidad y datos</h1>
+        </header>
+
+        <section class="cfg-card cfg-privacy-list">
+            <button class="cfg-item-row" id="cfgExportDataBtn">
+                <div>
+                    <p class="cfg-item-title">Exportar mis datos</p>
+                    <p class="cfg-item-subtitle">Descarga una copia de tu información personal</p>
+                </div>
+                <span class="cfg-chevron">›</span>
+            </button>
+
+            <button class="cfg-item-row" id="cfgClearCacheBtn">
+                <div>
+                    <p class="cfg-item-title">Borrar caché local</p>
+                    <p class="cfg-item-subtitle">Libera espacio y elimina datos temporales (78 MB)</p>
+                </div>
+                <span class="cfg-chevron">›</span>
+            </button>
+        </section>
+    </section>
+
+    <!-- ========== VISTA 7: CUENTA ========== -->
+    <section id="cfg-account-view" class="cfg-view">
+        <header class="cfg-header cfg-header-inline">
+            <button type="button" class="cfg-back-link" data-back-to="cfg-main-view">←</button>
+            <h1 class="cfg-title">Cuenta</h1>
+        </header>
+
+        <section class="cfg-card">
+            <button class="cfg-item-row" id="cfgLogoutBtn">
+                <div>
+                    <p class="cfg-item-title">Cerrar sesión</p>
+                    <p class="cfg-item-subtitle">Salir de tu cuenta en este dispositivo</p>
+                </div>
+                <span class="cfg-chevron">›</span>
+            </button>
+
+            <button class="cfg-item-row" id="cfgDeleteAccountBtn">
+                <div>
+                    <p class="cfg-item-title cfg-text-danger">Eliminar cuenta</p>
+                    <p class="cfg-item-subtitle">Solicitar eliminación permanente de tu cuenta</p>
+                </div>
+                <span class="cfg-chevron">›</span>
+            </button>
+        </section>
+
+        <aside class="cfg-inline-note cfg-inline-note-warning">
+            <strong>Importante:</strong> La eliminación de cuenta es un proceso irreversible que requiere aprobación administrativa.
+        </aside>
+    </section>
+
+    <!-- ========== VISTA 8: ACERCA DE ========== -->
+    <section id="cfg-about-view" class="cfg-view">
+        <header class="cfg-header cfg-header-inline">
+            <button type="button" class="cfg-back-link" data-back-to="cfg-main-view">←</button>
+            <h1 class="cfg-title">Acerca de</h1>
+        </header>
+
+        <section class="cfg-card cfg-about-main">
+            <div class="cfg-about-app">
+                <div class="cfg-about-icon">i</div>
+                <div>
+                    <p class="cfg-item-title">Sistema Operativo Integrado</p>
+                    <p class="cfg-item-subtitle">Coordinación Serenazgo y Policía</p>
+                    <span class="cfg-badge">Versión 2.4.1</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="cfg-card cfg-about-links">
+            <button class="cfg-item-row">
+                <p class="cfg-item-title">Términos y condiciones</p>
+                <span class="cfg-chevron">›</span>
+            </button>
+            <button class="cfg-item-row">
+                <p class="cfg-item-title">Política de privacidad</p>
+                <span class="cfg-chevron">›</span>
+            </button>
+            <button class="cfg-item-row">
+                <div>
+                    <p class="cfg-item-title">Contactar soporte</p>
+                    <p class="cfg-item-subtitle">soporte@pnp.gob.pe</p>
+                </div>
+                <span class="cfg-chevron">›</span>
+            </button>
+        </section>
+
+        <!-- Esto NO es un footer global, es solo contenido de esta vista -->
+        <section class="cfg-card cfg-about-footer-card">
+            <p class="cfg-about-footer-text">© 2025 Secured</p>
+            <p class="cfg-about-footer-subtext">Todos los derechos reservados</p>
+        </section>
+    </section>
+
+</main>
+</body>
+</html>
