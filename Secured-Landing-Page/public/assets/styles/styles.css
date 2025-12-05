@@ -978,6 +978,71 @@ a {
   cursor: pointer;
 }
 
+/* SECCIÓN: ABOUT THE TEAM */
+
+.about-team {
+  padding: 80px 24px;
+  background: #f8fafc;
+}
+
+.about-team-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-team h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 32px;
+}
+
+.about-team-video-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.about-team-video-placeholder span {
+  font-size: 24px;
+  color: #475569;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .about-team {
+    padding: 60px 20px;
+  }
+
+  .about-team h2 {
+    font-size: 28px;
+  }
+
+  .about-team-video-placeholder span {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-team {
+    padding: 48px 16px;
+  }
+
+  .about-team h2 {
+    font-size: 24px;
+  }
+
+  .about-team-video-placeholder span {
+    font-size: 18px;
+  }
+}
+
 /* SECCIÓN: SEGURIDAD Y CUMPLIMIENTO */
 
 .security-section {
