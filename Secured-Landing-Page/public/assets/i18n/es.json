@@ -196,6 +196,22 @@
     "copyright": "© 2025 Secured. Todos los derechos reservados.",
     "privacyText": "Secured no recopila información personal identificable sin consentimiento explícito. Ver",
     "privacyLink": "Política de privacidad"
+  },
+  "loginPage": {
+    "roleStrip": {
+      "policia": "Policía",
+      "serenazgo": "Serenazgo"
+    },
+    "backToHome": "Volver al inicio",
+    "title": "Iniciar Sesión",
+    "subtitle": "Ingresa tus credenciales para continuar",
+    "labelUser": "Usuario o DNI",
+    "labelPassword": "Contraseña",
+    "required": "*Campos requeridos",
+    "placeholderUser": "correo institucional o DNI",
+    "placeholderPassword": "Ingresa tu contraseña",
+    "btnLogin": "Ingresar",
+    "forgotPassword": "¿Olvidaste tu contraseña?"
   }
 }
 

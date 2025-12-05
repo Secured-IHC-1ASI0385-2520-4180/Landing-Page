@@ -196,6 +196,22 @@
     "copyright": "© 2025 Secured. All rights reserved.",
     "privacyText": "Secured does not collect personally identifiable information without explicit consent. See",
     "privacyLink": "Privacy Policy"
+  },
+  "loginPage": {
+    "roleStrip": {
+      "policia": "Police",
+      "serenazgo": "Security"
+    },
+    "backToHome": "Back to home",
+    "title": "Sign In",
+    "subtitle": "Enter your credentials to continue",
+    "labelUser": "User or ID",
+    "labelPassword": "Password",
+    "required": "*Required fields",
+    "placeholderUser": "institutional email or ID",
+    "placeholderPassword": "Enter your password",
+    "btnLogin": "Sign In",
+    "forgotPassword": "Forgot your password?"
   }
 }
 
