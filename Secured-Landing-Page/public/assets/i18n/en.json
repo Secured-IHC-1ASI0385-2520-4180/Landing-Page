@@ -181,7 +181,7 @@
     "phoneTitle": "Phone",
     "phone": "(01) 987 654 321",
     "emailTitle": "E-mail",
-    "email": "contact@secured.pe"
+    "email": "contacto@secured.pe"
   },
   "footer": {
     "tagline": "Intelligent coordination for Security and Police.",
@@ -212,6 +212,68 @@
     "placeholderPassword": "Enter your password",
     "btnLogin": "Sign In",
     "forgotPassword": "Forgot your password?"
+  },
+  "homePage": {
+    "menuBtn": "Menu",
+    "profile": {
+      "name": "Sgt. Carlos Mendoza",
+      "role": "Police - Sergeant"
+    },
+    "menu": {
+      "inicio": "Home",
+      "mapa": "MAP",
+      "mapaIncidentes": "Incidents map",
+      "capasMapa": "Map layers",
+      "mapaCalor": "Heat map",
+      "zonasTemporales": "Temporary zones",
+      "coberturaSectores": "Sector coverage",
+      "bloqueosViales": "Road blocks",
+      "alertasVecinales": "Neighborhood alerts",
+      "geocercas": "Geofences",
+      "operacion": "OPERATION",
+      "navegacion": "Navigation",
+      "asignarUnidad": "Assign unit",
+      "coDespacho": "Co-dispatch",
+      "broadcast": "Broadcast",
+      "pedirApoyo": "Request support",
+      "tableroSla": "SLA dashboard",
+      "tableroAsignacion": "Assignment dashboard",
+      "central105": "Central 105",
+      "moderacionReporte": "Report moderation",
+      "falsoPositivo": "False positives",
+      "incidentes": "INCIDENTS",
+      "bandejaIncidentes": "Incidents inbox",
+      "buscadorIncidentes": "Incident search",
+      "chatIncidente": "Incident chat",
+      "crearIncidente": "Create incident",
+      "etiquetasIA": "AI tags",
+      "monitorCamaras": "Camera monitor",
+      "puntosInteres": "Points of interest",
+      "gestionEvidencias": "Evidence management",
+      "consultarEvidencias": "Consult evidence",
+      "actaIntervencion": "Intervention report",
+      "gestionOperativa": "OPERATIONAL MANAGEMENT",
+      "tareas": "TASKS",
+      "checklistsOperativos": "Operational checklists",
+      "webhooks": "Webhooks",
+      "gestionTurno": "Shift management",
+      "relevoTurno": "Shift handover",
+      "paseLista": "Roll call",
+      "reporteTurno": "Shift report",
+      "bitacora": "LOG",
+      "gestionUsuarios": "User management",
+      "bitacoraTimeline": "Log and timeline",
+      "gestionCatalogos": "Catalog management",
+      "gestionUnidades": "Unit management",
+      "historialUnidades": "Unit history",
+      "historialAgentes": "Agent history",
+      "panelAnalisis": "Analysis panel",
+      "exportesInformes": "Exports and reports",
+      "ajustes": "SETTINGS",
+      "configuracion": "Configuration"
+    },
+    "welcome": "Welcome to the Operational Platform",
+    "selectOption": "Select an option from the menu."
   }
 }
 

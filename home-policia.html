@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing Policial</title>
     <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/home-policia.css" />
+
+    <!-- Script i18n -->
+    <script src="Secured-Landing-Page/public/assets/scripts/login-i18n.js" defer></script>
 </head>
 <body>
 <!-- Botón de menú -->
@@ -14,64 +17,64 @@
 <aside id="sidebar">
     <div class="perfil">
         <img src="Secured-Landing-Page/public/assets/images/policia-imagen.png" alt="Foto del policía" />
-        <h3>Sgto. Carlos Mendoza</h3>
-        <span>Policía - Sargento</span>
+        <h3 data-i18n="homePage.profile.name">Sgto. Carlos Mendoza</h3>
+        <span data-i18n="homePage.profile.role">Policía - Sargento</span>
     </div>
 
     <ul class="menu">
-        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html" data-i18n="homePage.menu.inicio">Inicio</a></li>
 
-        <li class="separador">MAPA</li>
-        <li><a href="mapa-incidentes.html">Mapa de incidentes</a></li>
-        <li><a href="capas-mapa.html">Capas de mapa</a></li>
-        <li><a href="mapa-calor.html">Mapa de calor</a></li>
-        <li><a href="zonas-temporales.html">Zonas temporales</a></li>
-        <li><a href="cobertura-sectores.html">Cobertura de sectores</a></li>
-        <li><a href="bloqueos-viales.html">Bloqueos Viales</a></li>
-        <li><a href="alertas-vecinales.html">Alertas vecinales</a></li>
-        <li><a href="geocercas.html">Geocercas</a></li>
+        <li class="separador" data-i18n="homePage.menu.mapa">MAPA</li>
+        <li><a href="mapa-incidentes.html" data-i18n="homePage.menu.mapaIncidentes">Mapa de incidentes</a></li>
+        <li><a href="capas-mapa.html" data-i18n="homePage.menu.capasMapa">Capas de mapa</a></li>
+        <li><a href="mapa-calor.html" data-i18n="homePage.menu.mapaCalor">Mapa de calor</a></li>
+        <li><a href="zonas-temporales.html" data-i18n="homePage.menu.zonasTemporales">Zonas temporales</a></li>
+        <li><a href="cobertura-sectores.html" data-i18n="homePage.menu.coberturaSectores">Cobertura de sectores</a></li>
+        <li><a href="bloqueos-viales.html" data-i18n="homePage.menu.bloqueosViales">Bloqueos Viales</a></li>
+        <li><a href="alertas-vecinales.html" data-i18n="homePage.menu.alertasVecinales">Alertas vecinales</a></li>
+        <li><a href="geocercas.html" data-i18n="homePage.menu.geocercas">Geocercas</a></li>
 
-        <li class="separador">OPERACIÓN</li>
-        <li><a href="asignar-unidad.html">Asignar unidad</a></li>
-        <li><a href="co-despacho.html">Co despacho</a></li>
-        <li><a href="broadcast.html">Broadcast</a></li>
-        <li><a href="pedir-apoyo.html">Pedir apoyo</a></li>
-        <li><a href="tablero-sla.html">Tablero sla</a></li>
-        <li><a href="central-105.html">Central 105</a></li>
-        <li><a href="moderacion-reporte.html">Moderación de reporte</a></li>
-        <li><a href="falso-positivo.html">Falsos positivos</a></li>
+        <li class="separador" data-i18n="homePage.menu.operacion">OPERACIÓN</li>
+        <li><a href="asignar-unidad.html" data-i18n="homePage.menu.asignarUnidad">Asignar unidad</a></li>
+        <li><a href="co-despacho.html" data-i18n="homePage.menu.coDespacho">Co despacho</a></li>
+        <li><a href="broadcast.html" data-i18n="homePage.menu.broadcast">Broadcast</a></li>
+        <li><a href="pedir-apoyo.html" data-i18n="homePage.menu.pedirApoyo">Pedir apoyo</a></li>
+        <li><a href="tablero-sla.html" data-i18n="homePage.menu.tableroSla">Tablero sla</a></li>
+        <li><a href="central-105.html" data-i18n="homePage.menu.central105">Central 105</a></li>
+        <li><a href="moderacion-reporte.html" data-i18n="homePage.menu.moderacionReporte">Moderación de reporte</a></li>
+        <li><a href="falso-positivo.html" data-i18n="homePage.menu.falsoPositivo">Falsos positivos</a></li>
 
-        <li class="separador">INCIDENTES</li>
-        <li><a href="bandeja-incidentes.html">Bandeja de incidentes</a></li>
-        <li><a href="buscador-incidentes.html">Buscador de incidentes</a></li>
-        <li><a href="chat-incidente.html">Chat por incidente</a></li>
-        <li><a href="crear-incidente.html">Crear incidente</a></li>
-        <li><a href="etiquetas-ia.html">Etiquetas IA</a></li>
-        <li><a href="monitor-camaras.html">Monitor de cámaras</a></li>
-        <li><a href="puntos-interes.html">Puntos de interés</a></li>
-        <li><a href="gestion-evidencias.html">Gestion de evidencias</a></li>
-        <li><a href="acta-intervencion.html">Acta de intervención</a></li>
+        <li class="separador" data-i18n="homePage.menu.incidentes">INCIDENTES</li>
+        <li><a href="bandeja-incidentes.html" data-i18n="homePage.menu.bandejaIncidentes">Bandeja de incidentes</a></li>
+        <li><a href="buscador-incidentes.html" data-i18n="homePage.menu.buscadorIncidentes">Buscador de incidentes</a></li>
+        <li><a href="chat-incidente.html" data-i18n="homePage.menu.chatIncidente">Chat por incidente</a></li>
+        <li><a href="crear-incidente.html" data-i18n="homePage.menu.crearIncidente">Crear incidente</a></li>
+        <li><a href="etiquetas-ia.html" data-i18n="homePage.menu.etiquetasIA">Etiquetas IA</a></li>
+        <li><a href="monitor-camaras.html" data-i18n="homePage.menu.monitorCamaras">Monitor de cámaras</a></li>
+        <li><a href="puntos-interes.html" data-i18n="homePage.menu.puntosInteres">Puntos de interés</a></li>
+        <li><a href="gestion-evidencias.html" data-i18n="homePage.menu.gestionEvidencias">Gestion de evidencias</a></li>
+        <li><a href="acta-intervencion.html" data-i18n="homePage.menu.actaIntervencion">Acta de intervención</a></li>
 
-        <li class="separador">GESTION OPERATIVA</li>
-        <li><a href="checklists-operativos.html">Checklists operativos</a></li>
-        <li><a href="webhooks.html">Webhooks</a></li>
-        <li><a href="gestion-turno.html">Gestion de turno</a></li>
-        <li><a href="relevo-turno.html">Relevo de turno</a></li>
-        <li><a href="pase-lista.html">Pase de lista</a></li>
-        <li><a href="reporte-turno.html">Reporte de lista</a></li>
+        <li class="separador" data-i18n="homePage.menu.gestionOperativa">GESTION OPERATIVA</li>
+        <li><a href="checklists-operativos.html" data-i18n="homePage.menu.checklistsOperativos">Checklists operativos</a></li>
+        <li><a href="webhooks.html" data-i18n="homePage.menu.webhooks">Webhooks</a></li>
+        <li><a href="gestion-turno.html" data-i18n="homePage.menu.gestionTurno">Gestion de turno</a></li>
+        <li><a href="relevo-turno.html" data-i18n="homePage.menu.relevoTurno">Relevo de turno</a></li>
+        <li><a href="pase-lista.html" data-i18n="homePage.menu.paseLista">Pase de lista</a></li>
+        <li><a href="reporte-turno.html" data-i18n="homePage.menu.reporteTurno">Reporte de lista</a></li>
 
-        <li class="separador">BITÁCORA</li>
-        <li><a href="gestion_usuarios.html">Gestión de usuarios</a></li>
-        <li><a href="bitacora-policia.html">Bitácora y timeline</a></li>
-        <li><a href="gestion_catalogos.html">Gestión de catálogos</a></li>
-        <li><a href="gestion_unidades.html">Gestión de unidades</a></li>
-        <li><a href="historial_unidades.html">Historial de unidades</a></li>
-        <li><a href="historial-agentes.html">Historial de agentes</a></li>
-        <li><a href="panel-analisis.html">Panel de análisis</a></li>
-        <li><a href="exportes-informes.html">Exportes e informe</a></li>
+        <li class="separador" data-i18n="homePage.menu.bitacora">BITÁCORA</li>
+        <li><a href="gestion_usuarios.html" data-i18n="homePage.menu.gestionUsuarios">Gestión de usuarios</a></li>
+        <li><a href="bitacora-policia.html" data-i18n="homePage.menu.bitacoraTimeline">Bitácora y timeline</a></li>
+        <li><a href="gestion_catalogos.html" data-i18n="homePage.menu.gestionCatalogos">Gestión de catálogos</a></li>
+        <li><a href="gestion_unidades.html" data-i18n="homePage.menu.gestionUnidades">Gestión de unidades</a></li>
+        <li><a href="historial_unidades.html" data-i18n="homePage.menu.historialUnidades">Historial de unidades</a></li>
+        <li><a href="historial-agentes.html" data-i18n="homePage.menu.historialAgentes">Historial de agentes</a></li>
+        <li><a href="panel-analisis.html" data-i18n="homePage.menu.panelAnalisis">Panel de análisis</a></li>
+        <li><a href="exportes-informes.html" data-i18n="homePage.menu.exportesInformes">Exportes e informe</a></li>
 
-        <li class="separador">AJUSTES</li>
-        <li><a href="configuracion-poli.html">Configuración</a></li>
+        <li class="separador" data-i18n="homePage.menu.ajustes">AJUSTES</li>
+        <li><a href="configuracion-poli.html" data-i18n="homePage.menu.configuracion">Configuración</a></li>
 
         <li class="separador"></li>
     </ul>
@@ -79,8 +82,16 @@
 
 <!-- Contenido principal -->
 <section id="contenido">
-    <h1>Bienvenido a la Plataforma Operativa</h1>
-    <p>Selecciona una opción desde el menú.</p>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h1 data-i18n="homePage.welcome">Bienvenido a la Plataforma Operativa</h1>
+
+        <!-- Selector de idioma -->
+        <div class="language-selector">
+            <button class="lang-btn" data-lang="es">ES</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+    </div>
+    <p data-i18n="homePage.selectOption">Selecciona una opción desde el menú.</p>
 </section>
 
 <!-- Footer -->
@@ -93,43 +104,43 @@
                     alt="Logo Secured"
                     class="footer-logo"
             />
-            <p class="footer-tagline">
+            <p class="footer-tagline" data-i18n="footer.tagline">
                 Coordinación inteligente para Serenazgo y Policía.
             </p>
         </div>
 
         <!-- Columna 2: navegación -->
         <div class="footer-nav">
-            <h3>Navegación</h3>
+            <h3 data-i18n="footer.navTitle">Navegación</h3>
             <ul>
-                <li><a href="index.html#inicio">Inicio</a></li>
-                <li><a href="index.html#solucion">Solución</a></li>
-                <li><a href="index.html#startup">Startup</a></li>
-                <li><a href="index.html#equipo">Equipo</a></li>
-                <li><a href="index.html#seguridad">Seguridad</a></li>
-                <li><a href="index.html#contacto">Contacto</a></li>
+                <li><a href="index.html#inicio" data-i18n="header.nav.inicio">Inicio</a></li>
+                <li><a href="index.html#solucion" data-i18n="header.nav.solucion">Solución</a></li>
+                <li><a href="index.html#startup" data-i18n="header.nav.startup">Startup</a></li>
+                <li><a href="index.html#equipo" data-i18n="header.nav.equipo">Equipo</a></li>
+                <li><a href="index.html#seguridad" data-i18n="header.nav.seguridad">Seguridad</a></li>
+                <li><a href="index.html#contacto" data-i18n="footer.contactTitle">Contacto</a></li>
             </ul>
         </div>
 
         <!-- Columna 3: Recursos -->
         <div class="footer-resources">
-            <h3>Recursos</h3>
+            <h3 data-i18n="footer.resourcesTitle">Recursos</h3>
             <ul>
-                <li><a href="#">Soporte</a></li>
-                <li><a href="#">Documentación</a></li>
-                <li><a href="#">Privacidad</a></li>
-                <li><a href="#">Términos de servicio</a></li>
-                <li><a href="ayuda-documentacion.html">Ayuda y documentación</a></li>
+                <li><a href="#" data-i18n="footer.support">Soporte</a></li>
+                <li><a href="#" data-i18n="footer.documentation">Documentación</a></li>
+                <li><a href="#" data-i18n="footer.privacy">Privacidad</a></li>
+                <li><a href="#" data-i18n="footer.terms">Términos de servicio</a></li>
+                <li><a href="ayuda-documentacion.html" data-i18n="footer.help">Ayuda y documentación</a></li>
             </ul>
         </div>
 
         <!-- Columna 4: contacto -->
         <div class="footer-contact">
-            <h3>Contacto</h3>
+            <h3 data-i18n="footer.contactTitle">Contacto</h3>
             <ul>
-                <li>contacto@secured.pe</li>
-                <li>+51 987 654 321</li>
-                <li>Lima, Perú</li>
+                <li data-i18n="contact.email">contacto@secured.pe</li>
+                <li data-i18n="contact.phone">+51 987 654 321</li>
+                <li data-i18n="contact.address">Lima, Perú</li>
             </ul>
 
             <div class="footer-social">
@@ -141,10 +152,10 @@
     </div>
 
     <div class="footer-bottom">
-        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p data-i18n="footer.copyright">© 2025 Secured. Todos los derechos reservados.</p>
         <p>
-            Secured no recopila información personal identificable sin consentimiento
-            explícito. Ver <a href="#">Política de privacidad</a>.
+            <span data-i18n="footer.privacyText">Secured no recopila información personal identificable sin consentimiento
+            explícito. Ver</span> <a href="#" data-i18n="footer.privacyLink">Política de privacidad</a>.
         </p>
     </div>
 </footer>
