@@ -31,6 +31,7 @@ body {
     transition: 0.3s;
     padding-top: 20px;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    z-index: 1500; /* Por debajo del botón pero por encima del contenido */
 }
 
 #sidebar.open {
@@ -96,211 +97,224 @@ body {
     margin-left: 20px;
 }
 
-/* Footer Mejorado */
-.footer {
+/* Footer - Estilos de index.html */
+.site-footer {
     background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
     color: #94a3b8;
-    padding: 64px 40px 24px;
-    margin-top: auto;
+    padding: 64px 24px 24px;
     border-top: 1px solid rgba(51, 65, 85, 0.6);
+    position: relative;
+    z-index: 1; /* Por debajo del sidebar */
 }
 
-.footer-container {
-    display: grid;
-    grid-template-columns: 2.5fr 1fr 1fr 1.5fr;
-    gap: 48px;
+.footer-inner {
     max-width: 1200px;
     margin: 0 auto 40px;
+    display: grid;
+    grid-template-columns: minmax(0, 2.5fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.5fr);
+    gap: 48px;
     align-items: start;
 }
 
-.footer-column h4 {
-    color: #f1f5f9;
+/* Columna 1: Brand */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-logo {
+    height: auto;
+    width: 160px;
+    display: block;
+    filter: brightness(1.1);
+}
+
+.footer-tagline {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #cbd5e1;
+    max-width: 280px;
+}
+
+/* Títulos de columna */
+.footer-nav h3,
+.footer-resources h3,
+.footer-contact h3 {
+    margin: 0 0 16px;
     font-size: 15px;
     font-weight: 600;
-    margin-bottom: 16px;
+    color: #f1f5f9;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.footer-logo {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 0;
-}
-
-.footer-logo img {
-    width: 140px;
-    height: auto;
-    filter: brightness(1.1);
-}
-
-.footer-description {
-    color: #cbd5e1;
-    font-size: 15px;
-    line-height: 1.6;
-    margin: 0;
-    max-width: 280px;
-}
-
-.footer-column ul {
+/* Listas */
+.footer-nav ul,
+.footer-resources ul,
+.footer-contact ul {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    font-size: 14px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.footer-column ul li {
-    margin-bottom: 0;
-}
-
-.footer-column ul li a {
+.footer-nav a,
+.footer-resources a {
     color: #94a3b8;
     text-decoration: none;
-    font-size: 14px;
     transition: all 0.2s ease;
     display: inline-block;
+    position: relative;
 }
 
-.footer-column ul li a:hover {
+.footer-nav a:hover,
+.footer-resources a:hover {
     color: #60a5fa;
     transform: translateX(4px);
 }
 
-.contact-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 0;
-    color: #cbd5e1;
-}
-
-.contact-list .icon {
-    font-size: 16px;
-    color: #94a3b8;
-    opacity: 0.8;
-    flex-shrink: 0;
-}
-
-.contact-list span {
+/* Columna de contacto */
+.footer-contact li {
+    display: block;
     color: #cbd5e1;
     font-size: 14px;
 }
 
-.footer-social {
-    display: flex;
-    gap: 12px;
-    margin-top: 20px;
+.footer-contact span,
+.footer-contact a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
-.social-icon {
+.footer-contact a:hover {
+    color: #60a5fa;
+}
+
+/* Redes sociales mejoradas */
+.footer-social {
+    margin-top: 20px;
     display: flex;
+    gap: 12px;
+}
+
+.footer-social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    font-size: 18px;
     background: rgba(51, 65, 85, 0.5);
     color: #cbd5e1;
-    border-radius: 8px;
     text-decoration: none;
-    font-size: 16px;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
 }
 
-.social-icon:hover {
+.footer-social a:hover {
     background: #2563eb;
     color: #ffffff;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
 }
 
+/* Línea inferior mejorada */
 .footer-bottom {
-    border-top: 1px solid rgba(51, 65, 85, 0.5);
+    max-width: 1200px;
+    margin: 0 auto;
     padding-top: 24px;
-    text-align: center;
-    margin-top: 40px;
+    border-top: 1px solid rgba(51, 65, 85, 0.5);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 40px auto 0;
+    gap: 16px;
+    font-size: 13px;
+    color: #64748b;
 }
 
 .footer-bottom p {
-    color: #64748b;
-    font-size: 13px;
     margin: 0;
 }
 
-.privacy-note {
-    font-size: 13px;
-    color: #64748b;
-}
-
-.privacy-note a {
+.footer-bottom a {
     color: #60a5fa;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
-.privacy-note a:hover {
+.footer-bottom a:hover {
     color: #93c5fd;
     text-decoration: underline;
 }
 
-/* Responsive Footer */
+/* Responsive */
 @media (max-width: 1024px) {
-    .footer-container {
+    .footer-inner {
         grid-template-columns: repeat(2, 1fr);
         gap: 40px;
     }
 
-    .footer-column:first-child {
+    .footer-brand {
         grid-column: 1 / -1;
+    }
+
+    .footer-logo {
+        width: 140px;
     }
 }
 
 @media (max-width: 768px) {
-    .footer {
+    .site-footer {
         padding: 48px 20px 20px;
     }
 
-    .footer-container {
+    .footer-inner {
         grid-template-columns: 1fr;
         gap: 32px;
     }
 
-    .footer-column:first-child {
+    .footer-brand {
         grid-column: auto;
+    }
+
+    .footer-logo {
+        width: 130px;
     }
 
     .footer-bottom {
         flex-direction: column;
-        gap: 8px;
         text-align: center;
+        gap: 8px;
     }
 }
 
 @media (max-width: 480px) {
-    .footer-logo img {
+    .footer-logo {
         width: 120px;
     }
 
-    .footer-description {
+    .footer-tagline {
         font-size: 14px;
     }
 
-    .footer-column h4 {
+    .footer-nav h3,
+    .footer-resources h3,
+    .footer-contact h3 {
         font-size: 14px;
     }
 
-    .social-icon {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
+    .footer-social a {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
     }
 }
+
+
