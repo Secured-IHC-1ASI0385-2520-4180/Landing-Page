@@ -305,6 +305,7 @@
   gap: 24px;
   align-items: center;
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+  position: relative;
 }
 
 .agent-avatar {
@@ -313,6 +314,24 @@
   border-radius: 50%;
   border: 4px solid rgba(255, 255, 255, 0.3);
   object-fit: cover;
+}
+
+.config-button {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.config-button:hover {
+  opacity: 1;
+}
+
+.config-icon {
+  font-size: 28px;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
 }
 
 .agent-details {

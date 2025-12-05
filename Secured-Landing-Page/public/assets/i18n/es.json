@@ -215,6 +215,9 @@
   },
   "homePage": {
     "menuBtn": "Menú",
+    "config": {
+      "title": "Configuración"
+    },
     "breadcrumb": {
       "subtitle": "Serenazgo • Motorizado",
       "location": "Sector Sur",

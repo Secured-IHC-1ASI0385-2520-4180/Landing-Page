@@ -215,6 +215,9 @@
   },
   "homePage": {
     "menuBtn": "Menu",
+    "config": {
+      "title": "Settings"
+    },
     "breadcrumb": {
       "subtitle": "Security • Motorized",
       "location": "South Sector",
