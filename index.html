@@ -17,11 +17,17 @@
   <!-- CSS principal  -->
   <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/styles.css" />
 
+  <!-- CSS menu toggle responsive -->
+  <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/menu_toggle.css" />
+
   <!-- Script i18n -->
   <script src="Secured-Landing-Page/public/assets/scripts/i18n.js" defer></script>
 
-  <!-- Script header sticky -->
+  <!-- Script header sticky y mobile menu -->
   <script src="Secured-Landing-Page/public/assets/scripts/header.js" defer></script>
+
+  <!-- Script menu toggle -->
+  <!-- <script src="Secured-Landing-Page/public/assets/scripts/menu_toggle.js" defer></script> -->
 
 </head>
 <body>
@@ -36,7 +42,14 @@
           />
         </a>
 
-        <nav class="main-nav">
+        <!-- Botón hamburguesa para móvil -->
+        <button class="mobile-menu-toggle menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <nav class="main-nav Menu-Horizontal" id="mainNav">
           <ul>
             <li><a href="#inicio" data-i18n="header.nav.inicio">Inicio</a></li>
             <li><a href="#solucion" data-i18n="header.nav.solucion">Solución</a></li>
@@ -861,7 +874,7 @@
                     <li><a href="#" data-i18n="footer.support">Soporte</a></li>
                     <li><a href="#" data-i18n="footer.documentation">Documentación</a></li>
                     <li><a href="#" data-i18n="footer.privacy">Privacidad</a></li>
-                    <li><a href="#" data-i18n="footer.terms">Términos de servicio</a></li>
+                    <li><a href="https://publuu.com/flip-book/1025735/2267623" data-i18n="footer.terms">Términos de servicio</a></li>
                     <li><a href="ayuda-documentacion.html" data-i18n="footer.help">Ayuda y documentación</a></li>
                 </ul>
             </div>
