@@ -215,9 +215,25 @@
   },
   "homePage": {
     "menuBtn": "Menú",
+    "breadcrumb": {
+      "subtitle": "Policía • Patrulla motorizada",
+      "location": "Sector Norte",
+      "status": "Disponible"
+    },
     "profile": {
       "name": "Sgto. Carlos Mendoza",
-      "role": "Policía - Sargento"
+      "role": "Policía - Sargento",
+      "unit": "Patrulla motorizada",
+      "sector": "Sector Norte",
+      "startTime": "Ingreso: 06:00",
+      "available": "Disponible",
+      "tags": {
+        "dispatch": "Despacho",
+        "cameras": "Cámaras",
+        "moderation": "Moderación",
+        "calls105": "Llamadas 105",
+        "evidence": "Evidencias"
+      }
     },
     "menu": {
       "inicio": "Inicio",
@@ -273,7 +289,43 @@
       "configuracion": "Configuración"
     },
     "welcome": "Bienvenido a la Plataforma Operativa",
-    "selectOption": "Selecciona una opción desde el menú."
+    "selectOption": "Selecciona una opción desde el menú.",
+    "metrics": {
+      "attended": "Atendidos",
+      "tta": "TTA",
+      "ttr": "TTR",
+      "km": "KM"
+    },
+    "recentReports": "Reportes recientes",
+    "reports": {
+      "priority": {
+        "high": "Alta",
+        "medium": "Media",
+        "low": "Baja"
+      },
+      "status": {
+        "inProgress": "En curso",
+        "closed": "Cerrado"
+      },
+      "incidents": {
+        "noise": "Ruido molesto",
+        "vendor": "Ambulante",
+        "fight": "Pelea"
+      },
+      "sector": {
+        "south": "Sector Sur",
+        "north": "Sector Norte"
+      }
+    },
+    "quickAccess": "Accesos rápidos",
+    "quickActions": {
+      "createIncident": "Crear incidente",
+      "createIncidentDesc": "Registro de incidente",
+      "navigateIncident": "Navegar al incidente",
+      "navigateIncidentDesc": "Navegación operativa",
+      "attachEvidence": "Adjuntar evidencia",
+      "attachEvidenceDesc": "Gestión de evidencias"
+    }
   }
 }
 

@@ -3,18 +3,118 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landing Policial</title>
+    <title>Dashboard Policial - Secured</title>
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/menu_toggle.css" />
     <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/home-policia.css" />
 
     <!-- Script i18n -->
     <script src="Secured-Landing-Page/public/assets/scripts/login-i18n.js" defer></script>
+    <!-- Script menu toggle para responsive -->
+    <script src="Secured-Landing-Page/public/assets/scripts/home-policia-menu.js" defer></script>
 </head>
-<body>
-<!-- Botón de menú -->
-<button id="menuBtn">&#9776;</button>
+<body class="dashboard-body">
 
-<!-- Menú lateral -->
-<aside id="sidebar">
+<!-- Header superior -->
+<header class="dashboard-header">
+    <div class="header-left">
+        <button class="menu-toggle">&#9776;</button>
+        <img src="Secured-Landing-Page/public/assets/images/Secured_Logo_v1.png" alt="Secured Logo" class="header-logo" />
+    </div>
+
+    <nav class="header-nav Menu-Horizontal">
+        <!-- Menú Inicio -->
+        <div class="nav-item">
+            <a href="index.html" data-i18n="homePage.menu.inicio">Inicio</a>
+        </div>
+
+        <!-- Menú Mapa con dropdown -->
+        <div class="nav-item dropdown">
+            <button class="dropdown-toggle" data-i18n="homePage.menu.mapa">Mapa</button>
+            <div class="dropdown-menu">
+                <a href="mapa-incidentes.html" data-i18n="homePage.menu.mapaIncidentes">Mapa de incidentes</a>
+                <a href="capas-mapa.html" data-i18n="homePage.menu.capasMapa">Capas de mapa</a>
+                <a href="mapa-calor.html" data-i18n="homePage.menu.mapaCalor">Mapa de calor</a>
+                <a href="zonas-temporales.html" data-i18n="homePage.menu.zonasTemporales">Zonas temporales</a>
+                <a href="cobertura-sectores.html" data-i18n="homePage.menu.coberturaSectores">Cobertura de sectores</a>
+                <a href="bloqueos-viales.html" data-i18n="homePage.menu.bloqueosViales">Bloqueos Viales</a>
+                <a href="alertas-vecinales.html" data-i18n="homePage.menu.alertasVecinales">Alertas vecinales</a>
+                <a href="geocercas.html" data-i18n="homePage.menu.geocercas">Geocercas</a>
+            </div>
+        </div>
+
+        <!-- Menú Incidentes con dropdown -->
+        <div class="nav-item dropdown">
+            <button class="dropdown-toggle" data-i18n="homePage.menu.incidentes">Incidentes</button>
+            <div class="dropdown-menu">
+                <a href="bandeja-incidentes.html" data-i18n="homePage.menu.bandejaIncidentes">Bandeja de incidentes</a>
+                <a href="buscador-incidentes.html" data-i18n="homePage.menu.buscadorIncidentes">Buscador de incidentes</a>
+                <a href="chat-incidente.html" data-i18n="homePage.menu.chatIncidente">Chat por incidente</a>
+                <a href="crear-incidente.html" data-i18n="homePage.menu.crearIncidente">Crear incidente</a>
+                <a href="etiquetas-ia.html" data-i18n="homePage.menu.etiquetasIA">Etiquetas IA</a>
+                <a href="monitor-camaras.html" data-i18n="homePage.menu.monitorCamaras">Monitor de cámaras</a>
+                <a href="puntos-interes.html" data-i18n="homePage.menu.puntosInteres">Puntos de interés</a>
+                <a href="gestion-evidencias.html" data-i18n="homePage.menu.gestionEvidencias">Gestion de evidencias</a>
+                <a href="acta-intervencion.html" data-i18n="homePage.menu.actaIntervencion">Acta de intervención</a>
+            </div>
+        </div>
+
+        <!-- Menú Operación con dropdown -->
+        <div class="nav-item dropdown">
+            <button class="dropdown-toggle" data-i18n="homePage.menu.operacion">Operación</button>
+            <div class="dropdown-menu">
+                <a href="asignar-unidad.html" data-i18n="homePage.menu.asignarUnidad">Asignar unidad</a>
+                <a href="co-despacho.html" data-i18n="homePage.menu.coDespacho">Co despacho</a>
+                <a href="broadcast.html" data-i18n="homePage.menu.broadcast">Broadcast</a>
+                <a href="pedir-apoyo.html" data-i18n="homePage.menu.pedirApoyo">Pedir apoyo</a>
+                <a href="tablero-sla.html" data-i18n="homePage.menu.tableroSla">Tablero sla</a>
+                <a href="central-105.html" data-i18n="homePage.menu.central105">Central 105</a>
+                <a href="moderacion-reporte.html" data-i18n="homePage.menu.moderacionReporte">Moderación de reporte</a>
+                <a href="falso-positivo.html" data-i18n="homePage.menu.falsoPositivo">Falsos positivos</a>
+            </div>
+        </div>
+
+        <!-- Menú Bitácora con dropdown -->
+        <div class="nav-item dropdown">
+            <button class="dropdown-toggle" data-i18n="homePage.menu.bitacora">Bitácora</button>
+            <div class="dropdown-menu">
+                <a href="gestion_usuarios.html" data-i18n="homePage.menu.gestionUsuarios">Gestión de usuarios</a>
+                <a href="bitacora-policia.html" data-i18n="homePage.menu.bitacoraTimeline">Bitácora y timeline</a>
+                <a href="gestion_catalogos.html" data-i18n="homePage.menu.gestionCatalogos">Gestión de catálogos</a>
+                <a href="gestion_unidades.html" data-i18n="homePage.menu.gestionUnidades">Gestión de unidades</a>
+                <a href="historial_unidades.html" data-i18n="homePage.menu.historialUnidades">Historial de unidades</a>
+                <a href="historial-agentes.html" data-i18n="homePage.menu.historialAgentes">Historial de agentes</a>
+                <a href="panel-analisis.html" data-i18n="homePage.menu.panelAnalisis">Panel de análisis</a>
+                <a href="exportes-informes.html" data-i18n="homePage.menu.exportesInformes">Exportes e informe</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="header-right">
+        <!-- Selector de idioma -->
+        <div class="language-selector">
+            <button class="lang-btn" data-lang="es">ES</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+    </div>
+</header>
+
+<!-- Breadcrumb bar -->
+<div class="breadcrumb-bar">
+    <div class="breadcrumb-left">
+        <button id="menuBtn" class="menu-toggle">&#9776;</button>
+        <div class="breadcrumb-info">
+            <span class="breadcrumb-title" data-i18n="homePage.menu.inicio">Inicio</span>
+            <span class="breadcrumb-subtitle" data-i18n="homePage.breadcrumb.subtitle">Policía • Patrulla motorizada</span>
+        </div>
+    </div>
+    <div class="breadcrumb-right">
+        <span class="breadcrumb-location" data-i18n="homePage.breadcrumb.location">Sector Norte</span>
+        <span class="breadcrumb-status" data-i18n="homePage.breadcrumb.status">Disponible</span>
+    </div>
+</div>
+
+<!-- Sidebar lateral -->
+<aside id="sidebar" class="sidebar">
     <div class="perfil">
         <img src="Secured-Landing-Page/public/assets/images/policia-imagen.png" alt="Foto del policía" />
         <h3 data-i18n="homePage.profile.name">Sgto. Carlos Mendoza</h3>
@@ -80,19 +180,142 @@
     </ul>
 </aside>
 
-<!-- Contenido principal -->
-<section id="contenido">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <h1 data-i18n="homePage.welcome">Bienvenido a la Plataforma Operativa</h1>
-
-        <!-- Selector de idioma -->
-        <div class="language-selector">
-            <button class="lang-btn" data-lang="es">ES</button>
-            <button class="lang-btn" data-lang="en">EN</button>
+<!-- Contenido principal del dashboard -->
+<main id="contenido" class="dashboard-main">
+    <!-- Sección de encabezado con info del agente -->
+    <section class="agent-header">
+        <div class="agent-info-card">
+            <img src="Secured-Landing-Page/public/assets/images/policia-imagen.png" alt="Foto del policía" class="agent-avatar" />
+            <div class="agent-details">
+                <h2 data-i18n="homePage.profile.name">Sgto. Carlos Mendoza</h2>
+                <div class="agent-meta">
+                    <span class="badge badge-blue" data-i18n="homePage.profile.role">Policía</span>
+                    <span class="badge badge-blue" data-i18n="homePage.profile.unit">Patrulla motorizada</span>
+                </div>
+                <div class="agent-status">
+                    <div class="status-item">
+                        <span class="icon">📍</span>
+                        <span data-i18n="homePage.profile.sector">Sector Norte</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="icon">🕐</span>
+                        <span data-i18n="homePage.profile.startTime">Ingreso: 06:00</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="icon status-badge status-available">✓</span>
+                        <span data-i18n="homePage.profile.available">Disponible</span>
+                    </div>
+                </div>
+                <div class="agent-tags">
+                    <span class="tag" data-i18n="homePage.profile.tags.dispatch">Despacho</span>
+                    <span class="tag" data-i18n="homePage.profile.tags.cameras">Cámaras</span>
+                    <span class="tag" data-i18n="homePage.profile.tags.moderation">Moderación</span>
+                    <span class="tag" data-i18n="homePage.profile.tags.calls105">Llamadas 105</span>
+                    <span class="tag" data-i18n="homePage.profile.tags.evidence">Evidencias</span>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- Grid de métricas -->
+    <section class="metrics-grid">
+        <div class="metric-card">
+            <h3 data-i18n="homePage.metrics.attended">Atendidos</h3>
+            <div class="metric-value">8</div>
+            <div class="metric-change positive">+2</div>
+        </div>
+
+        <div class="metric-card">
+            <h3 data-i18n="homePage.metrics.tta">TTA</h3>
+            <div class="metric-value">12 min</div>
+            <div class="metric-change negative">-3 min</div>
+        </div>
+
+        <div class="metric-card">
+            <h3 data-i18n="homePage.metrics.ttr">TTR</h3>
+            <div class="metric-value">35 min</div>
+            <div class="metric-change negative">-8 min</div>
+        </div>
+
+        <div class="metric-card">
+            <h3 data-i18n="homePage.metrics.km">KM</h3>
+            <div class="metric-value">24 km</div>
+            <div class="metric-change positive">+6 km</div>
+        </div>
+    </section>
+
+    <!-- Grid de contenido: Reportes y Accesos rápidos -->
+    <div class="content-grid">
+        <!-- Reportes recientes -->
+        <section class="reports-section">
+            <h3 data-i18n="homePage.recentReports">Reportes recientes</h3>
+            <div class="reports-table">
+                <div class="report-item" onclick="location.href='bandeja-incidentes.html'">
+                    <div class="report-header">
+                        <span class="report-code">SRZ-00456</span>
+                        <span class="badge badge-warning" data-i18n="homePage.reports.priority.medium">Media</span>
+                    </div>
+                    <div class="report-title" data-i18n="homePage.reports.incidents.noise">Ruido molesto</div>
+                    <div class="report-footer">
+                        <span class="report-location" data-i18n="homePage.reports.sector.south">Sector Sur</span>
+                        <span class="report-time">15:20</span>
+                        <span class="badge badge-info" data-i18n="homePage.reports.status.inProgress">En curso</span>
+                    </div>
+                </div>
+
+                <div class="report-item" onclick="location.href='bandeja-incidentes.html'">
+                    <div class="report-header">
+                        <span class="report-code">SRZ-00457</span>
+                        <span class="badge badge-low" data-i18n="homePage.reports.priority.low">Baja</span>
+                    </div>
+                    <div class="report-title" data-i18n="homePage.reports.incidents.vendor">Ambulante</div>
+                    <div class="report-footer">
+                        <span class="report-location" data-i18n="homePage.reports.sector.south">Sector Sur</span>
+                        <span class="report-time">15:05</span>
+                        <span class="badge badge-success" data-i18n="homePage.reports.status.closed">Cerrado</span>
+                    </div>
+                </div>
+
+                <div class="report-item" onclick="location.href='bandeja-incidentes.html'">
+                    <div class="report-header">
+                        <span class="report-code">SRZ-00458</span>
+                        <span class="badge badge-high" data-i18n="homePage.reports.priority.high">Alta</span>
+                    </div>
+                    <div class="report-title" data-i18n="homePage.reports.incidents.fight">Pelea</div>
+                    <div class="report-footer">
+                        <span class="report-location" data-i18n="homePage.reports.sector.south">Sector Sur</span>
+                        <span class="report-time">14:40</span>
+                        <span class="badge badge-info" data-i18n="homePage.reports.status.inProgress">En curso</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accesos rápidos -->
+        <section class="quick-access-section">
+            <h3 data-i18n="homePage.quickAccess">Accesos rápidos</h3>
+            <div class="quick-access-grid">
+                <a href="crear-incidente.html" class="quick-access-card">
+                    <div class="card-icon">⚠️</div>
+                    <div class="card-title" data-i18n="homePage.quickActions.createIncident">Crear incidente</div>
+                    <div class="card-subtitle" data-i18n="homePage.quickActions.createIncidentDesc">Registro de incidente</div>
+                </a>
+
+                <a href="mapa-incidentes.html" class="quick-access-card">
+                    <div class="card-icon">✈️</div>
+                    <div class="card-title" data-i18n="homePage.quickActions.navigateIncident">Navegar al incidente</div>
+                    <div class="card-subtitle" data-i18n="homePage.quickActions.navigateIncidentDesc">Navegación operativa</div>
+                </a>
+
+                <a href="gestion-evidencias.html" class="quick-access-card">
+                    <div class="card-icon">🖼️</div>
+                    <div class="card-title" data-i18n="homePage.quickActions.attachEvidence">Adjuntar evidencia</div>
+                    <div class="card-subtitle" data-i18n="homePage.quickActions.attachEvidenceDesc">Gestión de evidencias</div>
+                </a>
+            </div>
+        </section>
     </div>
-    <p data-i18n="homePage.selectOption">Selecciona una opción desde el menú.</p>
-</section>
+</main>
 
 <!-- Footer -->
 <footer class="site-footer">

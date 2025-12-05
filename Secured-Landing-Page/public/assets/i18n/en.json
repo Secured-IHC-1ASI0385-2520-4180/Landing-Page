@@ -215,9 +215,25 @@
   },
   "homePage": {
     "menuBtn": "Menu",
+    "breadcrumb": {
+      "subtitle": "Police • Motorized patrol",
+      "location": "North Sector",
+      "status": "Available"
+    },
     "profile": {
       "name": "Sgt. Carlos Mendoza",
-      "role": "Police - Sergeant"
+      "role": "Police - Sergeant",
+      "unit": "Motorized patrol",
+      "sector": "North Sector",
+      "startTime": "Start: 06:00",
+      "available": "Available",
+      "tags": {
+        "dispatch": "Dispatch",
+        "cameras": "Cameras",
+        "moderation": "Moderation",
+        "calls105": "105 Calls",
+        "evidence": "Evidence"
+      }
     },
     "menu": {
       "inicio": "Home",
@@ -273,7 +289,43 @@
       "configuracion": "Configuration"
     },
     "welcome": "Welcome to the Operational Platform",
-    "selectOption": "Select an option from the menu."
+    "selectOption": "Select an option from the menu.",
+    "metrics": {
+      "attended": "Attended",
+      "tta": "TTA",
+      "ttr": "TTR",
+      "km": "KM"
+    },
+    "recentReports": "Recent reports",
+    "reports": {
+      "priority": {
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low"
+      },
+      "status": {
+        "inProgress": "In progress",
+        "closed": "Closed"
+      },
+      "incidents": {
+        "noise": "Noise complaint",
+        "vendor": "Street vendor",
+        "fight": "Fight"
+      },
+      "sector": {
+        "south": "South Sector",
+        "north": "North Sector"
+      }
+    },
+    "quickAccess": "Quick access",
+    "quickActions": {
+      "createIncident": "Create incident",
+      "createIncidentDesc": "Incident registration",
+      "navigateIncident": "Navigate to incident",
+      "navigateIncidentDesc": "Operational navigation",
+      "attachEvidence": "Attach evidence",
+      "attachEvidenceDesc": "Evidence management"
+    }
   }
 }
 
