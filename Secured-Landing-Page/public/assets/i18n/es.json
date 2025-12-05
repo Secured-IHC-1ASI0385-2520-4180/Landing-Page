@@ -336,6 +336,409 @@
       "attachEvidence": "Adjuntar evidencia",
       "attachEvidenceDesc": "Gestión de evidencias"
     }
+  },
+  "help": {
+    "pageTitle": "Ayuda y Documentación",
+    "pageSubtitle": "Centro de recursos y tutoriales",
+    "backButton": "Volver",
+    "searchPlaceholder": "¿Qué necesitas aprender?",
+    "searchButton": "Buscar",
+    "categories": {
+      "title": "Categorías principales",
+      "firstSteps": {
+        "title": "Primeros Pasos",
+        "desc": "Aprende lo básico de Secured"
+      },
+      "incidents": {
+        "title": "Gestión de Incidentes",
+        "desc": "Crear, asignar y resolver incidentes"
+      },
+      "map": {
+        "title": "Uso del Mapa",
+        "desc": "Navegación y funciones del mapa"
+      },
+      "communication": {
+        "title": "Comunicación",
+        "desc": "Chat, broadcast y coordinación"
+      },
+      "reports": {
+        "title": "Reportes y Análisis",
+        "desc": "Generar informes y estadísticas"
+      },
+      "configuration": {
+        "title": "Configuración",
+        "desc": "Ajustes de cuenta y sistema"
+      }
+    },
+    "quickLinks": {
+      "title": "Accesos Rápidos",
+      "manual": "Manual completo",
+      "videos": "Video tutoriales",
+      "faq": "Preguntas frecuentes",
+      "support": "Soporte técnico"
+    },
+    "tutorial": {
+      "progress": "de",
+      "previous": "← Anterior",
+      "next": "Siguiente →",
+      "finish": "Finalizar",
+      "tip": "💡 Consejo"
+    },
+    "tutorials": {
+      "inicio": {
+        "title": "Primeros Pasos",
+        "subtitle": "Aprende lo básico de Secured",
+        "whatIsSecured": {
+          "title": "¿Qué es Secured?",
+          "description": "Introducción a la plataforma",
+          "steps": {
+            "welcome": {
+              "title": "Bienvenido a Secured",
+              "content": "Secured es una plataforma de coordinación inteligente que conecta a policías y personal de serenazgo para una respuesta más rápida y eficiente ante incidentes de seguridad.",
+              "tip": "Secured está diseñada para ser intuitiva y fácil de usar, incluso en situaciones de alta presión."
+            },
+            "features": {
+              "title": "Características principales",
+              "content": "La plataforma ofrece gestión de incidentes en tiempo real, comunicación instantánea, mapas interactivos, asignación automática de unidades y análisis de datos para optimizar operaciones.",
+              "list": [
+                "Gestión de incidentes en tiempo real",
+                "Comunicación instantánea entre equipos",
+                "Mapas interactivos con ubicación GPS",
+                "Asignación inteligente de recursos",
+                "Reportes y análisis de datos"
+              ]
+            },
+            "roles": {
+              "title": "Roles y permisos",
+              "content": "Secured cuenta con diferentes roles: Operadores (gestionan incidentes), Agentes de campo (responden a emergencias) y Supervisores (monitorean operaciones).",
+              "tip": "Tu rol determina qué funciones puedes acceder. Contacta a tu supervisor si necesitas permisos adicionales."
+            },
+            "interface": {
+              "title": "Interfaz principal",
+              "content": "La pantalla principal muestra un mapa central con incidentes activos, panel de notificaciones, menú lateral para acceso rápido y barra superior con tu perfil y configuración.",
+              "list": [
+                "Mapa central con incidentes activos",
+                "Panel de notificaciones en tiempo real",
+                "Menú lateral para acceso rápido",
+                "Barra superior con perfil y configuración"
+              ]
+            },
+            "ready": {
+              "title": "¡Listo para empezar!",
+              "content": "Ya conoces lo básico de Secured. Explora las otras secciones de ayuda para aprender funciones específicas o comienza a usar la plataforma directamente.",
+              "tip": "Recuerda: siempre puedes volver a esta sección de ayuda desde cualquier parte de la plataforma."
+            }
+          }
+        },
+        "config": {
+          "title": "Configuración inicial",
+          "description": "Configura tu cuenta y preferencias",
+          "steps": {
+            "access": {
+              "title": "Acceso a configuración",
+              "content": "Para acceder a la configuración, haz clic en tu foto de perfil en la esquina superior derecha y selecciona \"Configuración\" del menú desplegable.",
+              "tip": "También puedes acceder rápidamente con el atajo de teclado Ctrl + Coma (,)."
+            },
+            "profile": {
+              "title": "Perfil personal",
+              "content": "En la sección de Perfil puedes actualizar tu foto, nombre, correo electrónico, teléfono de contacto y cambiar tu contraseña de forma segura.",
+              "list": [
+                "Foto de perfil",
+                "Información personal",
+                "Datos de contacto",
+                "Cambio de contraseña"
+              ]
+            },
+            "notifications": {
+              "title": "Notificaciones",
+              "content": "Configura cómo y cuándo recibir notificaciones. Puedes activar alertas por sonido, vibración, notificaciones push y establecer horarios de silencio.",
+              "tip": "Las notificaciones críticas siempre se mostrarán, incluso en modo silencioso."
+            },
+            "mapPrefs": {
+              "title": "Preferencias del mapa",
+              "content": "Personaliza la visualización del mapa: estilo (satélite o calles), zoom predeterminado, capas visibles y actualización automática de posición.",
+              "list": [
+                "Estilo de mapa (satélite/calles)",
+                "Nivel de zoom inicial",
+                "Capas y marcadores visibles",
+                "Actualización automática de GPS"
+              ]
+            },
+            "save": {
+              "title": "Guardar cambios",
+              "content": "Una vez configurado todo a tu gusto, no olvides hacer clic en \"Guardar cambios\" en la parte inferior de cada sección. Tus preferencias se sincronizarán en todos tus dispositivos.",
+              "tip": "Los cambios se guardan automáticamente cada 30 segundos."
+            }
+          }
+        }
+      },
+      "incidentes": {
+        "title": "Gestión de Incidentes",
+        "subtitle": "Crear, asignar y resolver incidentes",
+        "create": {
+          "title": "Crear un incidente",
+          "description": "Cómo reportar un nuevo incidente",
+          "steps": {
+            "access": {
+              "title": "Acceder al formulario",
+              "content": "Haz clic en el botón \"+\" flotante en la esquina inferior derecha o selecciona \"Nuevo incidente\" del menú principal.",
+              "tip": "También puedes crear un incidente haciendo clic derecho en el mapa."
+            },
+            "basic": {
+              "title": "Datos básicos",
+              "content": "Completa el tipo de incidente, nivel de prioridad (baja, media, alta, crítica), ubicación exacta y descripción detallada del evento.",
+              "list": [
+                "Tipo de incidente (robo, accidente, etc.)",
+                "Nivel de prioridad",
+                "Ubicación precisa",
+                "Descripción del evento"
+              ]
+            },
+            "additional": {
+              "title": "Información adicional",
+              "content": "Agrega detalles relevantes como número de personas involucradas, presencia de armas, vehículos implicados y cualquier información que ayude a la respuesta.",
+              "tip": "Cuanto más detallada sea la información, más efectiva será la respuesta."
+            },
+            "evidence": {
+              "title": "Adjuntar evidencia",
+              "content": "Puedes adjuntar fotos, videos, grabaciones de audio o documentos relevantes. Estos archivos se almacenan de forma segura y encriptada.",
+              "list": [
+                "Fotografías del lugar",
+                "Videos de seguridad",
+                "Grabaciones de audio",
+                "Documentos relacionados"
+              ]
+            },
+            "submit": {
+              "title": "Enviar incidente",
+              "content": "Revisa toda la información y haz clic en \"Crear incidente\". Se asignará un código único y se notificará automáticamente a las unidades disponibles.",
+              "tip": "El sistema priorizará automáticamente incidentes críticos para asignación inmediata."
+            }
+          }
+        },
+        "assign": {
+          "title": "Asignar unidades",
+          "description": "Cómo asignar personal a un incidente",
+          "steps": {
+            "select": {
+              "title": "Seleccionar incidente",
+              "content": "Desde el panel de incidentes o el mapa, haz clic en el incidente al que deseas asignar una unidad. Se abrirá el detalle completo.",
+              "tip": "Los incidentes sin asignar aparecen en color rojo en el mapa."
+            },
+            "view": {
+              "title": "Ver unidades disponibles",
+              "content": "El sistema muestra automáticamente las unidades más cercanas y disponibles, con su distancia estimada, tiempo de llegada y estado actual.",
+              "list": [
+                "Unidades cercanas al incidente",
+                "Distancia y tiempo estimado",
+                "Estado actual de disponibilidad",
+                "Equipamiento disponible"
+              ]
+            },
+            "choose": {
+              "title": "Seleccionar unidad",
+              "content": "Elige la unidad más apropiada considerando distancia, recursos y experiencia. Puedes asignar múltiples unidades si la situación lo requiere.",
+              "tip": "El sistema recomienda automáticamente la mejor opción basándose en múltiples factores."
+            },
+            "confirm": {
+              "title": "Confirmar asignación",
+              "content": "Revisa la información y confirma la asignación. La unidad recibirá una notificación instantánea con todos los detalles del incidente.",
+              "list": [
+                "Notificación push a la unidad",
+                "Información completa del incidente",
+                "Ruta optimizada en el mapa",
+                "Canal de comunicación abierto"
+              ]
+            },
+            "track": {
+              "title": "Seguimiento",
+              "content": "Una vez asignada, puedes seguir la ubicación de la unidad en tiempo real, ver su ETA actualizado y mantener comunicación constante hasta resolver el incidente.",
+              "tip": "Puedes reasignar o agregar más unidades en cualquier momento si es necesario."
+            }
+          }
+        }
+      },
+      "mapa": {
+        "title": "Uso del Mapa",
+        "subtitle": "Navegación y funciones del mapa",
+        "navigation": {
+          "title": "Navegación básica",
+          "description": "Controles esenciales del mapa",
+          "steps": {
+            "movement": {
+              "title": "Movimiento y zoom",
+              "content": "Arrastra con el mouse o dedo para moverte por el mapa. Usa la rueda del mouse, botones +/- o pellizca con dos dedos para hacer zoom.",
+              "list": [
+                "Arrastrar para mover el mapa",
+                "Rueda del mouse para zoom",
+                "Doble clic para acercar",
+                "Ctrl + arrastrar para rotar"
+              ]
+            },
+            "layers": {
+              "title": "Capas del mapa",
+              "content": "Cambia entre vista de calles, satélite, tráfico y otras capas. Activa o desactiva capas según necesites: incidentes, unidades, zonas de patrullaje.",
+              "tip": "Personaliza las capas visibles desde el botón de capas en la esquina superior derecha."
+            },
+            "search": {
+              "title": "Búsqueda de ubicación",
+              "content": "Usa la barra de búsqueda para encontrar direcciones, puntos de interés o coordenadas específicas. El mapa se centrará automáticamente en el resultado.",
+              "list": [
+                "Buscar por dirección",
+                "Buscar por nombre de lugar",
+                "Buscar por coordenadas GPS",
+                "Historial de búsquedas recientes"
+              ]
+            },
+            "location": {
+              "title": "Mi ubicación",
+              "content": "Haz clic en el botón \"Mi ubicación\" para centrar el mapa en tu posición actual. La flecha azul indica tu dirección.",
+              "tip": "Asegúrate de tener el GPS activado y haber dado permisos de ubicación a la app."
+            },
+            "markers": {
+              "title": "Marcadores personalizados",
+              "content": "Haz clic derecho en cualquier punto del mapa para crear un marcador personalizado, agregar notas o marcar puntos de interés importantes.",
+              "tip": "Los marcadores se sincronizan entre todos los miembros de tu equipo."
+            }
+          }
+        }
+      },
+      "comunicacion": {
+        "title": "Comunicación",
+        "subtitle": "Chat, broadcast y coordinación",
+        "chat": {
+          "title": "Chat de incidentes",
+          "description": "Comunicación en tiempo real",
+          "steps": {
+            "access": {
+              "title": "Acceder al chat",
+              "content": "Dentro de cualquier incidente, encontrarás el botón de chat en la parte inferior. Haz clic para abrir la ventana de conversación.",
+              "tip": "El indicador rojo muestra mensajes no leídos."
+            },
+            "send": {
+              "title": "Enviar mensajes",
+              "content": "Escribe tu mensaje en el campo de texto y presiona Enter o el botón de enviar. Todos los participantes del incidente verán tu mensaje instantáneamente.",
+              "list": [
+                "Mensajes de texto",
+                "Compartir ubicación",
+                "Enviar fotos/videos",
+                "Mensajes de voz"
+              ]
+            },
+            "location": {
+              "title": "Compartir ubicación",
+              "content": "Haz clic en el icono de ubicación para compartir tu posición actual en el chat. Útil para coordinar puntos de encuentro o reportar tu llegada.",
+              "tip": "La ubicación compartida se actualiza en tiempo real durante 5 minutos."
+            },
+            "files": {
+              "title": "Adjuntar archivos",
+              "content": "Usa el icono de clip para adjuntar fotos, videos o documentos. Los archivos se comprimen automáticamente para envío rápido.",
+              "list": [
+                "Fotos de evidencia",
+                "Videos del incidente",
+                "Documentos importantes",
+                "Capturas de pantalla"
+              ]
+            },
+            "important": {
+              "title": "Mensajes importantes",
+              "content": "Marca mensajes como importantes para que se destaquen. Útil para comunicar información crítica que no debe pasarse por alto.",
+              "tip": "Los mensajes marcados como urgentes envían una notificación especial a todos."
+            }
+          }
+        }
+      },
+      "reportes": {
+        "title": "Reportes y Análisis",
+        "subtitle": "Generar informes y estadísticas",
+        "generate": {
+          "title": "Generar reportes",
+          "description": "Crear informes personalizados",
+          "steps": {
+            "access": {
+              "title": "Acceder a reportes",
+              "content": "Desde el menú principal, selecciona \"Reportes y Análisis\". Aquí encontrarás plantillas predefinidas y la opción de crear reportes personalizados.",
+              "tip": "Los reportes se generan en tiempo real con los datos más actualizados."
+            },
+            "type": {
+              "title": "Seleccionar tipo de reporte",
+              "content": "Elige entre diferentes tipos: incidentes por período, desempeño de unidades, análisis geográfico, tiempos de respuesta o reportes personalizados.",
+              "list": [
+                "Reporte de incidentes",
+                "Análisis de tiempos",
+                "Estadísticas por zona",
+                "Desempeño del equipo"
+              ]
+            },
+            "filters": {
+              "title": "Configurar filtros",
+              "content": "Define el rango de fechas, tipos de incidentes, zonas geográficas, unidades específicas y otros criterios para tu reporte.",
+              "tip": "Guarda configuraciones frecuentes como plantillas para uso futuro."
+            },
+            "view": {
+              "title": "Visualización",
+              "content": "Los datos se presentan en gráficos interactivos, tablas, mapas de calor y estadísticas clave. Puedes alternar entre diferentes vistas.",
+              "list": [
+                "Gráficos de líneas y barras",
+                "Tablas de datos detalladas",
+                "Mapas de calor",
+                "Indicadores clave (KPIs)"
+              ]
+            },
+            "export": {
+              "title": "Exportar reporte",
+              "content": "Descarga tu reporte en formato PDF, Excel o CSV. Puedes programar reportes automáticos que se envíen por email periódicamente.",
+              "tip": "Los reportes en PDF incluyen gráficos y son ideales para presentaciones."
+            }
+          }
+        }
+      },
+      "configuracion": {
+        "title": "Configuración",
+        "subtitle": "Ajustes de cuenta y sistema",
+        "settings": {
+          "title": "Ajustes de cuenta",
+          "description": "Personaliza tu experiencia",
+          "steps": {
+            "access": {
+              "title": "Acceso a configuración",
+              "content": "Haz clic en tu avatar en la esquina superior derecha y selecciona \"Configuración\". Se abrirá el panel de ajustes.",
+              "tip": "Usa Ctrl+, como atajo rápido para abrir configuración."
+            },
+            "profile": {
+              "title": "Perfil de usuario",
+              "content": "Actualiza tu información personal: nombre, foto de perfil, cargo, contacto de emergencia y preferencias de comunicación.",
+              "list": [
+                "Información personal",
+                "Foto de perfil",
+                "Contactos de emergencia",
+                "Preferencias de idioma"
+              ]
+            },
+            "security": {
+              "title": "Seguridad",
+              "content": "Gestiona tu seguridad: cambiar contraseña, activar autenticación de dos factores, revisar sesiones activas y configurar bloqueo automático.",
+              "tip": "Se recomienda activar la autenticación de dos factores para mayor seguridad."
+            },
+            "notifications": {
+              "title": "Notificaciones",
+              "content": "Personaliza cómo y cuándo recibir notificaciones: alertas críticas, mensajes de chat, asignaciones, horario de silencio y sonidos personalizados.",
+              "list": [
+                "Alertas de incidentes",
+                "Notificaciones de chat",
+                "Recordatorios de turno",
+                "Horarios de silencio"
+              ]
+            },
+            "preferences": {
+              "title": "Preferencias de la app",
+              "content": "Ajusta el tema (claro/oscuro), idioma, unidades de medida, formato de fecha/hora y configuración de rendimiento según tu dispositivo.",
+              "tip": "El modo oscuro ayuda a ahorrar batería en dispositivos móviles."
+            }
+          }
+        }
+      }
+    }
   }
 }
 
