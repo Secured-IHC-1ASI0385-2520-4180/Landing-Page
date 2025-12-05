@@ -216,15 +216,19 @@
   "homePage": {
     "menuBtn": "Menú",
     "breadcrumb": {
-      "subtitle": "Policía • Patrulla motorizada",
-      "location": "Sector Norte",
+      "subtitle": "Serenazgo • Motorizado",
+      "location": "Sector Sur",
       "status": "Disponible"
     },
     "profile": {
       "name": "Sgto. Carlos Mendoza",
       "role": "Policía - Sargento",
+      "nameSereno": "Agente Jorge Torres",
+      "roleSereno": "Serenazgo",
       "unit": "Patrulla motorizada",
+      "unitSereno": "Motorizado",
       "sector": "Sector Norte",
+      "sectorSereno": "Sector Sur",
       "startTime": "Ingreso: 06:00",
       "available": "Disponible",
       "tags": {
@@ -232,7 +236,10 @@
         "cameras": "Cámaras",
         "moderation": "Moderación",
         "calls105": "Llamadas 105",
-        "evidence": "Evidencias"
+        "evidence": "Evidencias",
+        "patrol": "Patrullaje",
+        "actas": "Actas",
+        "alerts": "Alertas"
       }
     },
     "menu": {

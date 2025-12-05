@@ -397,7 +397,7 @@ body {
   cursor: pointer;
   color: #374151;
   padding: 8px;
-  display: flex;
+  display: none; /* Oculto en desktop */
   align-items: center;
 }
 .header-logo {
@@ -915,6 +915,10 @@ body {
   }
   .menu-toggle-mobile {
     display: flex;
+  }
+  /* Ocultar el botón hamburguesa del breadcrumb en móvil */
+  .breadcrumb-bar .menu-toggle {
+    display: none !important;
   }
   .breadcrumb-bar {
     padding: 0 16px;

@@ -216,15 +216,19 @@
   "homePage": {
     "menuBtn": "Menu",
     "breadcrumb": {
-      "subtitle": "Police • Motorized patrol",
-      "location": "North Sector",
+      "subtitle": "Security • Motorized",
+      "location": "South Sector",
       "status": "Available"
     },
     "profile": {
       "name": "Sgt. Carlos Mendoza",
       "role": "Police - Sergeant",
+      "nameSereno": "Agent Jorge Torres",
+      "roleSereno": "Security",
       "unit": "Motorized patrol",
+      "unitSereno": "Motorized",
       "sector": "North Sector",
+      "sectorSereno": "South Sector",
       "startTime": "Start: 06:00",
       "available": "Available",
       "tags": {
@@ -232,7 +236,10 @@
         "cameras": "Cameras",
         "moderation": "Moderation",
         "calls105": "105 Calls",
-        "evidence": "Evidence"
+        "evidence": "Evidence",
+        "patrol": "Patrol",
+        "actas": "Reports",
+        "alerts": "Alerts"
       }
     },
     "menu": {
