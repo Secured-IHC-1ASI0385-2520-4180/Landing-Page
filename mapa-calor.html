@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+Ôªø<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
@@ -9,9 +9,9 @@
 <body>
 <main class="page">
     <header class="topbar">
-        <a href="home-policia.html" class="back" aria-label="volver">?</a>
+        <a href="home-policia.html" class="back" aria-label="volver">‚Üê</a>
         <div class="title">
-            Mapa de calor <span class="subtitle">An·lisis de concentraciÛn</span>
+            Mapa de calor <span class="subtitle">An√°lisis de concentraci√≥n</span>
         </div>
     </header>
 
@@ -34,7 +34,7 @@
                         stroke-linecap="round"
                 />
             </svg>
-            <input placeholder="Buscar por cÛdigo o ubicaciÛn..." />
+            <input placeholder="Buscar por c√≥digo o ubicaci√≥n..." />
         </div>
 
         <div class="time-tabs">
@@ -44,9 +44,9 @@
         </div>
 
         <div class="actions">
-            <button id="btn-filters" class="action">?? Filtros</button>
+            <button id="btn-filters" class="action">üîç Filtros</button>
             <button id="btn-export" class="action export">
-                ?? Exportar vista
+                üì• Exportar vista
             </button>
         </div>
     </section>
@@ -59,9 +59,30 @@
                     class="map-image"
             />
 
+            <!-- Marcas de calor superpuestas -->
+            <div class="heatmap-overlay">
+                <!-- Puntos de calor alta (rojos) -->
+                <div class="heat-point heat-high" style="top: 35%; left: 45%;"></div>
+                <div class="heat-point heat-high" style="top: 55%; left: 60%;"></div>
+                <div class="heat-point heat-high" style="top: 42%; left: 52%;"></div>
+
+                <!-- Puntos de calor media (naranjas) -->
+                <div class="heat-point heat-medium" style="top: 28%; left: 35%;"></div>
+                <div class="heat-point heat-medium" style="top: 65%; left: 48%;"></div>
+                <div class="heat-point heat-medium" style="top: 50%; left: 70%;"></div>
+                <div class="heat-point heat-medium" style="top: 38%; left: 62%;"></div>
+
+                <!-- Puntos de calor baja (amarillos) -->
+                <div class="heat-point heat-low" style="top: 20%; left: 55%;"></div>
+                <div class="heat-point heat-low" style="top: 70%; left: 35%;"></div>
+                <div class="heat-point heat-low" style="top: 45%; left: 30%;"></div>
+                <div class="heat-point heat-low" style="top: 60%; left: 75%;"></div>
+                <div class="heat-point heat-low" style="top: 32%; left: 68%;"></div>
+            </div>
+
             <div class="overlay top-right">
                 <div class="incidents">47 incidentes</div>
-                <button class="loc">??</button>
+                <button class="loc">üìç</button>
             </div>
 
             <div class="zoom-controls">
@@ -80,18 +101,13 @@
         </div>
     </section>
 
-    <footer class="bottom-action">
-        <button id="btn-export-floating" class="export-floating">
-            ?? Exportar vista
-        </button>
-    </footer>
 
     <!-- Filters Modal -->
     <div id="modal-filters" class="modal" aria-hidden="true">
         <div class="modal-sheet">
             <div class="modal-header">
                 <h3>Filtros</h3>
-                <button class="close" data-close>?</button>
+                <button class="close" data-close>√ó</button>
             </div>
 
             <div class="modal-content">
@@ -104,7 +120,7 @@
                 </div>
 
                 <div class="section">
-                    <div class="label">JurisdicciÛn / Zona</div>
+                    <div class="label">Jurisdicci√≥n / Zona</div>
                     <div class="button-grid" id="zones">
                         <button class="pill">Miraflores</button>
                         <button class="pill">Barranco</button>
@@ -130,20 +146,20 @@
         <div class="modal-sheet">
             <div class="modal-header">
                 <h3>Exportar vista</h3>
-                <button class="close" data-close>?</button>
+                <button class="close" data-close>√ó</button>
             </div>
 
             <div class="modal-content">
                 <div class="export-summary">
-                    <p>La imagen incluir·:</p>
+                    <p>La imagen incluir√°:</p>
                     <ul>
                         <li>Vista actual del mapa de calor</li>
-                        <li>Ventana: ˙ltima hora</li>
+                        <li>Ventana: √öltima hora</li>
                         <li>Total: 12 incidentes</li>
                         <li>Fecha y hora: 24 de octubre de 2025, 03:16 a. m.</li>
                     </ul>
                     <p class="muted">
-                        La imagen se guardar· en tu dispositivo con un sello de fecha y
+                        La imagen se guardar√° en tu dispositivo con un sello de fecha y
                         ventana temporal para referencia.
                     </p>
                 </div>
@@ -166,14 +182,14 @@
             <div class="footer-logo">
                 <img src="Secured-Landing-Page/public/assets/images/secured-logo-white.png" alt="Secured Logo" />
             </div>
-            <p class="footer-description">CoordinaciÛn inteligente para Serenazgo y PolicÌa</p>
+            <p class="footer-description">Coordinaci√≥n inteligente para Serenazgo y Polic√≠a</p>
         </div>
 
         <div class="footer-column">
-            <h4>NavegaciÛn</h4>
+            <h4>Navegaci√≥n</h4>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="#">SoluciÛn</a></li>
+                <li><a href="#">Soluci√≥n</a></li>
                 <li><a href="#">Startup</a></li>
                 <li><a href="#">Equipo</a></li>
                 <li><a href="#">Seguridad</a></li>
@@ -184,9 +200,9 @@
             <h4>Recursos</h4>
             <ul>
                 <li><a href="#">Soporte</a></li>
-                <li><a href="#">DocumentaciÛn</a></li>
+                <li><a href="#">Documentaci√≥n</a></li>
                 <li><a href="#">Privacidad</a></li>
-                <li><a href="#">TÈrminos de servicio</a></li>
+                <li><a href="#">T√©rminos de servicio</a></li>
             </ul>
         </div>
 
@@ -194,33 +210,33 @@
             <h4>Contacto</h4>
             <ul class="contact-list">
                 <li>
-                    <span class="icon">?</span>
+                    <span class="icon">üìß</span>
                     <a href="mailto:contacto@secured.pe">contacto@secured.pe</a>
                 </li>
                 <li>
-                    <span class="icon">??</span>
+                    <span class="icon">üì±</span>
                     <a href="tel:+51987654321">+51 987 654 321</a>
                 </li>
                 <li>
-                    <span class="icon">??</span>
-                    <span>Lima, Per˙</span>
+                    <span class="icon">üìç</span>
+                    <span>Lima, Per√∫</span>
                 </li>
             </ul>
             <div class="social-icons">
                 <a href="#" class="social-icon">f</a>
-                <a href="#" class="social-icon">??</a>
+                <a href="#" class="social-icon">ùïè</a>
                 <a href="#" class="social-icon">in</a>
             </div>
         </div>
     </div>
 
     <div class="footer-bottom">
-        <p>© 2025 Secured. Todos los derechos reservados.</p>
-        <p class="privacy-note">Secured no recopila informaciÛn personal identificable sin consentimiento explÌcito. Ver <a href="#">PolÌtica de Privacidad</a></p>
+        <p>¬© 2025 Secured. Todos los derechos reservados.</p>
+        <p class="privacy-note">Secured no recopila informaci√≥n personal identificable sin consentimiento expl√≠cito. Ver <a href="#">Pol√≠tica de Privacidad</a></p>
     </div>
 </footer>
 
-<!-- JS especÌfico de esta secciÛn -->
+<!-- JS espec√≠fico de esta secci√≥n -->
 <script src="Secured-Landing-Page/public/assets/scripts/mapa-calor.js"></script>
 </body>
 </html>
