@@ -9,7 +9,6 @@ const incidentesData = [
         titulo: 'Accidente de tránsito menor',
         tipo: 'accidente',
         prioridad: 'alta',
-        icono: '🚗',
         ubicacion: 'Av. Aviación 234',
         distrito: 'San Borja',
         distancia: '0.3 km',
@@ -25,7 +24,6 @@ const incidentesData = [
         titulo: 'Alteración del orden público',
         tipo: 'alteracion',
         prioridad: 'alta',
-        icono: '⚠️',
         ubicacion: 'Av. Javier Prado 890',
         distrito: 'San Isidro',
         distancia: '0.8 km',
@@ -41,7 +39,6 @@ const incidentesData = [
         titulo: 'Robo en establecimiento',
         tipo: 'robo',
         prioridad: 'alta',
-        icono: '🛍',
         ubicacion: 'Av. Benavides 1234',
         distrito: 'Miraflores',
         distancia: '1.2 km',
@@ -57,7 +54,6 @@ const incidentesData = [
         titulo: 'Vehículo sospechoso estacionado',
         tipo: 'sospechoso',
         prioridad: 'media',
-        icono: '👁',
         ubicacion: 'Calle Las Orquídeas 567',
         distrito: 'Miraflores',
         distancia: '2.3 km',
@@ -73,7 +69,6 @@ const incidentesData = [
         titulo: 'Ruido excesivo - local comercial',
         tipo: 'ruido',
         prioridad: 'baja',
-        icono: '🔊',
         ubicacion: 'Av. Conquistadores 890',
         distrito: 'San Isidro',
         distancia: '1.5 km',
@@ -206,9 +201,6 @@ function generarListaIncidentes() {
         card.onclick = () => abrirDetalleIncidente(incidente);
 
         card.innerHTML = `
-            <div class="incidente-icono ${incidente.prioridad}">
-                ${incidente.icono}
-            </div>
             <div class="incidente-info">
                 <div class="incidente-header">
                     <span class="incidente-codigo">${incidente.codigo}</span>
@@ -216,8 +208,8 @@ function generarListaIncidentes() {
                 </div>
                 <div class="incidente-titulo">${incidente.titulo}</div>
                 <div class="incidente-meta">
-                    <span>⏰ ${incidente.tiempo}</span>
-                    <span>📍 ${incidente.distancia}</span>
+                    <span>${incidente.tiempo}</span>
+                    <span>${incidente.distancia}</span>
                     <span>${incidente.distrito}</span>
                 </div>
             </div>
