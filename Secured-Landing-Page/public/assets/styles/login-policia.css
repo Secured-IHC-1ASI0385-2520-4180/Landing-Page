@@ -1,4 +1,4 @@
-﻿﻿
+﻿
 
 :root {
     --bg-hero: #020617;
@@ -2199,7 +2199,7 @@ a {
 .login-page {
     display: flex;
     min-height: 100vh;
-    background: #1b594f;
+    background: #243882;
 }
 
 
@@ -2208,7 +2208,7 @@ a {
 =============================== */
 .login-illustration {
     width: 50%;
-    background: #1b594f; /* verde oscuro serenazgo */
+    background: #243882; /* verde oscuro serenazgo */
     display: flex;
     justify-content: center;
     align-items: center;

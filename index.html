@@ -16,6 +16,19 @@
 
   <!-- CSS principal  -->
   <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/styles.css" />
+
+  <!-- CSS menu toggle responsive -->
+  <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/menu_toggle.css" />
+
+  <!-- Script i18n -->
+  <script src="Secured-Landing-Page/public/assets/scripts/i18n.js" defer></script>
+
+  <!-- Script header sticky y mobile menu -->
+  <script src="Secured-Landing-Page/public/assets/scripts/header.js" defer></script>
+
+  <!-- Script menu toggle -->
+  <!-- <script src="Secured-Landing-Page/public/assets/scripts/menu_toggle.js" defer></script> -->
+
 </head>
 <body>
 
@@ -29,18 +42,30 @@
           />
         </a>
 
-        <nav class="main-nav">
+        <!-- Botón hamburguesa para móvil -->
+        <button class="mobile-menu-toggle menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <nav class="main-nav Menu-Horizontal" id="mainNav">
           <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#solucion">Solución</a></li>
-            <li><a href="#startup">Startup</a></li>
-            <li><a href="#equipo">Equipo</a></li>
-            <li><a href="#mapa">Mapa</a></li>
-            <li><a href="#seguridad">Seguridad</a></li>
+            <li><a href="#inicio" data-i18n="header.nav.inicio">Inicio</a></li>
+            <li><a href="#solucion" data-i18n="header.nav.solucion">Solución</a></li>
+            <li><a href="#startup" data-i18n="header.nav.startup">Startup</a></li>
+            <li><a href="#equipo" data-i18n="header.nav.equipo">Equipo</a></li>
+            <li><a href="#mapa" data-i18n="header.nav.mapa">Mapa</a></li>
+            <li><a href="#seguridad" data-i18n="header.nav.seguridad">Seguridad</a></li>
           </ul>
         </nav>
 
-        <a href="login-policia.html" class="btn-primary hero-btn-primary">Empezar ahora</a>
+        <div class="language-selector">
+          <button class="lang-btn" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <a href="login-policia.html" class="btn-primary hero-btn-primary" data-i18n="header.btnEmpezar">Empezar ahora</a>
 
       </div>
     </header>
@@ -49,14 +74,14 @@
     <section class="hero" id="inicio">
       <div class="hero-inner">
         <div class="hero-text">
-          <p class="hero-kicker">Coordinación inteligente</p>
+          <p class="hero-kicker" data-i18n="hero.kicker">Coordinación inteligente</p>
 
-          <h1 class="hero-title">
+          <h1 class="hero-title" data-i18n="hero.title">
             Coordinación inteligente<br />
             para <span>Serenazgo y Policía</span>
           </h1>
 
-          <p class="hero-subtitle">
+          <p class="hero-subtitle" data-i18n="hero.subtitle">
             Despacho rápido, evidencias seguras y control en tiempo real.
           </p>
 
@@ -65,25 +90,26 @@
               href="#contacto"
               class="btn-primary hero-btn-primary"
             >
-              Solicitar demo <span class="hero-arrow">→</span>
+              <span data-i18n="hero.btnDemo">Solicitar demo</span> <span class="hero-arrow">→</span>
             </a>
 
             <button
               type="button"
               class="btn-secondary hero-btn-secondary"
+              data-i18n="hero.btnVideo"
             >
               ▶ Ver cómo funciona
             </button>
           </div>
 
-          <p class="hero-trust">
+          <p class="hero-trust" data-i18n="hero.trust">
             Confiado por entidades en todo el Perú
           </p>
 
           <div class="hero-badges">
-            <span class="hero-badge">Municipalidad de Lima</span>
-            <span class="hero-badge">Municipalidad de Miraflores</span>
-            <span class="hero-badge">Comisaría de Chorrillos</span>
+            <span class="hero-badge" data-i18n="hero.badge1">Municipalidad de Lima</span>
+            <span class="hero-badge" data-i18n="hero.badge2">Municipalidad de Miraflores</span>
+            <span class="hero-badge" data-i18n="hero.badge3">Comisaría de Chorrillos</span>
           </div>
         </div>
 
@@ -101,8 +127,8 @@
     <section class="operations-section" id="mapa">
       <div class="operations-inner">
         <header class="operations-header">
-          <h2>Mapa de operaciones</h2>
-          <p class="operations-subtitle">
+          <h2 data-i18n="operations.title">Mapa de operaciones</h2>
+          <p class="operations-subtitle" data-i18n="operations.subtitle">
             Visualización de incidentes reportados en la jurisdicción de
             Miraflores
           </p>
@@ -112,17 +138,17 @@
           <!-- Fila superior-->
           <div class="operations-card-header">
             <div class="operations-chip operations-chip-primary">
-              <div class="operations-chip-title">
+              <div class="operations-chip-title" data-i18n="operations.chipTitle">
                 Comisaría de Miraflores
               </div>
-              <div class="operations-chip-subtitle">
+              <div class="operations-chip-subtitle" data-i18n="operations.chipSubtitle">
                 Av. Benavides 456, Miraflores, Lima
               </div>
             </div>
 
             <div class="operations-chip operations-chip-alert">
               <span class="operations-alert-dot"></span>
-              Robo reportado
+              <span data-i18n="operations.chipAlert">Robo reportado</span>
             </div>
           </div>
 
@@ -143,20 +169,20 @@
           <!-- Métricas inferiores -->
           <footer class="operations-footer">
             <div class="operations-metric">
-              <span class="operations-metric-value">4 min</span>
-              <span class="operations-metric-label"
+              <span class="operations-metric-value" data-i18n="operations.metric1Value">4 min</span>
+              <span class="operations-metric-label" data-i18n="operations.metric1Label"
                 >Tiempo de respuesta</span
               >
             </div>
             <div class="operations-metric">
-              <span class="operations-metric-value">2.1 km</span>
-              <span class="operations-metric-label"
+              <span class="operations-metric-value" data-i18n="operations.metric2Value">2.1 km</span>
+              <span class="operations-metric-label" data-i18n="operations.metric2Label"
                 >Distancia a la comisaría</span
               >
             </div>
             <div class="operations-metric">
-              <span class="operations-metric-value">3</span>
-              <span class="operations-metric-label"
+              <span class="operations-metric-value" data-i18n="operations.metric3Value">3</span>
+              <span class="operations-metric-label" data-i18n="operations.metric3Label"
                 >Unidades disponibles</span
               >
             </div>
@@ -164,7 +190,7 @@
 
           <!-- Botón azul inferior a todo lo ancho -->
           <div class="operations-cta">
-            <a href="#contacto" class="operations-cta-btn">
+            <a href="#contacto" class="operations-cta-btn" data-i18n="operations.btnCta">
               Solicitar demo completa
             </a>
           </div>
@@ -175,8 +201,8 @@
   <section id="solucion" class="solution-section">
     <div class="solution-inner">
       <header class="solution-header">
-        <h2 class="solution-title">¿Cuál es nuestra solución?</h2>
-        <p class="solution-subtitle">
+        <h2 class="solution-title" data-i18n="solution.title">¿Cuál es nuestra solución?</h2>
+        <p class="solution-subtitle" data-i18n="solution.subtitle">
           Coordinación en tiempo real para Serenazgo y Policía con despacho inteligente,
           evidencias seguras y analítica operativa.
         </p>
@@ -188,8 +214,8 @@
           <div class="solution-icon-wrapper">
             <span class="solution-icon">⚡</span>
           </div>
-          <h3 class="solution-card-title">Despacho inteligente</h3>
-          <p class="solution-card-text">
+          <h3 class="solution-card-title" data-i18n="solution.card1Title">Despacho inteligente</h3>
+          <p class="solution-card-text" data-i18n="solution.card1Text">
             Asignación automática por ETA, disponibilidad y sector de jurisdicción.
           </p>
         </article>
@@ -199,8 +225,8 @@
           <div class="solution-icon-wrapper">
             <span class="solution-icon">📍</span>
           </div>
-          <h3 class="solution-card-title">Atención en campo</h3>
-          <p class="solution-card-text">
+          <h3 class="solution-card-title" data-i18n="solution.card2Title">Atención en campo</h3>
+          <p class="solution-card-text" data-i18n="solution.card2Text">
             Navegación GPS, checklists operativos y acuses en tiempo real.
           </p>
         </article>
@@ -210,8 +236,8 @@
           <div class="solution-icon-wrapper">
             <span class="solution-icon">🛡️</span>
           </div>
-          <h3 class="solution-card-title">Evidencias protegidas</h3>
-          <p class="solution-card-text">
+          <h3 class="solution-card-title" data-i18n="solution.card3Title">Evidencias protegidas</h3>
+          <p class="solution-card-text" data-i18n="solution.card3Text">
             Cadena de custodia digital, cifrado y registros de auditoría inmutables.
           </p>
         </article>
@@ -221,8 +247,8 @@
           <div class="solution-icon-wrapper">
             <span class="solution-icon">👁️</span>
           </div>
-          <h3 class="solution-card-title">Visión en tiempo real</h3>
-          <p class="solution-card-text">
+          <h3 class="solution-card-title" data-i18n="solution.card4Title">Visión en tiempo real</h3>
+          <p class="solution-card-text" data-i18n="solution.card4Text">
             Mapa operativo, cámaras municipales y tracking de unidades móviles.
           </p>
         </article>
@@ -232,8 +258,8 @@
           <div class="solution-icon-wrapper">
             <span class="solution-icon">🔗</span>
           </div>
-          <h3 class="solution-card-title">Integraciones</h3>
-          <p class="solution-card-text">
+          <h3 class="solution-card-title" data-i18n="solution.card5Title">Integraciones</h3>
+          <p class="solution-card-text" data-i18n="solution.card5Text">
             Conexión con cámaras IP, sistemas de alarmas y webhooks personalizados.
           </p>
         </article>
@@ -243,8 +269,8 @@
           <div class="solution-icon-wrapper">
             <span class="solution-icon">📊</span>
           </div>
-          <h3 class="solution-card-title">Métricas y SLA</h3>
-          <p class="solution-card-text">
+          <h3 class="solution-card-title" data-i18n="solution.card6Title">Métricas y SLA</h3>
+          <p class="solution-card-text" data-i18n="solution.card6Text">
             KPIs de tiempos de respuesta, cumplimiento y analítica operativa.
           </p>
         </article>
@@ -254,29 +280,38 @@
       <section class="solution-metrics">
         <div class="solution-metrics-inner">
           <article class="solution-metric-card">
-            <p class="solution-metric-value">-40%</p>
-            <p class="solution-metric-label">Tiempo de respuesta</p>
+            <p class="solution-metric-value" data-i18n="solution.metric1Value">-40%</p>
+            <p class="solution-metric-label" data-i18n="solution.metric1Label">Tiempo de respuesta</p>
           </article>
 
           <article class="solution-metric-card">
-            <p class="solution-metric-value">+85%</p>
-            <p class="solution-metric-label">Cumplimiento de SLA</p>
+            <p class="solution-metric-value" data-i18n="solution.metric2Value">+85%</p>
+            <p class="solution-metric-label" data-i18n="solution.metric2Label">Cumplimiento de SLA</p>
           </article>
 
           <article class="solution-metric-card">
-            <p class="solution-metric-value">100%</p>
-            <p class="solution-metric-label">Trazabilidad de evidencias</p>
+            <p class="solution-metric-value" data-i18n="solution.metric3Value">100%</p>
+            <p class="solution-metric-label" data-i18n="solution.metric3Label">Trazabilidad de evidencias</p>
           </article>
         </div>
       </section>
     </div>
   </section>
+    <!-- About the Product -->
+    <section class="about-team" id="about-project">
+        <div class="about-team-container">
+            <h2 data-i18n="aboutProject.title">Conoce nuestro proyecto</h2>
+            <div class="about-team-video-placeholder">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/h0epb5cRr2U?si=a6JH8z6u398EMtiL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
   <!-- SECCIÓN NOSOTROS / EQUIPO-->
 <section id="equipo" class="team-section">
   <div class="team-inner">
     <header class="team-header">
-      <h2>Nosotros</h2>
-      <p>
+      <h2 data-i18n="team.title">Nosotros</h2>
+      <p data-i18n="team.subtitle">
         Un equipo multidisciplinario comprometido con la seguridad ciudadana y la
         innovación tecnológica.
       </p>
@@ -293,13 +328,13 @@
           />
           <span class="team-status"></span>
         </div>
-        <h3>Jennifer Riveros</h3>
-        <p class="team-role">CEO &amp; Co-fundadora</p>
-        <span class="team-chip">Producto y operaciones de campo</span>
-        <p class="team-description">
+        <h3 data-i18n="team.jennifer.name">Jennifer Riveros</h3>
+        <p class="team-role" data-i18n="team.jennifer.role">CEO &amp; Co-fundadora</p>
+        <span class="team-chip" data-i18n="team.jennifer.chip">Producto y operaciones de campo</span>
+        <p class="team-description" data-i18n="team.jennifer.description">
           Experiencia en gestión municipal y coordinación con fuerzas del orden.
         </p>
-        <button class="team-btn">
+        <button class="team-btn" data-i18n="team.jennifer.btn">
            Contactar a Jennifer
         </button>
       </article>
@@ -313,13 +348,13 @@
           />
           <span class="team-status"></span>
         </div>
-        <h3>Jhohandri Contreras</h3>
-        <p class="team-role">CTO &amp; Co-fundador</p>
-        <span class="team-chip">Infraestructura y datos en tiempo real</span>
-        <p class="team-description">
+        <h3 data-i18n="team.jhohandri.name">Jhohandri Contreras</h3>
+        <p class="team-role" data-i18n="team.jhohandri.role">CTO &amp; Co-fundador</p>
+        <span class="team-chip" data-i18n="team.jhohandri.chip">Infraestructura y datos en tiempo real</span>
+        <p class="team-description" data-i18n="team.jhohandri.description">
           Especialista en sistemas distribuidos y arquitectura de alta disponibilidad.
         </p>
-        <button class="team-btn">
+        <button class="team-btn" data-i18n="team.jhohandri.btn">
            Contactar a Jhohandri
         </button>
       </article>
@@ -333,13 +368,13 @@
           />
           <span class="team-status"></span>
         </div>
-        <h3>Dylan Aguirre</h3>
-        <p class="team-role">UX Lead</p>
-        <span class="team-chip">Investigación y diseño de interfaces</span>
-        <p class="team-description">
+        <h3 data-i18n="team.dylan.name">Dylan Aguirre</h3>
+        <p class="team-role" data-i18n="team.dylan.role">UX Lead</p>
+        <span class="team-chip" data-i18n="team.dylan.chip">Investigación y diseño de interfaces</span>
+        <p class="team-description" data-i18n="team.dylan.description">
           Diseño centrado en usuarios operativos con enfoque en usabilidad de campo.
         </p>
-        <button class="team-btn">
+        <button class="team-btn" data-i18n="team.dylan.btn">
           Contactar a Dylan
         </button>
       </article>
@@ -355,13 +390,13 @@
           />
           <span class="team-status"></span>
         </div>
-        <h3>Adrián Garrido</h3>
-        <p class="team-role">Security Engineer</p>
-        <span class="team-chip">Seguridad y cumplimiento normativo</span>
-        <p class="team-description">
+        <h3 data-i18n="team.adrian.name">Adrián Garrido</h3>
+        <p class="team-role" data-i18n="team.adrian.role">Security Engineer</p>
+        <span class="team-chip" data-i18n="team.adrian.chip">Seguridad y cumplimiento normativo</span>
+        <p class="team-description" data-i18n="team.adrian.description">
           Experto en cifrado, auditoría y protección de datos sensibles.
         </p>
-        <button class="team-btn">
+        <button class="team-btn" data-i18n="team.adrian.btn">
            Contactar a Adrián
         </button>
       </article>
@@ -375,13 +410,13 @@
           />
           <span class="team-status"></span>
         </div>
-        <h3>Guillermo Howard</h3>
-        <p class="team-role">Operations Manager</p>
-        <span class="team-chip">Implementación y capacitación</span>
-        <p class="team-description">
+        <h3 data-i18n="team.guillermo.name">Guillermo Howard</h3>
+        <p class="team-role" data-i18n="team.guillermo.role">Operations Manager</p>
+        <span class="team-chip" data-i18n="team.guillermo.chip">Implementación y capacitación</span>
+        <p class="team-description" data-i18n="team.guillermo.description">
           Coordinación con comisarías y serenazgos para el despliegue de la solución.
         </p>
-        <button class="team-btn">
+        <button class="team-btn" data-i18n="team.guillermo.btn">
            Contactar a Guillermo
         </button>
       </article>
@@ -389,20 +424,31 @@
 
     <!-- CTA final -->
     <div class="team-cta">
-      <p class="team-cta-title">¿No sabes con quién hablar?</p>
-      <p class="team-cta-text">
+      <p class="team-cta-title" data-i18n="team.ctaTitle">¿No sabes con quién hablar?</p>
+      <p class="team-cta-text" data-i18n="team.ctaText">
         Escríbenos y te conectaremos con la persona indicada.
       </p>
-      <button class="team-cta-btn">Contactar al equipo</button>
+      <button class="team-cta-btn" data-i18n="team.ctaBtn">Contactar al equipo</button>
       </div>
       </div>
+    </section>
+
+
+    <!-- About the Team (Video Placeholder) -->
+    <section class="about-team" id="about-team">
+        <div class="about-team-container">
+            <h2 data-i18n="aboutTeam.title">Conoce a nuestro equipo</h2>
+            <div class="about-team-video-placeholder">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/hrPwr1NcI7A?si=L83uaoGoB2XzGHA_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
     </section>
     <!-- SECCIÓN: SEGURIDAD Y CUMPLIMIENTO-->
 <section class="security-section" id="seguridad">
   <div class="security-inner">
     <header class="security-header">
-      <h2>Seguridad y cumplimiento</h2>
-      <p>Protección de datos y trazabilidad en cada operación.</p>
+      <h2 data-i18n="security.title">Seguridad y cumplimiento</h2>
+      <p data-i18n="security.subtitle">Protección de datos y trazabilidad en cada operación.</p>
     </header>
 
     <div class="security-layout">
@@ -413,8 +459,8 @@
             <span>🛡️</span>
           </div>
           <div class="security-item-body">
-            <h3>Roles y permisos</h3>
-            <p>
+            <h3 data-i18n="security.item1Title">Roles y permisos</h3>
+            <p data-i18n="security.item1Text">
               Control granular por perfil operativo. Cada usuario accede solo a la
               información necesaria para su función, con permisos configurables
               por jurisdicción y tipo de operación.
@@ -427,8 +473,8 @@
             <span>📋</span>
           </div>
           <div class="security-item-body">
-            <h3>Auditoría completa</h3>
-            <p>
+            <h3 data-i18n="security.item2Title">Auditoría completa</h3>
+            <p data-i18n="security.item2Text">
               Registro inmutable de todos los accesos y acciones. Trazabilidad
               completa de quién hizo qué, cuándo y desde dónde, con logs protegidos
               y exportables para investigaciones.
@@ -441,8 +487,8 @@
             <span>🔗</span>
           </div>
           <div class="security-item-body">
-            <h3>Cadena de custodia</h3>
-            <p>
+            <h3 data-i18n="security.item3Title">Cadena de custodia</h3>
+            <p data-i18n="security.item3Text">
               Distinción entre original y derivado. Cada evidencia conserva su
               hash criptográfico, metadatos inmutables y registro de todas las
               copias o modificaciones realizadas.
@@ -455,8 +501,8 @@
             <span>🔒</span>
           </div>
           <div class="security-item-body">
-            <h3>Retención y privacidad</h3>
-            <p>
+            <h3 data-i18n="security.item4Title">Retención y privacidad</h3>
+            <p data-i18n="security.item4Text">
               Políticas de retención configurables alineadas a normativas vigentes
               y regulaciones de protección de datos personales, incluyendo derecho
               al olvido.
@@ -469,7 +515,7 @@
       <div class="security-card">
         <div class="security-card-header">
           <span class="security-card-header-icon">🛡️</span>
-          <span class="security-card-header-title">
+          <span class="security-card-header-title" data-i18n="security.cardTitle">
             Características de seguridad
           </span>
         </div>
@@ -478,8 +524,8 @@
           <li class="security-card-row security-card-row--blue">
             <div class="security-card-row-icon">🔐</div>
             <div class="security-card-row-body">
-              <h4>Cifrado de extremo a extremo</h4>
-              <p>
+              <h4 data-i18n="security.feature1Title">Cifrado de extremo a extremo</h4>
+              <p data-i18n="security.feature1Text">
                 Evidencias, mensajes y adjuntos se almacenan y transmiten usando
                 cifrado fuerte para evitar accesos no autorizados.
               </p>
@@ -489,8 +535,8 @@
           <li class="security-card-row security-card-row--green">
             <div class="security-card-row-icon">✅</div>
             <div class="security-card-row-body">
-              <h4>Autenticación multifactor (OTP)</h4>
-              <p>
+              <h4 data-i18n="security.feature2Title">Autenticación multifactor (OTP)</h4>
+              <p data-i18n="security.feature2Text">
                 Acceso reforzado con doble verificación para mandos, operadores
                 y administradores de la plataforma.
               </p>
@@ -500,8 +546,8 @@
           <li class="security-card-row security-card-row--purple">
             <div class="security-card-row-icon">⏱️</div>
             <div class="security-card-row-body">
-              <h4>Sesiones con tiempo de expiración</h4>
-              <p>
+              <h4 data-i18n="security.feature3Title">Sesiones con tiempo de expiración</h4>
+              <p data-i18n="security.feature3Text">
                 Cierres automáticos de sesión en dispositivos inactivos para
                 reducir riesgos en campo y en oficinas.
               </p>
@@ -511,8 +557,8 @@
           <li class="security-card-row security-card-row--yellow">
             <div class="security-card-row-icon">📜</div>
             <div class="security-card-row-body">
-              <h4>Logs inmutables de auditoría</h4>
-              <p>
+              <h4 data-i18n="security.feature4Title">Logs inmutables de auditoría</h4>
+              <p data-i18n="security.feature4Text">
                 Historial detallado y no editable de cada acción, ideal para
                 peritajes, auditorías internas y reportes a contraloría.
               </p>
@@ -522,8 +568,8 @@
           <li class="security-card-row security-card-row--red">
             <div class="security-card-row-icon">💾</div>
             <div class="security-card-row-body">
-              <h4>Respaldos automáticos cifrados</h4>
-              <p>
+              <h4 data-i18n="security.feature5Title">Respaldos automáticos cifrados</h4>
+              <p data-i18n="security.feature5Text">
                 Copias de seguridad frecuentes en infraestructura segura para
                 garantizar continuidad operativa.
               </p>
@@ -533,8 +579,8 @@
           <li class="security-card-row security-card-row--indigo">
             <div class="security-card-row-icon">⚖️</div>
             <div class="security-card-row-body">
-              <h4>Cumplimiento normativo local</h4>
-              <p>
+              <h4 data-i18n="security.feature6Title">Cumplimiento normativo local</h4>
+              <p data-i18n="security.feature6Text">
                 Configurable para alinearse a políticas internas, ordenanzas
                 municipales y estándares de seguridad de la institución.
               </p>
@@ -546,12 +592,12 @@
 
       <!-- Preguntas frecuentes -->
       <div class="security-faq">
-        <h3>Preguntas frecuentes</h3>
-  
+        <h3 data-i18n="security.faqTitle">Preguntas frecuentes</h3>
+
         <div class="security-faq-list">
           <details class="security-faq-item" open>
-            <summary>¿Cómo se resguardan las evidencias?</summary>
-            <p>
+            <summary data-i18n="security.faq1Question">¿Cómo se resguardan las evidencias?</summary>
+            <p data-i18n="security.faq1Answer">
               Las evidencias se almacenan con cifrado de extremo a extremo y
               metadatos inmutables (hash, fecha, ubicación, autor). Cada cambio
               queda registrado en la bitácora de auditoría para mantener la
@@ -560,8 +606,8 @@
             </details>
     
           <details class="security-faq-item">
-            <summary>¿Qué pasa si no hay internet?</summary>
-            <p>
+            <summary data-i18n="security.faq2Question">¿Qué pasa si no hay internet?</summary>
+            <p data-i18n="security.faq2Answer">
               La app funciona en modo offline. Los registros y evidencias se
               guardan localmente y se sincronizan de forma segura cuando se
               recupera la conexión, sin perder información crítica.
@@ -569,8 +615,8 @@
           </details>
   
           <details class="security-faq-item">
-            <summary>¿Quién puede ver los originales?</summary>
-            <p>
+            <summary data-i18n="security.faq3Question">¿Quién puede ver los originales?</summary>
+            <p data-i18n="security.faq3Answer">
               Solo usuarios con permisos explícitos pueden acceder a la evidencia
               original. El resto de perfiles opera con vistas parciales o datos
               anonimizados, según la política definida por la institución.
@@ -584,8 +630,8 @@
 <section class="startup-section" id="startup">
   <div class="startup-inner">
     <header class="startup-header">
-      <h2>Sobre Secured</h2>
-      <p>
+      <h2 data-i18n="startup.title">Sobre Secured</h2>
+      <p data-i18n="startup.subtitle">
         Apoyamos a las fuerzas locales con tecnología usable y confiable.
       </p>
     </header>
@@ -598,8 +644,8 @@
             <span>🎯</span>
           </div>
           <div class="startup-pill-body">
-            <h3>Nuestra misión</h3>
-            <p>
+            <h3 data-i18n="startup.mission">Nuestra misión</h3>
+            <p data-i18n="startup.missionText">
               Democratizar el acceso a tecnología de coordinación operativa de clase
               mundial. Creemos que cada municipalidad, sin importar su tamaño,
               merece herramientas profesionales para proteger a su comunidad de
@@ -613,8 +659,8 @@
             <span>👥</span>
           </div>
           <div class="startup-pill-body">
-            <h3>Nuestro equipo</h3>
-            <p>
+            <h3 data-i18n="startup.team">Nuestro equipo</h3>
+            <p data-i18n="startup.teamText">
               Profesionales con experiencia en seguridad pública, desarrollo de
               software y diseño de experiencia de usuario. Trabajamos directamente
               con operadores de campo para entender y resolver sus necesidades reales.
@@ -627,8 +673,8 @@
             <span>🤝</span>
           </div>
           <div class="startup-pill-body">
-            <h3>Alianzas</h3>
-            <p>
+            <h3 data-i18n="startup.alliances">Alianzas</h3>
+            <p data-i18n="startup.alliancesText">
               Construimos Secured de la mano de instituciones que conocen
               la realidad operativa en territorio.
             </p>
@@ -636,9 +682,9 @@
         </article>
 
         <ul class="startup-alliances">
-          <li>Municipalidades distritales y provinciales</li>
-          <li>Comisarías y destacamentos policiales</li>
-          <li>Proveedores de infraestructura de seguridad</li>
+          <li data-i18n="startup.alliance1">Municipalidades distritales y provinciales</li>
+          <li data-i18n="startup.alliance2">Comisarías y destacamentos policiales</li>
+          <li data-i18n="startup.alliance3">Proveedores de infraestructura de seguridad</li>
         </ul>
       </div>
 
@@ -648,47 +694,47 @@
           <div class="startup-timeline-header-icon">
             <span>📅</span>
           </div>
-          <span class="startup-timeline-header-title">
+          <span class="startup-timeline-header-title" data-i18n="startup.timelineTitle">
             Hitos del producto
           </span>
         </div>
 
         <ol class="startup-timeline-list">
           <li class="startup-timeline-item">
-            <div class="startup-timeline-year">20236 </div>
+            <div class="startup-timeline-year" data-i18n="startup.milestone1Year">2023</div>
             <div class="startup-timeline-marker"></div>
             <div class="startup-timeline-content">
-              <h4>Fundación de Secured</h4>
-              <p>Nace la idea de una plataforma enfocada en coordinación ciudadana.</p>
+              <h4 data-i18n="startup.milestone1Title">Fundación de Secured</h4>
+              <p data-i18n="startup.milestone1Text">Nace la idea de una plataforma enfocada en coordinación ciudadana.</p>
             </div>
           </li>
 
           <li class="startup-timeline-item">
-            <div class="startup-timeline-year">20246 </div>
+            <div class="startup-timeline-year" data-i18n="startup.milestone2Year">2024</div>
             <div class="startup-timeline-marker"></div>
             <div class="startup-timeline-content">
-              <h4>Primera municipalidad implementada</h4>
-              <p>Piloto en un distrito urbano con integración a operaciones de campo.</p>
+              <h4 data-i18n="startup.milestone2Title">Primera municipalidad implementada</h4>
+              <p data-i18n="startup.milestone2Text">Piloto en un distrito urbano con integración a operaciones de campo.</p>
             </div>
           </li>
 
           <li class="startup-timeline-item">
-            <div class="startup-timeline-year">20246 </div>
+            <div class="startup-timeline-year" data-i18n="startup.milestone3Year">2024</div>
             <div class="startup-timeline-marker"></div>
             <div class="startup-timeline-content">
-              <h4>Integración con cámaras municipales</h4>
-              <p>
+              <h4 data-i18n="startup.milestone3Title">Integración con cámaras municipales</h4>
+              <p data-i18n="startup.milestone3Text">
                 Lectura de incidentes apoyada en video para mejorar la trazabilidad.
               </p>
             </div>
           </li>
 
           <li class="startup-timeline-item">
-            <div class="startup-timeline-year">20256 </div>
+            <div class="startup-timeline-year" data-i18n="startup.milestone4Year">2025</div>
             <div class="startup-timeline-marker"></div>
             <div class="startup-timeline-content">
-              <h4>Expansión a 10 distritos</h4>
-              <p>
+              <h4 data-i18n="startup.milestone4Title">Expansión a 10 distritos</h4>
+              <p data-i18n="startup.milestone4Text">
                 Roadmap para extender Secured a nuevas municipalidades y comisarías.
               </p>
             </div>
@@ -700,13 +746,13 @@
     <!-- CTA INFERIOR -->
     <div class="startup-cta">
       <div class="startup-cta-inner">
-        <p class="startup-cta-title">
+        <p class="startup-cta-title" data-i18n="startup.ctaTitle">
           ¿Listo para mejorar tu coordinación operativa?
         </p>
-        <p class="startup-cta-text">
+        <p class="startup-cta-text" data-i18n="startup.ctaText">
           Conversemos sobre cómo Secured puede adaptarse a las necesidades específicas de tu entidad.
         </p>
-        <a href="#contacto" class="btn-primary startup-cta-btn">
+        <a href="#contacto" class="btn-primary startup-cta-btn" data-i18n="startup.ctaBtn">
           Conversemos →
         </a>
       </div>
@@ -717,46 +763,49 @@
     <section id="contacto" class="contact-section">
       <div class="contact-inner">
         <header class="contact-header">
-          <h2>Contacto y localización</h2>
-          <p>Entra en contacto y visita nuestras unidades operativas.</p>
+          <h2 data-i18n="contact.title">Contacto y localización</h2>
+          <p data-i18n="contact.subtitle">Entra en contacto y visita nuestras unidades operativas.</p>
         </header>
 
         <div class="contact-card">
           <!-- Formulario -->
           <form class="contact-form" action="#" method="post">
             <div class="contact-field">
-              <label for="contact-name">Nombre completo</label>
+              <label for="contact-name" data-i18n="contact.labelName">Nombre completo</label>
               <input
                 id="contact-name"
                 type="text"
                 name="name"
+                data-i18n-placeholder="contact.placeholderName"
                 placeholder="Nombre"
                 required
               />
             </div>
 
             <div class="contact-field">
-              <label for="contact-email">E-mail</label>
+              <label for="contact-email" data-i18n="contact.labelEmail">E-mail</label>
               <input
                 id="contact-email"
                 type="email"
                 name="email"
+                data-i18n-placeholder="contact.placeholderEmail"
                 placeholder="nombre@municipio.gob.pe"
                 required
               />
             </div>
 
             <div class="contact-field">
-              <label for="contact-message">Mensaje</label>
+              <label for="contact-message" data-i18n="contact.labelMessage">Mensaje</label>
               <textarea
                 id="contact-message"
                 name="message"
                 rows="4"
+                data-i18n-placeholder="contact.placeholderMessage"
                 placeholder="Cuéntanos qué necesitas..."
               ></textarea>
             </div>
 
-            <button type="submit" class="btn-contact-submit">
+            <button type="submit" class="btn-contact-submit" data-i18n="contact.btnSubmit">
               Enviar mensaje
             </button>
           </form>
@@ -767,24 +816,24 @@
               <div class="contact-info-icon contact-info-icon-location">
                 <span>📍</span>
               </div>
-              <h3>Dirección</h3>
-              <p>Av. Benavides 456, Miraflores, Lima</p>
+              <h3 data-i18n="contact.addressTitle">Dirección</h3>
+              <p data-i18n="contact.address">Av. Benavides 456, Miraflores, Lima</p>
             </div>
 
             <div class="contact-info-item">
               <div class="contact-info-icon contact-info-icon-phone">
                 <span>📞</span>
               </div>
-              <h3>Teléfono</h3>
-              <p>(01) 987 654 321</p>
+              <h3 data-i18n="contact.phoneTitle">Teléfono</h3>
+              <p data-i18n="contact.phone">(01) 987 654 321</p>
             </div>
 
             <div class="contact-info-item">
               <div class="contact-info-icon contact-info-icon-mail">
                 <span>✉️</span>
               </div>
-              <h3>E-mail</h3>
-              <p>contacto@secured.pe</p>
+              <h3 data-i18n="contact.emailTitle">E-mail</h3>
+              <p data-i18n="contact.email">contacto@secured.pe</p>
             </div>
           </div>
         </div>
@@ -792,56 +841,68 @@
     </section>
     <!--FOOTER -->
     <footer class="site-footer">
-      <div class="footer-inner">
-        <!-- Columna 1: logo + texto corto -->
-        <div class="footer-brand">
-          <img
-            src="Secured-Landing-Page/public/assets/images/secured-logo-white.png"
-            alt="Logo Secured"
-            class="footer-logo"
-          />
-          <p class="footer-tagline">
-            Coordinación inteligente para Serenazgo y Policía.
-          </p>
+        <div class="footer-inner">
+            <!-- Columna 1: logo + texto corto -->
+            <div class="footer-brand">
+                <img
+                        src="Secured-Landing-Page/public/assets/images/secured-logo-white.png"
+                        alt="Logo Secured"
+                        class="footer-logo"
+                />
+                <p class="footer-tagline" data-i18n="footer.tagline">
+                    Coordinación inteligente para Serenazgo y Policía.
+                </p>
+            </div>
+
+            <!-- Columna 2: navegación -->
+            <div class="footer-nav">
+                <h3 data-i18n="footer.navTitle">Navegación</h3>
+                <ul>
+                    <li><a href="#inicio" data-i18n="header.nav.inicio">Inicio</a></li>
+                    <li><a href="#solucion" data-i18n="header.nav.solucion">Solución</a></li>
+                    <li><a href="#startup" data-i18n="header.nav.startup">Startup</a></li>
+                    <li><a href="#equipo" data-i18n="header.nav.equipo">Equipo</a></li>
+                    <li><a href="#seguridad" data-i18n="header.nav.seguridad">Seguridad</a></li>
+                    <li><a href="#contacto" data-i18n="footer.contactTitle">Contacto</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Recursos -->
+            <div class="footer-resources">
+                <h3 data-i18n="footer.resourcesTitle">Recursos</h3>
+                <ul>
+                    <li><a href="#" data-i18n="footer.support">Soporte</a></li>
+                    <li><a href="#" data-i18n="footer.documentation">Documentación</a></li>
+                    <li><a href="#" data-i18n="footer.privacy">Privacidad</a></li>
+                    <li><a href="https://publuu.com/flip-book/1025735/2267623" data-i18n="footer.terms">Términos de servicio</a></li>
+                    <li><a href="ayuda-documentacion.html" data-i18n="footer.help">Ayuda y documentación</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 4: contacto -->
+            <div class="footer-contact">
+                <h3 data-i18n="footer.contactTitle">Contacto</h3>
+                <ul>
+                    <li data-i18n="contact.email">contacto@secured.pe</li>
+                    <li data-i18n="contact.phone">+51 987 654 321</li>
+                    <li data-i18n="contact.address">Lima, Perú</li>
+                </ul>
+
+                <div class="footer-social">
+                    <a href="#" aria-label="Twitter">𝕏</a>
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="LinkedIn">in</a>
+                </div>
+            </div>
         </div>
 
-        <!-- Columna 2: navegación -->
-        <div class="footer-nav">
-          <h3>Navegación</h3>
-          <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#solucion">Solución</a></li>
-            <li><a href="#startup">Startup</a></li>
-            <li><a href="#equipo">Equipo</a></li>
-            <li><a href="#seguridad">Seguridad</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-          </ul>
+        <div class="footer-bottom">
+            <p data-i18n="footer.copyright">© 2025 Secured. Todos los derechos reservados.</p>
+            <p>
+                <span data-i18n="footer.privacyText">Secured no recopila información personal identificable sin consentimiento
+                explícito. Ver</span> <a href="#" data-i18n="footer.privacyLink">Política de privacidad</a>.
+            </p>
         </div>
-
-        <!-- Columna 3: contacto -->
-        <div class="footer-contact">
-          <h3>Contacto</h3>
-          <ul>
-            <li>contacto@secured.pe</li>
-            <li>+51 987 654 321</li>
-            <li>Lima, Perú</li>
-          </ul>
-
-          <div class="footer-social">
-            <a href="#" aria-label="Twitter">𝕏</a>
-            <a href="#" aria-label="Facebook">f</a>
-            <a href="#" aria-label="LinkedIn">in</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>© 2025 Secured. Todos los derechos reservados.</p>
-        <p>
-          Secured no recopila información personal identificable sin consentimiento
-          explícito. Ver <a href="#">Política de privacidad</a>.
-        </p>
-      </div>
     </footer>
   </body>
 </html>

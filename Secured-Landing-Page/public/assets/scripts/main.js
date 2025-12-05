@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* 2) FLUJO DE AUTENTICACIÓN EN login-policia.html*/
+  /* 2) FLUJO DE AUTENTICACIÓN EN login-policia.css.html*/
 
   const loginPage = document.querySelector(".login-page");
   if (loginPage) {

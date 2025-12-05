@@ -1,0 +1,341 @@
+{
+  "header": {
+    "nav": {
+      "inicio": "Inicio",
+      "solucion": "Solución",
+      "startup": "Startup",
+      "equipo": "Equipo",
+      "mapa": "Mapa",
+      "seguridad": "Seguridad"
+    },
+    "btnEmpezar": "Empezar ahora"
+  },
+  "hero": {
+    "kicker": "Coordinación inteligente",
+    "title": "Coordinación inteligente<br />para <span>Serenazgo y Policía</span>",
+    "subtitle": "Despacho rápido, evidencias seguras y control en tiempo real.",
+    "btnDemo": "Solicitar demo",
+    "btnVideo": "Ver cómo funciona",
+    "trust": "Confiado por entidades en todo el Perú",
+    "badge1": "Municipalidad de Lima",
+    "badge2": "Municipalidad de Miraflores",
+    "badge3": "Comisaría de Chorrillos"
+  },
+  "operations": {
+    "title": "Mapa de operaciones",
+    "subtitle": "Visualización de incidentes reportados en la jurisdicción de Miraflores",
+    "chipTitle": "Comisaría de Miraflores",
+    "chipSubtitle": "Av. Benavides 456, Miraflores, Lima",
+    "chipAlert": "Robo reportado",
+    "metric1Value": "4 min",
+    "metric1Label": "Tiempo de respuesta",
+    "metric2Value": "2.1 km",
+    "metric2Label": "Distancia a la comisaría",
+    "metric3Value": "3",
+    "metric3Label": "Unidades disponibles",
+    "btnCta": "Solicitar demo completa"
+  },
+  "solution": {
+    "title": "¿Cuál es nuestra solución?",
+    "subtitle": "Coordinación en tiempo real para Serenazgo y Policía con despacho inteligente, evidencias seguras y analítica operativa.",
+    "card1Title": "Despacho inteligente",
+    "card1Text": "Asignación automática por ETA, disponibilidad y sector de jurisdicción.",
+    "card2Title": "Atención en campo",
+    "card2Text": "Navegación GPS, checklists operativos y acuses en tiempo real.",
+    "card3Title": "Evidencias protegidas",
+    "card3Text": "Cadena de custodia digital, cifrado y registros de auditoría inmutables.",
+    "card4Title": "Visión en tiempo real",
+    "card4Text": "Mapa operativo, cámaras municipales y tracking de unidades móviles.",
+    "card5Title": "Integraciones",
+    "card5Text": "Conexión con cámaras IP, sistemas de alarmas y webhooks personalizados.",
+    "card6Title": "Métricas y SLA",
+    "card6Text": "KPIs de tiempos de respuesta, cumplimiento y analítica operativa.",
+    "metric1Value": "-40%",
+    "metric1Label": "Tiempo de respuesta",
+    "metric2Value": "+85%",
+    "metric2Label": "Cumplimiento de SLA",
+    "metric3Value": "100%",
+    "metric3Label": "Trazabilidad de evidencias"
+  },
+  "aboutProject": {
+    "title": "Conoce nuestro proyecto"
+  },
+  "team": {
+    "title": "Nosotros",
+    "subtitle": "Un equipo multidisciplinario comprometido con la seguridad ciudadana y la innovación tecnológica.",
+    "jennifer": {
+      "name": "Jennifer Riveros",
+      "role": "CEO & Co-fundadora",
+      "chip": "Producto y operaciones de campo",
+      "description": "Experiencia en gestión municipal y coordinación con fuerzas del orden.",
+      "btn": "Contactar a Jennifer"
+    },
+    "jhohandri": {
+      "name": "Jhohandri Contreras",
+      "role": "CTO & Co-fundador",
+      "chip": "Infraestructura y datos en tiempo real",
+      "description": "Especialista en sistemas distribuidos y arquitectura de alta disponibilidad.",
+      "btn": "Contactar a Jhohandri"
+    },
+    "dylan": {
+      "name": "Dylan Aguirre",
+      "role": "UX Lead",
+      "chip": "Investigación y diseño de interfaces",
+      "description": "Diseño centrado en usuarios operativos con enfoque en usabilidad de campo.",
+      "btn": "Contactar a Dylan"
+    },
+    "adrian": {
+      "name": "Adrián Garrido",
+      "role": "Security Engineer",
+      "chip": "Seguridad y cumplimiento normativo",
+      "description": "Experto en cifrado, auditoría y protección de datos sensibles.",
+      "btn": "Contactar a Adrián"
+    },
+    "guillermo": {
+      "name": "Guillermo Howard",
+      "role": "Operations Manager",
+      "chip": "Implementación y capacitación",
+      "description": "Coordinación con comisarías y serenazgos para el despliegue de la solución.",
+      "btn": "Contactar a Guillermo"
+    },
+    "ctaTitle": "¿No sabes con quién hablar?",
+    "ctaText": "Escríbenos y te conectaremos con la persona indicada.",
+    "ctaBtn": "Contactar al equipo"
+  },
+  "aboutTeam": {
+    "title": "Conoce a nuestro equipo"
+  },
+  "security": {
+    "title": "Seguridad y cumplimiento",
+    "subtitle": "Protección de datos y trazabilidad en cada operación.",
+    "item1Title": "Roles y permisos",
+    "item1Text": "Control granular por perfil operativo. Cada usuario accede solo a la información necesaria para su función, con permisos configurables por jurisdicción y tipo de operación.",
+    "item2Title": "Auditoría completa",
+    "item2Text": "Registro inmutable de todos los accesos y acciones. Trazabilidad completa de quién hizo qué, cuándo y desde dónde, con logs protegidos y exportables para investigaciones.",
+    "item3Title": "Cadena de custodia",
+    "item3Text": "Distinción entre original y derivado. Cada evidencia conserva su hash criptográfico, metadatos inmutables y registro de todas las copias o modificaciones realizadas.",
+    "item4Title": "Retención y privacidad",
+    "item4Text": "Políticas de retención configurables alineadas a normativas vigentes y regulaciones de protección de datos personales, incluyendo derecho al olvido.",
+    "cardTitle": "Características de seguridad",
+    "feature1Title": "Cifrado de extremo a extremo",
+    "feature1Text": "Evidencias, mensajes y adjuntos se almacenan y transmiten usando cifrado fuerte para evitar accesos no autorizados.",
+    "feature2Title": "Autenticación multifactor (OTP)",
+    "feature2Text": "Acceso reforzado con doble verificación para mandos, operadores y administradores de la plataforma.",
+    "feature3Title": "Sesiones con tiempo de expiración",
+    "feature3Text": "Cierres automáticos de sesión en dispositivos inactivos para reducir riesgos en campo y en oficinas.",
+    "feature4Title": "Logs inmutables de auditoría",
+    "feature4Text": "Historial detallado y no editable de cada acción, ideal para peritajes, auditorías internas y reportes a contraloría.",
+    "feature5Title": "Respaldos automáticos cifrados",
+    "feature5Text": "Copias de seguridad frecuentes en infraestructura segura para garantizar continuidad operativa.",
+    "feature6Title": "Cumplimiento normativo local",
+    "feature6Text": "Configurable para alinearse a políticas internas, ordenanzas municipales y estándares de seguridad de la institución.",
+    "faqTitle": "Preguntas frecuentes",
+    "faq1Question": "¿Cómo se resguardan las evidencias?",
+    "faq1Answer": "Las evidencias se almacenan con cifrado de extremo a extremo y metadatos inmutables (hash, fecha, ubicación, autor). Cada cambio queda registrado en la bitácora de auditoría para mantener la trazabilidad completa.",
+    "faq2Question": "¿Qué pasa si no hay internet?",
+    "faq2Answer": "La app funciona en modo offline. Los registros y evidencias se guardan localmente y se sincronizan de forma segura cuando se recupera la conexión, sin perder información crítica.",
+    "faq3Question": "¿Quién puede ver los originales?",
+    "faq3Answer": "Solo usuarios con permisos explícitos pueden acceder a la evidencia original. El resto de perfiles opera con vistas parciales o datos anonimizados, según la política definida por la institución."
+  },
+  "startup": {
+    "title": "Sobre Secured",
+    "subtitle": "Apoyamos a las fuerzas locales con tecnología usable y confiable.",
+    "mission": "Nuestra misión",
+    "missionText": "Democratizar el acceso a tecnología de coordinación operativa de clase mundial. Creemos que cada municipalidad, sin importar su tamaño, merece herramientas profesionales para proteger a su comunidad de manera eficiente y transparente.",
+    "team": "Nuestro equipo",
+    "teamText": "Profesionales con experiencia en seguridad pública, desarrollo de software y diseño de experiencia de usuario. Trabajamos directamente con operadores de campo para entender y resolver sus necesidades reales.",
+    "alliances": "Alianzas",
+    "alliancesText": "Construimos Secured de la mano de instituciones que conocen la realidad operativa en territorio.",
+    "alliance1": "Municipalidades distritales y provinciales",
+    "alliance2": "Comisarías y destacamentos policiales",
+    "alliance3": "Proveedores de infraestructura de seguridad",
+    "timelineTitle": "Hitos del producto",
+    "milestone1Year": "2023",
+    "milestone1Title": "Fundación de Secured",
+    "milestone1Text": "Nace la idea de una plataforma enfocada en coordinación ciudadana.",
+    "milestone2Year": "2024",
+    "milestone2Title": "Primera municipalidad implementada",
+    "milestone2Text": "Piloto en un distrito urbano con integración a operaciones de campo.",
+    "milestone3Year": "2024",
+    "milestone3Title": "Integración con cámaras municipales",
+    "milestone3Text": "Lectura de incidentes apoyada en video para mejorar la trazabilidad.",
+    "milestone4Year": "2025",
+    "milestone4Title": "Expansión a 10 distritos",
+    "milestone4Text": "Roadmap para extender Secured a nuevas municipalidades y comisarías.",
+    "ctaTitle": "¿Listo para mejorar tu coordinación operativa?",
+    "ctaText": "Conversemos sobre cómo Secured puede adaptarse a las necesidades específicas de tu entidad.",
+    "ctaBtn": "Conversemos"
+  },
+  "contact": {
+    "title": "Contacto y localización",
+    "subtitle": "Entra en contacto y visita nuestras unidades operativas.",
+    "labelName": "Nombre completo",
+    "placeholderName": "Nombre",
+    "labelEmail": "E-mail",
+    "placeholderEmail": "nombre@municipio.gob.pe",
+    "labelMessage": "Mensaje",
+    "placeholderMessage": "Cuéntanos qué necesitas...",
+    "btnSubmit": "Enviar mensaje",
+    "addressTitle": "Dirección",
+    "address": "Av. Benavides 456, Miraflores, Lima",
+    "phoneTitle": "Teléfono",
+    "phone": "(01) 987 654 321",
+    "emailTitle": "E-mail",
+    "email": "contacto@secured.pe"
+  },
+  "footer": {
+    "tagline": "Coordinación inteligente para Serenazgo y Policía.",
+    "navTitle": "Navegación",
+    "resourcesTitle": "Recursos",
+    "support": "Soporte",
+    "documentation": "Documentación",
+    "privacy": "Privacidad",
+    "terms": "Términos de servicio",
+    "help": "Ayuda y documentación",
+    "contactTitle": "Contacto",
+    "copyright": "© 2025 Secured. Todos los derechos reservados.",
+    "privacyText": "Secured no recopila información personal identificable sin consentimiento explícito. Ver",
+    "privacyLink": "Política de privacidad"
+  },
+  "loginPage": {
+    "roleStrip": {
+      "policia": "Policía",
+      "serenazgo": "Serenazgo"
+    },
+    "backToHome": "Volver al inicio",
+    "title": "Iniciar Sesión",
+    "subtitle": "Ingresa tus credenciales para continuar",
+    "labelUser": "Usuario o DNI",
+    "labelPassword": "Contraseña",
+    "required": "*Campos requeridos",
+    "placeholderUser": "correo institucional o DNI",
+    "placeholderPassword": "Ingresa tu contraseña",
+    "btnLogin": "Ingresar",
+    "forgotPassword": "¿Olvidaste tu contraseña?"
+  },
+  "homePage": {
+    "menuBtn": "Menú",
+    "config": {
+      "title": "Configuración"
+    },
+    "breadcrumb": {
+      "subtitle": "Serenazgo • Motorizado",
+      "location": "Sector Sur",
+      "status": "Disponible"
+    },
+    "profile": {
+      "name": "Sgto. Carlos Mendoza",
+      "role": "Policía - Sargento",
+      "nameSereno": "Agente Jorge Torres",
+      "roleSereno": "Serenazgo",
+      "unit": "Patrulla motorizada",
+      "unitSereno": "Motorizado",
+      "sector": "Sector Norte",
+      "sectorSereno": "Sector Sur",
+      "startTime": "Ingreso: 06:00",
+      "available": "Disponible",
+      "tags": {
+        "dispatch": "Despacho",
+        "cameras": "Cámaras",
+        "moderation": "Moderación",
+        "calls105": "Llamadas 105",
+        "evidence": "Evidencias",
+        "patrol": "Patrullaje",
+        "actas": "Actas",
+        "alerts": "Alertas"
+      }
+    },
+    "menu": {
+      "inicio": "Inicio",
+      "mapa": "MAPA",
+      "mapaIncidentes": "Mapa de incidentes",
+      "capasMapa": "Capas de mapa",
+      "mapaCalor": "Mapa de calor",
+      "zonasTemporales": "Zonas temporales",
+      "coberturaSectores": "Cobertura de sectores",
+      "bloqueosViales": "Bloqueos Viales",
+      "alertasVecinales": "Alertas vecinales",
+      "geocercas": "Geocercas",
+      "operacion": "OPERACIÓN",
+      "navegacion": "Navegación",
+      "asignarUnidad": "Asignar unidad",
+      "coDespacho": "Co despacho",
+      "broadcast": "Broadcast",
+      "pedirApoyo": "Pedir apoyo",
+      "tableroSla": "Tablero sla",
+      "tableroAsignacion": "Tablero de asignación",
+      "central105": "Central 105",
+      "moderacionReporte": "Moderación de reporte",
+      "falsoPositivo": "Falsos positivos",
+      "incidentes": "INCIDENTES",
+      "bandejaIncidentes": "Bandeja de incidentes",
+      "buscadorIncidentes": "Buscador de incidentes",
+      "chatIncidente": "Chat por incidente",
+      "crearIncidente": "Crear incidente",
+      "etiquetasIA": "Etiquetas IA",
+      "monitorCamaras": "Monitor de cámaras",
+      "puntosInteres": "Puntos de interés",
+      "gestionEvidencias": "Gestion de evidencias",
+      "consultarEvidencias": "Consultar de evidencias",
+      "actaIntervencion": "Acta de intervención",
+      "gestionOperativa": "GESTION OPERATIVA",
+      "tareas": "TAREAS",
+      "checklistsOperativos": "Checklists operativos",
+      "webhooks": "Webhooks",
+      "gestionTurno": "Gestion de turno",
+      "relevoTurno": "Relevo de turno",
+      "paseLista": "Pase de lista",
+      "reporteTurno": "Reporte de lista",
+      "bitacora": "BITÁCORA",
+      "gestionUsuarios": "Gestión de usuarios",
+      "bitacoraTimeline": "Bitácora y timeline",
+      "gestionCatalogos": "Gestión de catálogos",
+      "gestionUnidades": "Gestión de unidades",
+      "historialUnidades": "Historial de unidades",
+      "historialAgentes": "Historial de agentes",
+      "panelAnalisis": "Panel de análisis",
+      "exportesInformes": "Exportes e informe",
+      "ajustes": "AJUSTES",
+      "configuracion": "Configuración"
+    },
+    "welcome": "Bienvenido a la Plataforma Operativa",
+    "selectOption": "Selecciona una opción desde el menú.",
+    "metrics": {
+      "attended": "Atendidos",
+      "tta": "TTA",
+      "ttr": "TTR",
+      "km": "KM"
+    },
+    "recentReports": "Reportes recientes",
+    "reports": {
+      "priority": {
+        "high": "Alta",
+        "medium": "Media",
+        "low": "Baja"
+      },
+      "status": {
+        "inProgress": "En curso",
+        "closed": "Cerrado"
+      },
+      "incidents": {
+        "noise": "Ruido molesto",
+        "vendor": "Ambulante",
+        "fight": "Pelea"
+      },
+      "sector": {
+        "south": "Sector Sur",
+        "north": "Sector Norte"
+      }
+    },
+    "quickAccess": "Accesos rápidos",
+    "quickActions": {
+      "createIncident": "Crear incidente",
+      "createIncidentDesc": "Registro de incidente",
+      "navigateIncident": "Navegar al incidente",
+      "navigateIncidentDesc": "Navegación operativa",
+      "attachEvidence": "Adjuntar evidencia",
+      "attachEvidenceDesc": "Gestión de evidencias"
+    }
+  }
+}
+

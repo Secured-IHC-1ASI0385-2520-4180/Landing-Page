@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Iniciar sesión – Secured</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>Iniciar sesión – Secured</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
- 
-  <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/styles.css" />
+    <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/login-policia.css" />
 
-  <link rel="icon" type="image/x-icon" href="Secured-Landing-Page/public/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="Secured-Landing-Page/public/favicon.ico" />
+
+    <!-- Script i18n -->
+    <script src="Secured-Landing-Page/public/assets/scripts/login-i18n.js" defer></script>
 </head>
 
 <body class="body-auth">
 
-  <!-- Selector de rol (Policía / Serenazgo) -->
-  <div class="role-strip">
-      <a href="login-policia.html"
-         class="role-strip-link role-strip-link--active">
-          Policía
-      </a>
+<!-- Selector de rol (Policía / Serenazgo) -->
+<div class="role-strip">
+    <a href="login-policia.html"
+       class="role-strip-link role-strip-link--active"
+       data-i18n="loginPage.roleStrip.policia">
+        Policía
+    </a>
 
-      <a href="login-serenazgo.html"
-         class="role-strip-link">
-          Serenazgo
-      </a>
-  </div>
+    <a href="login-serenazgo.html"
+       class="role-strip-link"
+       data-i18n="loginPage.roleStrip.serenazgo">
+        Serenazgo
+    </a>
+</div>
 
 
 
-  <!-- CONTENIDO PRINCIPAL: TARJETA DE LOGIN -->
+<!-- CONTENIDO PRINCIPAL: TARJETA DE LOGIN -->
 <main class="login-page">
 
     <!-- Ilustración izquierda -->
@@ -36,267 +40,269 @@
         <img src="Secured-Landing-Page/public/assets/images/policia.png" alt="Ilustración policía">
     </div>
 
-  <section class="auth-card">
+    <section class="auth-card">
 
-    <!-- PASO 1: LOGIN  -->
-    <div id="step-login" class="auth-step auth-step--active">
-        <a href="index.html#inicio" class="btn-primary hero-primary">
-            Volver al inicio
-        </a>
+        <!-- PASO 1: LOGIN  -->
+        <div id="step-login" class="auth-step auth-step--active">
+            <a href="index.html#inicio" class="btn-primary hero-primary" data-i18n="loginPage.backToHome">
+                Volver al inicio
+            </a>
 
-        <h1>Iniciar Sesión</h1>
-      <p class="auth-subtitle">
-        Ingresa tus credenciales para continuar
-      </p>
+            <h1 data-i18n="loginPage.title">Iniciar Sesión</h1>
+            <p class="auth-subtitle" data-i18n="loginPage.subtitle">
+                Ingresa tus credenciales para continuar
+            </p>
 
-      <form class="auth-form">
-        <!-- Rol seleccionado -->
-        <input type="hidden" id="rol" name="rol" value="serenazgo">
+            <form class="auth-form">
+                <!-- Rol seleccionado -->
+                <input type="hidden" id="rol" name="rol" value="serenazgo">
 
-        <label class="auth-label">
-          Usuario o DNI <span class="required">*Campos requeridos</span>
-          <input
-            type="text"
-            class="auth-input"
-            placeholder="correo institucional o DNI"
-          />
-        </label>
+                <label class="auth-label">
+                    <span data-i18n="loginPage.labelUser">Usuario o DNI</span> <span class="required" data-i18n="loginPage.required">*Campos requeridos</span>
+                    <input
+                            type="text"
+                            class="auth-input"
+                            data-i18n-placeholder="loginPage.placeholderUser"
+                            placeholder="correo institucional o DNI"
+                    />
+                </label>
 
-        <label class="auth-label">
-          Contraseña <span class="required">*Campos requeridos</span>
-          <div class="auth-input-group">
-            <input
-              type="password"
-              class="auth-input"
-              placeholder="Ingresa tu contraseña"
-            />
-          </div>
-        </label>
+                <label class="auth-label">
+                    <span data-i18n="loginPage.labelPassword">Contraseña</span> <span class="required" data-i18n="loginPage.required">*Campos requeridos</span>
+                    <div class="auth-input-group">
+                        <input
+                                type="password"
+                                class="auth-input"
+                                data-i18n-placeholder="loginPage.placeholderPassword"
+                                placeholder="Ingresa tu contraseña"
+                        />
+                    </div>
+                </label>
 
-          <button type="button" class="auth-button" onclick="location.href='home-policia.html'">
-              Ingresar
-          </button>
+                <button type="button" class="auth-button" onclick="location.href='home-policia.html'" data-i18n="loginPage.btnLogin">
+                    Ingresar
+                </button>
 
 
-          <button type="button" class="auth-link" id="link-forgot">
-          ¿Olvidaste tu contraseña?
-        </button>
-      </form>
+                <button type="button" class="auth-link" id="link-forgot" data-i18n="loginPage.forgotPassword">
+                    ¿Olvidaste tu contraseña?
+                </button>
+            </form>
 
-      <p class="auth-brand">Secured</p>
-    </div>
-
-    <!-- PASO 2: RECUPERAR CONTRASEÑA -->
-    <div id="step-recover" class="auth-step">
-      <button type="button"
-              class="auth-back-link"
-              data-target="login">
-        ← Volver a iniciar sesión
-      </button>
-
-      <div class="auth-icon-circle">✉️</div>
-
-      <h1>Recuperar contraseña</h1>
-      <p class="auth-subtitle">
-        Ingresa tu correo institucional o DNI para recibir un código de verificación.
-      </p>
-
-      <form class="auth-form">
-        <label class="auth-label">
-          Correo institucional o DNI
-          <input
-            type="text"
-            class="auth-input"
-            placeholder="correo@institucion.gob.pe o DNI"
-          />
-        </label>
-
-        <div class="auth-info-box">
-          Te enviaremos un código de 6 dígitos a tu correo registrado o número de teléfono asociado.
+            <p class="auth-brand">Secured</p>
         </div>
 
-        <button type="button" class="auth-button" id="btn-send-code">
-          Enviar código
-        </button>
-      </form>
-    </div>
+        <!-- PASO 2: RECUPERAR CONTRASEÑA -->
+        <div id="step-recover" class="auth-step">
+            <button type="button"
+                    class="auth-back-link"
+                    data-target="login">
+                ← Volver a iniciar sesión
+            </button>
 
-    <!-- PASO 3: CÓDIGO DE VERIFICACIÓN -->
-    <div id="step-code" class="auth-step">
-      <button type="button"
-              class="auth-back-link"
-              data-target="recover">
-        ← Volver
-      </button>
+            <div class="auth-icon-circle">✉️</div>
 
-      <div class="auth-icon-circle">🛡️</div>
+            <h1>Recuperar contraseña</h1>
+            <p class="auth-subtitle">
+                Ingresa tu correo institucional o DNI para recibir un código de verificación.
+            </p>
 
-      <h1>Código de verificación</h1>
-      <p class="auth-subtitle">
-        Ingresa el código de 6 dígitos enviado a tu correo institucional.
-      </p>
+            <form class="auth-form">
+                <label class="auth-label">
+                    Correo institucional o DNI
+                    <input
+                            type="text"
+                            class="auth-input"
+                            placeholder="correo@institucion.gob.pe o DNI"
+                    />
+                </label>
 
-      <div class="code-inputs">
-        <input type="text" maxlength="1" class="code-input">
-        <input type="text" maxlength="1" class="code-input">
-        <input type="text" maxlength="1" class="code-input">
-        <input type="text" maxlength="1" class="code-input">
-        <input type="text" maxlength="1" class="code-input">
-        <input type="text" maxlength="1" class="code-input">
-      </div>
+                <div class="auth-info-box">
+                    Te enviaremos un código de 6 dígitos a tu correo registrado o número de teléfono asociado.
+                </div>
 
-      <div class="auth-timer" id="code-timer">
-        4:33
-      </div>
-
-      <button type="button" class="auth-button" id="btn-verify-code">
-        Verificar
-      </button>
-
-      <button type="button" class="auth-secondary-link" id="btn-resend-code">
-        Reenviar código
-      </button>
-
-      <button type="button" class="auth-secondary-link">
-        No tengo acceso a mi correo/teléfono
-      </button>
-    </div>
-
-    <!--  NUEVA CONTRASEÑA -->
-    <div id="step-new-password" class="auth-step">
-      <button type="button"
-              class="auth-back-link"
-              data-target="code">
-        ← Volver
-      </button>
-
-      <div class="auth-icon-circle">🔑</div>
-
-      <h1>Nueva contraseña</h1>
-      <p class="auth-subtitle">
-        Crea una contraseña segura para tu cuenta.
-      </p>
-
-      <form class="auth-form">
-        <label class="auth-label">
-          Nueva contraseña
-          <input
-            type="password"
-            class="auth-input"
-            id="new-password"
-            placeholder="Ingresa una nueva contraseña"
-          />
-        </label>
-
-        <ul class="password-rules" id="password-rules">
-          <li><span class="rule-icon">✖</span> Mínimo 8 caracteres</li>
-          <li><span class="rule-icon">✖</span> Al menos una mayúscula</li>
-          <li><span class="rule-icon">✖</span> Al menos una minúscula</li>
-          <li><span class="rule-icon">✖</span> Al menos un número</li>
-          <li><span class="rule-icon">✖</span> Al menos un carácter especial</li>
-        </ul>
-
-        <label class="auth-label">
-          Confirmar contraseña
-          <input
-            type="password"
-            class="auth-input"
-            id="confirm-password"
-            placeholder="Vuelve a escribir la contraseña"
-          />
-        </label>
-
-        <div class="auth-info-box">
-          Por seguridad, deberás iniciar sesión nuevamente con tu nueva contraseña.
+                <button type="button" class="auth-button" id="btn-send-code">
+                    Enviar código
+                </button>
+            </form>
         </div>
 
-        <button type="button" class="auth-button" id="btn-save-password">
-          Guardar nueva contraseña
-        </button>
-      </form>
-    </div>
+        <!-- PASO 3: CÓDIGO DE VERIFICACIÓN -->
+        <div id="step-code" class="auth-step">
+            <button type="button"
+                    class="auth-back-link"
+                    data-target="recover">
+                ← Volver
+            </button>
 
-    <!-- CONTRASEÑA ACTUALIZADA -->
-    <div id="step-success" class="auth-step">
-      <div class="auth-icon-circle auth-icon-success">✔</div>
+            <div class="auth-icon-circle">🛡️</div>
 
-      <h1>Contraseña actualizada</h1>
-      <p class="auth-subtitle">
-        Tu contraseña ha sido cambiada exitosamente. Ahora puedes iniciar sesión con tu nueva contraseña.
-      </p>
+            <h1>Código de verificación</h1>
+            <p class="auth-subtitle">
+                Ingresa el código de 6 dígitos enviado a tu correo institucional.
+            </p>
 
-      <div class="auth-info-box is-success">
-        Por seguridad, recuerda no compartir tu contraseña con nadie.
-      </div>
+            <div class="code-inputs">
+                <input type="text" maxlength="1" class="code-input">
+                <input type="text" maxlength="1" class="code-input">
+                <input type="text" maxlength="1" class="code-input">
+                <input type="text" maxlength="1" class="code-input">
+                <input type="text" maxlength="1" class="code-input">
+                <input type="text" maxlength="1" class="code-input">
+            </div>
 
-      <button type="button" class="auth-button" id="btn-go-login">
-        Iniciar sesión
-      </button>
+            <div class="auth-timer" id="code-timer">
+                4:33
+            </div>
 
-      <p class="auth-brand">Sistema de Seguridad Ciudadana</p>
-    </div>
+            <button type="button" class="auth-button" id="btn-verify-code">
+                Verificar
+            </button>
 
-  </section>
+            <button type="button" class="auth-secondary-link" id="btn-resend-code">
+                Reenviar código
+            </button>
+
+            <button type="button" class="auth-secondary-link">
+                No tengo acceso a mi correo/teléfono
+            </button>
+        </div>
+
+        <!--  NUEVA CONTRASEÑA -->
+        <div id="step-new-password" class="auth-step">
+            <button type="button"
+                    class="auth-back-link"
+                    data-target="code">
+                ← Volver
+            </button>
+
+            <div class="auth-icon-circle">🔑</div>
+
+            <h1>Nueva contraseña</h1>
+            <p class="auth-subtitle">
+                Crea una contraseña segura para tu cuenta.
+            </p>
+
+            <form class="auth-form">
+                <label class="auth-label">
+                    Nueva contraseña
+                    <input
+                            type="password"
+                            class="auth-input"
+                            id="new-password"
+                            placeholder="Ingresa una nueva contraseña"
+                    />
+                </label>
+
+                <ul class="password-rules" id="password-rules">
+                    <li><span class="rule-icon">✖</span> Mínimo 8 caracteres</li>
+                    <li><span class="rule-icon">✖</span> Al menos una mayúscula</li>
+                    <li><span class="rule-icon">✖</span> Al menos una minúscula</li>
+                    <li><span class="rule-icon">✖</span> Al menos un número</li>
+                    <li><span class="rule-icon">✖</span> Al menos un carácter especial</li>
+                </ul>
+
+                <label class="auth-label">
+                    Confirmar contraseña
+                    <input
+                            type="password"
+                            class="auth-input"
+                            id="confirm-password"
+                            placeholder="Vuelve a escribir la contraseña"
+                    />
+                </label>
+
+                <div class="auth-info-box">
+                    Por seguridad, deberás iniciar sesión nuevamente con tu nueva contraseña.
+                </div>
+
+                <button type="button" class="auth-button" id="btn-save-password">
+                    Guardar nueva contraseña
+                </button>
+            </form>
+        </div>
+
+        <!-- CONTRASEÑA ACTUALIZADA -->
+        <div id="step-success" class="auth-step">
+            <div class="auth-icon-circle auth-icon-success">✔</div>
+
+            <h1>Contraseña actualizada</h1>
+            <p class="auth-subtitle">
+                Tu contraseña ha sido cambiada exitosamente. Ahora puedes iniciar sesión con tu nueva contraseña.
+            </p>
+
+            <div class="auth-info-box is-success">
+                Por seguridad, recuerda no compartir tu contraseña con nadie.
+            </div>
+
+            <button type="button" class="auth-button" id="btn-go-login">
+                Iniciar sesión
+            </button>
+
+            <p class="auth-brand">Sistema de Seguridad Ciudadana</p>
+        </div>
+
+    </section>
 </main>
 
 
-  <!-- FOOTER  -->
-  <footer class="site-footer">
+<!-- FOOTER  -->
+<footer class="site-footer">
     <div class="footer-inner">
-      <!-- Columna 1: logo + texto corto -->
-      <div class="footer-brand">
-        <img
-          src="Secured-Landing-Page/public/assets/images/secured-logo-white.png"
-          alt="Logo Secured"
-          class="footer-logo"
-        />
-        <p class="footer-tagline">
-          Coordinación inteligente para Serenazgo y Policía.
-        </p>
-      </div>
-
-      <!-- Columna 2: navegación -->
-      <div class="footer-nav">
-        <h3>Navegación</h3>
-        <ul>
-          <li><a href="index.html#inicio">Inicio</a></li>
-          <li><a href="index.html#solucion">Solución</a></li>
-          <li><a href="index.html#startup">Startup</a></li>
-          <li><a href="index.html#equipo">Equipo</a></li>
-          <li><a href="index.html#seguridad">Seguridad</a></li>
-          <li><a href="index.html#contacto">Contacto</a></li>
-        </ul>
-      </div>
-
-      <!-- Columna 3: contacto -->
-      <div class="footer-contact">
-        <h3>Contacto</h3>
-        <ul>
-          <li>contacto@secured.pe</li>
-          <li>+51 987 654 321</li>
-          <li>Lima, Perú</li>
-        </ul>
-
-        <div class="footer-social">
-          <a href="#" aria-label="Twitter">𝕏</a>
-          <a href="#" aria-label="Facebook">f</a>
-          <a href="#" aria-label="LinkedIn">in</a>
+        <!-- Columna 1: logo + texto corto -->
+        <div class="footer-brand">
+            <img
+                    src="Secured-Landing-Page/public/assets/images/secured-logo-white.png"
+                    alt="Logo Secured"
+                    class="footer-logo"
+            />
+            <p class="footer-tagline">
+                Coordinación inteligente para Serenazgo y Policía.
+            </p>
         </div>
-      </div>
+
+        <!-- Columna 2: navegación -->
+        <div class="footer-nav">
+            <h3>Navegación</h3>
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#solucion">Solución</a></li>
+                <li><a href="index.html#startup">Startup</a></li>
+                <li><a href="index.html#equipo">Equipo</a></li>
+                <li><a href="index.html#seguridad">Seguridad</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3: contacto -->
+        <div class="footer-contact">
+            <h3>Contacto</h3>
+            <ul>
+                <li>contacto@secured.pe</li>
+                <li>+51 987 654 321</li>
+                <li>Lima, Perú</li>
+            </ul>
+
+            <div class="footer-social">
+                <a href="#" aria-label="Twitter">𝕏</a>
+                <a href="#" aria-label="Facebook">f</a>
+                <a href="#" aria-label="LinkedIn">in</a>
+            </div>
+        </div>
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Secured. Todos los derechos reservados.</p>
-      <p>
-        Secured no recopila información personal identificable sin consentimiento
-        explícito. Ver <a href="#">Política de privacidad</a>.
-      </p>
+        <p>© 2025 Secured. Todos los derechos reservados.</p>
+        <p>
+            Secured no recopila información personal identificable sin consentimiento
+            explícito. Ver <a href="#">Política de privacidad</a>.
+        </p>
     </div>
-  </footer>
-  
+</footer>
 
-  <!-- JS global -->
-  <script src="Secured-Landing-Page/public/assets/scripts/main.js"></script>
+
+<!-- JS global -->
+<script src="Secured-Landing-Page/public/assets/scripts/main.js"></script>
 
 </body>
 </html>

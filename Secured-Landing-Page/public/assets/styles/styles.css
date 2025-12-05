@@ -1,5 +1,3 @@
-
-
 :root {
   --bg-hero: #020617;          
   --bg-body: #020617;
@@ -26,6 +24,7 @@ body {
 
 body {
   margin: 0;
+  padding-top: 72px;
   font-family: "Arimo", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
   background: var(--bg-body);
@@ -42,15 +41,31 @@ a {
   color: inherit;
 }
 
+/* Asegurar que todas las secciones estén debajo del header sticky */
+section {
+  position: relative;
+  z-index: 1;
+}
+
 /* HEADER */
 
 .main-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 40;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
   background: #ffffff;
   border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
 }
+
+.main-header.scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 
 .main-header-inner {
   max-width: 1120px;
@@ -311,11 +326,14 @@ a {
   padding: 96px 24px 120px;
   background: var(--bg-page-soft); 
   color: var(--text-main);
+  position: relative;
+  z-index: 1;
 }
 
 .operations-inner {
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
 .operations-header {
@@ -346,6 +364,8 @@ a {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  position: relative;
+  z-index: 1;
 }
 
 /* Cabecera dentro de la card */
@@ -412,12 +432,16 @@ a {
   background: #000;
   /* proporción por defecto: web horizontal (16/9) */
   aspect-ratio: 16 / 9;
+  position: relative;
+  z-index: 1;
 }
 
 .operations-map-container iframe {
   width: 100%;
   height: 100%;
   border: 0;
+  position: relative;
+  z-index: 1;
 }
 
 /* Footer de métricas */
@@ -977,6 +1001,71 @@ a {
   background: #2563eb;
   color: #ffffff;
   cursor: pointer;
+}
+
+/* SECCIÓN: ABOUT THE TEAM */
+
+.about-team {
+  padding: 80px 24px;
+  background: #f8fafc;
+}
+
+.about-team-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-team h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 32px;
+}
+
+.about-team-video-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.about-team-video-placeholder span {
+  font-size: 24px;
+  color: #475569;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .about-team {
+    padding: 60px 20px;
+  }
+
+  .about-team h2 {
+    font-size: 28px;
+  }
+
+  .about-team-video-placeholder span {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-team {
+    padding: 48px 16px;
+  }
+
+  .about-team h2 {
+    font-size: 24px;
+  }
+
+  .about-team-video-placeholder span {
+    font-size: 18px;
+  }
 }
 
 /* SECCIÓN: SEGURIDAD Y CUMPLIMIENTO */
@@ -1684,139 +1773,231 @@ a {
   font-size: 13px;
   color: #9ca3af;
 }
-/* FOOTER*/
+/* FOOTER */
 
 .site-footer {
-  background: #020617;
-  color: #9ca3af;
-  padding: 48px 24px 32px;
-  border-top: 1px solid rgba(15, 23, 42, 0.9);
+  background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+  color: #94a3b8;
+  padding: 64px 24px 24px;
+  border-top: 1px solid rgba(51, 65, 85, 0.6);
 }
 
 .footer-inner {
-  max-width: 1120px;
-  margin: 0 auto 24px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr) minmax(0, 1.6fr);
-  gap: 32px;
+  grid-template-columns: minmax(0, 2.5fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.5fr);
+  gap: 48px;
+  align-items: start;
 }
 
-/* Columna 1 */
+/* Columna 1: Brand */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
 .footer-logo {
-  height: 40px;    /* aquí controlas el tamaño del logo */
-  width: auto;
+  height: auto;
+  width: 160px;
   display: block;
-  margin-bottom: 12px;
+  filter: brightness(1.1);
 }
 
 .footer-tagline {
   margin: 0;
-  font-size: 14px;
-  color: #e5e7eb;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  max-width: 280px;
 }
 
 /* Títulos de columna */
-
 .footer-nav h3,
+.footer-resources h3,
 .footer-contact h3 {
-  margin: 0 0 10px;
-  font-size: 14px;
-  color: #f9fafb;
+  margin: 0 0 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #f1f5f9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Listas */
-
 .footer-nav ul,
+.footer-resources ul,
 .footer-contact ul {
   list-style: none;
   margin: 0;
   padding: 0;
   font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.footer-nav li + li,
-.footer-contact li + li {
-  margin-top: 6px;
+.footer-nav a,
+.footer-resources a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+  position: relative;
 }
 
-.footer-nav a {
-  color: #9ca3af;
+.footer-nav a:hover,
+.footer-resources a:hover {
+  color: #60a5fa;
+  transform: translateX(4px);
+}
+
+/* Columna de contacto con iconos */
+.footer-contact li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #cbd5e1;
+}
+
+.footer-icon {
+  font-size: 16px;
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+.footer-contact a {
+  color: #94a3b8;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.footer-nav a:hover {
-  color: #ffffff;
+.footer-contact a:hover {
+  color: #60a5fa;
 }
 
-/* Redes sociales */
-
+/* Redes sociales mejoradas */
 .footer-social {
-  margin-top: 12px;
+  margin-top: 20px;
   display: flex;
-  gap: 8px;
+  gap: 12px;
 }
 
 .footer-social a {
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
-  background: rgba(15, 23, 42, 0.9);
-  color: #e5e7eb;
+  font-size: 18px;
+  background: rgba(51, 65, 85, 0.5);
+  color: #cbd5e1;
   text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .footer-social a:hover {
   background: #2563eb;
-  color: #f9fafb;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
 }
 
-/* Línea inferior */
-
+/* Línea inferior mejorada */
 .footer-bottom {
-  max-width: 1120px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding-top: 16px;
-  border-top: 1px solid rgba(30, 64, 175, 0.4);
+  padding-top: 24px;
+  border-top: 1px solid rgba(51, 65, 85, 0.5);
   display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 12px;
-  color: #6b7280;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.footer-bottom p {
+  margin: 0;
 }
 
 .footer-bottom a {
   color: #60a5fa;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .footer-bottom a:hover {
+  color: #93c5fd;
   text-decoration: underline;
 }
 
 /* Responsive */
-
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .footer-inner {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-logo {
+    width: 140px;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 48px 20px 20px;
+  }
+
   .footer-inner {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-logo {
+    width: 130px;
   }
 
   .footer-bottom {
+    flex-direction: column;
     text-align: center;
+    gap: 8px;
   }
 }
+
+@media (max-width: 480px) {
+  .footer-logo {
+    width: 120px;
+  }
+
+  .footer-tagline {
+    font-size: 14px;
+  }
+
+  .footer-nav h3,
+  .footer-resources h3,
+  .footer-contact h3 {
+    font-size: 14px;
+  }
+
+  .footer-social a {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}
+
 
 /* Flujo de autenticación  */
 
@@ -1962,7 +2143,7 @@ a {
   color: #15803d;
 }
 
-/* PÁGINA DE AUTENTICACIÓN (login-policia.html)*/
+/* PÁGINA DE AUTENTICACIÓN (login-policia.css.html)*/
 
 .body-auth {
   background: #020617;
@@ -2173,514 +2354,974 @@ a {
   border-bottom: 2px solid #2563eb;
 }
 
-/* Responsive */
-@media (max-width: 960px) {
-  .team-grid-top {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+/* Language Selector */
+.language-selector {
+  display: inline-flex;
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 4px;
+  gap: 0;
+  border: 1px solid #e5e7eb;
 }
 
-@media (max-width: 640px) {
-  .team-grid-top,
-  .team-grid-bottom {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .team-section {
-    padding-inline: 16px;
-  }
+.lang-btn {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-family: inherit;
+  letter-spacing: 0.5px;
 }
 
-/* Añadido para el inicio de sesion */
-
-/* ============================
-   LAYOUT GENERAL DEL LOGIN
-=============================== */
-.login-page {
-    display: flex;
-    min-height: 100vh;
-    background: #243882;
+.lang-btn:hover:not(.active) {
+  color: #374151;
+  background: rgba(255, 255, 255, 0.5);
 }
 
-
-/* ============================
-   COLUMNA IZQUIERDA (IMAGEN)
-=============================== */
-.login-illustration {
-    width: 50%;
-    background: #243882; /* azul oscuro igual a la maqueta */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 40px 40px; /* Más padding superior para no chocar */
-    overflow: hidden; /* Evita desbordamiento */
+.lang-btn.active {
+  background: #ffffff;
+  color: #111827;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
-.login-illustration img {
-    max-width: 400px; /* controla el ancho de la imagen */
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    max-height: 500px; /* Limita la altura máxima */
+.lang-btn:focus {
+  outline: 2px solid var(--accent-soft-2);
+  outline-offset: 2px;
 }
-
-
-/* ============================
-   COLUMNA DERECHA (FORMULARIO)
-=============================== */
-.auth-card {
-    width: 50%;
-    padding: 60px 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+/* ===== MOBILE MENU HAMBURGER ===== */
+/* Bot�n hamburguesa - oculto por defecto en desktop */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  transition: all 0.3s ease;
 }
-
-.auth-card h1 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: #000;
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
 }
-
-.auth-subtitle {
-    margin-bottom: 30px;
-    color: #444;
+/* Animaci�n del bot�n cuando est� activo */
+.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
 }
-
-
-
-/* ============================
-   FORMULARIO DE AUTENTICACIÓN
-=============================== */
-.auth-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+  opacity: 0;
 }
-
-.auth-label {
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
-    color: #222;
+.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
 }
-
-.required {
-    color: red;
-    font-size: 12px;
-    margin-left: 4px;
-}
-
-.auth-input {
-    margin-top: 6px;
-    padding: 12px 14px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    font-size: 15px;
-}
-
-.auth-input:focus {
-    border-color: #243882;
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(11, 44, 138, 0.15);
-}
-
-.auth-button {
-    background: #243882;
-    color: #fff;
-    padding: 12px 18px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-.auth-button:hover {
-    background: #093072;
-}
-
-.auth-link {
-    background: none;
-    border: none;
-    color: #243882;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-
-/* ============================
-   RESPONSIVE
-=============================== */
-
-/* Tablet Grande (768px - 1024px) */
-@media (max-width: 1024px) {
-    .login-page,
-    .login-page-sereno {
-        padding: 70px 24px 32px; /* Ajustado para role-strip fixed */
-    }
-
-    .login-illustration {
-        padding: 50px 20px 40px; /* Ajustado padding superior */
-    }
-
-    .login-illustration img {
-        max-width: 400px;
-    }
-
-    .auth-card {
-        max-width: 460px;
-        padding: 32px;
-    }
-}
-
-/* Tablet (768px - 900px) */
-@media (max-width: 900px) {
-    .login-page,
-    .login-page-sereno {
-        flex-direction: column;
-        padding: 65px 20px 32px; /* Aumentado para role-strip fixed */
-        gap: 24px;
-    }
-
-    .login-illustration {
-        width: 100%;
-        padding: 30px;
-        order: 1;
-        min-height: auto; /* Permite que se ajuste al contenido */
-    }
-
-    .auth-card {
-        width: 100%;
-        max-width: 500px;
-        padding: 36px 32px;
-        order: 2;
-    }
-
-    .login-illustration img {
-        max-width: 320px;
-        max-height: 280px; /* Limita altura en tablet */
-    }
-}
-
-/* Tablet Pequeña y Móvil Grande (480px - 768px) */
+/* Responsive: Mobile Menu */
 @media (max-width: 768px) {
-    .login-page,
-    .login-page-sereno {
-        padding: 60px 16px 24px; /* Aumentado para role-strip fixed */
-        gap: 20px;
-    }
-
-    .login-illustration {
-        padding: 20px 24px;
-    }
-
-    .login-illustration img {
-        max-width: 280px;
-        max-height: 240px; /* Limita altura */
-    }
-
-    .auth-card {
-        max-width: 100%;
-        padding: 28px 24px;
-        border-radius: 20px;
-    }
-
-    .auth-card h1 {
-        font-size: 22px;
-    }
-
-    .auth-subtitle {
-        font-size: 14px;
-        margin-bottom: 20px;
-    }
-
-    .auth-form {
-        gap: 16px;
-    }
-
-    .auth-input {
-        padding: 12px 14px;
-        font-size: 15px;
-    }
-
-    .auth-btn {
-        padding: 12px;
-        font-size: 15px;
-    }
-
-    /* Role strip responsive */
-    .role-strip {
-        padding: 12px 16px;
-    }
-
-    .role-strip-link {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-}
-
-/* Móvil (320px - 480px) */
-@media (max-width: 480px) {
-    .login-page,
-    .login-page-sereno {
-        padding: 56px 12px 20px; /* Aumentado para role-strip fixed */
-        gap: 16px;
-    }
-
-    .login-illustration {
-        padding: 16px 12px;
-    }
-
-    .login-illustration img {
-        max-width: 240px;
-        max-height: 220px; /* Limita altura en móvil */
-    }
-
-    .auth-card {
-        padding: 24px 20px;
-        border-radius: 18px;
-    }
-
-    .auth-card h1 {
-        font-size: 20px;
-        margin-bottom: 6px;
-    }
-
-    .auth-subtitle {
-        font-size: 13px;
-        margin-bottom: 16px;
-    }
-
-    .auth-form {
-        gap: 14px;
-    }
-
-    .auth-label {
-        font-size: 13px;
-        gap: 5px;
-    }
-
-    .auth-input {
-        padding: 11px 12px;
-        font-size: 14px;
-        border-radius: 8px;
-    }
-
-    .auth-btn {
-        padding: 11px;
-        font-size: 14px;
-        border-radius: 10px;
-    }
-
-    .auth-link {
-        font-size: 13px;
-    }
-
-    .btn-primary {
-        padding: 10px 18px;
-        font-size: 13px;
-    }
-
-    /* Role strip mobile */
-    .role-strip {
-        padding: 10px 12px;
-        gap: 8px;
-    }
-
-    .role-strip-link {
-        padding: 9px 16px;
-        font-size: 13px;
-        border-radius: 8px;
-    }
-
-    /* Checkbox de recordar */
-    .auth-checkbox-label {
-        font-size: 13px;
-    }
-
-    /* Links auxiliares */
-    .auth-footer {
-        font-size: 13px;
-        gap: 8px;
-    }
-}
-
-/* Móvil Pequeño (< 360px) */
-@media (max-width: 360px) {
-    .login-page,
-    .login-page-sereno {
-        padding: 54px 10px 16px; /* Aumentado para role-strip fixed */
-    }
-
-    .login-illustration {
-        padding: 12px 8px;
-    }
-
-    .login-illustration img {
-        max-width: 200px;
-        max-height: 200px; /* Limita altura */
-    }
-
-    .auth-card {
-        padding: 20px 16px;
-        border-radius: 16px;
-    }
-
-    .auth-card h1 {
-        font-size: 18px;
-    }
-
-    .auth-subtitle {
-        font-size: 12px;
-    }
-
-    .auth-form {
-        gap: 12px;
-    }
-
-    .auth-input {
-        padding: 10px;
-        font-size: 13px;
-    }
-
-    .auth-btn {
-        padding: 10px;
-        font-size: 13px;
-    }
-
-    .role-strip {
-        padding: 8px 10px;
-    }
-
-    .role-strip-link {
-        padding: 8px 14px;
-        font-size: 12px;
-    }
-}
-
-/* Landscape en Móviles */
-@media (max-height: 600px) and (orientation: landscape) {
-    .login-page,
-    .login-page-sereno {
-        padding: 50px 20px 16px; /* Ajustado para role-strip fixed */
-    }
-
-    .login-illustration {
-        display: none; /* Oculta la ilustración para ahorrar espacio */
-    }
-
-    .auth-card {
-        max-width: 450px;
-        padding: 20px 24px;
-    }
-
-    .auth-card h1 {
-        font-size: 18px;
-        margin-bottom: 4px;
-    }
-
-    .auth-subtitle {
-        font-size: 12px;
-        margin-bottom: 12px;
-    }
-
-    .auth-form {
-        gap: 10px;
-    }
-
-    .auth-input {
-        padding: 8px 12px;
-    }
-
-    .auth-btn {
-        padding: 9px 12px;
-        font-size: 13px;
-    }
-
-    .role-strip {
-        padding: 8px 20px; /* Más compacto en landscape */
-    }
-}
-
-/* Ajustes adicionales para pantallas muy anchas */
-@media (min-width: 1440px) {
-    .login-page,
-    .login-page-sereno {
-        padding: 80px 24px 48px;
-    }
-
-    .login-illustration img {
-        max-width: 550px;
-    }
-
-    .auth-card {
-        max-width: 480px;
-        padding: 40px 36px;
-    }
-
-    .auth-card h1 {
-        font-size: 24px;
-    }
-}
-
-
-@media (max-width: 600px) {
-    .auth-card {
-        padding: 30px 20px;
-    }
-
-    .login-illustration {
-        padding: 20px;
-    }
-
-    .login-illustration img {
-        max-width: 240px;
-    }
-}
-.btn-primary.hero-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px; /* separación entre flecha y texto */
-    text-decoration: none;
-    background-color: #0b3142; /* color del botón */
-    color: white;
-    padding: 10px 18px;
-    border-radius: 6px;
-    font-size: 15px;
-    font-weight: 500;
-    transition: background 0.25s ease, transform 0.2s ease;
-}
-
-/* Flecha antes del texto */
-.btn-primary.hero-primary::before {
-    content: "←";           /* flecha */
-    font-size: 16px;
-}
-
-/* Hover */
-.btn-primary.hero-primary:hover {
-    background-color: #0d3f55;
-    transform: translateX(-2px); /* pequeño movimiento hacia atrás */
-}
-.role-strip-link {
-    padding: 10px 18px;
-    text-decoration: none;
-    color: #333;
-    font-size: 15px;
-    font-weight: 500;
-    position: relative; /* necesario para la línea */
-}
-
-/* Línea debajo solo cuando esté activo */
-.role-strip-link.role-strip-link--active::after {
-    content: "";
-    position: absolute;
-    bottom: -2px;       /* separacion */
+  /* Mostrar bot�n hamburguesa */
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  /* Header ajustes */
+  .main-header-inner {
+    padding: 0 20px;
+  }
+  /* Navegaci�n en m�vil */
+  .main-nav {
+    position: fixed;
+    top: 70px;
     left: 0;
+    right: 0;
+    background: #020617;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+  .main-nav.active {
+    max-height: 400px;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    padding: 20px 0;
+    margin: 0;
+  }
+  .main-nav li {
+    margin: 0;
+    padding: 0;
+  }
+  .main-nav a {
+    display: block;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .main-nav a:hover {
+    background: rgba(255,255,255,0.1);
+  }
+  /* Ocultar selector de idioma y bot�n en m�vil */
+  .main-header .language-selector,
+  .main-header .btn-primary {
+    display: none;
+  }
+  /* Agregar selector de idioma y bot�n al final del men� m�vil */
+  .main-nav::after {
+    content: '';
+    display: block;
+    padding: 20px 30px;
+  }
+}
+@media (max-width: 480px) {
+  .main-header-inner {
+    padding: 0 15px;
+  }
+  .logo img {
+    height: 32px;
+  }
+  .main-nav {
+    top: 60px;
+  }
+}
+/* FIX: Asegurar que el header sea visible en responsive */
+@media (max-width: 768px) {
+  .main-header {
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    background: #ffffff !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .main-header-inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 14px 20px !important;
+  }
+  .logo {
+    display: block !important;
+    order: 1;
+  }
+  .mobile-menu-toggle {
+    order: 3;
+    margin-left: auto;
+  }
+  .main-nav {
+    order: 4;
     width: 100%;
-    height: 3px;
-    background-color: #0b3142; /* color de la línea */
-    border-radius: 2px;
+  }
+  .language-selector {
+    order: 2;
+    margin-left: auto;
+    margin-right: 12px;
+  }
+}
+/* ===== FIX HEADER RESPONSIVE - BOT�N VISIBLE ===== */
+@media (max-width: 768px) {
+  /* Forzar visibilidad del header */
+  .main-header {
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #e5e7eb !important;
+  }
+  /* Bot�n hamburguesa VISIBLE con color oscuro */
+  .mobile-menu-toggle {
+    display: flex !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+  }
+  /* L�neas del hamburguesa en color OSCURO para que se vea en fondo blanco */
+  .hamburger-line {
+    width: 100% !important;
+    height: 3px !important;
+    background: #1f2937 !important;
+    border-radius: 2px !important;
+  }
+  /* Header inner con flex para organizar elementos */
+  .main-header-inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 14px 20px !important;
+    gap: 12px !important;
+  }
+  /* Logo visible */
+  .logo {
+    display: block !important;
+    flex-shrink: 0 !important;
+  }
+  .logo img {
+    height: 35px !important;
+  }
+  /* Ocultar navegaci�n por defecto en m�vil */
+  .main-nav {
+    display: none !important;
+    position: fixed !important;
+    top: 60px !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: #ffffff !important;
+    border-top: 1px solid #e5e7eb !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+    z-index: 9998 !important;
+  }
+  /* Mostrar navegaci�n cuando est� activa */
+  .main-nav.active {
+    display: block !important;
+  }
+  /* UL en columna */
+  .main-nav ul {
+    flex-direction: column !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  /* Links del men� */
+  .main-nav li {
+    margin: 0 !important;
+    border-bottom: 1px solid #f3f4f6 !important;
+  }
+  .main-nav a {
+    display: block !important;
+    padding: 16px 20px !important;
+    color: #1f2937 !important;
+    font-size: 16px !important;
+  }
+  .main-nav a:hover {
+    background: #f9fafb !important;
+  }
+  /* Selector de idioma visible pero peque�o */
+  .language-selector {
+    display: flex !important;
+    gap: 4px !important;
+    flex-shrink: 0 !important;
+  }
+  .lang-btn {
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+  }
+  /* Ocultar bot�n "Empezar ahora" en m�vil */
+  .hero-btn-primary {
+    display: none !important;
+  }
+}
+/* ===== FIX: PERMITIR SCROLL EN MEN� M�VIL ===== */
+@media (max-width: 768px) {
+  /* Men� m�vil con scroll */
+  .main-nav {
+    max-height: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    transition: max-height 0.3s ease !important;
+  }
+  /* Cuando est� activo, altura m�xima para scroll */
+  .main-nav.active {
+    max-height: calc(100vh - 60px) !important;
+    overflow-y: auto !important;
+  }
+  /* Scrollbar personalizado para que se vea bien */
+  .main-nav::-webkit-scrollbar {
+    width: 6px;
+  }
+  .main-nav::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  .main-nav::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+  }
+  .main-nav::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+/* ===== BOT�N "EMPEZAR AHORA" VISIBLE EN RESPONSIVE ===== */
+@media (max-width: 768px) {
+  /* Mostrar bot�n "Empezar ahora" en m�vil */
+  .hero-btn-primary {
+    display: inline-block !important;
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
+  /* Ajustar header para incluir el bot�n */
+  .main-header-inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 12px 16px !important;
+    gap: 8px !important;
+  }
+  /* Logo a la izquierda */
+  .logo {
+    flex-shrink: 0 !important;
+    order: 1 !important;
+  }
+  .logo img {
+    height: 32px !important;
+  }
+  /* Selector de idioma - ocultar en m�vil para dar espacio */
+  .language-selector {
+    display: none !important;
+  }
+  /* Bot�n "Empezar ahora" visible */
+  .hero-btn-primary {
+    order: 2 !important;
+    flex-shrink: 0 !important;
+  }
+  /* Bot�n hamburguesa a la derecha */
+  .mobile-menu-toggle {
+    order: 3 !important;
+    flex-shrink: 0 !important;
+    margin-left: auto !important;
+  }
+}
+/* Para pantallas muy peque�as (< 380px) */
+@media (max-width: 380px) {
+  .hero-btn-primary {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+  }
+  .logo img {
+    height: 28px !important;
+  }
+}
+/* ===== FIX FINAL: MOSTRAR 3 BOTONES EN HEADER RESPONSIVE ===== */
+@media (max-width: 768px) {
+  /* Header con espacio para 3 botones */
+  .main-header-inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 10px 12px !important;
+    gap: 6px !important;
+  }
+  /* Logo peque�o a la izquierda */
+  .logo {
+    flex-shrink: 0 !important;
+    order: 1 !important;
+  }
+  .logo img {
+    height: 30px !important;
+  }
+  /* Grupo de botones a la derecha */
+  .hero-btn-primary {
+    display: inline-block !important;
+    order: 2 !important;
+    flex-shrink: 0 !important;
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    margin-left: auto !important;
+  }
+  /* Selector de idioma VISIBLE */
+  .language-selector {
+    display: flex !important;
+    order: 3 !important;
+    flex-shrink: 0 !important;
+    gap: 4px !important;
+    margin-left: 6px !important;
+  }
+  .lang-btn {
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+    min-width: 28px !important;
+  }
+  /* Bot�n hamburguesa visible */
+  .mobile-menu-toggle {
+    display: flex !important;
+    order: 4 !important;
+    flex-shrink: 0 !important;
+    margin-left: 6px !important;
+  }
+}
+/* Para pantallas MUY peque�as (< 360px) */
+@media (max-width: 360px) {
+  .main-header-inner {
+    padding: 8px 10px !important;
+    gap: 4px !important;
+  }
+  .logo img {
+    height: 26px !important;
+  }
+  .hero-btn-primary {
+    padding: 5px 10px !important;
+    font-size: 11px !important;
+  }
+  .lang-btn {
+    padding: 3px 6px !important;
+    font-size: 10px !important;
+    min-width: 24px !important;
+  }
+  .mobile-menu-toggle {
+    width: 26px !important;
+    height: 20px !important;
+  }
+}
+/* ============================================
+   FIX DEFINITIVO: HEADER RESPONSIVE VISIBLE
+   ============================================ */
+@media (max-width: 768px) {
+  /* ===== HEADER PRINCIPAL ===== */
+  .main-header {
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    z-index: 9999 !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  /* ===== CONTENEDOR DEL HEADER ===== */
+  .main-header-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 10px 12px !important;
+    gap: 6px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  /* ===== LOGO ===== */
+  .main-header .logo {
+    display: block !important;
+    order: 1 !important;
+    flex-shrink: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .main-header .logo img {
+    display: block !important;
+    height: 32px !important;
+    width: auto !important;
+    visibility: visible !important;
+  }
+  /* ===== BOT�N "EMPEZAR AHORA" ===== */
+  .main-header .hero-btn-primary,
+  .main-header .btn-primary {
+    display: inline-block !important;
+    order: 2 !important;
+    flex-shrink: 0 !important;
+    margin-left: auto !important;
+    padding: 7px 14px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  /* ===== SELECTOR DE IDIOMA ES/EN ===== */
+  .main-header .language-selector {
+    display: flex !important;
+    order: 3 !important;
+    flex-shrink: 0 !important;
+    gap: 4px !important;
+    margin-left: 6px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .main-header .language-selector .lang-btn {
+    display: inline-block !important;
+    padding: 5px 9px !important;
+    font-size: 11px !important;
+    min-width: 30px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  /* ===== BOT�N HAMBURGUESA ===== */
+  .main-header .mobile-menu-toggle,
+  .main-header .menu-toggle {
+    display: flex !important;
+    flex-direction: column !important;
+    order: 4 !important;
+    flex-shrink: 0 !important;
+    margin-left: 6px !important;
+    width: 28px !important;
+    height: 22px !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 0 !important;
+    justify-content: space-around !important;
+  }
+  .main-header .hamburger-line {
+    display: block !important;
+    width: 100% !important;
+    height: 3px !important;
+    background: #1f2937 !important;
+    border-radius: 2px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  /* ===== MEN� DE NAVEGACI�N (OCULTO POR DEFECTO) ===== */
+  .main-header .main-nav,
+  .main-header .Menu-Horizontal {
+    display: none !important;
+    position: fixed !important;
+    top: 54px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    border-top: 1px solid #e5e7eb !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+    z-index: 9998 !important;
+    max-height: calc(100vh - 54px) !important;
+    overflow-y: auto !important;
+  }
+  /* ===== MEN� ACTIVO (VISIBLE) ===== */
+  .main-header .main-nav.active,
+  .main-header .Menu-Horizontal.active {
+    display: block !important;
+  }
+  /* ===== LISTA DEL MEN� ===== */
+  .main-header .main-nav ul,
+  .main-header .Menu-Horizontal ul {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .main-header .main-nav li,
+  .main-header .Menu-Horizontal li {
+    margin: 0 !important;
+    padding: 0 !important;
+    border-bottom: 1px solid #f3f4f6 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .main-header .main-nav a,
+  .main-header .Menu-Horizontal a {
+    display: block !important;
+    padding: 16px 20px !important;
+    color: #1f2937 !important;
+    font-size: 16px !important;
+    text-decoration: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .main-header .main-nav a:hover,
+  .main-header .Menu-Horizontal a:hover {
+    background: #f9fafb !important;
+  }
+}
+/* ===== PANTALLAS MUY PEQUE�AS ===== */
+@media (max-width: 360px) {
+  .main-header-inner {
+    padding: 8px 10px !important;
+  }
+  .main-header .logo img {
+    height: 28px !important;
+  }
+  .main-header .hero-btn-primary,
+  .main-header .btn-primary {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+  }
+  .main-header .language-selector .lang-btn {
+    padding: 4px 7px !important;
+    font-size: 10px !important;
+    min-width: 26px !important;
+  }
+  .main-header .mobile-menu-toggle,
+  .main-header .menu-toggle {
+    width: 24px !important;
+    height: 20px !important;
+  }
+}
+/* ===== TEXTO M�S CORTO PARA EL BOT�N EN M�VIL ===== */
+@media (max-width: 768px) {
+  /* Cambiar texto del bot�n a algo m�s corto en m�vil */
+  .main-header .hero-btn-primary::before {
+    content: 'Ingresar' !important;
+  }
+  .main-header .hero-btn-primary {
+    font-size: 0 !important; /* Ocultar el texto original */
+    padding: 7px 12px !important;
+    min-width: 70px !important;
+  }
+  .main-header .hero-btn-primary::before {
+    font-size: 12px !important; /* Mostrar el nuevo texto */
+  }
+}
+@media (max-width: 360px) {
+  .main-header .hero-btn-primary {
+    padding: 6px 10px !important;
+    min-width: 60px !important;
+  }
+  .main-header .hero-btn-primary::before {
+    font-size: 11px !important;
+  }
+}
+/* ===== OCULTAR LOGO Y MOSTRAR SOLO LOS 3 BOTONES EN RESPONSIVE ===== */
+@media (max-width: 768px) {
+  /* OCULTAR EL LOGO EN M�VIL */
+  .main-header .logo {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+  /* Header inner sin logo - solo botones */
+  .main-header-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 12px 16px !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+  /* BOT�N INGRESAR - VISIBLE */
+  .main-header .hero-btn-primary,
+  .main-header .btn-primary.hero-btn-primary {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    flex: 0 0 auto !important;
+    order: 1 !important;
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+    background: #2563eb !important;
+    color: #ffffff !important;
+    border-radius: 999px !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    border: none !important;
+    cursor: pointer !important;
+  }
+  /* SELECTOR DE IDIOMA - VISIBLE */
+  .main-header .language-selector {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    flex: 0 0 auto !important;
+    order: 2 !important;
+    gap: 6px !important;
+    margin: 0 !important;
+  }
+  .main-header .language-selector .lang-btn {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    min-width: 36px !important;
+    background: #f3f4f6 !important;
+    color: #1f2937 !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+  }
+  .main-header .language-selector .lang-btn.active,
+  .main-header .language-selector .lang-btn:hover {
+    background: #2563eb !important;
+    color: #ffffff !important;
+    border-color: #2563eb !important;
+  }
+  /* BOT�N HAMBURGUESA - VISIBLE */
+  .main-header .mobile-menu-toggle,
+  .main-header .menu-toggle {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    flex: 0 0 auto !important;
+    order: 3 !important;
+    flex-direction: column !important;
+    justify-content: space-around !important;
+    width: 32px !important;
+    height: 24px !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+  }
+  .main-header .hamburger-line {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    height: 3px !important;
+    background: #1f2937 !important;
+    border-radius: 2px !important;
+  }
+  /* Animaci�n del hamburguesa cuando est� activo */
+  .main-header .mobile-menu-toggle.active .hamburger-line:nth-child(1),
+  .main-header .menu-toggle.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px) !important;
+  }
+  .main-header .mobile-menu-toggle.active .hamburger-line:nth-child(2),
+  .main-header .menu-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0 !important;
+  }
+  .main-header .mobile-menu-toggle.active .hamburger-line:nth-child(3),
+  .main-header .menu-toggle.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px) !important;
+  }
+}
+/* Pantallas muy peque�as */
+@media (max-width: 360px) {
+  .main-header-inner {
+    padding: 10px 12px !important;
+    gap: 8px !important;
+  }
+  .main-header .hero-btn-primary,
+  .main-header .btn-primary.hero-btn-primary {
+    padding: 7px 12px !important;
+    font-size: 12px !important;
+  }
+  .main-header .language-selector .lang-btn {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    min-width: 32px !important;
+  }
+  .main-header .mobile-menu-toggle,
+  .main-header .menu-toggle {
+    width: 28px !important;
+    height: 22px !important;
+  }
+}
+/* ===== ACORTAR TEXTO DEL BOT�N EN RESPONSIVE ===== */
+@media (max-width: 768px) {
+  /* Ocultar texto original del bot�n */
+  .main-header .hero-btn-primary {
+    font-size: 0 !important;
+    padding: 8px 14px !important;
+  }
+  /* Mostrar texto corto usando ::after */
+  .main-header .hero-btn-primary::after {
+    content: 'Iniciar' !important;
+    font-size: 12px !important;
+    display: inline-block !important;
+  }
+}
+@media (max-width: 360px) {
+  .main-header .hero-btn-primary {
+    padding: 7px 12px !important;
+  }
+  .main-header .hero-btn-primary::after {
+    font-size: 11px !important;
+  }
+}
+/* ===== FIX: REEMPLAZAR TEXTO DEL BOT�N CORRECTAMENTE ===== */
+@media (max-width: 768px) {
+  /* Ocultar completamente el texto original */
+  .main-header .hero-btn-primary {
+    font-size: 0 !important;
+    line-height: 0 !important;
+    padding: 8px 14px !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+  }
+  /* Remover el ::after anterior y usar ::before */
+  .main-header .hero-btn-primary::after {
+    content: none !important;
+    display: none !important;
+  }
+  /* Mostrar solo "Iniciar" */
+  .main-header .hero-btn-primary::before {
+    content: 'Iniciar' !important;
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    text-indent: 0 !important;
+    display: block !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    white-space: nowrap !important;
+  }
+  .main-header .hero-btn-primary {
+    position: relative !important;
+  }
+}
+@media (max-width: 360px) {
+  .main-header .hero-btn-primary {
+    padding: 7px 12px !important;
+  }
+  .main-header .hero-btn-primary::before {
+    font-size: 11px !important;
+  }
+}
+/* ===== REDUCIR A�N M�S EL ANCHO DEL BOT�N ===== */
+@media (max-width: 768px) {
+  .main-header .hero-btn-primary,
+  .main-header .btn-primary.hero-btn-primary {
+    padding: 6px 10px !important;
+    min-width: 60px !important;
+    max-width: 70px !important;
+  }
+  .main-header .hero-btn-primary::before {
+    font-size: 11px !important;
+  }
+}
+@media (max-width: 360px) {
+  .main-header .hero-btn-primary,
+  .main-header .btn-primary.hero-btn-primary {
+    padding: 5px 8px !important;
+    min-width: 55px !important;
+    max-width: 65px !important;
+  }
+  .main-header .hero-btn-primary::before {
+    font-size: 10px !important;
+  }
+}
+/* ===== MOVER BOTONES A LA IZQUIERDA Y PEGARLOS ===== */
+@media (max-width: 768px) {
+  /* Header alineado a la izquierda en lugar de centro */
+  .main-header-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 12px 16px !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  /* Bot�n Iniciar - pegado a la izquierda */
+  .main-header .hero-btn-primary,
+  .main-header .btn-primary.hero-btn-primary {
+    order: 1 !important;
+    margin-left: 0 !important;
+    margin-right: 8px !important;
+  }
+  /* Selector de idioma - pegado al bot�n Iniciar */
+  .main-header .language-selector {
+    order: 2 !important;
+    margin: 0 !important;
+    margin-right: 8px !important;
+  }
+  /* Bot�n hamburguesa - pegado al selector de idioma */
+  .main-header .mobile-menu-toggle,
+  .main-header .menu-toggle {
+    order: 3 !important;
+    margin: 0 !important;
+  }
+}
+/* Pantallas muy peque�as */
+@media (max-width: 360px) {
+  .main-header-inner {
+    gap: 6px !important;
+    padding: 10px 12px !important;
+  }
+  .main-header .hero-btn-primary,
+  .main-header .btn-primary.hero-btn-primary {
+    margin-right: 6px !important;
+  }
+  .main-header .language-selector {
+    margin-right: 6px !important;
+  }
+}
+/* ===== FIX: MEN� HAMBURGUESA DESPLEGABLE FUNCIONANDO ===== */
+@media (max-width: 768px) {
+  /* Men� navegaci�n oculto por defecto */
+  .main-header .main-nav,
+  .main-header .Menu-Horizontal {
+    display: none !important;
+    position: fixed !important;
+    top: 54px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    border-top: 1px solid #e5e7eb !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+    z-index: 9998 !important;
+    max-height: calc(100vh - 54px) !important;
+    overflow-y: auto !important;
+  }
+  /* Men� VISIBLE cuando tiene clase active */
+  .main-header .main-nav.active,
+  .main-header .Menu-Horizontal.active {
+    display: block !important;
+  }
+  /* Lista del men� en columna */
+  .main-header .main-nav ul,
+  .main-header .Menu-Horizontal ul {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  /* Items del men� */
+  .main-header .main-nav li,
+  .main-header .Menu-Horizontal li {
+    margin: 0 !important;
+    padding: 0 !important;
+    border-bottom: 1px solid #f3f4f6 !important;
+    width: 100% !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  /* Links del men� */
+  .main-header .main-nav a,
+  .main-header .Menu-Horizontal a {
+    display: block !important;
+    padding: 16px 24px !important;
+    color: #1f2937 !important;
+    font-size: 16px !important;
+    text-decoration: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .main-header .main-nav a:hover,
+  .main-header .Menu-Horizontal a:hover {
+    background: #f9fafb !important;
+  }
+  /* Animaci�n del bot�n hamburguesa cuando est� activo */
+  .main-header .mobile-menu-toggle.active .hamburger-line:nth-child(1),
+  .main-header .menu-toggle.active .hamburger-line:nth-child(1),
+  .main-header .mobile-menu-toggle.open .hamburger-line:nth-child(1),
+  .main-header .menu-toggle.open .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px) !important;
+  }
+  .main-header .mobile-menu-toggle.active .hamburger-line:nth-child(2),
+  .main-header .menu-toggle.active .hamburger-line:nth-child(2),
+  .main-header .mobile-menu-toggle.open .hamburger-line:nth-child(2),
+  .main-header .menu-toggle.open .hamburger-line:nth-child(2) {
+    opacity: 0 !important;
+  }
+  .main-header .mobile-menu-toggle.active .hamburger-line:nth-child(3),
+  .main-header .menu-toggle.active .hamburger-line:nth-child(3),
+  .main-header .mobile-menu-toggle.open .hamburger-line:nth-child(3),
+  .main-header .menu-toggle.open .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px) !important;
+  }
 }

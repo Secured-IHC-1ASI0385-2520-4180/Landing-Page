@@ -5,19 +5,21 @@
     <title>Iniciar sesión – Secured</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
     <link rel="stylesheet" href="Secured-Landing-Page/public/assets/styles/login-serenazgo.css" />
 
     <link rel="icon" type="image/x-icon" href="Secured-Landing-Page/public/favicon.ico" />
+
+    <!-- Script i18n -->
+    <script src="Secured-Landing-Page/public/assets/scripts/login-i18n.js" defer></script>
 </head>
 
 <body class="body-auth">
 
 <!-- Selector de rol -->
 <div class="role-strip">
-    <a href="login-policia.html" class="role-strip-link">Policía</a>
+    <a href="login-policia.html" class="role-strip-link" data-i18n="loginPage.roleStrip.policia">Policía</a>
 
-    <a href="login-serenazgo.html" class="role-strip-link role-strip-link--active">
+    <a href="login-serenazgo.html" class="role-strip-link role-strip-link--active" data-i18n="loginPage.roleStrip.serenazgo">
         Serenazgo
     </a>
 </div>
@@ -37,12 +39,12 @@
 
         <!-- PASO 1: LOGIN  -->
         <div id="step-login" class="auth-step auth-step--active">
-            <a href="index.html#inicio" class="btn-primary hero-primary">
+            <a href="index.html#inicio" class="btn-primary hero-primary" data-i18n="loginPage.backToHome">
                 Volver al inicio
             </a>
 
-            <h1>Iniciar Sesión</h1>
-            <p class="auth-subtitle">
+            <h1 data-i18n="loginPage.title">Iniciar Sesión</h1>
+            <p class="auth-subtitle" data-i18n="loginPage.subtitle">
                 Ingresa tus credenciales para continuar
             </p>
 
@@ -51,30 +53,32 @@
                 <input type="hidden" id="rol" name="rol" value="serenazgo">
 
                 <label class="auth-label">
-                    Usuario o DNI <span class="required">*Campos requeridos</span>
+                    <span data-i18n="loginPage.labelUser">Usuario o DNI</span> <span class="required" data-i18n="loginPage.required">*Campos requeridos</span>
                     <input
                             type="text"
                             class="auth-input"
+                            data-i18n-placeholder="loginPage.placeholderUser"
                             placeholder="correo institucional o DNI"
                     />
                 </label>
 
                 <label class="auth-label">
-                    Contraseña <span class="required">*Campos requeridos</span>
+                    <span data-i18n="loginPage.labelPassword">Contraseña</span> <span class="required" data-i18n="loginPage.required">*Campos requeridos</span>
                     <div class="auth-input-group">
                         <input
                                 type="password"
                                 class="auth-input"
+                                data-i18n-placeholder="loginPage.placeholderPassword"
                                 placeholder="Ingresa tu contraseña"
                         />
                     </div>
                 </label>
 
-                <button type="button" class="auth-button" onclick="location.href='home-serenazgo.html'">
+                <button type="button" class="auth-button" onclick="location.href='home-serenazgo.html'" data-i18n="loginPage.btnLogin">
                     Ingresar
                 </button>
 
-                <button type="button" class="auth-link" id="link-forgot">
+                <button type="button" class="auth-link" id="link-forgot" data-i18n="loginPage.forgotPassword">
                     ¿Olvidaste tu contraseña?
                 </button>
             </form>

@@ -734,8 +734,6 @@
     justify-content: flex-end;
 }
 
-/* ======= Responsive Mejorado ======= */
-
 /* Tablet Grande (768px - 1024px) */
 @media (max-width: 1024px) {
     .rt-wrapper {
