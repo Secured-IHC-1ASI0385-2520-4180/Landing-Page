@@ -1,4 +1,3 @@
-
 :root {
   --bg-hero: #020617;          
   --bg-body: #020617;
@@ -25,6 +24,7 @@ body {
 
 body {
   margin: 0;
+  padding-top: 72px;
   font-family: "Arimo", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
   background: var(--bg-body);
@@ -41,15 +41,31 @@ a {
   color: inherit;
 }
 
+/* Asegurar que todas las secciones estén debajo del header sticky */
+section {
+  position: relative;
+  z-index: 1;
+}
+
 /* HEADER */
 
 .main-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 40;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
   background: #ffffff;
   border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
 }
+
+.main-header.scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 
 .main-header-inner {
   max-width: 1120px;
@@ -310,11 +326,14 @@ a {
   padding: 96px 24px 120px;
   background: var(--bg-page-soft); 
   color: var(--text-main);
+  position: relative;
+  z-index: 1;
 }
 
 .operations-inner {
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
 .operations-header {
@@ -345,6 +364,8 @@ a {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  position: relative;
+  z-index: 1;
 }
 
 /* Cabecera dentro de la card */
@@ -411,12 +432,16 @@ a {
   background: #000;
   /* proporción por defecto: web horizontal (16/9) */
   aspect-ratio: 16 / 9;
+  position: relative;
+  z-index: 1;
 }
 
 .operations-map-container iframe {
   width: 100%;
   height: 100%;
   border: 0;
+  position: relative;
+  z-index: 1;
 }
 
 /* Footer de métricas */
@@ -2118,7 +2143,7 @@ a {
   color: #15803d;
 }
 
-/* PÁGINA DE AUTENTICACIÓN (login-policia.html)*/
+/* PÁGINA DE AUTENTICACIÓN (login-policia.css.html)*/
 
 .body-auth {
   background: #020617;
@@ -2329,514 +2354,43 @@ a {
   border-bottom: 2px solid #2563eb;
 }
 
-/* Responsive */
-@media (max-width: 960px) {
-  .team-grid-top {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+/* Language Selector */
+.language-selector {
+  display: inline-flex;
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 4px;
+  gap: 0;
+  border: 1px solid #e5e7eb;
 }
 
-@media (max-width: 640px) {
-  .team-grid-top,
-  .team-grid-bottom {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .team-section {
-    padding-inline: 16px;
-  }
+.lang-btn {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-family: inherit;
+  letter-spacing: 0.5px;
 }
 
-/* Añadido para el inicio de sesion */
-
-/* ============================
-   LAYOUT GENERAL DEL LOGIN
-=============================== */
-.login-page {
-    display: flex;
-    min-height: 100vh;
-    background: #243882;
+.lang-btn:hover:not(.active) {
+  color: #374151;
+  background: rgba(255, 255, 255, 0.5);
 }
 
-
-/* ============================
-   COLUMNA IZQUIERDA (IMAGEN)
-=============================== */
-.login-illustration {
-    width: 50%;
-    background: #243882; /* azul oscuro igual a la maqueta */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 40px 40px; /* Más padding superior para no chocar */
-    overflow: hidden; /* Evita desbordamiento */
+.lang-btn.active {
+  background: #ffffff;
+  color: #111827;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
-.login-illustration img {
-    max-width: 400px; /* controla el ancho de la imagen */
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    max-height: 500px; /* Limita la altura máxima */
-}
-
-
-/* ============================
-   COLUMNA DERECHA (FORMULARIO)
-=============================== */
-.auth-card {
-    width: 50%;
-    padding: 60px 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.auth-card h1 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: #000;
-}
-
-.auth-subtitle {
-    margin-bottom: 30px;
-    color: #444;
-}
-
-
-
-/* ============================
-   FORMULARIO DE AUTENTICACIÓN
-=============================== */
-.auth-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.auth-label {
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
-    color: #222;
-}
-
-.required {
-    color: red;
-    font-size: 12px;
-    margin-left: 4px;
-}
-
-.auth-input {
-    margin-top: 6px;
-    padding: 12px 14px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    font-size: 15px;
-}
-
-.auth-input:focus {
-    border-color: #243882;
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(11, 44, 138, 0.15);
-}
-
-.auth-button {
-    background: #243882;
-    color: #fff;
-    padding: 12px 18px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-.auth-button:hover {
-    background: #093072;
-}
-
-.auth-link {
-    background: none;
-    border: none;
-    color: #243882;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-
-/* ============================
-   RESPONSIVE
-=============================== */
-
-/* Tablet Grande (768px - 1024px) */
-@media (max-width: 1024px) {
-    .login-page,
-    .login-page-sereno {
-        padding: 70px 24px 32px; /* Ajustado para role-strip fixed */
-    }
-
-    .login-illustration {
-        padding: 50px 20px 40px; /* Ajustado padding superior */
-    }
-
-    .login-illustration img {
-        max-width: 400px;
-    }
-
-    .auth-card {
-        max-width: 460px;
-        padding: 32px;
-    }
-}
-
-/* Tablet (768px - 900px) */
-@media (max-width: 900px) {
-    .login-page,
-    .login-page-sereno {
-        flex-direction: column;
-        padding: 65px 20px 32px; /* Aumentado para role-strip fixed */
-        gap: 24px;
-    }
-
-    .login-illustration {
-        width: 100%;
-        padding: 30px;
-        order: 1;
-        min-height: auto; /* Permite que se ajuste al contenido */
-    }
-
-    .auth-card {
-        width: 100%;
-        max-width: 500px;
-        padding: 36px 32px;
-        order: 2;
-    }
-
-    .login-illustration img {
-        max-width: 320px;
-        max-height: 280px; /* Limita altura en tablet */
-    }
-}
-
-/* Tablet Pequeña y Móvil Grande (480px - 768px) */
-@media (max-width: 768px) {
-    .login-page,
-    .login-page-sereno {
-        padding: 60px 16px 24px; /* Aumentado para role-strip fixed */
-        gap: 20px;
-    }
-
-    .login-illustration {
-        padding: 20px 24px;
-    }
-
-    .login-illustration img {
-        max-width: 280px;
-        max-height: 240px; /* Limita altura */
-    }
-
-    .auth-card {
-        max-width: 100%;
-        padding: 28px 24px;
-        border-radius: 20px;
-    }
-
-    .auth-card h1 {
-        font-size: 22px;
-    }
-
-    .auth-subtitle {
-        font-size: 14px;
-        margin-bottom: 20px;
-    }
-
-    .auth-form {
-        gap: 16px;
-    }
-
-    .auth-input {
-        padding: 12px 14px;
-        font-size: 15px;
-    }
-
-    .auth-btn {
-        padding: 12px;
-        font-size: 15px;
-    }
-
-    /* Role strip responsive */
-    .role-strip {
-        padding: 12px 16px;
-    }
-
-    .role-strip-link {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-}
-
-/* Móvil (320px - 480px) */
-@media (max-width: 480px) {
-    .login-page,
-    .login-page-sereno {
-        padding: 56px 12px 20px; /* Aumentado para role-strip fixed */
-        gap: 16px;
-    }
-
-    .login-illustration {
-        padding: 16px 12px;
-    }
-
-    .login-illustration img {
-        max-width: 240px;
-        max-height: 220px; /* Limita altura en móvil */
-    }
-
-    .auth-card {
-        padding: 24px 20px;
-        border-radius: 18px;
-    }
-
-    .auth-card h1 {
-        font-size: 20px;
-        margin-bottom: 6px;
-    }
-
-    .auth-subtitle {
-        font-size: 13px;
-        margin-bottom: 16px;
-    }
-
-    .auth-form {
-        gap: 14px;
-    }
-
-    .auth-label {
-        font-size: 13px;
-        gap: 5px;
-    }
-
-    .auth-input {
-        padding: 11px 12px;
-        font-size: 14px;
-        border-radius: 8px;
-    }
-
-    .auth-btn {
-        padding: 11px;
-        font-size: 14px;
-        border-radius: 10px;
-    }
-
-    .auth-link {
-        font-size: 13px;
-    }
-
-    .btn-primary {
-        padding: 10px 18px;
-        font-size: 13px;
-    }
-
-    /* Role strip mobile */
-    .role-strip {
-        padding: 10px 12px;
-        gap: 8px;
-    }
-
-    .role-strip-link {
-        padding: 9px 16px;
-        font-size: 13px;
-        border-radius: 8px;
-    }
-
-    /* Checkbox de recordar */
-    .auth-checkbox-label {
-        font-size: 13px;
-    }
-
-    /* Links auxiliares */
-    .auth-footer {
-        font-size: 13px;
-        gap: 8px;
-    }
-}
-
-/* Móvil Pequeño (< 360px) */
-@media (max-width: 360px) {
-    .login-page,
-    .login-page-sereno {
-        padding: 54px 10px 16px; /* Aumentado para role-strip fixed */
-    }
-
-    .login-illustration {
-        padding: 12px 8px;
-    }
-
-    .login-illustration img {
-        max-width: 200px;
-        max-height: 200px; /* Limita altura */
-    }
-
-    .auth-card {
-        padding: 20px 16px;
-        border-radius: 16px;
-    }
-
-    .auth-card h1 {
-        font-size: 18px;
-    }
-
-    .auth-subtitle {
-        font-size: 12px;
-    }
-
-    .auth-form {
-        gap: 12px;
-    }
-
-    .auth-input {
-        padding: 10px;
-        font-size: 13px;
-    }
-
-    .auth-btn {
-        padding: 10px;
-        font-size: 13px;
-    }
-
-    .role-strip {
-        padding: 8px 10px;
-    }
-
-    .role-strip-link {
-        padding: 8px 14px;
-        font-size: 12px;
-    }
-}
-
-/* Landscape en Móviles */
-@media (max-height: 600px) and (orientation: landscape) {
-    .login-page,
-    .login-page-sereno {
-        padding: 50px 20px 16px; /* Ajustado para role-strip fixed */
-    }
-
-    .login-illustration {
-        display: none; /* Oculta la ilustración para ahorrar espacio */
-    }
-
-    .auth-card {
-        max-width: 450px;
-        padding: 20px 24px;
-    }
-
-    .auth-card h1 {
-        font-size: 18px;
-        margin-bottom: 4px;
-    }
-
-    .auth-subtitle {
-        font-size: 12px;
-        margin-bottom: 12px;
-    }
-
-    .auth-form {
-        gap: 10px;
-    }
-
-    .auth-input {
-        padding: 8px 12px;
-    }
-
-    .auth-btn {
-        padding: 9px 12px;
-        font-size: 13px;
-    }
-
-    .role-strip {
-        padding: 8px 20px; /* Más compacto en landscape */
-    }
-}
-
-/* Ajustes adicionales para pantallas muy anchas */
-@media (min-width: 1440px) {
-    .login-page,
-    .login-page-sereno {
-        padding: 80px 24px 48px;
-    }
-
-    .login-illustration img {
-        max-width: 550px;
-    }
-
-    .auth-card {
-        max-width: 480px;
-        padding: 40px 36px;
-    }
-
-    .auth-card h1 {
-        font-size: 24px;
-    }
-}
-
-
-@media (max-width: 600px) {
-    .auth-card {
-        padding: 30px 20px;
-    }
-
-    .login-illustration {
-        padding: 20px;
-    }
-
-    .login-illustration img {
-        max-width: 240px;
-    }
-}
-.btn-primary.hero-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px; /* separación entre flecha y texto */
-    text-decoration: none;
-    background-color: #0b3142; /* color del botón */
-    color: white;
-    padding: 10px 18px;
-    border-radius: 6px;
-    font-size: 15px;
-    font-weight: 500;
-    transition: background 0.25s ease, transform 0.2s ease;
-}
-
-/* Flecha antes del texto */
-.btn-primary.hero-primary::before {
-    content: "←";           /* flecha */
-    font-size: 16px;
-}
-
-/* Hover */
-.btn-primary.hero-primary:hover {
-    background-color: #0d3f55;
-    transform: translateX(-2px); /* pequeño movimiento hacia atrás */
-}
-.role-strip-link {
-    padding: 10px 18px;
-    text-decoration: none;
-    color: #333;
-    font-size: 15px;
-    font-weight: 500;
-    position: relative; /* necesario para la línea */
-}
-
-/* Línea debajo solo cuando esté activo */
-.role-strip-link.role-strip-link--active::after {
-    content: "";
-    position: absolute;
-    bottom: -2px;       /* separacion */
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #0b3142; /* color de la línea */
-    border-radius: 2px;
+.lang-btn:focus {
+  outline: 2px solid var(--accent-soft-2);
+  outline-offset: 2px;
 }
