@@ -57,6 +57,9 @@ class I18n {
 
     // Actualizar botones de idioma
     this.updateLanguageButtons();
+
+    // Disparar evento de cambio de idioma
+    window.dispatchEvent(new Event('languageChanged'));
   }
 
   updateLanguageButtons() {

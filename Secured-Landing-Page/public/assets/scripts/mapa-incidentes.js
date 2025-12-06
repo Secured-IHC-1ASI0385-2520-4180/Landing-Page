@@ -9,7 +9,6 @@ const incidentesData = [
         titulo: 'Accidente de tránsito menor',
         tipo: 'accidente',
         prioridad: 'alta',
-        icono: '🚗',
         ubicacion: 'Av. Aviación 234',
         distrito: 'San Borja',
         distancia: '0.3 km',
@@ -25,7 +24,6 @@ const incidentesData = [
         titulo: 'Alteración del orden público',
         tipo: 'alteracion',
         prioridad: 'alta',
-        icono: '⚠️',
         ubicacion: 'Av. Javier Prado 890',
         distrito: 'San Isidro',
         distancia: '0.8 km',
@@ -41,7 +39,6 @@ const incidentesData = [
         titulo: 'Robo en establecimiento',
         tipo: 'robo',
         prioridad: 'alta',
-        icono: '🛍',
         ubicacion: 'Av. Benavides 1234',
         distrito: 'Miraflores',
         distancia: '1.2 km',
@@ -57,7 +54,6 @@ const incidentesData = [
         titulo: 'Vehículo sospechoso estacionado',
         tipo: 'sospechoso',
         prioridad: 'media',
-        icono: '👁',
         ubicacion: 'Calle Las Orquídeas 567',
         distrito: 'Miraflores',
         distancia: '2.3 km',
@@ -73,7 +69,6 @@ const incidentesData = [
         titulo: 'Ruido excesivo - local comercial',
         tipo: 'ruido',
         prioridad: 'baja',
-        icono: '🔊',
         ubicacion: 'Av. Conquistadores 890',
         distrito: 'San Isidro',
         distancia: '1.5 km',
@@ -206,9 +201,6 @@ function generarListaIncidentes() {
         card.onclick = () => abrirDetalleIncidente(incidente);
 
         card.innerHTML = `
-            <div class="incidente-icono ${incidente.prioridad}">
-                ${incidente.icono}
-            </div>
             <div class="incidente-info">
                 <div class="incidente-header">
                     <span class="incidente-codigo">${incidente.codigo}</span>
@@ -216,8 +208,8 @@ function generarListaIncidentes() {
                 </div>
                 <div class="incidente-titulo">${incidente.titulo}</div>
                 <div class="incidente-meta">
-                    <span>⏰ ${incidente.tiempo}</span>
-                    <span>📍 ${incidente.distancia}</span>
+                    <span>${incidente.tiempo}</span>
+                    <span>${incidente.distancia}</span>
                     <span>${incidente.distrito}</span>
                 </div>
             </div>
@@ -410,15 +402,47 @@ function ordenarPor(criterio) {
 }
 
 // Controles de zoom
+let currentZoom = 13.1; // Nivel de zoom inicial (del iframe)
+const minZoom = 10;
+const maxZoom = 18;
+const lat = -12.121047;
+const lng = -77.034541;
+
+function updateMapZoom() {
+    const mapFrame = document.getElementById('mapFrame');
+    if (mapFrame) {
+        // Construir la URL con el nuevo nivel de zoom
+        const newUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d${calculateDistance(currentZoom)}!2d${lng}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f${currentZoom}!3m3!1m2!1s0x9105c81b26a40add%3A0x6c097e68bc35cdbd!2sComisar%C3%ADa%20Miraflores!5e0!3m2!1ses-419!2spe!4v1731620000000!5m2!1ses-419!2spe`;
+        mapFrame.src = newUrl;
+    }
+}
+
+function calculateDistance(zoom) {
+    // Fórmula aproximada para calcular la distancia basada en el zoom
+    // A mayor zoom, menor distancia
+    return 156543.03392 * Math.cos(lat * Math.PI / 180) / Math.pow(2, zoom);
+}
+
 function zoomIn() {
-    console.log('Zoom in');
+    if (currentZoom < maxZoom) {
+        currentZoom += 1;
+        updateMapZoom();
+        console.log('Zoom in:', currentZoom);
+    }
 }
 
 function zoomOut() {
-    console.log('Zoom out');
+    if (currentZoom > minZoom) {
+        currentZoom -= 1;
+        updateMapZoom();
+        console.log('Zoom out:', currentZoom);
+    }
 }
 
 function centrarUbicacion() {
+    // Resetear al zoom y ubicación inicial
+    currentZoom = 13.1;
+    updateMapZoom();
     console.log('Centrar en ubicación actual');
 }
 

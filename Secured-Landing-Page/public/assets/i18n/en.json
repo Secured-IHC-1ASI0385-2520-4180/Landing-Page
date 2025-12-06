@@ -336,6 +336,409 @@
       "attachEvidence": "Attach evidence",
       "attachEvidenceDesc": "Evidence management"
     }
+  },
+  "help": {
+    "pageTitle": "Help and Documentation",
+    "pageSubtitle": "Resource and tutorial center",
+    "backButton": "Back",
+    "searchPlaceholder": "What do you need to learn?",
+    "searchButton": "Search",
+    "categories": {
+      "title": "Main categories",
+      "firstSteps": {
+        "title": "First Steps",
+        "desc": "Learn the basics of Secured"
+      },
+      "incidents": {
+        "title": "Incident Management",
+        "desc": "Create, assign and resolve incidents"
+      },
+      "map": {
+        "title": "Map Usage",
+        "desc": "Navigation and map features"
+      },
+      "communication": {
+        "title": "Communication",
+        "desc": "Chat, broadcast and coordination"
+      },
+      "reports": {
+        "title": "Reports and Analysis",
+        "desc": "Generate reports and statistics"
+      },
+      "configuration": {
+        "title": "Configuration",
+        "desc": "Account and system settings"
+      }
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "manual": "Complete manual",
+      "videos": "Video tutorials",
+      "faq": "Frequently asked questions",
+      "support": "Technical support"
+    },
+    "tutorial": {
+      "progress": "of",
+      "previous": "← Previous",
+      "next": "Next →",
+      "finish": "Finish",
+      "tip": "💡 Tip"
+    },
+    "tutorials": {
+      "inicio": {
+        "title": "First Steps",
+        "subtitle": "Learn the basics of Secured",
+        "whatIsSecured": {
+          "title": "What is Secured?",
+          "description": "Introduction to the platform",
+          "steps": {
+            "welcome": {
+              "title": "Welcome to Secured",
+              "content": "Secured is an intelligent coordination platform that connects police and security personnel for faster and more efficient response to security incidents.",
+              "tip": "Secured is designed to be intuitive and easy to use, even in high-pressure situations."
+            },
+            "features": {
+              "title": "Main Features",
+              "content": "The platform offers real-time incident management, instant communication, interactive maps, automatic unit assignment and data analysis to optimize operations.",
+              "list": [
+                "Real-time incident management",
+                "Instant communication between teams",
+                "Interactive maps with GPS location",
+                "Intelligent resource allocation",
+                "Reports and data analysis"
+              ]
+            },
+            "roles": {
+              "title": "Roles and Permissions",
+              "content": "Secured has different roles: Operators (manage incidents), Field agents (respond to emergencies) and Supervisors (monitor operations).",
+              "tip": "Your role determines which functions you can access. Contact your supervisor if you need additional permissions."
+            },
+            "interface": {
+              "title": "Main Interface",
+              "content": "The main screen shows a central map with active incidents, notification panel, side menu for quick access and top bar with your profile and settings.",
+              "list": [
+                "Central map with active incidents",
+                "Real-time notification panel",
+                "Side menu for quick access",
+                "Top bar with profile and settings"
+              ]
+            },
+            "ready": {
+              "title": "Ready to Start!",
+              "content": "You now know the basics of Secured. Explore the other help sections to learn specific functions or start using the platform directly.",
+              "tip": "Remember: you can always return to this help section from anywhere in the platform."
+            }
+          }
+        },
+        "config": {
+          "title": "Initial Configuration",
+          "description": "Configure your account and preferences",
+          "steps": {
+            "access": {
+              "title": "Access to Settings",
+              "content": "To access settings, click on your profile picture in the upper right corner and select \"Settings\" from the drop-down menu.",
+              "tip": "You can also access quickly with the keyboard shortcut Ctrl + Comma (,)."
+            },
+            "profile": {
+              "title": "Personal Profile",
+              "content": "In the Profile section you can update your photo, name, email, contact phone and change your password securely.",
+              "list": [
+                "Profile picture",
+                "Personal information",
+                "Contact details",
+                "Password change"
+              ]
+            },
+            "notifications": {
+              "title": "Notifications",
+              "content": "Configure how and when to receive notifications. You can activate alerts by sound, vibration, push notifications and set quiet hours.",
+              "tip": "Critical notifications will always be displayed, even in silent mode."
+            },
+            "mapPrefs": {
+              "title": "Map Preferences",
+              "content": "Customize map display: style (satellite or streets), default zoom, visible layers and automatic position update.",
+              "list": [
+                "Map style (satellite/streets)",
+                "Initial zoom level",
+                "Visible layers and markers",
+                "Automatic GPS update"
+              ]
+            },
+            "save": {
+              "title": "Save Changes",
+              "content": "Once everything is configured to your liking, don't forget to click \"Save changes\" at the bottom of each section. Your preferences will sync across all your devices.",
+              "tip": "Changes are saved automatically every 30 seconds."
+            }
+          }
+        }
+      },
+      "incidentes": {
+        "title": "Incident Management",
+        "subtitle": "Create, assign and resolve incidents",
+        "create": {
+          "title": "Create an Incident",
+          "description": "How to report a new incident",
+          "steps": {
+            "access": {
+              "title": "Access the Form",
+              "content": "Click the floating \"+\" button in the lower right corner or select \"New incident\" from the main menu.",
+              "tip": "You can also create an incident by right-clicking on the map."
+            },
+            "basic": {
+              "title": "Basic Data",
+              "content": "Complete the incident type, priority level (low, medium, high, critical), exact location and detailed description of the event.",
+              "list": [
+                "Incident type (theft, accident, etc.)",
+                "Priority level",
+                "Precise location",
+                "Event description"
+              ]
+            },
+            "additional": {
+              "title": "Additional Information",
+              "content": "Add relevant details such as number of people involved, presence of weapons, vehicles involved and any information that helps the response.",
+              "tip": "The more detailed the information, the more effective the response will be."
+            },
+            "evidence": {
+              "title": "Attach Evidence",
+              "content": "You can attach photos, videos, audio recordings or relevant documents. These files are stored securely and encrypted.",
+              "list": [
+                "Location photographs",
+                "Security videos",
+                "Audio recordings",
+                "Related documents"
+              ]
+            },
+            "submit": {
+              "title": "Submit Incident",
+              "content": "Review all information and click \"Create incident\". A unique code will be assigned and available units will be automatically notified.",
+              "tip": "The system will automatically prioritize critical incidents for immediate assignment."
+            }
+          }
+        },
+        "assign": {
+          "title": "Assign Units",
+          "description": "How to assign personnel to an incident",
+          "steps": {
+            "select": {
+              "title": "Select Incident",
+              "content": "From the incident panel or map, click on the incident you want to assign a unit to. The full detail will open.",
+              "tip": "Unassigned incidents appear in red on the map."
+            },
+            "view": {
+              "title": "View Available Units",
+              "content": "The system automatically displays the closest and available units, with their estimated distance, arrival time and current status.",
+              "list": [
+                "Units near the incident",
+                "Distance and estimated time",
+                "Current availability status",
+                "Available equipment"
+              ]
+            },
+            "choose": {
+              "title": "Select Unit",
+              "content": "Choose the most appropriate unit considering distance, resources and experience. You can assign multiple units if the situation requires it.",
+              "tip": "The system automatically recommends the best option based on multiple factors."
+            },
+            "confirm": {
+              "title": "Confirm Assignment",
+              "content": "Review the information and confirm the assignment. The unit will receive an instant notification with all incident details.",
+              "list": [
+                "Push notification to the unit",
+                "Complete incident information",
+                "Optimized route on the map",
+                "Open communication channel"
+              ]
+            },
+            "track": {
+              "title": "Tracking",
+              "content": "Once assigned, you can track the unit's location in real time, view its updated ETA and maintain constant communication until the incident is resolved.",
+              "tip": "You can reassign or add more units at any time if necessary."
+            }
+          }
+        }
+      },
+      "mapa": {
+        "title": "Map Usage",
+        "subtitle": "Navigation and map features",
+        "navigation": {
+          "title": "Basic Navigation",
+          "description": "Essential map controls",
+          "steps": {
+            "movement": {
+              "title": "Movement and Zoom",
+              "content": "Drag with mouse or finger to move around the map. Use mouse wheel, +/- buttons or pinch with two fingers to zoom.",
+              "list": [
+                "Drag to move the map",
+                "Mouse wheel for zoom",
+                "Double click to zoom in",
+                "Ctrl + drag to rotate"
+              ]
+            },
+            "layers": {
+              "title": "Map Layers",
+              "content": "Switch between street, satellite, traffic and other views. Activate or deactivate layers as needed: incidents, units, patrol zones.",
+              "tip": "Customize visible layers from the layers button in the upper right corner."
+            },
+            "search": {
+              "title": "Location Search",
+              "content": "Use the search bar to find addresses, points of interest or specific coordinates. The map will automatically center on the result.",
+              "list": [
+                "Search by address",
+                "Search by place name",
+                "Search by GPS coordinates",
+                "Recent search history"
+              ]
+            },
+            "location": {
+              "title": "My Location",
+              "content": "Click the \"My location\" button to center the map on your current position. The blue arrow indicates your direction.",
+              "tip": "Make sure you have GPS enabled and have granted location permissions to the app."
+            },
+            "markers": {
+              "title": "Custom Markers",
+              "content": "Right-click anywhere on the map to create a custom marker, add notes or mark important points of interest.",
+              "tip": "Markers sync between all your team members."
+            }
+          }
+        }
+      },
+      "comunicacion": {
+        "title": "Communication",
+        "subtitle": "Chat, broadcast and coordination",
+        "chat": {
+          "title": "Incident Chat",
+          "description": "Real-time communication",
+          "steps": {
+            "access": {
+              "title": "Access Chat",
+              "content": "Inside any incident, you'll find the chat button at the bottom. Click to open the conversation window.",
+              "tip": "The red indicator shows unread messages."
+            },
+            "send": {
+              "title": "Send Messages",
+              "content": "Type your message in the text field and press Enter or the send button. All incident participants will see your message instantly.",
+              "list": [
+                "Text messages",
+                "Share location",
+                "Send photos/videos",
+                "Voice messages"
+              ]
+            },
+            "location": {
+              "title": "Share Location",
+              "content": "Click the location icon to share your current position in the chat. Useful for coordinating meeting points or reporting your arrival.",
+              "tip": "Shared location updates in real time for 5 minutes."
+            },
+            "files": {
+              "title": "Attach Files",
+              "content": "Use the clip icon to attach photos, videos or documents. Files are automatically compressed for fast sending.",
+              "list": [
+                "Evidence photos",
+                "Incident videos",
+                "Important documents",
+                "Screenshots"
+              ]
+            },
+            "important": {
+              "title": "Important Messages",
+              "content": "Mark messages as important to highlight them. Useful for communicating critical information that should not be overlooked.",
+              "tip": "Messages marked as urgent send a special notification to everyone."
+            }
+          }
+        }
+      },
+      "reportes": {
+        "title": "Reports and Analysis",
+        "subtitle": "Generate reports and statistics",
+        "generate": {
+          "title": "Generate Reports",
+          "description": "Create custom reports",
+          "steps": {
+            "access": {
+              "title": "Access Reports",
+              "content": "From the main menu, select \"Reports and Analysis\". Here you'll find predefined templates and the option to create custom reports.",
+              "tip": "Reports are generated in real time with the most up-to-date data."
+            },
+            "type": {
+              "title": "Select Report Type",
+              "content": "Choose between different types: incidents by period, unit performance, geographic analysis, response times or custom reports.",
+              "list": [
+                "Incident report",
+                "Time analysis",
+                "Statistics by zone",
+                "Team performance"
+              ]
+            },
+            "filters": {
+              "title": "Configure Filters",
+              "content": "Define date range, incident types, geographic zones, specific units and other criteria for your report.",
+              "tip": "Save frequent configurations as templates for future use."
+            },
+            "view": {
+              "title": "Visualization",
+              "content": "Data is presented in interactive charts, tables, heat maps and key statistics. You can switch between different views.",
+              "list": [
+                "Line and bar charts",
+                "Detailed data tables",
+                "Heat maps",
+                "Key indicators (KPIs)"
+              ]
+            },
+            "export": {
+              "title": "Export Report",
+              "content": "Download your report in PDF, Excel or CSV format. You can schedule automatic reports to be sent by email periodically.",
+              "tip": "PDF reports include charts and are ideal for presentations."
+            }
+          }
+        }
+      },
+      "configuracion": {
+        "title": "Configuration",
+        "subtitle": "Account and system settings",
+        "settings": {
+          "title": "Account Settings",
+          "description": "Customize your experience",
+          "steps": {
+            "access": {
+              "title": "Access Settings",
+              "content": "Click on your avatar in the upper right corner and select \"Settings\". The settings panel will open.",
+              "tip": "Use Ctrl+, as a quick shortcut to open settings."
+            },
+            "profile": {
+              "title": "User Profile",
+              "content": "Update your personal information: name, profile photo, position, emergency contact and communication preferences.",
+              "list": [
+                "Personal information",
+                "Profile photo",
+                "Emergency contacts",
+                "Language preferences"
+              ]
+            },
+            "security": {
+              "title": "Security",
+              "content": "Manage your security: change password, enable two-factor authentication, review active sessions and configure automatic lock.",
+              "tip": "It is recommended to enable two-factor authentication for greater security."
+            },
+            "notifications": {
+              "title": "Notifications",
+              "content": "Customize how and when to receive notifications: critical alerts, chat messages, assignments, quiet hours and custom sounds.",
+              "list": [
+                "Incident alerts",
+                "Chat notifications",
+                "Shift reminders",
+                "Quiet hours"
+              ]
+            },
+            "preferences": {
+              "title": "App Preferences",
+              "content": "Adjust theme (light/dark), language, units of measure, date/time format and performance settings according to your device.",
+              "tip": "Dark mode helps save battery on mobile devices."
+            }
+          }
+        }
+      }
+    }
   }
 }
 

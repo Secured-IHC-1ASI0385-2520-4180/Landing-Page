@@ -3244,9 +3244,9 @@ section {
     margin-right: 6px !important;
   }
 }
-/* ===== FIX: MEN� HAMBURGUESA DESPLEGABLE FUNCIONANDO ===== */
+/* ===== FIX: MENÚ HAMBURGUESA DESPLEGABLE FUNCIONANDO ===== */
 @media (max-width: 768px) {
-  /* Men� navegaci�n oculto por defecto */
+  /* Menu navegación oculto por defecto */
   .main-header .main-nav,
   .main-header .Menu-Horizontal {
     display: none !important;
@@ -3262,12 +3262,12 @@ section {
     max-height: calc(100vh - 54px) !important;
     overflow-y: auto !important;
   }
-  /* Men� VISIBLE cuando tiene clase active */
+  /* Menú VISIBLE cuando tiene clase active */
   .main-header .main-nav.active,
   .main-header .Menu-Horizontal.active {
     display: block !important;
   }
-  /* Lista del men� en columna */
+  /* Lista del menú en columna */
   .main-header .main-nav ul,
   .main-header .Menu-Horizontal ul {
     display: flex !important;
@@ -3278,7 +3278,7 @@ section {
     visibility: visible !important;
     opacity: 1 !important;
   }
-  /* Items del men� */
+  /* Items del menú */
   .main-header .main-nav li,
   .main-header .Menu-Horizontal li {
     margin: 0 !important;
@@ -3288,7 +3288,7 @@ section {
     visibility: visible !important;
     opacity: 1 !important;
   }
-  /* Links del men� */
+  /* Links del menú */
   .main-header .main-nav a,
   .main-header .Menu-Horizontal a {
     display: block !important;
@@ -3305,7 +3305,7 @@ section {
   .main-header .Menu-Horizontal a:hover {
     background: #f9fafb !important;
   }
-  /* Animaci�n del bot�n hamburguesa cuando est� activo */
+  /* Animación del botón hamburguesa cuando está activo */
   .main-header .mobile-menu-toggle.active .hamburger-line:nth-child(1),
   .main-header .menu-toggle.active .hamburger-line:nth-child(1),
   .main-header .mobile-menu-toggle.open .hamburger-line:nth-child(1),

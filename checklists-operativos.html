@@ -11,28 +11,28 @@
             href="Secured-Landing-Page/public/assets/styles/checklists-operativos.css"
     />
 </head>
-<body class="chk-page">
-<main class="chk-wrapper">
+<body class="chk-page asignar-unidad-page">
+<main class="chk-wrapper au-wrapper">
 
     <!-- VISTA PRINCIPAL: CHECKLIST OPERATIVO -->
     <section class="chk-view chk-view-active" data-view="principal">
-        <header class="chk-page-header">
+        <header class="chk-page-header au-page-header">
             <!-- AQUÍ ESTÁ EL CAMBIO: link fijo en lugar de history.back() -->
             <a
                     href="home-policia.html"
-                    class="chk-back-link"
+                    class="chk-back-link au-back-button"
                     aria-label="Volver"
             >
                 ←
             </a>
 
-            <div class="chk-header-text">
-                <h1 class="chk-page-title">Checklist operativo</h1>
-                <p class="chk-page-subtitle">INC-2024-003</p>
+            <div class="chk-header-text au-header-text">
+                <h1 class="chk-page-title au-page-title">Checklist operativo</h1>
+                <p class="chk-page-subtitle au-page-subtitle">INC-2024-003</p>
             </div>
 
             <button
-                    class="chk-icon-button"
+                    class="chk-icon-button au-btn au-btn-icon"
                     type="button"
                     aria-label="Ver métricas"
             >
@@ -41,7 +41,7 @@
         </header>
 
         <!-- Progreso general -->
-        <section class="chk-progress-card">
+        <section class="chk-progress-card au-card">
             <div class="chk-progress-header">
                 <span class="chk-progress-label">Progreso</span>
                 <span class="chk-progress-stage">Accidente de tránsito</span>
@@ -61,7 +61,7 @@
         <section class="chk-main-layout">
             <div class="chk-main-left">
                 <!-- Bloque de pasos críticos -->
-                <article class="chk-critical-card">
+                <article class="chk-critical-card au-card">
                     <header class="chk-critical-header">
                         <div>
                             <p class="chk-critical-title">Pasos críticos:</p>
@@ -79,7 +79,7 @@
                 </article>
 
                 <!-- Texto de ayuda -->
-                <article class="chk-help-card">
+                <article class="chk-help-card au-card">
                     <p class="chk-help-title">Pasos del checklist</p>
                     <p class="chk-help-text">
                         Completa los pasos obligatorios y adjunta evidencia cuando sea
@@ -91,48 +91,47 @@
             <!-- Lista de pasos -->
             <div class="chk-main-right">
                 <section class="chk-steps-section">
-                    <h2 class="chk-section-title">Pasos del checklist</h2>
+                    <h2 class="chk-section-title au-section-title">Pasos del checklist</h2>
 
-                    <!-- Paso 1: va a vista paso1 -->
                     <button
                             type="button"
-                            class="chk-step-card chk-step-completed"
+                            class="chk-step-card chk-step-completed au-option-card au-option-card-primary"
                             data-goto="paso1"
                     >
-                        <div class="chk-step-number-pill">#1</div>
-                        <div class="chk-step-main">
-                            <div class="chk-step-header-row">
-                                <h3 class="chk-step-title">Asegurar la escena</h3>
+                        <span class="chk-step-number-pill">#1</span>
+                        <span class="chk-step-main">
+                            <span class="chk-step-header-row">
+                                <strong class="chk-step-title">Asegurar la escena</strong>
                                 <span class="chk-badge chk-badge-critical">Crítico</span>
-                            </div>
-                            <p class="chk-step-description">
+                            </span>
+                            <span class="chk-step-description">
                                 Colocar señalización y delimitar el área
-                            </p>
-                            <p class="chk-step-meta">
+                            </span>
+                            <span class="chk-step-meta">
                                 📷 Evidencia requerida: foto · ⏱ Objetivo: 2 min
-                            </p>
-                        </div>
+                            </span>
+                        </span>
                         <span class="chk-step-status chk-step-status-done">
                             ✔ Completado
                         </span>
                     </button>
 
                     <!-- Paso 2 (solo display) -->
-                    <div class="chk-step-card">
-                        <div class="chk-step-number-pill">#2</div>
-                        <div class="chk-step-main">
-                            <div class="chk-step-header-row">
-                                <h3 class="chk-step-title">Evaluar heridos</h3>
+                    <div class="chk-step-card au-option-card">
+                        <span class="chk-step-number-pill">#2</span>
+                        <span class="chk-step-main">
+                            <span class="chk-step-header-row">
+                                <strong class="chk-step-title">Evaluar heridos</strong>
                                 <span class="chk-badge chk-badge-critical">Crítico</span>
-                            </div>
-                            <p class="chk-step-description">
+                            </span>
+                            <span class="chk-step-description">
                                 Verificar estado de personas y solicitar ambulancia si es
                                 necesario
-                            </p>
-                            <p class="chk-step-meta">
+                            </span>
+                            <span class="chk-step-meta">
                                 📝 Evidencia requerida: nota, foto · ⏱ Objetivo: 3 min
-                            </p>
-                        </div>
+                            </span>
+                        </span>
                         <span class="chk-step-status chk-step-status-pending">
                             Pendiente
                         </span>
@@ -141,48 +140,48 @@
                     <!-- Paso 3: va a vista paso3 -->
                     <button
                             type="button"
-                            class="chk-step-card"
+                            class="chk-step-card au-option-card"
                             data-goto="paso3"
                     >
-                        <div class="chk-step-number-pill">#3</div>
-                        <div class="chk-step-main">
-                            <div class="chk-step-header-row">
-                                <h3 class="chk-step-title">
+                        <span class="chk-step-number-pill">#3</span>
+                        <span class="chk-step-main">
+                            <span class="chk-step-header-row">
+                                <strong class="chk-step-title">
                                     Identificar vehículos involucrados
-                                </h3>
+                                </strong>
                                 <span class="chk-badge chk-badge-obligatorio">
                                     Obligatorio
                                 </span>
-                            </div>
-                            <p class="chk-step-description">
+                            </span>
+                            <span class="chk-step-description">
                                 Registrar placas y datos de conductores
-                            </p>
-                            <p class="chk-step-meta">
+                            </span>
+                            <span class="chk-step-meta">
                                 📷 Evidencia requerida: foto o nota · ⏱ Objetivo: 5 min
-                            </p>
-                        </div>
+                            </span>
+                        </span>
                         <span class="chk-step-status chk-step-status-pending">
                             Pendiente
                         </span>
                     </button>
 
                     <!-- Paso 4 (solo display) -->
-                    <div class="chk-step-card">
-                        <div class="chk-step-number-pill">#4</div>
-                        <div class="chk-step-main">
-                            <div class="chk-step-header-row">
-                                <h3 class="chk-step-title">Fotografiar la escena</h3>
+                    <div class="chk-step-card au-option-card">
+                        <span class="chk-step-number-pill">#4</span>
+                        <span class="chk-step-main">
+                            <span class="chk-step-header-row">
+                                <strong class="chk-step-title">Fotografiar la escena</strong>
                                 <span class="chk-badge chk-badge-obligatorio">
                                     Obligatorio
                                 </span>
-                            </div>
-                            <p class="chk-step-description">
+                            </span>
+                            <span class="chk-step-description">
                                 Capturar ángulos generales y detalles de daños
-                            </p>
-                            <p class="chk-step-meta">
+                            </span>
+                            <span class="chk-step-meta">
                                 📷 Evidencia requerida: foto
-                            </p>
-                        </div>
+                            </span>
+                        </span>
                         <span class="chk-step-status chk-step-status-pending">
                             Pendiente
                         </span>
@@ -190,8 +189,8 @@
                 </section>
 
                 <!-- Pasos condicionales -->
-                <section class="chk-conditional-section">
-                    <h2 class="chk-section-title">Pasos condicionales no activos</h2>
+                <section class="chk-conditional-section au-card">
+                    <h2 class="chk-section-title au-section-title">Pasos condicionales no activos</h2>
                     <p class="chk-conditional-description">
                         Los siguientes pasos se activarán si se cumplen sus condiciones:
                     </p>
@@ -206,7 +205,7 @@
 
                     <button
                             type="button"
-                            class="chk-secondary-button"
+                            class="chk-secondary-button au-btn"
                             data-goto="resumen"
                     >
                         👁 Ver revisión completa
@@ -218,23 +217,23 @@
 
     <!-- VISTA PASO 1 -->
     <section class="chk-view" data-view="paso1">
-        <header class="chk-page-header">
+        <header class="chk-page-header au-page-header">
             <button
                     type="button"
-                    class="chk-back-link"
+                    class="chk-back-link au-back-button"
                     aria-label="Volver"
                     data-goto="principal"
             >
                 ←
             </button>
-            <div class="chk-header-text">
-                <h1 class="chk-page-title">Paso #1</h1>
-                <p class="chk-page-subtitle">INC-2024-003</p>
+            <div class="chk-header-text au-header-text">
+                <h1 class="chk-page-title au-page-title">Paso #1</h1>
+                <p class="chk-page-subtitle au-page-subtitle">INC-2024-003</p>
             </div>
         </header>
 
         <section class="chk-step-detail">
-            <article class="chk-step-detail-card">
+            <article class="chk-step-detail-card au-card">
                 <header class="chk-step-detail-header">
                     <h2 class="chk-step-detail-title">Asegurar la escena</h2>
                     <span class="chk-badge chk-badge-critical">Crítico</span>
@@ -266,7 +265,7 @@
             <div class="chk-step-detail-footer">
                 <button
                         type="button"
-                        class="chk-primary-button"
+                        class="chk-primary-button au-btn au-btn-primary"
                         data-goto="principal"
                 >
                     ✔ Paso completado
@@ -277,23 +276,23 @@
 
     <!-- VISTA PASO 3 -->
     <section class="chk-view" data-view="paso3">
-        <header class="chk-page-header">
+        <header class="chk-page-header au-page-header">
             <button
                     type="button"
-                    class="chk-back-link"
+                    class="chk-back-link au-back-button"
                     aria-label="Volver"
                     data-goto="principal"
             >
                 ←
             </button>
-            <div class="chk-header-text">
-                <h1 class="chk-page-title">Paso #3</h1>
-                <p class="chk-page-subtitle">INC-2024-003</p>
+            <div class="chk-header-text au-header-text">
+                <h1 class="chk-page-title au-page-title">Paso #3</h1>
+                <p class="chk-page-subtitle au-page-subtitle">INC-2024-003</p>
             </div>
         </header>
 
         <section class="chk-step-detail">
-            <article class="chk-step-detail-card">
+            <article class="chk-step-detail-card au-card">
                 <header class="chk-step-detail-header">
                     <h2 class="chk-step-detail-title">
                         Identificar vehículos involucrados
@@ -327,7 +326,7 @@
             <div class="chk-step-detail-footer chk-step-detail-footer-split">
                 <button
                         type="button"
-                        class="chk-secondary-button"
+                        class="chk-secondary-button au-btn"
                 >
                     Marcar en curso
                 </button>
@@ -342,7 +341,7 @@
 
                 <button
                         type="button"
-                        class="chk-tertiary-button chk-tertiary-danger"
+                        class="chk-tertiary-button chk-tertiary-danger au-btn au-btn-danger"
                         data-goto="motivo-salto"
                 >
                     ⛔ Saltar paso
@@ -354,7 +353,7 @@
     <!-- VISTA MOTIVO DE SALTO (MODAL A PANTALLA COMPLETA) -->
     <section class="chk-view" data-view="motivo-salto">
         <div class="chk-modal-overlay">
-            <div class="chk-modal">
+            <div class="chk-modal au-card">
                 <header class="chk-modal-header">
                     <h1 class="chk-modal-title">Motivo de salto</h1>
                     <p class="chk-modal-subtitle">
@@ -362,7 +361,7 @@
                     </p>
                     <button
                             type="button"
-                            class="chk-modal-close"
+                            class="chk-modal-close au-btn"
                             aria-label="Cerrar"
                             data-goto="paso3"
                     >
@@ -388,14 +387,14 @@
                 <footer class="chk-modal-footer">
                     <button
                             type="button"
-                            class="chk-secondary-button"
+                            class="chk-secondary-button au-btn"
                             data-goto="paso3"
                     >
                         Cancelar
                     </button>
                     <button
                             type="button"
-                            class="chk-primary-button"
+                            class="chk-primary-button au-btn au-btn-primary"
                             data-goto="resumen"
                     >
                         Confirmar salto
@@ -407,41 +406,41 @@
 
     <!-- VISTA RESUMEN DE CUMPLIMIENTO -->
     <section class="chk-view" data-view="resumen">
-        <header class="chk-page-header">
+        <header class="chk-page-header au-page-header">
             <button
                     type="button"
-                    class="chk-back-link"
+                    class="chk-back-link au-back-button"
                     aria-label="Volver"
                     data-goto="principal"
             >
                 ←
             </button>
-            <div class="chk-header-text">
-                <h1 class="chk-page-title">Resumen de cumplimiento</h1>
-                <p class="chk-page-subtitle">INC-2024-003</p>
+            <div class="chk-header-text au-header-text">
+                <h1 class="chk-page-title au-page-title">Resumen de cumplimiento</h1>
+                <p class="chk-page-subtitle au-page-subtitle">INC-2024-003</p>
             </div>
         </header>
 
         <section class="chk-resumen-layout">
             <div class="chk-resumen-left">
                 <div class="chk-resumen-grid">
-                    <article class="chk-resumen-card">
+                    <article class="chk-resumen-card au-card">
                         <p class="chk-resumen-label">Total de pasos</p>
                         <p class="chk-resumen-value">4</p>
                     </article>
 
-                    <article class="chk-resumen-card chk-resumen-card-success">
+                    <article class="chk-resumen-card chk-resumen-card-success au-card">
                         <p class="chk-resumen-label">Completados</p>
                         <p class="chk-resumen-value">1</p>
                         <p class="chk-resumen-extra">25%</p>
                     </article>
 
-                    <article class="chk-resumen-card chk-resumen-card-info">
+                    <article class="chk-resumen-card chk-resumen-card-info au-card">
                         <p class="chk-resumen-label">Pasos críticos</p>
                         <p class="chk-resumen-value">1/2</p>
                     </article>
 
-                    <article class="chk-resumen-card chk-resumen-card-warning">
+                    <article class="chk-resumen-card chk-resumen-card-warning au-card">
                         <p class="chk-resumen-label">Saltados</p>
                         <p class="chk-resumen-value">0</p>
                     </article>
@@ -449,47 +448,47 @@
             </div>
 
             <div class="chk-resumen-right">
-                <h2 class="chk-section-title">Pasos pendientes (4)</h2>
+                <h2 class="chk-section-title au-section-title">Pasos pendientes (4)</h2>
 
                 <button
                         type="button"
-                        class="chk-resumen-step"
+                        class="chk-resumen-step au-unit-card-clickable"
                         data-goto="paso3"
                 >
-                    <div class="chk-resumen-step-number">#2</div>
-                    <div class="chk-resumen-step-main">
-                        <p class="chk-resumen-step-title">Evaluar heridos</p>
-                        <p class="chk-resumen-step-subtitle">Crítico</p>
-                    </div>
+                    <span class="chk-resumen-step-number">#2</span>
+                    <span class="chk-resumen-step-main">
+                        <span class="chk-resumen-step-title">Evaluar heridos</span>
+                        <span class="chk-resumen-step-subtitle">Crítico</span>
+                    </span>
                     <span class="chk-resumen-step-arrow">➝</span>
                 </button>
 
                 <button
                         type="button"
-                        class="chk-resumen-step"
+                        class="chk-resumen-step au-unit-card-clickable"
                         data-goto="paso3"
                 >
-                    <div class="chk-resumen-step-number">#3</div>
-                    <div class="chk-resumen-step-main">
-                        <p class="chk-resumen-step-title">
+                    <span class="chk-resumen-step-number">#3</span>
+                    <span class="chk-resumen-step-main">
+                        <span class="chk-resumen-step-title">
                             Identificar vehículos involucrados
-                        </p>
-                        <p class="chk-resumen-step-subtitle">Obligatorio</p>
-                    </div>
+                        </span>
+                        <span class="chk-resumen-step-subtitle">Obligatorio</span>
+                    </span>
                     <span class="chk-resumen-step-arrow">➝</span>
                 </button>
 
                 <button
                         type="button"
-                        class="chk-resumen-step"
+                        class="chk-resumen-step au-unit-card-clickable"
                 >
-                    <div class="chk-resumen-step-number">#4</div>
-                    <div class="chk-resumen-step-main">
-                        <p class="chk-resumen-step-title">
+                    <span class="chk-resumen-step-number">#4</span>
+                    <span class="chk-resumen-step-main">
+                        <span class="chk-resumen-step-title">
                             Fotografiar la escena
-                        </p>
-                        <p class="chk-resumen-step-subtitle">Obligatorio</p>
-                    </div>
+                        </span>
+                        <span class="chk-resumen-step-subtitle">Obligatorio</span>
+                    </span>
                     <span class="chk-resumen-step-arrow">➝</span>
                 </button>
             </div>
@@ -499,7 +498,7 @@
 </main>
 
 <!-- Footer -->
-<footer class="footer">
+<footer class="footer au-footer">
     <div class="footer-container">
         <div class="footer-column">
             <div class="footer-logo">

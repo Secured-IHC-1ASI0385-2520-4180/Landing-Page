@@ -18,65 +18,65 @@
                 ←
             </a>
             <div class="ayuda-header-text">
-                <h1 class="ayuda-page-title">Ayuda y Documentación</h1>
-                <p class="ayuda-page-subtitle">Centro de recursos y tutoriales</p>
+                <h1 class="ayuda-page-title" data-i18n="help.pageTitle">Ayuda y Documentación</h1>
+                <p class="ayuda-page-subtitle" data-i18n="help.pageSubtitle">Centro de recursos y tutoriales</p>
             </div>
         </header>
 
         <!-- Barra de búsqueda -->
         <div class="ayuda-search">
-            <input type="text" class="ayuda-search-input" placeholder="¿Qué necesitas aprender?" />
+            <input type="text" class="ayuda-search-input" data-i18n-placeholder="help.searchPlaceholder" placeholder="¿Qué necesitas aprender?" />
             <button class="ayuda-search-btn">🔍</button>
         </div>
 
         <!-- Categorías principales -->
         <div class="ayuda-categories">
             <button class="ayuda-category-card" data-category="inicio">
-                <h2 class="ayuda-category-title">Primeros Pasos</h2>
-                <p class="ayuda-category-desc">Aprende lo básico de Secured</p>
+                <h2 class="ayuda-category-title" data-i18n="help.categories.firstSteps.title">Primeros Pasos</h2>
+                <p class="ayuda-category-desc" data-i18n="help.categories.firstSteps.desc">Aprende lo básico de Secured</p>
             </button>
 
             <button class="ayuda-category-card" data-category="incidentes">
-                <h2 class="ayuda-category-title">Gestión de Incidentes</h2>
-                <p class="ayuda-category-desc">Crear, asignar y resolver incidentes</p>
+                <h2 class="ayuda-category-title" data-i18n="help.categories.incidents.title">Gestión de Incidentes</h2>
+                <p class="ayuda-category-desc" data-i18n="help.categories.incidents.desc">Crear, asignar y resolver incidentes</p>
             </button>
 
             <button class="ayuda-category-card" data-category="mapa">
-                <h2 class="ayuda-category-title">Uso del Mapa</h2>
-                <p class="ayuda-category-desc">Navegación y funciones del mapa</p>
+                <h2 class="ayuda-category-title" data-i18n="help.categories.map.title">Uso del Mapa</h2>
+                <p class="ayuda-category-desc" data-i18n="help.categories.map.desc">Navegación y funciones del mapa</p>
             </button>
 
             <button class="ayuda-category-card" data-category="comunicacion">
-                <h2 class="ayuda-category-title">Comunicación</h2>
-                <p class="ayuda-category-desc">Chat, broadcast y coordinación</p>
+                <h2 class="ayuda-category-title" data-i18n="help.categories.communication.title">Comunicación</h2>
+                <p class="ayuda-category-desc" data-i18n="help.categories.communication.desc">Chat, broadcast y coordinación</p>
             </button>
 
             <button class="ayuda-category-card" data-category="reportes">
-                <h2 class="ayuda-category-title">Reportes y Análisis</h2>
-                <p class="ayuda-category-desc">Generar informes y estadísticas</p>
+                <h2 class="ayuda-category-title" data-i18n="help.categories.reports.title">Reportes y Análisis</h2>
+                <p class="ayuda-category-desc" data-i18n="help.categories.reports.desc">Generar informes y estadísticas</p>
             </button>
 
             <button class="ayuda-category-card" data-category="configuracion">
-                <h2 class="ayuda-category-title">Configuración</h2>
-                <p class="ayuda-category-desc">Ajustes de cuenta y sistema</p>
+                <h2 class="ayuda-category-title" data-i18n="help.categories.configuration.title">Configuración</h2>
+                <p class="ayuda-category-desc" data-i18n="help.categories.configuration.desc">Ajustes de cuenta y sistema</p>
             </button>
         </div>
 
         <!-- Accesos rápidos -->
         <div class="ayuda-quick-links">
-            <h3 class="ayuda-section-title">Accesos Rápidos</h3>
+            <h3 class="ayuda-section-title" data-i18n="help.quickLinks.title">Accesos Rápidos</h3>
             <div class="ayuda-quick-grid">
                 <a href="#" class="ayuda-quick-item">
-                    <span class="ayuda-quick-text">Manual completo</span>
+                    <span class="ayuda-quick-text" data-i18n="help.quickLinks.manual">Manual completo</span>
                 </a>
                 <a href="#" class="ayuda-quick-item">
-                    <span class="ayuda-quick-text">Video tutoriales</span>
+                    <span class="ayuda-quick-text" data-i18n="help.quickLinks.videos">Video tutoriales</span>
                 </a>
                 <a href="#" class="ayuda-quick-item">
-                    <span class="ayuda-quick-text">Preguntas frecuentes</span>
+                    <span class="ayuda-quick-text" data-i18n="help.quickLinks.faq">Preguntas frecuentes</span>
                 </a>
                 <a href="#" class="ayuda-quick-item">
-                    <span class="ayuda-quick-text">Soporte técnico</span>
+                    <span class="ayuda-quick-text" data-i18n="help.quickLinks.support">Soporte técnico</span>
                 </a>
             </div>
         </div>
@@ -89,8 +89,8 @@
                 ←
             </button>
             <div class="ayuda-header-text">
-                <h1 class="ayuda-page-title" id="categoria-titulo">Primeros Pasos</h1>
-                <p class="ayuda-page-subtitle" id="categoria-subtitulo">Guía de inicio rápido</p>
+                <h1 class="ayuda-page-title" id="categoria-titulo" data-i18n="help.categories.firstSteps.title">Primeros Pasos</h1>
+                <p class="ayuda-page-subtitle" id="categoria-subtitulo" data-i18n="help.categories.firstSteps.desc">Guía de inicio rápido</p>
             </div>
         </header>
 
@@ -118,7 +118,7 @@
                     <div class="ayuda-progress-fill" id="tutorial-progreso"></div>
                 </div>
                 <p class="ayuda-progress-text">
-                    <span id="paso-actual">1</span> de <span id="paso-total">5</span>
+                    <span id="paso-actual">1</span> <span data-i18n="help.tutorial.progress">de</span> <span id="paso-total">5</span>
                 </p>
             </div>
 
@@ -129,10 +129,10 @@
 
             <!-- Navegación del tutorial -->
             <div class="ayuda-tutorial-nav">
-                <button class="ayuda-btn-secondary" id="btn-anterior" disabled>
+                <button class="ayuda-btn-secondary" id="btn-anterior" disabled data-i18n="help.tutorial.previous">
                     ← Anterior
                 </button>
-                <button class="ayuda-btn-primary" id="btn-siguiente">
+                <button class="ayuda-btn-primary" id="btn-siguiente" data-i18n="help.tutorial.next">
                     Siguiente →
                 </button>
             </div>
@@ -141,7 +141,8 @@
 
 </main>
 
-<!-- JS específico de esta pantalla -->
+<!-- Scripts -->
+<script src="Secured-Landing-Page/public/assets/scripts/i18n.js"></script>
 <script src="Secured-Landing-Page/public/assets/scripts/ayuda-documentacion.js"></script>
 </body>
 </html>
