@@ -15,7 +15,7 @@ body.chk-page {
 .chk-wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 24px 32px 40px;
+    padding: 32px 40px 56px;
 }
 
 .chk-view {
@@ -190,9 +190,9 @@ body.chk-page {
 
 .chk-progress-bar {
     width: 100%;
-    height: 7px;
+    height: 10px;
     border-radius: 999px;
-    background: #e5e7eb;
+    background: linear-gradient(90deg, #dbeafe, #f1f5f9);
     overflow: hidden;
 }
 
@@ -200,7 +200,7 @@ body.chk-page {
     width: 25%;
     height: 100%;
     border-radius: inherit;
-    background: linear-gradient(90deg, #22c55e, #16a34a);
+    background: linear-gradient(90deg, #22c55e, #06b6d4);
 }
 
 .chk-progress-meta {
@@ -230,7 +230,8 @@ body.chk-page {
 /* ======== TARJETAS ESPECIALES ======== */
 
 .chk-critical-card {
-    border-left: 4px solid #f97316;
+    border-left: 6px solid #f59e0b;
+    padding: 18px;
 }
 
 .chk-block-card {
@@ -336,9 +337,10 @@ body.chk-page {
 }
 
 .chk-step-status {
-    font-size: 11px;
     color: #6b7280;
+    font-size: 13px;
     white-space: nowrap;
+    align-self: center;
     margin-top: 4px;
 }
 
@@ -646,6 +648,174 @@ body.chk-page {
     margin-left: auto;
     font-size: 14px;
     color: #9ca3af;
+}
+
+/* ======== LAYOUT PRINCIPAL (AJUSTES PARA QUE COINCIDA CON REFERENCIA VISUAL) ======== */
+.chk-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 40px 56px;
+}
+
+/* estructura principal de izquierda/centro */
+.chk-main-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 28px;
+    align-items: start;
+}
+
+/* panel izquierdo: cards verticales */
+.chk-main-left {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* panel derecho: grid para pasos (2 columnas responsive) */
+.chk-main-right {
+    display: block;
+}
+
+.chk-steps-section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 18px;
+    align-items: start;
+}
+
+/* tarjetas de paso (pueden estar dentro de <button> o <div>) */
+.chk-step-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 6px 18px rgba(15,23,42,0.04);
+    border: 1px solid #e8eefb;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.chk-step-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(15,23,42,0.06);
+}
+
+.chk-step-card.chr-ghost {
+    background: transparent;
+}
+
+/* número del paso como pildora */
+.chk-step-number-pill,
+.chk-resumen-step-number {
+    min-width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    background: #eef2ff;
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f46e5;
+    flex-shrink: 0;
+}
+
+/* cuerpo principal del paso */
+.chk-step-main,
+.chk-resumen-step-main {
+    display: block;
+    flex: 1 1 auto;
+}
+
+.chk-step-header-row,
+.chk-step-title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.chk-step-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.chk-step-description {
+    margin: 6px 0 8px;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.chk-step-meta {
+    margin: 0;
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+/* estado / etiqueta al final */
+.chk-step-status {
+    color: #6b7280;
+    font-size: 13px;
+    white-space: nowrap;
+    align-self: center;
+}
+
+.chk-step-status-done {
+    color: #16a34a;
+}
+
+/* Aumentar el tamaño y presencia de la barra de progreso para que coincida con referencia */
+.chk-progress-bar {
+    width: 100%;
+    height: 10px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #dbeafe, #f1f5f9);
+    overflow: hidden;
+}
+
+.chk-progress-bar-fill {
+    width: 25%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #22c55e, #06b6d4);
+}
+
+/* Ajustes específicos para la tarjeta crítica y advertencia */
+.chk-critical-card {
+    border-left: 6px solid #f59e0b;
+    padding: 18px;
+}
+
+.chk-critical-warning {
+    margin: 8px 0 0;
+    background: #fff7ed;
+    padding: 12px;
+    border-radius: 10px;
+    color: #92400e;
+}
+
+/* Botones dentro de pasos */
+.chk-step-card button,
+.chk-resumen-step button {
+    all: unset;
+}
+
+/* Responsive adjustments */
+@media (max-width: 880px) {
+    .chk-main-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .chk-steps-section {
+        grid-template-columns: 1fr;
+    }
+
+    .chk-wrapper {
+        padding: 20px 22px 34px;
+    }
 }
 
 /* Tablet Grande (768px - 1024px) */
@@ -1055,4 +1225,3 @@ body.chk-page {
         gap: 30px;
     }
 }
-
