@@ -6,8 +6,7 @@
 
 body.chk-page {
     margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: #f5f7fb;
     color: #0f172a;
 }
@@ -319,31 +318,6 @@ body.chk-page {
     margin-bottom: 2px;
 }
 
-.chk-step-title {
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.chk-step-description {
-    margin: 0 0 3px;
-    font-size: 12px;
-    color: #6b7280;
-}
-
-.chk-step-meta {
-    margin: 0;
-    font-size: 11px;
-    color: #9ca3af;
-}
-
-.chk-step-status {
-    color: #6b7280;
-    font-size: 13px;
-    white-space: nowrap;
-    align-self: center;
-    margin-top: 4px;
-}
-
 .chk-step-status-done {
     color: #16a34a;
 }
@@ -651,11 +625,6 @@ body.chk-page {
 }
 
 /* ======== LAYOUT PRINCIPAL (AJUSTES PARA QUE COINCIDA CON REFERENCIA VISUAL) ======== */
-.chk-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 32px 40px 56px;
-}
 
 /* estructura principal de izquierda/centro */
 .chk-main-layout {
@@ -744,12 +713,14 @@ body.chk-page {
 }
 
 .chk-step-description {
+    display: block;
     margin: 6px 0 8px;
     font-size: 13px;
     color: #6b7280;
 }
 
 .chk-step-meta {
+    display: block;
     margin: 0;
     font-size: 12px;
     color: #9ca3af;
@@ -767,34 +738,19 @@ body.chk-page {
     color: #16a34a;
 }
 
-/* Aumentar el tamaño y presencia de la barra de progreso para que coincida con referencia */
-.chk-progress-bar {
-    width: 100%;
-    height: 10px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, #dbeafe, #f1f5f9);
-    overflow: hidden;
+/* Estilos para resumen de pasos */
+.chk-resumen-step-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 2px 0;
 }
 
-.chk-progress-bar-fill {
-    width: 25%;
-    height: 100%;
-    border-radius: inherit;
-    background: linear-gradient(90deg, #22c55e, #06b6d4);
-}
-
-/* Ajustes específicos para la tarjeta crítica y advertencia */
-.chk-critical-card {
-    border-left: 6px solid #f59e0b;
-    padding: 18px;
-}
-
-.chk-critical-warning {
-    margin: 8px 0 0;
-    background: #fff7ed;
-    padding: 12px;
-    border-radius: 10px;
-    color: #92400e;
+.chk-resumen-step-subtitle {
+    display: block;
+    font-size: 12px;
+    color: #6b7280;
+    margin: 0;
 }
 
 /* Botones dentro de pasos */
@@ -804,21 +760,6 @@ body.chk-page {
 }
 
 /* Responsive adjustments */
-@media (max-width: 880px) {
-    .chk-main-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .chk-steps-section {
-        grid-template-columns: 1fr;
-    }
-
-    .chk-wrapper {
-        padding: 20px 22px 34px;
-    }
-}
-
-/* Tablet Grande (768px - 1024px) */
 @media (max-width: 1024px) {
     .chk-wrapper {
         padding: 20px 24px 32px;
@@ -830,10 +771,17 @@ body.chk-page {
     }
 }
 
-/* Tablet (768px - 880px) */
 @media (max-width: 880px) {
     .chk-wrapper {
         padding: 16px 20px 28px;
+    }
+
+    .chk-main-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .chk-steps-section {
+        grid-template-columns: 1fr;
     }
 
     .chk-layout,
@@ -862,7 +810,6 @@ body.chk-page {
     }
 }
 
-/* Tablet Pequeña (480px - 768px) */
 @media (max-width: 768px) {
     .chk-wrapper {
         padding: 14px 16px 24px;
@@ -877,10 +824,6 @@ body.chk-page {
         border-radius: 14px;
     }
 
-    .chk-card-header-title {
-        font-size: 16px;
-    }
-
     .chk-step-title {
         font-size: 15px;
     }
@@ -890,17 +833,12 @@ body.chk-page {
         font-size: 14px;
     }
 
-    .chk-item-label {
-        font-size: 14px;
-    }
-
     .chk-resumen-grid {
         grid-template-columns: 1fr 1fr;
         gap: 12px;
     }
 }
 
-/* Móvil (320px - 640px) */
 @media (max-width: 640px) {
     .chk-wrapper {
         padding: 12px 14px 20px;
@@ -926,41 +864,13 @@ body.chk-page {
         border-radius: 12px;
     }
 
-    .chk-card-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    .chk-card-header-title {
-        font-size: 15px;
-    }
-
     .chk-badge {
         padding: 4px 10px;
         font-size: 11px;
     }
 
-    .chk-step {
-        padding: 14px;
-    }
-
     .chk-step-title {
         font-size: 14px;
-    }
-
-    .chk-item {
-        padding: 10px;
-        gap: 10px;
-    }
-
-    .chk-item-label {
-        font-size: 13px;
-    }
-
-    .chk-checkbox {
-        width: 20px;
-        height: 20px;
     }
 
     .chk-btn {
@@ -983,17 +893,8 @@ body.chk-page {
         grid-template-columns: 1fr;
         gap: 10px;
     }
-
-    .chk-stat-value {
-        font-size: 26px;
-    }
-
-    .chk-stat-label {
-        font-size: 12px;
-    }
 }
 
-/* Móvil Pequeño (< 360px) */
 @media (max-width: 360px) {
     .chk-wrapper {
         padding: 10px 12px 16px;
@@ -1013,41 +914,16 @@ body.chk-page {
         padding: 14px;
     }
 
-    .chk-card-header-title {
-        font-size: 14px;
-    }
-
-    .chk-step {
-        padding: 12px;
-    }
-
     .chk-step-title {
         font-size: 13px;
-    }
-
-    .chk-item {
-        padding: 8px;
-    }
-
-    .chk-item-label {
-        font-size: 12px;
     }
 
     .chk-btn {
         padding: 8px 14px;
         font-size: 12px;
     }
-
-    .chk-stat-value {
-        font-size: 22px;
-    }
-
-    .chk-stat-label {
-        font-size: 11px;
-    }
 }
 
-/* Landscape en Móviles */
 @media (max-height: 600px) and (orientation: landscape) {
     .chk-wrapper {
         padding: 12px 20px;
@@ -1061,9 +937,6 @@ body.chk-page {
         padding: 14px 16px;
     }
 
-    .chk-step {
-        padding: 10px 12px;
-    }
 
     .chk-layout,
     .chk-resumen-layout {
